@@ -52,3 +52,19 @@ function Factory:createBox(i, j)
 
     return e
 end
+
+function Factory:createPlayer()
+    local e = gengine.entity.create()
+
+    e:addComponent(
+        ComponentSprite(),
+        {
+            texture = gengine.graphics.texture.get("box"),
+            extent = vector2(128, 256),
+            layer = 0
+        },
+        "sprite"
+        )
+
+    return e
+end

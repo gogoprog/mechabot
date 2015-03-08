@@ -27,6 +27,9 @@ function Map:init()
         local b = Factory:createBox(math.random(1, 100), math.random(1, 10))
         table.insert(self.futureBoxes, b)
     end
+
+    Game.player.position.x = self.x - 256
+    Game.player.position.y = 128
 end
 
 function Map:start()
@@ -36,20 +39,32 @@ function Map:start()
 end
 
 function Map:update(dt)
-    if not self:isPlayerBlocked() then
+    if not self:isPlayerBlocked(dt) then
         self.x = self.x + dt * 100
         self.cameraEntity.position.x = self.x
 
         for k, v in ipairs(self.parallaxes) do
             v.position.x = self.x
         end
+
+        Game.player.position.x = self.x - 256
     end
 
     self:handleFutureBoxes()
     self:handleBoxes()
 end
 
-function Map:isPlayerBlocked()
+function Map:isPlayerBlocked(dt)
+    local player_position = Game.player.position
+    player_position.x = player_position.x + dt * 100
+    for k, v in ipairs(self.boxes) do
+        local p = v.position
+        if not(player_position.x + 64 < p.x - 16 or p.x + 16 < player_position.x - 64 or player_position.y + 128 < p.y - 16 or p.y + 16 < player_position.y - 128) then
+            player_position.x = player_position.x - dt * 100
+            return true
+        end
+    end
+
     return false
 end
 
