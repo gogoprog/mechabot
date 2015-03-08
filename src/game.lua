@@ -13,5 +13,5 @@ function Game:start()
 end
 
 function Game:update(dt)
-
+    Map:update(dt)
 end
