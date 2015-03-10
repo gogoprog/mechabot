@@ -3,7 +3,7 @@ require 'component_box'
 
 Factory = Factory or {}
 
-function Factory:createParallax(h, y, speed, texture)
+function Factory:createParallax(h, y, speed, texture, uscale, vscale)
     local e = gengine.entity.create()
 
     e:addComponent(
@@ -11,7 +11,8 @@ function Factory:createParallax(h, y, speed, texture)
         {
             texture = gengine.graphics.texture.get(texture),
             extent = vector2(800, h),
-            layer = - 1000 / speed
+            layer = - 1000 / speed,
+            uvScale = vector2(uscale or 1, vscale or 1)
         },
         "sprite"
         )
@@ -59,7 +60,7 @@ function Factory:createPlayer()
     e:addComponent(
         ComponentSprite(),
         {
-            texture = gengine.graphics.texture.get("box"),
+            texture = gengine.graphics.texture.get("mecha"),
             extent = vector2(128, 256),
             layer = 0
         },
