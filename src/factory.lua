@@ -1,5 +1,6 @@
 require 'component_parallax'
 require 'component_box'
+require 'component_arm'
 
 Factory = Factory or {}
 
@@ -65,6 +66,29 @@ function Factory:createPlayer()
             layer = 0
         },
         "sprite"
+        )
+
+    return e
+end
+
+function Factory:createArm()
+    local e = gengine.entity.create()
+
+    e:addComponent(
+        ComponentSprite(),
+        {
+            texture = gengine.graphics.texture.get("arm"),
+            extent = vector2(256, 128),
+            layer = 1
+        },
+        "sprite"
+        )
+
+    e:addComponent(
+        ComponentArm(),
+        {
+        },
+        "arm"
         )
 
     return e

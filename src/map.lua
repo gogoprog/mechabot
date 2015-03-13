@@ -29,7 +29,7 @@ function Map:init()
     end
 
     Game.player.position.x = self.x - 256
-    Game.player.position.y = 128
+    Game.player.position.y = 100
 end
 
 function Map:start()
