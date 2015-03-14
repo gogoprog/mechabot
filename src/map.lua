@@ -93,3 +93,11 @@ function Map:handleBoxes()
         end
     end
 end
+
+function Map:removeBox(k, v)
+    self.boxes[k] = self.boxes[#self.boxes]
+    self.boxes[#self.boxes] = nil
+
+    v:remove()
+    gengine.entity.destroy(v)
+end
