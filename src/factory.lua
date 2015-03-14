@@ -1,6 +1,7 @@
 require 'component_parallax'
 require 'component_box'
 require 'component_arm'
+require 'component_bullet'
 
 Factory = Factory or {}
 
@@ -93,3 +94,27 @@ function Factory:createArm()
 
     return e
 end
+
+function Factory:createBullet(velocity)
+    local e = gengine.entity.create()
+
+    e:addComponent(
+        ComponentSprite(),
+        {
+            texture = gengine.graphics.texture.get("particle"),
+            extent = vector2(16, 16),
+            layer = 0
+        },
+        "sprite"
+        )
+
+    e:addComponent(
+        ComponentBullet(),
+        {
+            velocity = velocity
+        }
+        )
+
+    return e
+end
+
