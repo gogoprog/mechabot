@@ -9,13 +9,13 @@ Map = Map or {
 function Map:init()
     local p
 
-    p = Factory:createParallax(256, -128, 1 / 800, "ground")
+    p = Factory:createParallax(64, -32, 10 / 800, "ground", 10, 1)
     table.insert(self.parallaxes, p)
 
-    p = Factory:createParallax(256, 128, 0.0002, "mountains")
+    p = Factory:createParallax(500, 220, 0.0002, "mountains")
     table.insert(self.parallaxes, p)
 
-    p = Factory:createParallax(167, 500, 0, "stars")
+    p = Factory:createParallax(512, 500, 0, "stars")
     table.insert(self.parallaxes, p)
 
     self.cameraEntity = gengine.entity.create()
