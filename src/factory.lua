@@ -2,6 +2,7 @@ require 'component_parallax'
 require 'component_box'
 require 'component_arm'
 require 'component_bullet'
+require 'component_shaker'
 
 Factory = Factory or {}
 
@@ -24,6 +25,27 @@ function Factory:init()
         }
         )
 
+end
+
+function Factory:createCamera()
+    local e = gengine.entity.create()
+
+    e:addComponent(
+        ComponentCamera(),
+        {
+            extent = vector2(800, 600)
+        },
+        "camera"
+        )
+
+    e:addComponent(
+        ComponentShaker(),
+        {
+        },
+        "shaker"
+        )
+
+    return e
 end
 
 function Factory:createParallax(h, y, speed, texture, uscale, vscale)

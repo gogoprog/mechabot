@@ -18,8 +18,7 @@ function Map:init()
     p = Factory:createParallax(512, 500, 0, "stars")
     table.insert(self.parallaxes, p)
 
-    self.cameraEntity = gengine.entity.create()
-    self.cameraEntity:addComponent(ComponentCamera(), { extent = vector2(800, 600) }, "camera")
+    self.cameraEntity = Factory:createCamera()
     self.cameraEntity.position.y = 256
     self.cameraEntity:insert()
 

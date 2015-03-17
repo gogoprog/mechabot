@@ -11,6 +11,7 @@ function ComponentBox:update(dt)
 end
 
 function ComponentBox:remove()
+    Map.cameraEntity.shaker:shake(0.1)
 end
 
 function ComponentBox:setPosition(i, j)
