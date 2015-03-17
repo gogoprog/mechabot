@@ -5,6 +5,27 @@ require 'component_bullet'
 
 Factory = Factory or {}
 
+function Factory:init()
+
+    local atlas = gengine.graphics.atlas.create(
+        "mechaMove",
+        gengine.graphics.texture.get("mecha_move"),
+        14,
+        1
+        )
+
+    self.mechaMoveAnimation = gengine.graphics.animation.create(
+        "mechaMove",
+        {
+            atlas = atlas,
+            frames = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 },
+            framerate = 16,
+            loop = true
+        }
+        )
+
+end
+
 function Factory:createParallax(h, y, speed, texture, uscale, vscale)
     local e = gengine.entity.create()
 
@@ -60,10 +81,10 @@ function Factory:createPlayer()
     local e = gengine.entity.create()
 
     e:addComponent(
-        ComponentSprite(),
+        ComponentAnimatedSprite(),
         {
-            texture = gengine.graphics.texture.get("mecha"),
-            extent = vector2(128, 256),
+            animation = self.mechaMoveAnimation,
+            extent = vector2(168, 256),
             layer = 0
         },
         "sprite"
@@ -102,7 +123,8 @@ function Factory:createBullet(velocity)
         ComponentSprite(),
         {
             texture = gengine.graphics.texture.get("particle"),
-            extent = vector2(16, 16),
+            extent = vector2(32, 32),
+            color = vector4(0.2, 1.0, 0.2, 1),
             layer = 0
         },
         "sprite"
