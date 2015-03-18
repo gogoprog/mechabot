@@ -1,7 +1,7 @@
 ComponentArm = {}
 
 function ComponentArm:init()
-    self.bulletSpeed = 500
+    self.bulletSpeed = 1000
     self.bulletInterval = 0.1
     self.timeSinceLastBullet = 0
 end
