@@ -18,7 +18,16 @@ function ComponentBullet:update(dt)
         if not(self_position.x + 8 < p.x - 16 or p.x + 16 < self_position.x - 8 or self_position.y + 8 < p.y - 16 or p.y + 16 < self_position.y - 8) then
             self.entity:remove()
             gengine.entity.destroy(self.entity)
+            
+            local e = Factory:createBoxExplosion()
+
+            e:insert()
+
+            e.position = v.position
+
             Map:removeBox(k, v)
+
+
             return
         end
     end

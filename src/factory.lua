@@ -162,3 +162,26 @@ function Factory:createBullet(velocity)
     return e
 end
 
+function Factory:createBoxExplosion()
+    local e = gengine.entity.create()
+
+    e:addComponent(
+        ComponentParticleSystem(),
+        {
+            texture = gengine.graphics.texture.get("box"),
+            size = 32,
+            emitterRate = 20000,
+            emitterLifeTime = 0.1,
+            extentRange = {vector2(8,8), vector2(16,16)},
+            lifeTimeRange = {0.5, 1},
+            directionRange = {0, 2*3.14},
+            speedRange = {100, 500},
+            rotationRange = {-3, 3},
+            spinRange = {-10, 10},
+            scales = {vector2(1, 1)},
+            colors = {vector4(0.8,0.8,0.9,1), vector4(0.3,0.3,0.9,1), vector4(0,0,0,0)}
+        }
+        )
+
+    return e
+end
