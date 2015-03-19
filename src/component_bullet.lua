@@ -22,6 +22,7 @@ function ComponentBullet:update(dt)
             local e = Factory:createBoxExplosion()
 
             e:insert()
+            e.particles:reset()
 
             e.position = v.position
 

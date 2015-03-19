@@ -3,8 +3,11 @@ require 'component_box'
 require 'component_arm'
 require 'component_bullet'
 require 'component_shaker'
+require 'component_box_explosion'
 
-Factory = Factory or {}
+Factory = Factory or {
+    boxExplosions = {}
+}
 
 function Factory:init()
 
@@ -163,6 +166,13 @@ function Factory:createBullet(velocity)
 end
 
 function Factory:createBoxExplosion()
+    local n = #self.boxExplosions
+    if n > 0 then
+        local e = self.boxExplosions[n]
+        table.remove(self.boxExplosions, n)
+        return e
+    end
+
     local e = gengine.entity.create()
 
     e:addComponent(
@@ -173,15 +183,21 @@ function Factory:createBoxExplosion()
             emitterRate = 20000,
             emitterLifeTime = 0.1,
             extentRange = {vector2(8,8), vector2(16,16)},
-            lifeTimeRange = {0.4, 0.5},
+            lifeTimeRange = {0.4, 0.7},
             directionRange = {0, 2*3.14},
-            speedRange = {100, 500},
+            speedRange = {50, 300},
             rotationRange = {-3, 3},
             spinRange = {-10, 10},
             linearAccelerationRange = {vector2(0,-1000), vector2(0,-1000)},
             scales = {vector2(1, 1)},
-            colors = {vector4(0.8,0.8,0.9,1), vector4(0.3,0.3,0.9,1), vector4(0,0,0,0)}
-        }
+            colors = {vector4(0.8,0.8,0.9,1), vector4(0,0,0,0)}
+        },
+        "particles"
+        )
+
+    e:addComponent(
+        ComponentBoxExplosion(),
+        {}
         )
 
     return e
