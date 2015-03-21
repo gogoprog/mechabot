@@ -22,13 +22,13 @@ function Map:init()
     self.cameraEntity.position.y = 256
     self.cameraEntity:insert()
 
-    for i = 1, 100 do
-        local b = Factory:createBox(math.random(10, 100), math.random(1, 10))
+    for i = 1, 1000 do
+        local b = Factory:createBox(math.random(10, 200), math.random(1, 10))
         table.insert(self.futureBoxes, b)
     end
 
     Game.player.position.x = self.x - 256
-    Game.player.position.y = 100
+    Game.player.position.y = 120
 end
 
 function Map:start()

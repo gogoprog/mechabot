@@ -3,6 +3,7 @@ require 'game'
 function init()
     gengine.application.setName("Mechabot")
     gengine.application.setExtent(800, 600)
+    gengine.application.setFullscreen(false)
 end
 
 local logoEntity

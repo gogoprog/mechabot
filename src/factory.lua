@@ -28,6 +28,33 @@ function Factory:init()
         }
         )
 
+    atlas = gengine.graphics.atlas.create(
+        "armFire",
+        gengine.graphics.texture.get("arm"),
+        4,
+        1
+        )
+
+    self.armFireAnimation = gengine.graphics.animation.create(
+        "armFire",
+        {
+            atlas = atlas,
+            frames = { 0, 1, 2, 3 },
+            framerate = 16,
+            loop = false
+        }
+        )
+
+    self.armIdleAnimation = gengine.graphics.animation.create(
+        "armFire",
+        {
+            atlas = atlas,
+            frames = { 2 },
+            framerate = 1,
+            loop = true
+        }
+        )
+
 end
 
 function Factory:createCamera()
@@ -109,7 +136,7 @@ function Factory:createPlayer()
         ComponentAnimatedSprite(),
         {
             animation = self.mechaMoveAnimation,
-            extent = vector2(168, 256),
+            extent = vector2(200, 300),
             layer = 0
         },
         "sprite"
@@ -122,10 +149,10 @@ function Factory:createArm()
     local e = gengine.entity.create()
 
     e:addComponent(
-        ComponentSprite(),
+        ComponentAnimatedSprite(),
         {
-            texture = gengine.graphics.texture.get("arm"),
-            extent = vector2(256, 128),
+            animation = self.armIdleAnimation,
+            extent = vector2(256, 200),
             layer = 1
         },
         "sprite"
