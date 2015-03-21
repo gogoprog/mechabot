@@ -37,8 +37,10 @@ function ComponentArm:update(dt)
             direction = gengine.math.getNormalized(direction)
 
             local e = Factory:createBullet(direction * self.bulletSpeed)
-            e.position.x = self_position.x + direction.x * bullet_offset_x - math.sin(angle) * bullet_offset_y
-            e.position.y = self_position.y + direction.y * bullet_offset_x + math.cos(angle) * bullet_offset_y
+
+            local bulletOffset = gengine.math.getRotated(vector2(0, bullet_offset_y), angle)
+
+            e.position = self_position + direction * bullet_offset_x + bulletOffset
             e:insert()
 
             self.timeSinceLastBullet = 0
