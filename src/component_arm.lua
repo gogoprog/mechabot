@@ -32,12 +32,13 @@ function ComponentArm:update(dt)
 
     if gengine.input.mouse:isDown(1) then
         if self.timeSinceLastBullet > self.bulletInterval then
-            local v = world_position - self_position
-            local l = gengine.math.getDistance(self_position, world_position)
-            v = v / l
-            local e = Factory:createBullet(v * self.bulletSpeed)
-            e.position.x = self_position.x + v.x * bullet_offset_x - math.sin(angle) * bullet_offset_y
-            e.position.y = self_position.y + v.y * bullet_offset_x + math.cos(angle) * bullet_offset_y
+            local direction = world_position - self_position
+
+            direction = gengine.math.getNormalized(direction)
+
+            local e = Factory:createBullet(direction * self.bulletSpeed)
+            e.position.x = self_position.x + direction.x * bullet_offset_x - math.sin(angle) * bullet_offset_y
+            e.position.y = self_position.y + direction.y * bullet_offset_x + math.cos(angle) * bullet_offset_y
             e:insert()
 
             self.timeSinceLastBullet = 0
