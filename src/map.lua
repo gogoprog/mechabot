@@ -6,6 +6,9 @@ Map = Map or {
     x = 0
 }
 
+local playerExtent = {x=128, y=256}
+local boxExtent = {x=32, y=32}
+
 function Map:init()
     local p
 
@@ -58,7 +61,7 @@ function Map:isPlayerBlocked(dt)
     player_position.x = player_position.x + dt * 100
     for k, v in ipairs(self.boxes) do
         local p = v.position
-        if not(player_position.x + 64 < p.x - 16 or p.x + 16 < player_position.x - 64 or player_position.y + 128 < p.y - 16 or p.y + 16 < player_position.y - 128) then
+        if gengine.math.doRectanglesIntersect(player_position, playerExtent, p, boxExtent) then
             player_position.x = player_position.x - dt * 100
             return true
         end
