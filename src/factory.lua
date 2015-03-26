@@ -4,14 +4,16 @@ require 'component_arm'
 require 'component_bullet'
 require 'component_shaker'
 require 'component_box_explosion'
+require 'component_enemy'
 
 Factory = Factory or {
     boxExplosions = {}
 }
 
 function Factory:init()
+    local atlas
 
-    local atlas = gengine.graphics.atlas.create(
+    atlas = gengine.graphics.atlas.create(
         "mechaMove",
         gengine.graphics.texture.get("mecha_move"),
         14,
@@ -55,6 +57,22 @@ function Factory:init()
         }
         )
 
+    atlas = gengine.graphics.atlas.create(
+        "enemyMove",
+        gengine.graphics.texture.get("enemy_move"),
+        10,
+        1
+        )
+
+    self.enemyMoveAnimation = gengine.graphics.animation.create(
+        "enemyMove",
+        {
+            atlas = atlas,
+            frames = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 },
+            framerate = 16,
+            loop = true
+        }
+        )
 end
 
 function Factory:createCamera()
@@ -225,6 +243,30 @@ function Factory:createBoxExplosion()
     e:addComponent(
         ComponentBoxExplosion(),
         {}
+        )
+
+    return e
+end
+
+
+function Factory:createEnemy()
+    local e = gengine.entity.create()
+
+    e:addComponent(
+        ComponentAnimatedSprite(),
+        {
+            animation = self.enemyMoveAnimation,
+            extent = vector2(32, 32),
+            layer = 0
+        },
+        "sprite"
+        )
+
+    e:addComponent(
+        ComponentEnemy(),
+        {
+        },
+        "enemy"
         )
 
     return e

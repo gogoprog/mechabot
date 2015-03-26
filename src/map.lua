@@ -26,7 +26,7 @@ function Map:init()
     self.cameraEntity:insert()
 
     for i = 1, 1000 do
-        local b = Factory:createBox(math.random(10, 200), math.random(1, 10))
+        local b = Factory:createBox(math.random(10, 2000), math.random(2, 10))
         table.insert(self.futureBoxes, b)
     end
 

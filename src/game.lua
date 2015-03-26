@@ -1,7 +1,9 @@
 require 'factory'
 require 'map'
 
-Game = Game or {}
+Game = Game or {
+    enemies = {}
+}
 
 function Game:init()
     gengine.graphics.texture.createFromDirectory("data/")
@@ -16,6 +18,14 @@ function Game:init()
 end
 
 function Game:start()
+    for i = 1, 100 do
+        local e = Factory:createEnemy()
+        table.insert(self.enemies, e)
+
+        e.position:set(math.random(1000, 20000), 0)
+        e:insert()
+    end
+
     Map:start()
 end
 
