@@ -3,11 +3,12 @@ require 'component_box'
 require 'component_arm'
 require 'component_bullet'
 require 'component_shaker'
-require 'component_box_explosion'
+require 'component_poolable'
 require 'component_enemy'
 
 Factory = Factory or {
-    boxExplosions = {}
+    boxExplosions = {},
+    bloods = {}
 }
 
 function Factory:init()
@@ -241,13 +242,54 @@ function Factory:createBoxExplosion()
         )
 
     e:addComponent(
-        ComponentBoxExplosion(),
-        {}
+        ComponentPoolable(),
+        {
+            pool = self.boxExplosions
+        }
         )
 
     return e
 end
 
+function Factory:createBlood()
+    local n = #self.bloods
+    if n > 0 then
+        local e = self.bloods[n]
+        table.remove(self.bloods, n)
+        return e
+    end
+
+    local e = gengine.entity.create()
+
+    e:addComponent(
+        ComponentParticleSystem(),
+        {
+            texture = gengine.graphics.texture.get("particle"),
+            size = 32,
+            emitterRate = 20000,
+            emitterLifeTime = 0.1,
+            extentRange = {vector2(8,8), vector2(8,16)},
+            lifeTimeRange = {0.4, 0.7},
+            directionRange = {0, 2*3.14},
+            speedRange = {50, 300},
+            rotationRange = {-3, 3},
+            spinRange = {-10, 10},
+            linearAccelerationRange = {vector2(1000,-1000), vector2(1000,-1000)},
+            scales = {vector2(1, 1)},
+            colors = {vector4(0.6,0.0,0.0,1), vector4(0.6,0,0,0.5)}
+        },
+        "particles"
+        )
+
+    e:addComponent(
+        ComponentPoolable(),
+        {
+            pool = self.bloods
+        }
+        )
+
+    return e
+end
 
 function Factory:createEnemy()
     local e = gengine.entity.create()

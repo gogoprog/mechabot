@@ -13,4 +13,11 @@ function ComponentEnemy:update(dt)
 end
 
 function ComponentEnemy:remove()
+    local e = self.entity
+    for k, v in ipairs(Game.enemies) do
+        if v == e then
+            table.remove(Game.enemies, k)
+            return
+        end
+    end
 end

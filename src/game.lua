@@ -22,7 +22,7 @@ function Game:start()
         local e = Factory:createEnemy()
         table.insert(self.enemies, e)
 
-        e.position:set(math.random(1000, 20000), 0)
+        e.position:set(math.random(500, 20000), 16)
         e:insert()
     end
 

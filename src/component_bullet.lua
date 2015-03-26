@@ -2,6 +2,7 @@ ComponentBullet = {}
 
 local bulletExtent = {x=16, y=16}
 local boxExtent = {x=32, y=32}
+local enemyExtent = {x=32, y=32}
 
 function ComponentBullet:init()
 end
@@ -30,8 +31,24 @@ function ComponentBullet:update(dt)
             e.position = v.position
 
             Map:removeBox(k, v)
+            return
+        end
+    end
 
+    for k, v in ipairs(Game.enemies) do
+        local p = v.position
+        if gengine.math.doRectanglesIntersect(self_position, bulletExtent, p, enemyExtent) then
+            self.entity:remove()
+            gengine.entity.destroy(self.entity)
+            
+            local e = Factory:createBlood()
 
+            e:insert()
+            e.particles:reset()
+
+            e.position = v.position
+
+            v:remove()
             return
         end
     end
