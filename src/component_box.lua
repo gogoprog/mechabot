@@ -12,6 +12,7 @@ end
 
 function ComponentBox:remove()
     Map.cameraEntity.shaker:shake(0.1)
+    gengine.audio.playSound(Factory.explosionSound, 0.6)
 end
 
 function ComponentBox:setPosition(i, j)

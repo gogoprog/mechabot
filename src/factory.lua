@@ -74,6 +74,8 @@ function Factory:init()
             loop = true
         }
         )
+
+    self.explosionSound = gengine.audio.sound.create("data/explosion.wav")
 end
 
 function Factory:createCamera()

@@ -11,6 +11,8 @@ function ComponentArm:init()
     self.bulletSpeed = 1000
     self.bulletInterval = 0.1
     self.timeSinceLastBullet = 0
+
+    self.shootSound = gengine.audio.sound.create("data/shoot.wav")
 end
 
 function ComponentArm:insert()
@@ -48,6 +50,8 @@ function ComponentArm:update(dt)
             self.entity.sprite:removeAnimations()
             self.entity.sprite:pushAnimation(Factory.armIdleAnimation)
             self.entity.sprite:pushAnimation(Factory.armFireAnimation)
+
+            gengine.audio.playSound(self.shootSound, 0.6)
         end
     end
 end
