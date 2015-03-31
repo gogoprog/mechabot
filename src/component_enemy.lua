@@ -13,6 +13,8 @@ function ComponentEnemy:update(dt)
 end
 
 function ComponentEnemy:remove()
+    gengine.audio.playSound(Factory.hitSound, 0.6)
+
     local e = self.entity
     for k, v in ipairs(Game.enemies) do
         if v == e then
