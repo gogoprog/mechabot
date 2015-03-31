@@ -25,10 +25,12 @@ function Map:init()
     self.cameraEntity.position.y = 256
     self.cameraEntity:insert()
 
-    for i = 1, 1000 do
-        local b = Factory:createBox(math.random(10, 2000), math.random(2, 10))
+    --[[for i = 1, 1000 do
+        local b = Factory:createBox(math.random(10, 2000), math.random(0, 10))
         table.insert(self.futureBoxes, b)
-    end
+    end]]
+
+    self:loadFile("data/map00.lua")
 
     Game.player.position.x = self.x - 256
     Game.player.position.y = 120
@@ -102,4 +104,21 @@ function Map:removeBox(k, v)
 
     v:remove()
     gengine.entity.destroy(v)
+end
+
+function Map:loadFile(filename)
+    local map = dofile(filename)
+    local w = map.width
+    local h = map.height
+    local data = map.layers[1].data
+
+    for k, v in ipairs(data) do
+        if v == 1 then
+            local x = k % w
+            local y = h - math.floor(k/w) - 1
+
+            local b = Factory:createBox(x, y)
+            table.insert(self.futureBoxes, b)
+        end
+    end
 end
