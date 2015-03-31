@@ -11,7 +11,6 @@ local logoEntity
 function start()
     gengine.graphics.setClearColor(0.0,0.0,0.1,1)
     Game:init()
-    Game:start()
 end
 
 function update(dt)
