@@ -12,9 +12,7 @@ function Game:init()
     Factory:init()
 
     self.player = Factory:createPlayer()
-    self.player:insert()
     self.arm = Factory:createArm()
-    self.arm:insert()
 
     Map:init()
 
@@ -23,6 +21,8 @@ end
 
 function Game:start()
     Map:start()
+    self.player:insert()
+    self.arm:insert()
 
     self:changeState("inGame");
 end

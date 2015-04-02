@@ -2,7 +2,7 @@ ComponentArm = {}
 
 
 local offset_x = - 50
-local offset_y = 182
+local offset_y = 62
 local bullet_offset_x = 90
 local bullet_offset_y = -60
 
