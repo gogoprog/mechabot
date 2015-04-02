@@ -25,11 +25,6 @@ function Map:init()
     self.cameraEntity.position.y = 256
     self.cameraEntity:insert()
 
-    --[[for i = 1, 1000 do
-        local b = Factory:createBox(math.random(10, 2000), math.random(0, 10))
-        table.insert(self.futureBoxes, b)
-    end]]
-
     self:loadFile("data/map00.lua")
 
     Game.player.position.x = self.x - 256
@@ -113,11 +108,19 @@ function Map:loadFile(filename)
     local data = map.layers[1].data
 
     for k, v in ipairs(data) do
-        if v == 1 then
+        if v ~= 0 then
             local x = k % w
-            local y = h - math.floor(k/w) - 1
+            local y = h - math.floor(k/w)
+            local b
 
-            local b = Factory:createBox(x, y)
+            if v == 1 then
+                b = Factory:createBox(x, y)
+            end
+
+            if v == 2 then
+                b = Factory:createSpawner(x, y)
+            end
+
             table.insert(self.futureBoxes, b)
         end
     end

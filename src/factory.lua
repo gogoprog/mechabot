@@ -5,6 +5,7 @@ require 'component_bullet'
 require 'component_shaker'
 require 'component_poolable'
 require 'component_enemy'
+require 'component_spawner'
 
 Factory = Factory or {
     boxExplosions = {},
@@ -151,6 +152,38 @@ function Factory:createBox(i, j)
     return e
 end
 
+function Factory:createSpawner(i, j)
+    local e = gengine.entity.create()
+
+    e:addComponent(
+        ComponentSprite(),
+        {
+            texture = gengine.graphics.texture.get("spawner"),
+            extent = vector2(32, 32),
+            layer = 0
+        },
+        "sprite"
+        )
+
+    e:addComponent(
+        ComponentBox(),
+        {
+        },
+        "box"
+        )
+
+    e:addComponent(
+        ComponentSpawner(),
+        {
+        },
+        "spawner"
+        )
+
+    e.box:setPosition(i , j)
+
+    return e
+end
+
 function Factory:createPlayer()
     local e = gengine.entity.create()
 
@@ -199,7 +232,7 @@ function Factory:createBullet(velocity)
             texture = gengine.graphics.texture.get("particle"),
             extent = vector2(32, 32),
             color = vector4(0.2, 1.0, 0.2, 1),
-            layer = 0
+            layer = 2
         },
         "sprite"
         )
@@ -302,7 +335,7 @@ function Factory:createEnemy()
         {
             animation = self.enemyMoveAnimation,
             extent = vector2(32, 32),
-            layer = 0
+            layer = 1
         },
         "sprite"
         )

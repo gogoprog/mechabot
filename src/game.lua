@@ -22,14 +22,6 @@ function Game:init()
 end
 
 function Game:start()
-    for i = 1, 100 do
-        local e = Factory:createEnemy()
-        table.insert(self.enemies, e)
-
-        e.position:set(math.random(500, 20000), 16)
-        e:insert()
-    end
-
     Map:start()
 
     self:changeState("inGame");
