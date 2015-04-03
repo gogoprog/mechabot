@@ -146,7 +146,7 @@ function Factory:createBox(i, j, id)
     e:addComponent(
         ComponentBox(),
         {
-            extent = def.extent
+            definition = def
         },
         "box"
         )

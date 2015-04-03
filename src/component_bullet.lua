@@ -19,7 +19,7 @@ function ComponentBullet:update(dt)
 
     for k, v in ipairs(Map.boxes) do
         local p = v.position
-        if gengine.math.doesCircleIntersectRectangle(self_position, bulletRadius, p, boxExtent) then
+        if gengine.math.doesCircleIntersectRectangle(self_position, bulletRadius, p, v.box.definition.extent) then
             self.entity:remove()
             gengine.entity.destroy(self.entity)
 
