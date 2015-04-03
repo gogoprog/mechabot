@@ -113,13 +113,7 @@ function Map:loadFile(filename)
             local y = h - math.floor(k/w)
             local b
 
-            if v == 1 then
-                b = Factory:createBox(x, y)
-            end
-
-            if v == 2 then
-                b = Factory:createSpawner(x, y)
-            end
+            b = Factory:createBox(x, y, v)
 
             table.insert(self.futureBoxes, b)
         end

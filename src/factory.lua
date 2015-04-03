@@ -78,6 +78,8 @@ function Factory:init()
 
     self.explosionSound = gengine.audio.sound.create("data/explosion.wav")
     self.hitSound = gengine.audio.sound.create("data/hit.wav")
+
+    self.boxDefinitions = dofile("boxes.lua")
 end
 
 function Factory:createCamera()
@@ -127,15 +129,16 @@ function Factory:createParallax(h, y, speed, texture, uscale, vscale)
     return e
 end
 
-function Factory:createBox(i, j)
+function Factory:createBox(i, j, id)
     local e = gengine.entity.create()
+    local def = self.boxDefinitions[id]
 
     e:addComponent(
         ComponentSprite(),
         {
-            texture = gengine.graphics.texture.get("box"),
-            extent = vector2(32, 32),
-            layer = 0
+            texture = gengine.graphics.texture.get(def.textures[1]),
+            layer = 0,
+            extent = def.extent
         },
         "sprite"
         )
@@ -143,41 +146,19 @@ function Factory:createBox(i, j)
     e:addComponent(
         ComponentBox(),
         {
+            extent = def.extent
         },
         "box"
         )
 
-    e.box:setPosition(i , j)
-
-    return e
-end
-
-function Factory:createSpawner(i, j)
-    local e = gengine.entity.create()
-
-    e:addComponent(
-        ComponentSprite(),
-        {
-            texture = gengine.graphics.texture.get("spawner"),
-            extent = vector2(32, 32),
-            layer = 0
-        },
-        "sprite"
-        )
-
-    e:addComponent(
-        ComponentBox(),
-        {
-        },
-        "box"
-        )
-
-    e:addComponent(
-        ComponentSpawner(),
-        {
-        },
-        "spawner"
-        )
+    if def.spawner then
+        e:addComponent(
+            ComponentSpawner(),
+            {
+            },
+            "spawner"
+            )
+    end
 
     e.box:setPosition(i , j)
 
