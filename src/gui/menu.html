@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>CSS Newbie Example: Super Simple Horizontal Navigation Bar</title>
+<style>
+   @font-face {
+     font-family: "MikodacsPCS";
+     src: url("MikodacsPCS.otf");
+   }
+   #body {
+      font-family: "MikodacsPCS";
+      color:white;
+      font-size:50px;
+      text-align: center;
+   }
+   #title {
+      font-size:100px;
+      display: inline-block;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+     padding: 10px;
+     border: none;
+     color: rgba(255,255,255,1);
+     text-decoration: normal;
+     text-align: center;
+     -o-text-overflow: clip;
+     text-overflow: clip;
+     white-space: pre;
+     text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff0011 , 0 0 70px #ff0011 , 0 0 80px #ff0011 , 0 0 100px #ff0011 ;
+     -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+     -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+     -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+     transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+   }
+   #menu {
+      margin-left:0;
+      margin-right:0;
+   }
+   #menu span {
+      color:black;
+   }
+   #menu span:hover {
+      color:blue;
+   }
+
+   .button {
+     display: inline-block;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+     padding: 10px;
+     border: none;
+     color: rgba(255,255,255,1);
+     text-decoration: normal;
+     text-align: center;
+     -o-text-overflow: clip;
+     text-overflow: clip;
+     white-space: pre;
+     text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ffffff , 0 0 70px #ffffff , 0 0 80px #ffffff , 0 0 100px #ffffff ;
+     -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+     -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+     -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+     transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+   }
+
+   .button:hover {
+     text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff0011 , 0 0 70px #ff0011 , 0 0 80px #ff0011 , 0 0 100px #ff0011 ;
+   }
+</style>
+<script>
+   function updateTotal(n)
+   {
+      document.getElementById("total").innerHTML = n;
+   }
+</script>
+</head>
+
+<body>
+
+<div id="body">
+   <span id="title">Mechabot</span>
+
+   <ul id="menu">
+      <li><span class="button" onclick="gengine_execute('');">Play!</span></li>
+   </ul>
+
+   <div id="content">
+
+   </div>
+</div>
+
+</body>
+</html>
