@@ -15,6 +15,13 @@ Factory = Factory or {
 function Factory:init()
     local atlas
 
+    gengine.graphics.atlas.create(
+        "crates",
+        gengine.graphics.texture.get("crates"),
+        5,
+        2
+        )
+
     atlas = gengine.graphics.atlas.create(
         "mechaMove",
         gengine.graphics.texture.get("mecha_move"),
@@ -129,40 +136,56 @@ function Factory:createParallax(h, y, speed, texture, uscale, vscale)
     return e
 end
 
-function Factory:createBox(i, j, id)
-    local e = gengine.entity.create()
-    local def = self.boxDefinitions[id]
+function Factory:createBox(i, j, name, id)
+    local def = self.boxDefinitions[name][id]
 
-    e:addComponent(
-        ComponentSprite(),
-        {
-            texture = gengine.graphics.texture.get(def.textures[1]),
-            layer = 0,
-            extent = def.extent
-        },
-        "sprite"
-        )
+    if def then
+        local e = gengine.entity.create()
 
-    e:addComponent(
-        ComponentBox(),
-        {
-            definition = def
-        },
-        "box"
-        )
+        if def.textures then
+            e:addComponent(
+                ComponentSprite(),
+                {
+                    texture = gengine.graphics.texture.get(def.textures[1]),
+                    layer = 0,
+                    extent = def.extent
+                },
+                "sprite"
+                )
+        elseif def.atlas then
+            e:addComponent(
+                ComponentSprite(),
+                {
+                    atlas = gengine.graphics.atlas.get(def.atlas),
+                    atlasItem = def.atlasItems[1],
+                    layer = 0,
+                    extent = def.extent
+                },
+                "sprite"
+                )
+        end
 
-    if def.spawner then
         e:addComponent(
-            ComponentSpawner(),
+            ComponentBox(),
             {
+                definition = def
             },
-            "spawner"
+            "box"
             )
+
+        if def.spawner then
+            e:addComponent(
+                ComponentSpawner(),
+                {
+                },
+                "spawner"
+                )
+        end
+
+        e.box:setPosition(i , j)
+
+        return e
     end
-
-    e.box:setPosition(i , j)
-
-    return e
 end
 
 function Factory:createPlayer()
@@ -221,7 +244,8 @@ function Factory:createBullet(velocity)
     e:addComponent(
         ComponentBullet(),
         {
-            velocity = velocity
+            velocity = velocity,
+            damage = 50
         }
         )
 

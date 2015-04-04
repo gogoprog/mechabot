@@ -106,6 +106,23 @@ function Map:loadFile(filename)
     local w = map.width
     local h = map.height
     local data = map.layers[1].data
+    local tilesets = map.tilesets
+
+    local indexToTileSet = {}
+
+    for k, v in ipairs(tilesets) do
+        local count
+        if #v.tiles == 0 then
+            count = (v.imagewidth / v.tilewidth) * (v.imageheight / v.tileheight)
+        else
+            count = #v.tiles
+        end
+
+        for i=1,count do
+            table.insert(indexToTileSet, k)
+        end
+    end
+
 
     for k, v in ipairs(data) do
         if v ~= 0 then
@@ -113,7 +130,9 @@ function Map:loadFile(filename)
             local y = h - math.floor(k/w)
             local b
 
-            b = Factory:createBox(x, y, v)
+            local ts = tilesets[indexToTileSet[v]]
+
+            b = Factory:createBox(x, y, indexToTileSet[v], v - ts.firstgid + 1 )
 
             table.insert(self.futureBoxes, b)
         end

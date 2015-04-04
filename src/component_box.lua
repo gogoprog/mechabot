@@ -16,5 +16,5 @@ function ComponentBox:remove()
 end
 
 function ComponentBox:setPosition(i, j)
-    self.entity.position:set(i * 32, j * 32 - 16)
+    self.entity.position:set(i * 32 + self.definition.extent.x / 2 - 16, j * 32 + self.definition.extent.y / 2 - 16 - 16)
 end
