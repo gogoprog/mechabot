@@ -25,6 +25,12 @@ return {
     {
         {
             atlas = "crates",
+            atlasItems = {0},
+            life = 100,
+            extent = vector2(32,32)
+        },
+        {
+            atlas = "crates",
             atlasItems = {1},
             life = 100,
             extent = vector2(32,32)
@@ -45,7 +51,8 @@ return {
             atlas = "crates",
             atlasItems = {4},
             life = 100,
-            extent = vector2(32,32)
+            extent = vector2(32,32),
+            spawner = true
         },
         {
             atlas = "crates",
@@ -74,12 +81,6 @@ return {
         {
             atlas = "crates",
             atlasItems = {9},
-            life = 100,
-            extent = vector2(32,32)
-        },
-        {
-            atlas = "crates",
-            atlasItems = {10},
             life = 100,
             extent = vector2(32,32)
         }
