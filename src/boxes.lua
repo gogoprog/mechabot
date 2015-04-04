@@ -17,9 +17,10 @@ return {
             extent = vector2(64,64)
         },
         {
-            textures = {"rock"},
+            textures = {"tent"},
             life = 100,
-            extent = vector2(128, 128)
+            extent = vector2(98, 49),
+            spawner = true
         }
     },
     {
@@ -51,8 +52,7 @@ return {
             atlas = "crates",
             atlasItems = {4},
             life = 100,
-            extent = vector2(32,32),
-            spawner = true
+            extent = vector2(32,32)
         },
         {
             atlas = "crates",
