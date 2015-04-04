@@ -23,7 +23,7 @@ function Game:start()
     Map:start()
     self.player:insert()
     self.arm:insert()
-    gengine.gui.loadFile("")
+    gengine.gui.executeScript("hide();")
     self:changeState("inGame");
 end
 
