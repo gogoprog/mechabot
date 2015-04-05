@@ -21,7 +21,6 @@ function ComponentBullet:update(dt)
         local p = v.position
         if gengine.math.doesCircleIntersectRectangle(self_position, bulletRadius, p, v.box.definition.extent) then
             self.entity:remove()
-            gengine.entity.destroy(self.entity)
 
             local e = Factory:createBoxExplosion()
 
@@ -40,7 +39,6 @@ function ComponentBullet:update(dt)
         if gengine.math.doesCircleIntersectRectangle(self_position, bulletRadius, p, boxExtent) then
 
             self.entity:remove()
-            gengine.entity.destroy(self.entity)
 
             local e = Factory:createBlood()
 

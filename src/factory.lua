@@ -9,7 +9,9 @@ require 'component_spawner'
 
 Factory = Factory or {
     boxExplosions = {},
-    bloods = {}
+    bloods = {},
+    enemies = {},
+    bullets = {}
 }
 
 function Factory:init()
@@ -148,7 +150,6 @@ function Factory:createBox(i, j, name, id)
                 {
                     texture = gengine.graphics.texture.get(def.textures[1]),
                     layer = 0,
-                    extent = def.extent
                 },
                 "sprite"
                 )
@@ -159,10 +160,13 @@ function Factory:createBox(i, j, name, id)
                     atlas = gengine.graphics.atlas.get(def.atlas),
                     atlasItem = def.atlasItems[1],
                     layer = 0,
-                    extent = def.extent
                 },
                 "sprite"
                 )
+        end
+
+        if not def.extent then
+            def.extent = e.sprite.extent
         end
 
         e:addComponent(
@@ -228,6 +232,16 @@ function Factory:createArm()
 end
 
 function Factory:createBullet(velocity)
+    local n = #self.bullets
+    if n > 0 then
+        local e = self.bullets[n]
+
+        e.bullet.velocity = velocity
+
+        table.remove(self.bullets, n)
+        return e
+    end
+
     local e = gengine.entity.create()
 
     e:addComponent(
@@ -246,6 +260,14 @@ function Factory:createBullet(velocity)
         {
             velocity = velocity,
             damage = 50
+        },
+        "bullet"
+        )
+
+    e:addComponent(
+        ComponentPoolable(),
+        {
+            pool = self.bullets
         }
         )
 
@@ -333,6 +355,13 @@ function Factory:createBlood()
 end
 
 function Factory:createEnemy()
+    local n = #self.enemies
+    if n > 0 then
+        local e = self.enemies[n]
+        table.remove(self.enemies, n)
+        return e
+    end
+
     local e = gengine.entity.create()
 
     e:addComponent(
@@ -352,5 +381,11 @@ function Factory:createEnemy()
         "enemy"
         )
 
+    e:addComponent(
+        ComponentPoolable(),
+        {
+            pool = self.enemies
+        }
+        )
     return e
 end
