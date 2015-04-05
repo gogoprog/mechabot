@@ -6,6 +6,7 @@ require 'component_shaker'
 require 'component_poolable'
 require 'component_enemy'
 require 'component_spawner'
+require 'component_remover'
 
 Factory = Factory or {
     boxExplosions = {},
@@ -311,6 +312,12 @@ function Factory:createBoxExplosion()
         }
         )
 
+    e:addComponent(
+        ComponentRemover(),
+        {
+        }
+        )
+
     return e
 end
 
@@ -348,6 +355,12 @@ function Factory:createBlood()
         ComponentPoolable(),
         {
             pool = self.bloods
+        }
+        )
+
+    e:addComponent(
+        ComponentRemover(),
+        {
         }
         )
 
