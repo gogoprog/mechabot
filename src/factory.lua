@@ -139,57 +139,69 @@ function Factory:createParallax(h, y, speed, texture, uscale, vscale)
     return e
 end
 
-function Factory:createBox(i, j, name, id)
-    local def = self.boxDefinitions[name][id]
+function Factory:createBox(i, j, tsId, id, defaultTexture)
+    if self.boxDefinitions[tsId] then
+        local def = self.boxDefinitions[tsId][id]
 
-    if def then
-        local e = gengine.entity.create()
+        if def then
+            local e = gengine.entity.create()
 
-        if def.textures then
+            if def.textures then
+                e:addComponent(
+                    ComponentSprite(),
+                    {
+                        texture = gengine.graphics.texture.get(def.textures[1]),
+                        layer = 0,
+                    },
+                    "sprite"
+                    )
+            elseif def.atlas then
+                e:addComponent(
+                    ComponentSprite(),
+                    {
+                        atlas = gengine.graphics.atlas.get(def.atlas),
+                        atlasItem = def.atlasItems[1],
+                        layer = 0,
+                    },
+                    "sprite"
+                    )
+            elseif defaultTexture then
+                defaultTexture = string.gsub(defaultTexture, ".png", "")
+                e:addComponent(
+                    ComponentSprite(),
+                    {
+                        texture = gengine.graphics.texture.get(defaultTexture),
+                        layer = 0,
+                    },
+                    "sprite"
+                    )
+            end
+
+            if not def.extent then
+                def.extent = e.sprite.extent
+            end
+
             e:addComponent(
-                ComponentSprite(),
+                ComponentBox(),
                 {
-                    texture = gengine.graphics.texture.get(def.textures[1]),
-                    layer = 0,
+                    definition = def
                 },
-                "sprite"
+                "box"
                 )
-        elseif def.atlas then
-            e:addComponent(
-                ComponentSprite(),
-                {
-                    atlas = gengine.graphics.atlas.get(def.atlas),
-                    atlasItem = def.atlasItems[1],
-                    layer = 0,
-                },
-                "sprite"
-                )
+
+            if def.spawner then
+                e:addComponent(
+                    ComponentSpawner(),
+                    {
+                    },
+                    "spawner"
+                    )
+            end
+
+            e.box:setPosition(i , j)
+
+            return e
         end
-
-        if not def.extent then
-            def.extent = e.sprite.extent
-        end
-
-        e:addComponent(
-            ComponentBox(),
-            {
-                definition = def
-            },
-            "box"
-            )
-
-        if def.spawner then
-            e:addComponent(
-                ComponentSpawner(),
-                {
-                },
-                "spawner"
-                )
-        end
-
-        e.box:setPosition(i , j)
-
-        return e
     end
 end
 

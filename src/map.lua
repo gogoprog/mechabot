@@ -131,10 +131,13 @@ function Map:loadFile(filename)
             local b
 
             local ts = tilesets[indexToTileSet[v]]
+            local ts_index = v - ts.firstgid + 1
 
-            b = Factory:createBox(x, y, indexToTileSet[v], v - ts.firstgid + 1 )
+            b = Factory:createBox(x, y, indexToTileSet[v], ts_index, ts.tiles[ts_index] and ts.tiles[ts_index].image or nil)
 
-            table.insert(self.futureBoxes, b)
+            --if b then
+                table.insert(self.futureBoxes, b)
+            --end
         end
     end
 end
