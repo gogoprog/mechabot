@@ -18,7 +18,7 @@ function Map:init()
     p = Factory:createParallax(500, 220, 0.0002, "mountains")
     table.insert(self.parallaxes, p)
 
-    p = Factory:createParallax(512, 500, 0, "stars")
+    p = Factory:createParallax(nil, 240, 0, "stars")
     table.insert(self.parallaxes, p)
 
     self.cameraEntity = Factory:createCamera()

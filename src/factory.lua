@@ -120,12 +120,15 @@ function Factory:createParallax(h, y, speed, texture, uscale, vscale)
         ComponentSprite(),
         {
             texture = gengine.graphics.texture.get(texture),
-            extent = vector2(800, h),
             layer = - 1000 / speed,
             uvScale = vector2(uscale or 1, vscale or 1)
         },
         "sprite"
         )
+
+    if h then
+        e.sprite.extent = vector2(800, h)
+    end
 
     e:addComponent(
         ComponentParallax(),
