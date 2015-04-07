@@ -18,7 +18,7 @@ return {
         },
         {
             textures = {"tent"},
-            life = 100,
+            life = 1000,
             extent = vector2(98, 49),
             spawner = true
         }
@@ -28,98 +28,98 @@ return {
             atlas = "crates",
             atlasItems = {0},
             debris = "crates",
-            life = 100,
+            life = 10,
         },
         {
             atlas = "crates",
             atlasItems = {1},
             debris = "crates",
-            life = 100,
+            life = 10,
         },
         {
             atlas = "crates",
             atlasItems = {2},
             debris = "crates",
-            life = 100,
+            life = 10,
         },
         {
             atlas = "crates",
             atlasItems = {3},
             debris = "crates",
-            life = 100,
+            life = 10,
         },
         {
             atlas = "crates",
             atlasItems = {4},
             debris = "crates",
-            life = 100,
+            life = 10,
         },
         {
             atlas = "crates",
             atlasItems = {5},
             debris = "crates",
-            life = 100,
+            life = 10,
         },
         {
             atlas = "crates",
             atlasItems = {6},
             debris = "crates",
-            life = 100,
+            life = 10,
         },
         {
             atlas = "crates",
             atlasItems = {7},
             debris = "crates",
-            life = 100,
+            life = 10,
         },
         {
             atlas = "crates",
             atlasItems = {8},
             debris = "crates",
-            life = 100,
+            life = 10,
         },
         {
             atlas = "crates",
             atlasItems = {9},
             debris = "crates",
-            life = 100,
+            life = 10,
         }
     },
     {
         {
-            life = 100,
+            life = 10,
             debris = "wall_1"
         },
         {
-            life = 100,
+            life = 10,
             debris = "wall_1"
         },
         {
-            life = 100,
+            life = 10,
             debris = "wall_1"
         },
         {
-            life = 100,
+            life = 10,
             debris = "wall_1"
         },
         {
-            life = 100,
+            life = 10,
             debris = "wall_1"
         },
         {
-            life = 100,
+            life = 10,
             debris = "wall_1"
         },
         {
-            life = 100,
+            life = 10,
             debris = "wall_1"
         },
         {
-            life = 100,
+            life = 10,
             debris = "wall_1"
         },
         {
-            life = 100,
+            life = 10,
             debris = "wall_1"
         }
     }

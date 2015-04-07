@@ -5,6 +5,7 @@ local boxExtent = {x=32, y=32}
 local enemyExtent = {x=32, y=32}
 
 function ComponentBullet:init()
+    self.damage = 50
 end
 
 function ComponentBullet:insert()
@@ -21,15 +22,7 @@ function ComponentBullet:update(dt)
         local p = v.position
         if gengine.math.doesCircleIntersectRectangle(self_position, bulletRadius, p, v.box.definition.extent) then
             self.entity:remove()
-
-            local e = Factory:createBoxExplosion(v.box.definition)
-
-            e:insert()
-            e.particles:reset()
-
-            e.position = v.position
-
-            Map:removeBox(k, v)
+            v.box:hit(self.damage, k)
             return
         end
     end

@@ -7,6 +7,7 @@ require 'component_poolable'
 require 'component_enemy'
 require 'component_spawner'
 require 'component_remover'
+require 'component_blink'
 
 Factory = Factory or {
     boxExplosions = {},
@@ -187,9 +188,17 @@ function Factory:createBox(i, j, tsId, id, defaultTexture)
             e:addComponent(
                 ComponentBox(),
                 {
-                    definition = def
+                    definition = def,
+                    life = def.life
                 },
                 "box"
+                )
+
+            e:addComponent(
+                ComponentBlink(),
+                {
+                },
+                "blink"
                 )
 
             if def.spawner then
