@@ -290,11 +290,12 @@ function Factory:createBullet(velocity)
     return e
 end
 
-function Factory:createBoxExplosion()
+function Factory:createBoxExplosion(box_definition)
     local n = #self.boxExplosions
     if n > 0 then
         local e = self.boxExplosions[n]
         table.remove(self.boxExplosions, n)
+        e.particles.texture = gengine.graphics.texture.get(box_definition.debris or "box")
         return e
     end
 
@@ -303,7 +304,7 @@ function Factory:createBoxExplosion()
     e:addComponent(
         ComponentParticleSystem(),
         {
-            texture = gengine.graphics.texture.get("box"),
+            texture = gengine.graphics.texture.get(box_definition.debris or "box"),
             size = 32,
             emitterRate = 20000,
             emitterLifeTime = 0.1,

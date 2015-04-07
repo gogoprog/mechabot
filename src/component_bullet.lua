@@ -22,7 +22,7 @@ function ComponentBullet:update(dt)
         if gengine.math.doesCircleIntersectRectangle(self_position, bulletRadius, p, v.box.definition.extent) then
             self.entity:remove()
 
-            local e = Factory:createBoxExplosion()
+            local e = Factory:createBoxExplosion(v.box.definition)
 
             e:insert()
             e.particles:reset()
