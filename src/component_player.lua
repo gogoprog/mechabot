@@ -20,6 +20,8 @@ function ComponentPlayer:hit(dmg)
     self.entity.blink:blink()
 
     if self.life < 0 then
-        print("Game is lost. Humaniy won.")
+        print("Game is lost. Humaniy has won.")
     end
+
+    gengine.gui.executeScript("updateLife(" .. self.life / 1000 .. ")")
 end

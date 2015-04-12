@@ -23,7 +23,7 @@ function Game:start()
     Map:start()
     self.player:insert()
     self.arm:insert()
-    gengine.gui.executeScript("hide();")
+    gengine.gui.executeScript("switchToHud();")
     self:changeState("inGame");
 end
 
