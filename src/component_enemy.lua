@@ -1,6 +1,8 @@
 ComponentEnemy = {}
 
 local boxExtent = {x=32, y=32}
+local enemyExtent = {x=32, y=32}
+local playerExtent = {x=128, y=256}
 
 function ComponentEnemy:init()
     self.speed = self.speed or 100
@@ -31,6 +33,10 @@ function ComponentEnemy:update(dt)
         self.vy = self.vy - 1000 * dt
     else
         self.vy = 0
+    end
+
+    if gengine.math.doRectanglesIntersect(p, enemyExtent, Game.player.position, playerExtent) then
+        Game.player.blink:blink()
     end
 end
 

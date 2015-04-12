@@ -230,6 +230,13 @@ function Factory:createPlayer()
         "sprite"
         )
 
+    e:addComponent(
+        ComponentBlink(),
+        {
+        },
+        "blink"
+        )
+
     return e
 end
 
