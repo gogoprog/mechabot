@@ -36,7 +36,12 @@ function ComponentEnemy:update(dt)
     end
 
     if gengine.math.doRectanglesIntersect(p, enemyExtent, Game.player.position, playerExtent) then
-        Game.player.blink:blink()
+        Game.player.player:hit(10)
+        local e = Factory:createBlood()
+        e:insert()
+        e.position:set(p)
+
+        self.entity:remove()
     end
 end
 

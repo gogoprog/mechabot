@@ -34,10 +34,7 @@ function ComponentBullet:update(dt)
             self.entity:remove()
 
             local e = Factory:createBlood()
-
             e:insert()
-            e.particles:reset()
-
             e.position = v.position
 
             v:remove()

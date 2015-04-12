@@ -8,6 +8,7 @@ require 'component_enemy'
 require 'component_spawner'
 require 'component_remover'
 require 'component_blink'
+require 'component_player'
 
 Factory = Factory or {
     boxExplosions = {},
@@ -237,6 +238,13 @@ function Factory:createPlayer()
         "blink"
         )
 
+    e:addComponent(
+        ComponentPlayer(),
+        {
+        },
+        "player"
+        )
+
     return e
 end
 
@@ -358,6 +366,7 @@ function Factory:createBlood()
     if n > 0 then
         local e = self.bloods[n]
         table.remove(self.bloods, n)
+        e.particles:reset()
         return e
     end
 
