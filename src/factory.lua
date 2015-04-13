@@ -271,12 +271,16 @@ function Factory:createArm()
     return e
 end
 
-function Factory:createBullet(velocity)
+function Factory:createBullet(velocity, weapon)
     local n = #self.bullets
     if n > 0 then
         local e = self.bullets[n]
 
         e.bullet.velocity = velocity
+        e.bullet.damage = weapon.damage
+
+        e.sprite.texture = gengine.graphics.texture.get(weapon.texture)
+        e.sprite.extent = weapon.extent
 
         table.remove(self.bullets, n)
         return e
@@ -287,8 +291,8 @@ function Factory:createBullet(velocity)
     e:addComponent(
         ComponentSprite(),
         {
-            texture = gengine.graphics.texture.get("particle"),
-            extent = vector2(32, 32),
+            texture = gengine.graphics.texture.get(weapon.texture),
+            extent = weapon.extent,
             color = vector4(0.2, 1.0, 0.2, 1),
             layer = 2
         },
@@ -299,7 +303,7 @@ function Factory:createBullet(velocity)
         ComponentBullet(),
         {
             velocity = velocity,
-            damage = 50
+            damage = weapon.damage
         },
         "bullet"
         )

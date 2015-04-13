@@ -1,5 +1,7 @@
 ComponentPlayer = {}
 
+local weapons = dofile("weapons.lua")
+
 function ComponentPlayer:init()
     self.life = 1000
 end
@@ -24,4 +26,14 @@ function ComponentPlayer:hit(dmg)
     end
 
     gengine.gui.executeScript("updateLife(" .. self.life / 1000 .. ")")
+end
+
+function ComponentPlayer:initWeapon(name, level)
+    local def = weapons[name]
+    self.weapon = {}
+    local w = self.weapon
+
+    for k, v in pairs(def) do
+        w[k] = v(level)
+    end
 end

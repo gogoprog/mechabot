@@ -1,15 +1,11 @@
 ComponentArm = {}
 
-
 local offset_x = - 50
 local offset_y = 62
 local bullet_offset_x = 90
 local bullet_offset_y = -60
 
-
 function ComponentArm:init()
-    self.bulletSpeed = 1000
-    self.bulletInterval = 0.1
     self.timeSinceLastBullet = 0
     self.currentAngle = 0
     self.shootSound = gengine.audio.sound.create("data/shoot.wav")
@@ -42,12 +38,12 @@ function ComponentArm:update(dt)
     self.timeSinceLastBullet = self.timeSinceLastBullet + dt
 
     if gengine.input.mouse:isDown(1) then
-        if self.timeSinceLastBullet > self.bulletInterval then
+        if self.timeSinceLastBullet > self.weapon.interval then
             local direction = gengine.math.getRotated(vector2(1,0), self.currentAngle)
 
             direction = gengine.math.getNormalized(direction)
 
-            local e = Factory:createBullet(direction * self.bulletSpeed)
+            local e = Factory:createBullet(direction * self.weapon.bulletSpeed, self.weapon)
 
             local bulletOffset = gengine.math.getRotated(vector2(0, bullet_offset_y), angle)
 

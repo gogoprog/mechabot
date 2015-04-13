@@ -20,11 +20,13 @@ function Game:init()
 end
 
 function Game:start()
+    self.player.player:initWeapon("plasma", 1)
     self.kills = 0
     self:addKills(0)
     Map:start()
     self.player:insert()
     self.arm:insert()
+    self.arm.arm.weapon = self.player.player.weapon
     gengine.gui.executeScript("switchToHud();")
     self:changeState("inGame");
 end
@@ -45,5 +47,5 @@ end
 
 function Game:addKills(v)
     self.kills = self.kills + v
-    gengine.gui.executeScript("updateKills(" .. self.kills .. ")")
+    gengine.gui.executeScript("updateKills(" .. self.kills .. ");")
 end
