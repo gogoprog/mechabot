@@ -17,7 +17,6 @@ function ComponentEnemy:update(dt)
     local p = self.entity.position
 
     p.x = p.x - self.speed * dt
-
     p.y = p.y + self.vy * dt
 
     local testPosition = p - vector2(0, 16)
