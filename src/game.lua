@@ -20,6 +20,8 @@ function Game:init()
 end
 
 function Game:start()
+    self.kills = 0
+    self:addKills(0)
     Map:start()
     self.player:insert()
     self.arm:insert()
@@ -39,4 +41,9 @@ end
 
 function Game.onStateUpdate:inGame(dt)
     Map:update(dt)
+end
+
+function Game:addKills(v)
+    self.kills = self.kills + v
+    gengine.gui.executeScript("updateKills(" .. self.kills .. ")")
 end

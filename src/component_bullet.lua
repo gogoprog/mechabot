@@ -37,6 +37,8 @@ function ComponentBullet:update(dt)
             e:insert()
             e.position = v.position
 
+            Game:addKills(1)
+
             v:remove()
             return
         end

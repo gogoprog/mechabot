@@ -15,6 +15,11 @@ function updateLife(v)
     $( "#lifeBar" ).progressbar( "value", v );
 }
 
+function updateKills(v)
+{
+    $("#kills").html(v);
+}
+
 $(function() {
     $( "#lifeBar" ).progressbar({
         value: 1,

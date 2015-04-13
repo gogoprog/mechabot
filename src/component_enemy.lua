@@ -42,6 +42,8 @@ function ComponentEnemy:update(dt)
         e.position:set(p)
 
         self.entity:remove()
+
+        Game:addKills(1)
     end
 end
 
