@@ -315,7 +315,7 @@ function Factory:createBullet(velocity, weapon)
     e.bullet.damage = weapon.damage
 
     e.sprite.texture = gengine.graphics.texture.get(weapon.texture)
-    e.sprite.extent = weapon.extent 
+    e.sprite.extent = weapon.extent
 
     return e
 end
@@ -401,6 +401,8 @@ function Factory:createBlood()
             }
             )
     end
+
+    e.particles:reset()
 
     return e
 end
