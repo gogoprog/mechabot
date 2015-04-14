@@ -68,7 +68,7 @@
 }
 
 #hud span {
-    font-size:30px;
+    font-size:25px;
     width:96px;
     display:inline-block;
 }
@@ -76,5 +76,11 @@
 #hud #lifeBar {
     display:inline-block;
     width:256px;
-    height:32px;
+    height:28px;
+}
+
+#hud #generatorBar {
+    display:inline-block;
+    width:256px;
+    height:28px;
 }

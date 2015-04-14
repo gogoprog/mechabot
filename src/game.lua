@@ -21,6 +21,7 @@ end
 
 function Game:start()
     self.player.player:initWeapon("plasma", 1)
+    self.player.player:initGenerator()
     self.kills = 0
     self:addKills(0)
     Map:start()
@@ -36,9 +37,6 @@ function Game:update(dt)
 end
 
 function Game.onStateUpdate:idle(dt)
-    if gengine.input.mouse:isJustUp(1) then
-        self:start();
-    end
 end
 
 function Game.onStateUpdate:inGame(dt)

@@ -4,13 +4,31 @@ local weapons = dofile("weapons.lua")
 
 function ComponentPlayer:init()
     self.life = 1000
+
+    self.lastGenUpdate = 0
 end
 
 function ComponentPlayer:insert()
 end
 
 function ComponentPlayer:update(dt)
+    local g = self.generator
 
+    g.currentValue = g.currentValue + g.powerPerSecond * dt
+
+    if g.currentValue > g.capacity then
+        g.currentValue = g.capacity
+    end
+
+    self.lastGenUpdate = self.lastGenUpdate + dt
+
+    if self.lastGenUpdate > 0.25 then
+        local v = g.currentValue / g.capacity
+
+        gengine.gui.executeScript("updateGenerator(" .. v .. ")")
+
+        self.lastGenUpdate = 0
+    end
 end
 
 function ComponentPlayer:remove()
@@ -36,4 +54,13 @@ function ComponentPlayer:initWeapon(name, level)
     for k, v in pairs(def) do
         w[k] = v(level)
     end
+end
+
+function ComponentPlayer:initGenerator()
+    self.generator = {
+        capacity = 1000,
+        powerPerSecond = 10
+    }
+
+    self.generator.currentValue = self.generator.capacity
 end

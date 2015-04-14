@@ -39,24 +39,27 @@ function ComponentArm:update(dt)
 
     if gengine.input.mouse:isDown(1) then
         if self.timeSinceLastBullet > self.weapon.interval then
-            local direction = gengine.math.getRotated(vector2(1,0), self.currentAngle)
+            if Game.player.player.generator.currentValue >= self.weapon.powerCost then
+                local direction = gengine.math.getRotated(vector2(1,0), self.currentAngle)
 
-            direction = gengine.math.getNormalized(direction)
+                direction = gengine.math.getNormalized(direction)
 
-            local e = Factory:createBullet(direction * self.weapon.bulletSpeed, self.weapon)
+                local e = Factory:createBullet(direction * self.weapon.bulletSpeed, self.weapon)
 
-            local bulletOffset = gengine.math.getRotated(vector2(0, bullet_offset_y), angle)
+                local bulletOffset = gengine.math.getRotated(vector2(0, bullet_offset_y), angle)
 
-            e.position = self_position + direction * bullet_offset_x + bulletOffset
-            e:insert()
+                e.position = self_position + direction * bullet_offset_x + bulletOffset
+                e:insert()
 
-            self.timeSinceLastBullet = 0
+                self.timeSinceLastBullet = 0
 
-            self.entity.sprite:removeAnimations()
-            self.entity.sprite:pushAnimation(Factory.armIdleAnimation)
-            self.entity.sprite:pushAnimation(Factory.armFireAnimation)
+                self.entity.sprite:removeAnimations()
+                self.entity.sprite:pushAnimation(Factory.armIdleAnimation)
+                self.entity.sprite:pushAnimation(Factory.armFireAnimation)
 
-            gengine.audio.playSound(self.shootSound, 0.6)
+                gengine.audio.playSound(self.shootSound, 0.6)
+                Game.player.player.generator.currentValue = Game.player.player.generator.currentValue - self.weapon.powerCost
+            end
         end
     end
 end
