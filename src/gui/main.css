@@ -76,11 +76,13 @@
 #hud #lifeBar {
     display:inline-block;
     width:256px;
-    height:28px;
+    height:24px;
+    vertical-align: bottom;
 }
 
 #hud #generatorBar {
     display:inline-block;
     width:256px;
-    height:28px;
+    height:24px;
+    vertical-align: bottom;
 }

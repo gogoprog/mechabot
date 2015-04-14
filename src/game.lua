@@ -21,7 +21,7 @@ end
 
 function Game:start()
     self.player.player:initWeapon("plasma", 1)
-    self.player.player:initGenerator()
+    self.player.player:initGenerator("small")
     self.kills = 0
     self:addKills(0)
     Map:start()
