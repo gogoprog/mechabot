@@ -7,9 +7,10 @@ var fader;
 var nextPageName;
 var faderOpacity = 0;
 
-function showPage(name, duration)
+function showPage(name, duration, lua)
 {
     nextPageName = name;
+    gengine_execute("Game.interState = function() " + ((typeof lua == "undefined") ? "" : lua) + "end");
     fader.show();
     fader.fadeTo(duration, 1, function() {
         for(var k in pages)
@@ -49,8 +50,7 @@ function updateKills(v)
 
 function startGame()
 {
-    gengine_execute("Game.interState = function() Game:start() end");
-    showPage('hud', 700);
+    showPage('hud', 700, "Game:start()");
 }
 
 $(function() {
