@@ -25,13 +25,13 @@ function Map:init()
     self.cameraEntity.position.y = 256
     self.cameraEntity:insert()
 
-    self:loadFile("data/map00.lua")
-
     Game.player.position.x = self.x - 256
     Game.player.position.y = 120
 end
 
 function Map:start()
+    self:loadFile("data/map01.lua")
+
     for k, v in ipairs(self.parallaxes) do
         v:insert()
     end

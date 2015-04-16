@@ -27,19 +27,21 @@ function ComponentBullet:update(dt)
         end
     end
 
-    for k, v in ipairs(Game.enemies) do
-        local p = v.position
+    local e = self.entity
+    local enemies = Game.enemies
+    for k = #enemies, 1, -1 do
+        local p = enemies[k].position
         if gengine.math.doesCircleIntersectRectangle(self_position, bulletRadius, p, boxExtent) then
 
             self.entity:remove()
 
             local e = Factory:createBlood()
             e:insert()
-            e.position = v.position
+            e.position:set(enemies[k].position)
 
             Game:addKills(1)
 
-            v:remove()
+            enemies[k]:remove()
             return
         end
     end

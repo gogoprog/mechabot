@@ -50,9 +50,10 @@ function ComponentEnemy:remove()
     gengine.audio.playSound(Factory.hitSound, 0.6)
 
     local e = self.entity
-    for k, v in ipairs(Game.enemies) do
-        if v == e then
-            table.remove(Game.enemies, k)
+    local enemies = Game.enemies
+    for k = #enemies, 1, -1 do
+        if enemies[k] == e then
+            table.remove(enemies, k)
             return
         end
     end
