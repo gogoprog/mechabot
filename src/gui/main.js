@@ -7,11 +7,11 @@ var fader;
 var nextPageName;
 var faderOpacity = 0;
 
-function showPage(name)
+function showPage(name, duration)
 {
     nextPageName = name;
     fader.show();
-    fader.fadeTo(200, 1, function() {
+    fader.fadeTo(duration, 1, function() {
         for(var k in pages)
         {
             if(k==nextPageName)
@@ -24,7 +24,9 @@ function showPage(name)
             }
         }
 
-        fader.fadeTo(200, 0, function() {
+        gengine_execute("Game:interState()")
+
+        fader.fadeTo(duration, 0, function() {
             fader.hide();
         });
     });
@@ -47,7 +49,8 @@ function updateKills(v)
 
 function startGame()
 {
-    gengine_execute("Game:start()");
+    gengine_execute("Game.interState = function() Game:start() end");
+    showPage('hud', 700);
 }
 
 $(function() {
@@ -69,5 +72,5 @@ $(function() {
         max: 1
     });
 
-    showPage('menu');
+    showPage('menu', 0);
 });

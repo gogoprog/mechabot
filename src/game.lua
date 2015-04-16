@@ -28,7 +28,6 @@ function Game:start()
     self.player:insert()
     self.arm:insert()
     self.arm.arm.weapon = self.player.player.weapon
-    gengine.gui.executeScript("showPage('hud');")
     self:changeState("inGame");
 end
 
@@ -46,4 +45,8 @@ end
 function Game:addKills(v)
     self.kills = self.kills + v
     gengine.gui.executeScript("updateKills(" .. self.kills .. ");")
+end
+
+function Game:interState()
+
 end
