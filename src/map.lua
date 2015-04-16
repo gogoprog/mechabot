@@ -22,19 +22,38 @@ function Map:init()
     table.insert(self.parallaxes, p)
 
     self.cameraEntity = Factory:createCamera()
-    self.cameraEntity.position.y = 256
     self.cameraEntity:insert()
-
-    Game.player.position.x = self.x - 256
-    Game.player.position.y = 120
 end
 
-function Map:start()
-    self:loadFile("data/map01.lua")
+function Map:start(map)
+    self:loadFile("data/" .. map .. ".lua")
 
     for k, v in ipairs(self.parallaxes) do
         v:insert()
     end
+
+    self.x = 0
+    self.cameraEntity.position:set(0, 256)
+    Game.player.position:set(self.x - 256, 120)
+end
+
+function Map:stop()
+    for k, v in ipairs(self.parallaxes) do
+        v:remove()
+    end
+
+    for k, v in ipairs(self.boxes) do
+        v:remove()
+        gengine.entity.destroy(v)
+    end
+
+    self.boxes = {}
+
+    for k, v in ipairs(self.futureBoxes) do
+        gengine.entity.destroy(v)
+    end
+
+    self.futureBoxes = {}
 end
 
 function Map:update(dt)
@@ -122,7 +141,6 @@ function Map:loadFile(filename)
             table.insert(indexToTileSet, k)
         end
     end
-
 
     for k, v in ipairs(data) do
         if v ~= 0 then

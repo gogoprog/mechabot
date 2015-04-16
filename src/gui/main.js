@@ -1,6 +1,7 @@
 var pages = {
     menu: {},
-    hud: {}
+    hud: {},
+    mapSelect: {}
 }
 
 var fader;
@@ -48,9 +49,9 @@ function updateKills(v)
     $("#kills").html(v);
 }
 
-function startGame()
+function startGame(n)
 {
-    showPage('hud', 700, "Game:start()");
+    showPage('hud', 700, "Game:start('map0" + n + "')");
 }
 
 $(function() {
