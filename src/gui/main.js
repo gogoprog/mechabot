@@ -1,13 +1,33 @@
-function switchToHud()
-{
-    document.getElementById("menu").style.display = "none";
-    document.getElementById("hud").style.display = "block";
+var pages = {
+    menu: {},
+    hud: {}
 }
 
-function switchToMenu()
+var fader;
+var nextPageName;
+var faderOpacity = 0;
+
+function showPage(name)
 {
-    document.getElementById("hud").style.display = "none";
-    document.getElementById("menu").style.display = "block";
+    nextPageName = name;
+    fader.show();
+    fader.fadeTo(200, 1, function() {
+        for(var k in pages)
+        {
+            if(k==nextPageName)
+            {
+                pages[k].element.show();
+            }
+            else
+            {
+                pages[k].element.hide();
+            }
+        }
+
+        fader.fadeTo(200, 0, function() {
+            fader.hide();
+        });
+    });
 }
 
 function updateLife(v)
@@ -31,6 +51,15 @@ function startGame()
 }
 
 $(function() {
+    for(var k in pages)
+    {
+        pages[k].element = $('#' + k);
+        pages[k].element.hide();
+    }
+
+    fader = $('#fader');
+    fader.hide();
+
     $( "#lifeBar" ).progressbar({
         value: 1,
         max: 1
@@ -39,5 +68,6 @@ $(function() {
         value: 1,
         max: 1
     });
-    switchToMenu();
+
+    showPage('menu');
 });

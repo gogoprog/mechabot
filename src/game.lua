@@ -28,7 +28,7 @@ function Game:start()
     self.player:insert()
     self.arm:insert()
     self.arm.arm.weapon = self.player.player.weapon
-    gengine.gui.executeScript("switchToHud();")
+    gengine.gui.executeScript("showPage('hud');")
     self:changeState("inGame");
 end
 
