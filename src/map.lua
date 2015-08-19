@@ -12,10 +12,13 @@ local boxExtent = {x=32, y=32}
 function Map:init()
     local p
 
-    p = Factory:createParallax(64+32, -32, 10 / 960, "ground", 10, 1)
+    p = Factory:createParallax(128, 48, 1/4096, "ground", 960/4096, 1)
     table.insert(self.parallaxes, p)
 
-    p = Factory:createParallax(500, 220, 0.0002, "mountains")
+    p = Factory:createParallax(512, 220, 0.0001, "hills_1",960/4096)
+    table.insert(self.parallaxes, p)
+
+    p = Factory:createParallax(512, 220, 0.00005, "hills_2",960/4096)
     table.insert(self.parallaxes, p)
 
     p = Factory:createParallax(nil, 240, 0, "stars")

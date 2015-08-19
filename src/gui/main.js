@@ -51,7 +51,7 @@ function updateKills(v)
 
 function startGame(n)
 {
-    showPage('hud', 700, "Game:start('map0" + n + "')");
+    showPage('hud', 300, "Game:start('map0" + n + "')");
 }
 
 $(function() {
