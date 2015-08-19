@@ -1,6 +1,7 @@
 ComponentBox = {}
 
 function ComponentBox:init()
+    self.life = self.life or 10
 end
 
 function ComponentBox:insert()

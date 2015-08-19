@@ -12,7 +12,7 @@ local boxExtent = {x=32, y=32}
 function Map:init()
     local p
 
-    p = Factory:createParallax(64, -32, 10 / 800, "ground", 10, 1)
+    p = Factory:createParallax(64+32, -32, 10 / 960, "ground", 10, 1)
     table.insert(self.parallaxes, p)
 
     p = Factory:createParallax(500, 220, 0.0002, "mountains")
@@ -121,41 +121,5 @@ function Map:removeBox(k, v)
 end
 
 function Map:loadFile(filename)
-    local map = dofile(filename)
-    local w = map.width
-    local h = map.height
-    local data = map.layers[1].data
-    local tilesets = map.tilesets
-
-    local indexToTileSet = {}
-
-    for k, v in ipairs(tilesets) do
-        local count
-        if #v.tiles == 0 then
-            count = (v.imagewidth / v.tilewidth) * (v.imageheight / v.tileheight)
-        else
-            count = #v.tiles
-        end
-
-        for i=1,count do
-            table.insert(indexToTileSet, k)
-        end
-    end
-
-    for k, v in ipairs(data) do
-        if v ~= 0 then
-            local x = k % w
-            local y = h - math.floor(k/w)
-            local b
-
-            local ts = tilesets[indexToTileSet[v]]
-            local ts_index = v - ts.firstgid + 1
-
-            b = Factory:createBox(x, y, indexToTileSet[v], ts_index, ts.tiles[ts_index] and ts.tiles[ts_index].image or nil)
-
-            --if b then
-                table.insert(self.futureBoxes, b)
-            --end
-        end
-    end
+    self.futureBoxes = gengine.tiled.createEntities(filename)
 end

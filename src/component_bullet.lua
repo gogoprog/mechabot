@@ -20,7 +20,7 @@ function ComponentBullet:update(dt)
 
     for k, v in ipairs(Map.boxes) do
         local p = v.position
-        if gengine.math.doesCircleIntersectRectangle(self_position, bulletRadius, p, v.box.definition.extent) then
+        if gengine.math.doesCircleIntersectRectangle(self_position, bulletRadius, p, v.sprite.extent) then
             self.entity:remove()
             v.box:hit(self.damage, k)
             return
@@ -49,4 +49,3 @@ end
 
 function ComponentBullet:remove()
 end
-

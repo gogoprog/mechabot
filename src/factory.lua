@@ -111,7 +111,7 @@ function Factory:createCamera()
     e:addComponent(
         ComponentCamera(),
         {
-            extent = vector2(800, 600)
+            extent = vector2(960, 540)
         },
         "camera"
         )
@@ -140,7 +140,7 @@ function Factory:createParallax(h, y, speed, texture, uscale, vscale)
         )
 
     if h then
-        e.sprite.extent = vector2(800, h)
+        e.sprite.extent = vector2(960, h)
     end
 
     e:addComponent(
@@ -153,80 +153,6 @@ function Factory:createParallax(h, y, speed, texture, uscale, vscale)
     e.position.y = y
 
     return e
-end
-
-function Factory:createBox(i, j, tsId, id, defaultTexture)
-    if self.boxDefinitions[tsId] then
-        local def = self.boxDefinitions[tsId][id]
-
-        if def then
-            local e = gengine.entity.create()
-
-            if def.textures then
-                e:addComponent(
-                    ComponentSprite(),
-                    {
-                        texture = gengine.graphics.texture.get(def.textures[1]),
-                        layer = 0,
-                    },
-                    "sprite"
-                    )
-            elseif def.atlas then
-                e:addComponent(
-                    ComponentSprite(),
-                    {
-                        atlas = gengine.graphics.atlas.get(def.atlas),
-                        atlasItem = def.atlasItems[1],
-                        layer = 0,
-                    },
-                    "sprite"
-                    )
-            elseif defaultTexture then
-                defaultTexture = string.gsub(defaultTexture, ".png", "")
-                e:addComponent(
-                    ComponentSprite(),
-                    {
-                        texture = gengine.graphics.texture.get(defaultTexture),
-                        layer = 0,
-                    },
-                    "sprite"
-                    )
-            end
-
-            if not def.extent then
-                def.extent = e.sprite.extent
-            end
-
-            e:addComponent(
-                ComponentBox(),
-                {
-                    definition = def,
-                    life = def.life
-                },
-                "box"
-                )
-
-            e:addComponent(
-                ComponentBlink(),
-                {
-                },
-                "blink"
-                )
-
-            if def.spawner then
-                e:addComponent(
-                    ComponentSpawner(),
-                    {
-                    },
-                    "spawner"
-                    )
-            end
-
-            e.box:setPosition(i , j)
-
-            return e
-        end
-    end
 end
 
 function Factory:createPlayer()
@@ -358,7 +284,7 @@ function Factory:createBoxExplosion(box_definition)
             )
     end
 
-    e.particles.texture = gengine.graphics.texture.get(box_definition.debris or "box")
+    e.particles.texture = gengine.graphics.texture.get("box")
 
     return e
 end
