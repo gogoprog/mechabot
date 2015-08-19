@@ -50,6 +50,9 @@ return {
         },
         {
           id = 3,
+          properties = {
+            ["component"] = "Spawner"
+          },
           image = "tent.png",
           width = 98,
           height = 49
