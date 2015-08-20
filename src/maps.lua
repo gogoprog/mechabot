@@ -1,0 +1,32 @@
+return {
+    {
+        filename = "data/map00.lua",
+        parallaxes = {
+            {
+                y = 48,
+                speed = 1/4096,
+                texture = "ground"
+            },
+            {
+                y = 220,
+                speed =  0.0001,
+                texture = "hills_1"
+            },
+            {
+                y = 220,
+                speed = 0.00005,
+                texture = "hills_2"
+            },
+            {
+                y = 220,
+                speed = 0.00002,
+                texture = "buildings"
+            },
+            {
+                y = 270,
+                speed = 0,
+                texture = "sky_colours"
+            }
+        }
+    }
+}

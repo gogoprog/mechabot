@@ -124,22 +124,18 @@ function Factory:createCamera()
     return e
 end
 
-function Factory:createParallax(h, y, speed, texture, uscale, vscale)
+function Factory:createParallax(y, speed, texture)
     local e = gengine.entity.create()
 
     e:addComponent(
         ComponentSprite(),
         {
             texture = gengine.graphics.texture.get(texture),
-            layer = - 1000 / speed,
-            uvScale = vector2(uscale or 1, vscale or 1)
+            layer = - 1000 / speed
         },
         "sprite"
         )
 
-    if h then
-        e.sprite.extent = vector2(960, h)
-    end
 
     e:addComponent(
         ComponentParallax(),

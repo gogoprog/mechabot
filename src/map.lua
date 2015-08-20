@@ -10,32 +10,20 @@ local playerExtent = {x=128, y=256}
 local boxExtent = {x=32, y=32}
 
 function Map:init()
-    local p
-
-    p = Factory:createParallax(128, 48, 1/4096, "ground", 960/4096, 1)
-    table.insert(self.parallaxes, p)
-
-    p = Factory:createParallax(512, 220, 0.0001, "hills_1", 960/4096)
-    table.insert(self.parallaxes, p)
-
-    p = Factory:createParallax(512, 220, 0.00005, "hills_2", 960/4096)
-    table.insert(self.parallaxes, p)
-
-    p = Factory:createParallax(512, 220, 0.00002, "buildings", 960/4096)
-    table.insert(self.parallaxes, p)
-
-    p = Factory:createParallax(512, 270, 0, "sky_colours", 960/4096 * 2)
-    table.insert(self.parallaxes, p)
-
     self.cameraEntity = Factory:createCamera()
     self.cameraEntity:insert()
+    self.definitions = dofile("maps.lua")
 end
 
-function Map:start(map)
-    self:loadFile("data/" .. map .. ".lua")
+function Map:start(index)
+    local map = self.definitions[index]
 
-    for k, v in ipairs(self.parallaxes) do
-        v:insert()
+    self:loadFile(map.filename)
+
+    for k, v in ipairs(map.parallaxes) do
+        local p = Factory:createParallax(v.y, v.speed, v.texture)
+        table.insert(self.parallaxes, p)
+        p:insert()
     end
 
     self.x = 0
@@ -60,6 +48,7 @@ function Map:stop()
     end
 
     self.futureBoxes = {}
+    self.parallaxes = {}
 end
 
 function Map:update(dt)
