@@ -1,7 +1,7 @@
 ComponentArm = {}
 
-local offset_x = - 50
-local offset_y = 62
+local offset_x = -10
+local offset_y = 220
 local bullet_offset_x = 90
 local bullet_offset_y = -60
 
@@ -66,4 +66,3 @@ end
 
 function ComponentArm:remove()
 end
-

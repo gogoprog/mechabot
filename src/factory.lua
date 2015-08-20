@@ -31,30 +31,6 @@ end
 function Factory:init()
     local atlas
 
-    gengine.graphics.atlas.create(
-        "crates",
-        gengine.graphics.texture.get("crates"),
-        5,
-        2
-        )
-
-    atlas = gengine.graphics.atlas.create(
-        "mechaMove",
-        gengine.graphics.texture.get("mecha_move"),
-        14,
-        1
-        )
-
-    self.mechaMoveAnimation = gengine.graphics.animation.create(
-        "mechaMove",
-        {
-            atlas = atlas,
-            frames = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 },
-            framerate = 16,
-            loop = true
-        }
-        )
-
     atlas = gengine.graphics.atlas.create(
         "armFire",
         gengine.graphics.texture.get("arm"),
@@ -101,6 +77,8 @@ function Factory:init()
 
     self.explosionSound = gengine.audio.sound.create("data/explosion.wav")
     self.hitSound = gengine.audio.sound.create("data/hit.wav")
+
+    gengine.graphics.spriter.loadFile("data/mecha.scon")
 end
 
 function Factory:createCamera()
@@ -153,10 +131,9 @@ function Factory:createPlayer()
     local e = gengine.entity.create()
 
     e:addComponent(
-        ComponentAnimatedSprite(),
+        ComponentSpriter(),
         {
-            animation = self.mechaMoveAnimation,
-            extent = vector2(200, 300),
+            animation = gengine.graphics.spriter.get("entity_000-mecha_walk"),
             layer = 0
         },
         "sprite"

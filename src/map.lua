@@ -28,7 +28,7 @@ function Map:start(index)
 
     self.x = 0
     self.cameraEntity.position:set(0, 256)
-    Game.player.position:set(self.x - 256, 120)
+    Game.player.position:set(self.x - 300, 0)
 end
 
 function Map:stop()
@@ -60,7 +60,7 @@ function Map:update(dt)
             v.position.x = self.x
         end
 
-        Game.player.position.x = self.x - 256
+        Game.player.position.x = self.x - 300
     end
 
     self:handleFutureBoxes()
