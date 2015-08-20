@@ -109,7 +109,7 @@ function Factory:createParallax(y, speed, texture)
         ComponentSprite(),
         {
             texture = gengine.graphics.texture.get(texture),
-            layer = - 1000 / speed
+            layer = (speed == 0) and -100000000 or ( -1000 / speed)
         },
         "sprite"
         )

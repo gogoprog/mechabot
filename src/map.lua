@@ -6,7 +6,7 @@ Map = Map or {
     x = 0
 }
 
-local playerExtent = {x=128, y=256}
+local playerExtent = {x=128, y=512}
 local boxExtent = {x=32, y=32}
 
 function Map:init()
