@@ -34,7 +34,7 @@ function Factory:init()
     atlas = gengine.graphics.atlas.create(
         "armFire",
         gengine.graphics.texture.get("arm"),
-        4,
+        3,
         1
         )
 
@@ -42,7 +42,7 @@ function Factory:init()
         "armFire",
         {
             atlas = atlas,
-            frames = { 0, 1, 2, 3 },
+            frames = { 0, 1, 2 },
             framerate = 16,
             loop = false
         }
@@ -163,7 +163,7 @@ function Factory:createArm()
         ComponentAnimatedSprite(),
         {
             animation = self.armIdleAnimation,
-            extent = vector2(256, 200),
+            extent = vector2(317, 232),
             layer = 1
         },
         "sprite"

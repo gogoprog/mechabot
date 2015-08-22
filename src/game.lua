@@ -42,7 +42,7 @@ function Game:stop()
     self.arm:remove()
     Map:stop()
     self:changeState("idle")
-    gengine.gui.executeScript("showPage('menu', 700)")
+    gengine.gui.executeScript("showPage('menu', 300)")
 end
 
 function Game:update(dt)
