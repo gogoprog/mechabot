@@ -62,6 +62,8 @@ function Game.onStateEnter:inGameIntro()
     e.position = self.player.position
     e:insert()
     self.redLight = e
+
+    self.player.sprite.timeFactor = 100
 end
 
 function Game.onStateUpdate:inGameIntro(dt)
@@ -70,17 +72,20 @@ function Game.onStateUpdate:inGameIntro(dt)
     self.arm.sprite.alpha = alpha
     self.timeLeft = self.timeLeft - dt
 
+    local y = 0 + (self.timeLeft / self.introDuration) * 500
+    self.player.position.y = y
+
     if self.timeLeft < 0 then
-        self.player.sprite.alpha = 1
-        self.arm.sprite.alpha = 1
         self:changeState("inGame")
-        self.redLight:remove()
-        gengine.entity.destroy(self.redLight)
     end
 end
 
 function Game.onStateExit:inGameIntro()
-
+    self.player.sprite.timeFactor = 1
+    self.player.sprite.alpha = 1
+    self.arm.sprite.alpha = 1
+    self.redLight:remove()
+    gengine.entity.destroy(self.redLight)
 end
 
 function Game.onStateEnter:inGame()

@@ -18,6 +18,7 @@ end
 function ComponentArm:update(dt)
     local self_position = self.entity.position
     self_position.x = Game.player.position.x + offset_x
+    self_position.y = Game.player.position.y + offset_y
 
     local mouse_position = gengine.input.mouse:getPosition()
     local world_position = Map.cameraEntity.camera:getWorldPosition(mouse_position)
