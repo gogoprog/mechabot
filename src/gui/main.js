@@ -54,6 +54,12 @@ function startGame(n)
     showPage('hud', 300, "Game:start(" + n + ")");
 }
 
+function addMap(index, title)
+{
+    var content = '<li><span class="button" onclick="startGame(' + index + ');">' + title + '</span></li>';
+    $("#maps").append(content);
+}
+
 $(function() {
     for(var k in pages)
     {
@@ -74,4 +80,5 @@ $(function() {
     });
 
     showPage('menu', 0);
+    gengine_execute("Game:onGuiLoaded()");
 });

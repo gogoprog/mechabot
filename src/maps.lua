@@ -1,5 +1,6 @@
 return {
     {
+        title = "The Arrival",
         filename = "data/map00.lua",
         parallaxes = {
             {
