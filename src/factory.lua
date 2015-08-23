@@ -79,6 +79,7 @@ function Factory:init()
     self.hitSound = gengine.audio.sound.create("data/hit.wav")
 
     gengine.graphics.spriter.loadFile("data/mecha.scon")
+    gengine.graphics.spriter.loadFile("data/light_start.scon")
 end
 
 function Factory:createCamera()
@@ -333,6 +334,23 @@ function Factory:createEnemy()
             }
             )
     end
+
+    return e
+end
+
+function Factory:createRedLight()
+    local e = gengine.entity.create()
+
+    e:addComponent(
+        ComponentSpriter(),
+        {
+            animation = gengine.graphics.spriter.get("entity_000-iddle"),
+            layer = 10
+        },
+        "sprite"
+        )
+
+    e.sprite:pushAnimation(gengine.graphics.spriter.get("entity_000-start"))
 
     return e
 end

@@ -28,7 +28,7 @@ function Game:start(map)
     self.player:insert()
     self.arm:insert()
     self.arm.arm.weapon = self.player.player.weapon
-    self:changeState("inGame")
+    self:changeState("inGameIntro")
 end
 
 function Game:stop()
@@ -53,6 +53,34 @@ function Game.onStateUpdate:idle(dt)
     if gengine.input.keyboard:isJustUp(41) then
         gengine.application.quit()
     end
+end
+
+function Game.onStateEnter:inGameIntro()
+    self.introDuration = 1
+    self.timeLeft = self.introDuration
+    local e = Factory:createRedLight()
+    e.position = self.player.position
+    e:insert()
+    self.redLight = e
+end
+
+function Game.onStateUpdate:inGameIntro(dt)
+    local alpha = 1 - (self.timeLeft / self.introDuration)
+    self.player.sprite.alpha = alpha
+    self.arm.sprite.alpha = alpha
+    self.timeLeft = self.timeLeft - dt
+
+    if self.timeLeft < 0 then
+        self.player.sprite.alpha = 1
+        self.arm.sprite.alpha = 1
+        self:changeState("inGame")
+        self.redLight:remove()
+        gengine.entity.destroy(self.redLight)
+    end
+end
+
+function Game.onStateExit:inGameIntro()
+
 end
 
 function Game.onStateEnter:inGame()
