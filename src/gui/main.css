@@ -2,21 +2,30 @@
     font-family: "MikodacsPCS";
     src: url("/gui/MikodacsPCS.otf");
 }
+body{
+    padding:0;
+    margin:0;
+}
 #body {
     font-family: "MikodacsPCS";
-    color:white;
+    color:black;
     font-size:50px;
     text-align: center;
+    paddgin:0;
+    margin:0;
+    width:960px;
+    height:540px;
 }
-#title {
+
+.title {
     font-size:100px;
-    display: inline-block;
+    display: block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 10px;
     border: none;
-    color: rgba(255,255,255,1);
+    color: black;
     text-decoration: normal;
     text-align: center;
     -o-text-overflow: clip;
@@ -28,14 +37,26 @@
     -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
     transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
 }
-#menu {
 
-}
-#menu span {
-    color:black;
-}
-#menu span:hover {
-    color:blue;
+.subtitle {
+    font-size:50px;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 5px;
+    border: none;
+    color: black;
+    text-decoration: normal;
+    text-align: center;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    white-space: pre;
+    text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff0011 , 0 0 70px #ff0011 , 0 0 80px #ff0011 , 0 0 100px #ff0011 ;
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 .button {
@@ -45,7 +66,6 @@
     box-sizing: border-box;
     padding: 10px;
     border: none;
-    color: rgba(255,255,255,1);
     text-decoration: normal;
     text-align: center;
     -o-text-overflow: clip;
@@ -57,19 +77,21 @@
     -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
     transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
 }
-
 .button:hover {
     text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff0011 , 0 0 70px #ff0011 , 0 0 80px #ff0011 , 0 0 100px #ff0011 ;
+    color:cyan;
 }
 
 #hud {
     text-align:left;
+    color:black;
 }
 
 #hud span {
     font-size:25px;
     width:96px;
     display:inline-block;
+    text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ffffff , 0 0 70px #ffffff , 0 0 80px #ffffff , 0 0 100px #ffffff ;
 }
 
 #hud #lifeBar {
