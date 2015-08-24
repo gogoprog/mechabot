@@ -88,7 +88,7 @@ function Factory:createCamera()
     e:addComponent(
         ComponentCamera(),
         {
-            extent = vector2(960, 540)
+            extent = vector2(1920, 1080)
         },
         "camera"
         )
