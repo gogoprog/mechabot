@@ -166,7 +166,7 @@ function Factory:createArm()
         ComponentAnimatedSprite(),
         {
             animation = self.armIdleAnimation,
-            extent = vector2(317, 232),
+            extent = vector2(633, 463),
             layer = 1
         },
         "sprite"
@@ -178,8 +178,6 @@ function Factory:createArm()
         },
         "arm"
         )
-
-    e.scale:set(2, 2)
 
     return e
 end
