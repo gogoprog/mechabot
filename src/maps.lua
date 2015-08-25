@@ -9,12 +9,12 @@ return {
                 texture = "ground"
             },
             {
-                y = 440,
+                y = 220,
                 speed =  0.0001,
                 texture = "hills_1"
             },
             {
-                y = 440,
+                y = 220,
                 speed = 0.00005,
                 texture = "hills_2"
             },
