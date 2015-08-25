@@ -116,5 +116,5 @@ function Map:removeBox(k, v)
 end
 
 function Map:loadFile(filename)
-    self.futureBoxes = gengine.tiled.createEntities(filename)
+    self.futureBoxes = gengine.tiled.createEntities(filename,vector2(0,-32))
 end
