@@ -154,6 +154,8 @@ function Factory:createPlayer()
         "player"
         )
 
+    e.scale:set(2, 2)
+
     return e
 end
 
@@ -176,6 +178,8 @@ function Factory:createArm()
         },
         "arm"
         )
+
+    e.scale:set(2, 2)
 
     return e
 end

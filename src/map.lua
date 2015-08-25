@@ -6,7 +6,7 @@ Map = Map or {
     x = 0
 }
 
-local playerExtent = {x=256, y=1024}
+local playerExtent = {x=512, y=1024}
 local boxExtent = {x=32, y=32}
 
 function Map:init()
@@ -53,7 +53,7 @@ end
 
 function Map:update(dt)
     if not self:isPlayerBlocked(dt) then
-        self.x = self.x + dt * 100
+        self.x = self.x + dt * 150
         self.cameraEntity.position.x = self.x
 
         for k, v in ipairs(self.parallaxes) do

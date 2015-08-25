@@ -1,7 +1,7 @@
 return {
     plasma = {
         texture = function(level) return "particle" end,
-        extent = function(level) return vector2(32,32) end,
+        extent = function(level) return vector2(64,64) end,
         damage = function(level)
             return 10 * level
         end,
@@ -12,7 +12,7 @@ return {
             return 10
         end,
         bulletSpeed = function(level)
-            return 600
+            return 1200
         end
     }
 }

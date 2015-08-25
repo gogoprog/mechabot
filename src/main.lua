@@ -3,8 +3,7 @@ require 'game'
 function init()
     gengine.application.setName("Mechabot")
     gengine.application.setExtent(960, 540)
-    --gengine.application.setExtent(1920, 1080)
-    --gengine.application.setFullscreen(true)
+    gengine.application.setFullscreen(true)
 end
 
 function start()
@@ -19,5 +18,4 @@ function update(dt)
 end
 
 function stop()
-
 end
