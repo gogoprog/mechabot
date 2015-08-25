@@ -4,7 +4,7 @@ function init()
     gengine.application.setName("Mechabot")
     gengine.application.setExtent(960, 540)
     --gengine.application.setExtent(1920, 1080)
-    gengine.application.setFullscreen(false)
+    --gengine.application.setFullscreen(true)
 end
 
 function start()
