@@ -19,12 +19,12 @@ return {
                 texture = "hills_2"
             },
             {
-                y = 220,
+                y = 440,
                 speed = 0.00002,
                 texture = "buildings"
             },
             {
-                y = 270,
+                y = 540,
                 speed = 0,
                 texture = "sky_colours"
             }

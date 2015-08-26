@@ -1,9 +1,9 @@
 ComponentArm = {}
 
-local offset_x = -10
-local offset_y = 220
-local bullet_offset_x = 90
-local bullet_offset_y = -60
+local offset_x = -20
+local offset_y = 440
+local bullet_offset_x = 180
+local bullet_offset_y = -120
 
 function ComponentArm:init()
     self.timeSinceLastBullet = 0

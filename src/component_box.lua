@@ -12,8 +12,7 @@ function ComponentBox:update(dt)
 end
 
 function ComponentBox:remove()
-    Map.cameraEntity.shaker:shake(0.1)
-    gengine.audio.playSound(Factory.explosionSound, 0.6)
+
 end
 
 function ComponentBox:setPosition(i, j)
@@ -34,5 +33,8 @@ function ComponentBox:hit(dmg, boxIndex)
         e.position = self.entity.position
 
         Map:removeBox(boxIndex, self.entity)
+
+        Map.cameraEntity.shaker:shake(0.1)
+        gengine.audio.playSound(Factory.explosionSound, 0.6)
     end
 end

@@ -6,7 +6,7 @@ Map = Map or {
     x = 0
 }
 
-local playerExtent = {x=128, y=512}
+local playerExtent = {x=512, y=1024}
 local boxExtent = {x=32, y=32}
 
 function Map:init()
@@ -27,8 +27,8 @@ function Map:start(index)
     end
 
     self.x = 0
-    self.cameraEntity.position:set(0, 256)
-    Game.player.position:set(self.x - 300, 0)
+    self.cameraEntity.position:set(0, 512)
+    Game.player.position:set(self.x - 650, 0)
 end
 
 function Map:stop()
@@ -53,14 +53,14 @@ end
 
 function Map:update(dt)
     if not self:isPlayerBlocked(dt) then
-        self.x = self.x + dt * 100
+        self.x = self.x + dt * 150
         self.cameraEntity.position.x = self.x
 
         for k, v in ipairs(self.parallaxes) do
             v.position.x = self.x
         end
 
-        Game.player.position.x = self.x - 300
+        Game.player.position.x = self.x - 650
     end
 
     self:handleFutureBoxes()
@@ -83,7 +83,7 @@ end
 
 function Map:handleFutureBoxes()
     for k, v in ipairs(self.futureBoxes) do
-        if v.position.x < self.x + 600 then
+        if v.position.x < self.x + 1200 then
             self.futureBoxes[k] = self.futureBoxes[#self.futureBoxes]
             self.futureBoxes[#self.futureBoxes] = nil
 
@@ -96,7 +96,7 @@ end
 
 function Map:handleBoxes()
     for k, v in ipairs(self.boxes) do
-        if v.position.x < self.x - 600 then
+        if v.position.x < self.x - 1200 then
             self.boxes[k] = self.boxes[#self.boxes]
             self.boxes[#self.boxes] = nil
 
@@ -116,5 +116,5 @@ function Map:removeBox(k, v)
 end
 
 function Map:loadFile(filename)
-    self.futureBoxes = gengine.tiled.createEntities(filename)
+    self.futureBoxes = gengine.tiled.createEntities(filename,vector2(0,-32))
 end

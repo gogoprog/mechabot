@@ -88,7 +88,7 @@ function Factory:createCamera()
     e:addComponent(
         ComponentCamera(),
         {
-            extent = vector2(960, 540)
+            extent = vector2(1920, 1080)
         },
         "camera"
         )
@@ -154,6 +154,8 @@ function Factory:createPlayer()
         "player"
         )
 
+    e.scale:set(2, 2)
+
     return e
 end
 
@@ -164,7 +166,7 @@ function Factory:createArm()
         ComponentAnimatedSprite(),
         {
             animation = self.armIdleAnimation,
-            extent = vector2(317, 232),
+            extent = vector2(633, 463),
             layer = 1
         },
         "sprite"
