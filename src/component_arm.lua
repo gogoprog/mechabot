@@ -3,7 +3,7 @@ ComponentArm = {}
 local offset_x = -20
 local offset_y = 440
 local bullet_offset_x = 180
-local bullet_offset_y = -120
+local bullet_offset_y = -130
 
 function ComponentArm:init()
     self.timeSinceLastBullet = 0
@@ -28,7 +28,7 @@ function ComponentArm:update(dt)
     local length = gengine.math.getDistance(world_position, self_position)
 
     if length > 45 then
-        local angle2 = math.acos(45 / length)
+        local angle2 = math.acos(95 / length)
         local angle3 = angle2 - angle
         local final_angle = 3.1415/2 - angle3
 
