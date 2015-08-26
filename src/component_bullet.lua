@@ -1,8 +1,8 @@
 ComponentBullet = {}
 
-local bulletRadius = 10
-local boxExtent = {x=32, y=32}
-local enemyExtent = {x=32, y=32}
+local bulletRadius = 20
+local boxExtent = {x=64, y=64}
+local enemyExtent = {x=64, y=64}
 
 function ComponentBullet:init()
     self.damage = 50

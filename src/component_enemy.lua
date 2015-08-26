@@ -1,11 +1,11 @@
 ComponentEnemy = {}
 
-local boxExtent = {x=32, y=32}
-local enemyExtent = {x=32, y=32}
-local playerExtent = {x=128, y=256}
+local boxExtent = {x=64, y=64}
+local enemyExtent = {x=64, y=64}
+local playerExtent = {x=256, y=512}
 
 function ComponentEnemy:init()
-    self.speed = self.speed or 100
+    self.speed = self.speed or 150
     self.vy = 0
 end
 
@@ -41,14 +41,13 @@ function ComponentEnemy:update(dt)
         e.position:set(p)
 
         self.entity:remove()
+        gengine.audio.playSound(Factory.hitSound, 0.6)
 
         Game:addKills(1)
     end
 end
 
 function ComponentEnemy:remove()
-    gengine.audio.playSound(Factory.hitSound, 0.6)
-
     local e = self.entity
     local enemies = Game.enemies
     for k = #enemies, 1, -1 do

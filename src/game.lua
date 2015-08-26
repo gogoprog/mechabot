@@ -75,6 +75,8 @@ function Game.onStateUpdate:inGameIntro(dt)
     local y = 0 + (self.timeLeft / self.introDuration) * 500
     self.player.position.y = y
 
+    Map:handleFutureBoxes()
+
     if self.timeLeft < 0 then
         self:changeState("inGame")
     end

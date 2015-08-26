@@ -239,7 +239,8 @@ function Factory:createBoxExplosion(box_definition)
                 spinRange = {-10, 10},
                 linearAccelerationRange = {vector2(0,-1000), vector2(0,-1000)},
                 scales = {vector2(1, 1)},
-                colors = {vector4(0.8,0.8,0.9,1), vector4(0,0,0,0)}
+                colors = {vector4(0.8,0.8,0.9,1), vector4(0,0,0,0)},
+                layer = 100
             },
             "particles"
             )
@@ -317,7 +318,7 @@ function Factory:createEnemy()
             {
                 animation = self.enemyMoveAnimation,
                 extent = vector2(32, 32),
-                layer = 1
+                layer = 10
             },
             "sprite"
             )
@@ -335,6 +336,8 @@ function Factory:createEnemy()
                 pool = self.enemies
             }
             )
+
+        e.scale:set(2,2)
     end
 
     return e
