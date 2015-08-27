@@ -26,7 +26,7 @@ function ComponentArm:update(dt)
 
     local length = gengine.math.getDistance(world_position, self_position)
 
-    if length > 45 then
+    if length > 95 then
         local angle2 = math.acos(95 / length)
         local angle3 = angle2 - angle
         local final_angle = 3.1415/2 - angle3

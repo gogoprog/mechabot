@@ -6,7 +6,7 @@ Map = Map or {
     x = 0
 }
 
-local playerExtent = {x=512, y=1024}
+local playerExtent = {x=300, y=512}
 local boxExtent = {x=32, y=32}
 
 function Map:init()
@@ -63,6 +63,10 @@ function Map:update(dt)
         end
 
         Game.player.position.x = self.x - 650
+
+        Game.player.sprite.timeFactor = 1
+    else
+        Game.player.sprite.timeFactor = 0.1
     end
 
     self:handleFutureBoxes()
