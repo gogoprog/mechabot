@@ -13,6 +13,9 @@ return {
         end,
         bulletSpeed = function(level)
             return 1200
+        end,
+        sound = function(level)
+            return "shoot"
         end
     }
 }

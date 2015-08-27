@@ -28,6 +28,7 @@ return {
                 speed = 0,
                 texture = "sky_colours"
             }
-        }
+        },
+        music = "data/robot.mp3"
     }
 }

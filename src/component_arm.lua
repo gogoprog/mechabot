@@ -8,7 +8,6 @@ local bullet_offset_y = -130
 function ComponentArm:init()
     self.timeSinceLastBullet = 0
     self.currentAngle = 0
-    self.shootSound = gengine.audio.sound.create("data/shoot.wav")
 end
 
 function ComponentArm:insert()
@@ -58,7 +57,7 @@ function ComponentArm:update(dt)
                 self.entity.sprite:pushAnimation(Factory.armIdleAnimation)
                 self.entity.sprite:pushAnimation(Factory.armFireAnimation)
 
-                gengine.audio.playSound(self.shootSound, 0.3)
+                gengine.audio.playSound(self.bulletSound, 0.3)
                 Game.player.player.generator.currentValue = Game.player.player.generator.currentValue - self.weapon.powerCost
             end
         end

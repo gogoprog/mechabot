@@ -55,6 +55,8 @@ function ComponentPlayer:initWeapon(name, level)
     for k, v in pairs(def) do
         w[k] = v(level)
     end
+
+    Game.arm.arm.bulletSound = gengine.audio.sound.get(w.sound)
 end
 
 function ComponentPlayer:initGenerator(name)

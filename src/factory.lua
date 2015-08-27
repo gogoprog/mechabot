@@ -75,6 +75,9 @@ function Factory:init()
         }
         )
 
+    gengine.audio.sound.create("data/laser.mp3")
+    gengine.audio.sound.create("data/shoot.wav")
+
     self.explosionSound = gengine.audio.sound.create("data/explosion.wav")
     self.hitSound = gengine.audio.sound.create("data/hit.wav")
 
