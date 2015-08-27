@@ -39,6 +39,7 @@ function ComponentBullet:update(dt)
             e:insert()
             e.position:set(enemies[k].position)
 
+            gengine.audio.playSound(Factory.hitSound, 0.6)
             Game:addKills(1)
 
             enemies[k]:remove()

@@ -58,7 +58,7 @@ function ComponentArm:update(dt)
                 self.entity.sprite:pushAnimation(Factory.armIdleAnimation)
                 self.entity.sprite:pushAnimation(Factory.armFireAnimation)
 
-                gengine.audio.playSound(self.shootSound, 0.6)
+                gengine.audio.playSound(self.shootSound, 0.3)
                 Game.player.player.generator.currentValue = Game.player.player.generator.currentValue - self.weapon.powerCost
             end
         end
