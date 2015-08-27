@@ -90,6 +90,17 @@ $(function() {
         value: 1,
         max: 1
     });
+    $( "#shieldBar" ).progressbar({
+        value: 1,
+        max: 1
+    });
+
+    $("#lifeBar").css({ 'background': 'LightRed' });
+    $("#lifeBar > div").css({ 'background': 'Red' });
+    $("#generatorBar").css({ 'background': 'LightBlue' });
+    $("#generatorBar > div").css({ 'background': 'Blue' });
+    $("#shieldBar").css({ 'background': 'LightYellow' });
+    $("#shieldBar > div").css({ 'background': 'Yellow' });
 
     showPage(mainPages, 'menu', 0);
     showPage(menuPages, 'mainScreen', 0);

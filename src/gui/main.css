@@ -102,14 +102,10 @@ body{
     text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ffffff , 0 0 70px #ffffff , 0 0 80px #ffffff , 0 0 100px #ffffff ;
 }
 
-#hud #lifeBar {
-    display:inline-block;
-    width:256px;
-    height:24px;
-    vertical-align: bottom;
-}
-
-#hud #generatorBar {
+#generatorBar,
+#lifeBar,
+#shieldBar
+{
     display:inline-block;
     width:256px;
     height:24px;

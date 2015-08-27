@@ -1,6 +1,6 @@
 return {
     small = {
-        capacity = 100,
+        capacity = 1000,
         powerPerSecond = 10,
         price = 100
     },

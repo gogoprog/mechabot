@@ -30,7 +30,7 @@ function Map:start(index)
     self.cameraEntity.position:set(0, 512)
     Game.player.position:set(self.x - 650, 0)
 
-    gengine.audio.playMusic(map.music, 0.5, true)
+    gengine.audio.playMusic(map.music, 0.8, true)
 end
 
 function Map:stop()
