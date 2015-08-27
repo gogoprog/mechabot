@@ -1,28 +1,34 @@
-var pages = {
-    menu: {},
-    hud: {},
+var menuPages = {
+    mainScreen: {},
     mapSelect: {}
 }
 
+var mainPages = {
+    menu: {},
+    hud: {}
+}
+
 var fader;
-var nextPageName;
 var faderOpacity = 0;
 
-function showPage(name, duration, lua)
+function showPage(pages, name, duration, lua)
 {
-    nextPageName = name;
+    pages.nextPageName = name;
     gengine_execute("Game.interState = function() " + ((typeof lua == "undefined") ? "" : lua) + "end");
     fader.show();
     fader.fadeTo(duration, 1, function() {
         for(var k in pages)
         {
-            if(k==nextPageName)
+            if(k!="nextPageName")
             {
-                pages[k].element.show();
-            }
-            else
-            {
-                pages[k].element.hide();
+                if(k == pages.nextPageName)
+                {
+                    pages[k].element.show();
+                }
+                else
+                {
+                    pages[k].element.hide();
+                }
             }
         }
 
@@ -51,7 +57,7 @@ function updateKills(v)
 
 function startGame(n)
 {
-    showPage('hud', 300, "Game:start(" + n + ")");
+    showPage(mainPages, 'hud', 300, "Game:start(" + n + ")");
 }
 
 function addMap(index, title)
@@ -60,12 +66,18 @@ function addMap(index, title)
     $("#maps").append(content);
 }
 
-$(function() {
+function setupPages(pages)
+{
     for(var k in pages)
     {
         pages[k].element = $('#' + k);
         pages[k].element.hide();
     }
+}
+
+$(function() {
+    setupPages(mainPages);
+    setupPages(menuPages);
 
     fader = $('#fader');
     fader.hide();
@@ -79,6 +91,7 @@ $(function() {
         max: 1
     });
 
-    showPage('menu', 0);
+    showPage(mainPages, 'menu', 0);
+    showPage(menuPages, 'mainScreen', 0);
     gengine_execute("Game:onGuiLoaded()");
 });

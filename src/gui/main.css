@@ -5,8 +5,10 @@
 body{
     padding:0;
     margin:0;
+    height:100%;
 }
 #body {
+    position:absolute;
     font-family: "MikodacsPCS";
     color:black;
     font-size:50px;
@@ -16,6 +18,7 @@ body{
     margin-right:auto;
     width:100%;
     height:100%;
+
 }
 
 .title {
@@ -81,6 +84,10 @@ body{
 .button:hover {
     text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff0011 , 0 0 70px #ff0011 , 0 0 80px #ff0011 , 0 0 100px #ff0011 ;
     color:cyan;
+}
+#menu {
+    background-image: url("/gui/bg.jpg");
+    height:100%;
 }
 
 #hud {

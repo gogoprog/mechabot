@@ -15,11 +15,20 @@
 
 <div id="body">
   <div id="menu">
-     <span class="title">Mechabot</span>
+      <div id="mainScreen">
+         <span class="title">Mechabot</span>
 
-     <ul>
-        <li><span class="button" onclick="showPage('mapSelect', 300);">Play!</span></li>
-     </ul>
+         <ul>
+            <li><span class="button" onclick="showPage(menuPages, 'mapSelect', 300);">Play!</span></li>
+         </ul>
+     </div>
+     <div id="mapSelect">
+        <span class="title">Mechabot</span>
+        <span class="subtitle">Map selection</span>
+
+        <ul id="maps">
+        </ul>
+     </div>
   </div>
   <div id="hud">
     <span>Life : </span><div id="lifeBar"></div><br/>
@@ -27,13 +36,7 @@
     <span>Kills : </span><span id="kills"></span><br/>
   </div>
 
-  <div id="mapSelect">
-     <span class="title">Mechabot</span>
-     <span class="subtitle">Map selection</span>
 
-     <ul id="maps">
-     </ul>
-  </div>
 
   <div id="fader">
   </div>
