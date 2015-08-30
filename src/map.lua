@@ -3,7 +3,8 @@ Map = Map or {
     parallaxes = {},
     boxes = {},
     futureBoxes = {},
-    x = 0
+    x = 0,
+    stuckTime = 0
 }
 
 local playerExtent = {x=300, y=1024}
@@ -67,6 +68,11 @@ function Map:update(dt)
         Game.player.sprite.timeFactor = 1
     else
         Game.player.sprite.timeFactor = 0.1
+        self.stuckTime = self.stuckTime + dt
+        if self.stuckTime > 0.5 then
+            self.stuckTime = 0
+            Game.player.player:hit(10)
+        end
     end
 
     self:handleFutureBoxes()
