@@ -321,7 +321,8 @@ function Factory:createEnemy()
             {
                 animation = self.enemyMoveAnimation,
                 extent = vector2(32, 32),
-                layer = 10
+                layer = 10,
+                color = vector4(0.5,0.5,1,1)
             },
             "sprite"
             )

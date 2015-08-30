@@ -21,7 +21,7 @@ function ComponentEnemy:update(dt)
 
     local testPosition = p - vector2(0, 16)
 
-    if p.y > 16 then
+    if p.y > 32 then
 
         for k, v in ipairs(Map.boxes) do
             if gengine.math.doesCircleIntersectRectangle(testPosition, 1, v.position, boxExtent) then
