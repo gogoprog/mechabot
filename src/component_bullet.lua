@@ -1,7 +1,6 @@
 ComponentBullet = {}
 
 local bulletRadius = 20
-local boxExtent = {x=64, y=64}
 local enemyExtent = {x=64, y=64}
 
 function ComponentBullet:init()
@@ -18,32 +17,39 @@ function ComponentBullet:update(dt)
     self_position.x = self_position.x + dt * velocity.x
     self_position.y = self_position.y + dt * velocity.y
 
-    for k, v in ipairs(Map.boxes) do
-        local p = v.position
-        if gengine.math.doesCircleIntersectRectangle(self_position, bulletRadius, p, v.sprite.extent) then
-            self.entity:remove()
-            v.box:hit(self.damage, k)
-            return
+    if not self.itIsEnemy then
+        for k, v in ipairs(Map.boxes) do
+            local p = v.position
+            if gengine.math.doesCircleIntersectRectangle(self_position, self.radius, p, v.sprite.extent) then
+                self.entity:remove()
+                v.box:hit(self.damage, k)
+                return
+            end
         end
-    end
 
-    local e = self.entity
-    local enemies = Game.enemies
-    for k = #enemies, 1, -1 do
-        local p = enemies[k].position
-        if gengine.math.doesCircleIntersectRectangle(self_position, bulletRadius, p, boxExtent) then
+        local e = self.entity
+        local enemies = Game.enemies
+        for k = #enemies, 1, -1 do
+            local p = enemies[k].position
+            if gengine.math.doesCircleIntersectRectangle(self_position, self.radius, p, enemyExtent) then
 
+                self.entity:remove()
+
+                local e = Factory:createBlood()
+                e:insert()
+                e.position:set(enemies[k].position)
+
+                gengine.audio.playSound(Factory.hitSound, 0.6)
+                Game:addKills(1)
+
+                enemies[k]:remove()
+                return
+            end
+        end
+    else
+        local player = Game.player
+        if gengine.math.doesCircleIntersectRectangle(self_position, self.radius, player.position, player.player.extent) then
             self.entity:remove()
-
-            local e = Factory:createBlood()
-            e:insert()
-            e.position:set(enemies[k].position)
-
-            gengine.audio.playSound(Factory.hitSound, 0.6)
-            Game:addKills(1)
-
-            enemies[k]:remove()
-            return
         end
     end
 end

@@ -10,6 +10,8 @@ gengine.stateMachine(Game)
 function Game:init()
     Factory:init()
 
+    self.weapons = dofile("weapons.lua")
+
     self.player = Factory:createPlayer()
     self.arm = Factory:createArm()
 
@@ -118,4 +120,18 @@ function Game:onGuiLoaded()
     for k, v in ipairs(Map.definitions) do
         gengine.gui.executeScript("addMap(" .. k .. ",'" .. v.title .. "');")
     end
+end
+
+function Game:getWeapon(name, level)
+    local def = self.weapons[name]
+    local w = {}
+    for k, v in pairs(def) do
+        if type(v) == "function" then
+            w[k] = v(level)
+        else
+            w[k] = v
+        end
+    end
+
+    return w
 end

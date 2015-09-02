@@ -1,11 +1,10 @@
 ComponentPlayer = {}
 
-local weapons = dofile("weapons.lua")
 local generators = dofile("generators.lua")
 
 function ComponentPlayer:init()
     self.life = 1000
-
+    self.extent = vector2(300, 1024)
     self.lastGenUpdate = 0
 end
 
@@ -41,22 +40,16 @@ function ComponentPlayer:hit(dmg)
     self.entity.blink:blink()
 
     if self.life < 0 then
-        print("Game is lost. Humaniy has won.")
+        print("Game is lost. Humanity has won.")
     end
 
     gengine.gui.executeScript("updateLife(" .. self.life / 1000 .. ")")
 end
 
 function ComponentPlayer:initWeapon(name, level)
-    local def = weapons[name]
-    self.weapon = {}
-    local w = self.weapon
-
-    for k, v in pairs(def) do
-        w[k] = v(level)
-    end
-
+    local w = Game:getWeapon(name, level)
     Game.arm.arm.bulletSound = gengine.audio.sound.get(w.sound)
+    self.weapon = w
 end
 
 function ComponentPlayer:initGenerator(name)

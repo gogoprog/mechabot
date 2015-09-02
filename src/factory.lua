@@ -184,7 +184,7 @@ function Factory:createArm()
     return e
 end
 
-function Factory:createBullet(velocity, weapon)
+function Factory:createBullet(velocity, weapon, is_enemy)
     local e = self:pickFromPool(self.bullets)
     if not e then
         e = gengine.entity.create()
@@ -201,6 +201,7 @@ function Factory:createBullet(velocity, weapon)
         e:addComponent(
             ComponentBullet(),
             {
+                itIsEnemy = is_enemy
             },
             "bullet"
             )
@@ -215,6 +216,8 @@ function Factory:createBullet(velocity, weapon)
 
     e.bullet.velocity = velocity
     e.bullet.damage = weapon.damage
+    e.bullet.radius = weapon.bulletRadius
+    e.bullet.itIsEnemy = is_enemy
 
     e.sprite.texture = gengine.graphics.texture.get(weapon.texture)
     e.sprite.extent = weapon.extent
