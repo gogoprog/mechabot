@@ -8,7 +8,6 @@ Game = Game or {
 gengine.stateMachine(Game)
 
 function Game:init()
-    gengine.graphics.texture.createFromDirectory("data/")
     Factory:init()
 
     self.player = Factory:createPlayer()

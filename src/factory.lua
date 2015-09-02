@@ -31,6 +31,10 @@ end
 function Factory:init()
     local atlas
 
+    gengine.graphics.texture.createFromDirectory("data/")
+    gengine.audio.sound.createFromDirectory("data/")
+    gengine.graphics.spriter.createFromDirectory("data/")
+
     atlas = gengine.graphics.atlas.create(
         "armFire",
         gengine.graphics.texture.get("arm"),
@@ -75,14 +79,9 @@ function Factory:init()
         }
         )
 
-    gengine.audio.sound.create("data/laser.mp3")
-    gengine.audio.sound.create("data/shoot.wav")
 
-    self.explosionSound = gengine.audio.sound.create("data/explosion.wav")
-    self.hitSound = gengine.audio.sound.create("data/hit.wav")
-
-    gengine.graphics.spriter.loadFile("data/mecha.scon")
-    gengine.graphics.spriter.loadFile("data/light_start.scon")
+    self.explosionSound = gengine.audio.sound.get("explosion")
+    self.hitSound = gengine.audio.sound.get("hit")
 end
 
 function Factory:createCamera()
