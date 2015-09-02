@@ -2,7 +2,8 @@ require 'factory'
 require 'map'
 
 Game = Game or {
-    enemies = {}
+    enemies = {},
+    bullets = {}
 }
 
 gengine.stateMachine(Game)

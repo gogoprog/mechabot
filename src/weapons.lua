@@ -17,7 +17,8 @@ return {
         sound = function(level)
             return "shoot"
         end,
-        bulletRadius = 20
+        bulletRadius = 20,
+        color = vector4(0.2, 1.0, 0.2, 1)
     },
     rocket = {
         texture = function(level) return "rocket" end,

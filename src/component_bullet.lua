@@ -8,6 +8,7 @@ function ComponentBullet:init()
 end
 
 function ComponentBullet:insert()
+    table.insert(Game.bullets, self.entity)
 end
 
 function ComponentBullet:update(dt)
@@ -46,6 +47,15 @@ function ComponentBullet:update(dt)
                 return
             end
         end
+
+        for k, v in ipairs(Game.bullets) do
+            local p = v.position
+            if v.bullet.itIsEnemy and gengine.math.doCirclesIntersect(self_position, self.radius, p, v.bullet.radius) then
+                self.entity:remove()
+                v:remove()
+                return
+            end
+        end
     else
         local player = Game.player
         if gengine.math.doesCircleIntersectRectangle(self_position, self.radius, player.position, player.player.extent) then
@@ -55,4 +65,12 @@ function ComponentBullet:update(dt)
 end
 
 function ComponentBullet:remove()
+    local e = self.entity
+    local bullets = Game.bullets
+    for k = #bullets, 1, -1 do
+        if bullets[k] == e then
+            table.remove(bullets, k)
+            return
+        end
+    end
 end

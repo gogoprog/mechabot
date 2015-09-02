@@ -9,6 +9,7 @@ require 'component_spawner'
 require 'component_remover'
 require 'component_blink'
 require 'component_player'
+require 'component_shooter'
 
 Factory = Factory or {
     boxExplosions = {},
@@ -192,7 +193,6 @@ function Factory:createBullet(velocity, weapon, is_enemy)
         e:addComponent(
             ComponentSprite(),
             {
-                color = vector4(0.2, 1.0, 0.2, 1),
                 layer = 2
             },
             "sprite"
@@ -214,6 +214,7 @@ function Factory:createBullet(velocity, weapon, is_enemy)
             )
     end
 
+
     e.bullet.velocity = velocity
     e.bullet.damage = weapon.damage
     e.bullet.radius = weapon.bulletRadius
@@ -221,6 +222,7 @@ function Factory:createBullet(velocity, weapon, is_enemy)
 
     e.sprite.texture = gengine.graphics.texture.get(weapon.texture)
     e.sprite.extent = weapon.extent
+    e.sprite.color = weapon.color or vector4(1,1,1,1)
 
     return e
 end
