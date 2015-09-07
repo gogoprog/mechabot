@@ -1,6 +1,5 @@
 ComponentEnemy = {}
 
-local boxExtent = {x=64, y=64}
 local enemyExtent = {x=64, y=64}
 local playerExtent = {x=256, y=512}
 
@@ -19,13 +18,14 @@ function ComponentEnemy:update(dt)
     p.x = p.x - self.speed * dt
     p.y = p.y + self.vy * dt
 
-    local testPosition = p - vector2(0, 16)
+    local testPosition = p - vector2(0, 32)
 
     if p.y > 32 then
 
         for k, v in ipairs(Map.boxes) do
-            if gengine.math.doesCircleIntersectRectangle(testPosition, 1, v.position, boxExtent) then
+            if not v.spawner and gengine.math.doesCircleIntersectRectangle(testPosition, 1, v.position, v.sprite.extent) then
                 self.vy = 0
+                p.y = v.position.y + v.sprite.extent.y * 0.5 + 32
             end
         end
 

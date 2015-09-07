@@ -15,10 +15,6 @@ function ComponentBox:remove()
 
 end
 
-function ComponentBox:setPosition(i, j)
-    self.entity.position:set(i * 32 + self.definition.extent.x / 2 - 16, j * 32 + self.definition.extent.y / 2 - 16 - 16)
-end
-
 function ComponentBox:hit(dmg, boxIndex)
     self.life = self.life - dmg
 
