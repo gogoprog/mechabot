@@ -292,12 +292,10 @@ function Factory:createEnemy()
         e = gengine.entity.create()
 
         e:addComponent(
-            ComponentAnimatedSprite(),
+            ComponentSpriter(),
             {
-                animation = self.enemyMoveAnimation,
-                extent = vector2(32, 32),
-                layer = 10,
-                color = vector4(0.5,0.5,1,1)
+                animation = gengine.graphics.spriter.get("soldier-walk"),
+                layer = 10
             },
             "sprite"
             )
@@ -315,8 +313,6 @@ function Factory:createEnemy()
                 pool = self.enemies
             }
             )
-
-        e.scale:set(2,2)
     end
 
     return e

@@ -14,7 +14,7 @@ function ComponentSpawner:update(dt)
         local position = self.entity.position
         local e = Factory:createEnemy()
         e.position:set(position)
-        e.position.y = e.position.y - self.entity.sprite.extent.y * 0.5 + 32 -- enemy height
+        e.position.y = e.position.y - self.entity.sprite.extent.y * 0.5
         e:insert()
         self.timeLeft = 1
     end
