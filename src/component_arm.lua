@@ -38,6 +38,8 @@ function ComponentArm:update(dt)
     self.timeSinceLastBullet = self.timeSinceLastBullet + dt
 
     if gengine.input.mouse:isDown(1) then
+        self.entity.sprite.timeFactor = 1
+
         if self.timeSinceLastBullet > self.weapon.interval then
             if Game.player.player.generator.currentValue >= self.weapon.powerCost then
                 local direction = gengine.math.getRotated(vector2(1,0), self.currentAngle)
@@ -53,14 +55,13 @@ function ComponentArm:update(dt)
 
                 self.timeSinceLastBullet = 0
 
-                self.entity.sprite:removeAnimations()
-                self.entity.sprite:pushAnimation(Factory.armIdleAnimation)
-                self.entity.sprite:pushAnimation(Factory.armFireAnimation)
 
                 gengine.audio.playSound(self.bulletSound, 0.3)
                 Game.player.player.generator.currentValue = Game.player.player.generator.currentValue - self.weapon.powerCost
             end
         end
+    else
+        self.entity.sprite.timeFactor = 0
     end
 end
 

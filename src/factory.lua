@@ -37,33 +37,6 @@ function Factory:init()
     gengine.graphics.spriter.createFromDirectory("data/")
 
     atlas = gengine.graphics.atlas.create(
-        "armFire",
-        gengine.graphics.texture.get("arm"),
-        3,
-        1
-        )
-
-    self.armFireAnimation = gengine.graphics.animation.create(
-        "armFire",
-        {
-            atlas = atlas,
-            frames = { 0, 1, 2 },
-            framerate = 16,
-            loop = false
-        }
-        )
-
-    self.armIdleAnimation = gengine.graphics.animation.create(
-        "armFire",
-        {
-            atlas = atlas,
-            frames = { 2 },
-            framerate = 1,
-            loop = true
-        }
-        )
-
-    atlas = gengine.graphics.atlas.create(
         "enemyMove",
         gengine.graphics.texture.get("enemy_move"),
         10,
@@ -79,7 +52,6 @@ function Factory:init()
             loop = true
         }
         )
-
 
     self.explosionSound = gengine.audio.sound.get("explosion")
     self.hitSound = gengine.audio.sound.get("hit")
@@ -166,10 +138,9 @@ function Factory:createArm()
     local e = gengine.entity.create()
 
     e:addComponent(
-        ComponentAnimatedSprite(),
+        ComponentSpriter(),
         {
-            animation = self.armIdleAnimation,
-            extent = vector2(633, 463),
+            animation = gengine.graphics.spriter.get("arm-fireing"),
             layer = 1
         },
         "sprite"
