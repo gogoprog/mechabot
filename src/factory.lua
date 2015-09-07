@@ -109,7 +109,7 @@ function Factory:createPlayer()
     e:addComponent(
         ComponentSpriter(),
         {
-            animation = gengine.graphics.spriter.get("entity_000-mecha_walk"),
+            animation = gengine.graphics.spriter.get("mecha-walk"),
             layer = 0
         },
         "sprite"
@@ -128,8 +128,6 @@ function Factory:createPlayer()
         },
         "player"
         )
-
-    e.scale:set(2, 2)
 
     return e
 end

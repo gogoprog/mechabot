@@ -221,7 +221,7 @@
 								"bone_ref": [
 									{
 										"id": 0,
-										"key": 0,
+										"key": 1,
 										"timeline": 16
 									},
 									{
@@ -238,43 +238,43 @@
 									},
 									{
 										"id": 3,
-										"key": 0,
+										"key": 1,
 										"parent": 0,
 										"timeline": 19
 									},
 									{
 										"id": 4,
-										"key": 0,
+										"key": 1,
 										"parent": 3,
 										"timeline": 20
 									},
 									{
 										"id": 5,
-										"key": 0,
+										"key": 1,
 										"parent": 4,
 										"timeline": 21
 									},
 									{
 										"id": 6,
-										"key": 0,
+										"key": 1,
 										"parent": 5,
 										"timeline": 22
 									},
 									{
 										"id": 7,
-										"key": 0,
+										"key": 1,
 										"parent": 6,
 										"timeline": 23
 									},
 									{
 										"id": 8,
-										"key": 0,
+										"key": 1,
 										"parent": 7,
 										"timeline": 24
 									},
 									{
 										"id": 9,
-										"key": 0,
+										"key": 1,
 										"parent": 0,
 										"timeline": 25
 									},
@@ -313,7 +313,7 @@
 								"object_ref": [
 									{
 										"id": 0,
-										"key": 0,
+										"key": 1,
 										"parent": 12,
 										"timeline": "7",
 										"z_index": "0"
@@ -362,7 +362,7 @@
 									},
 									{
 										"id": 7,
-										"key": 0,
+										"key": 1,
 										"parent": 0,
 										"timeline": "1",
 										"z_index": "7"
@@ -390,7 +390,7 @@
 									},
 									{
 										"id": 11,
-										"key": 0,
+										"key": 1,
 										"parent": 1,
 										"timeline": "0",
 										"z_index": "11"
@@ -404,7 +404,7 @@
 									},
 									{
 										"id": 13,
-										"key": 0,
+										"key": 1,
 										"parent": 4,
 										"timeline": "12",
 										"z_index": "13"
@@ -424,66 +424,66 @@
 										"z_index": "15"
 									}
 								],
-								"time": 250
+								"time": 256
 							},
 							{
 								"bone_ref": [
 									{
 										"id": 0,
-										"key": 0,
+										"key": 1,
 										"timeline": 16
 									},
 									{
 										"id": 1,
-										"key": 0,
+										"key": 1,
 										"parent": 0,
 										"timeline": 17
 									},
 									{
 										"id": 2,
-										"key": 0,
+										"key": 1,
 										"parent": 1,
 										"timeline": 18
 									},
 									{
 										"id": 3,
-										"key": 0,
+										"key": 1,
 										"parent": 0,
 										"timeline": 19
 									},
 									{
 										"id": 4,
-										"key": 1,
+										"key": 2,
 										"parent": 3,
 										"timeline": 20
 									},
 									{
 										"id": 5,
-										"key": 1,
+										"key": 2,
 										"parent": 4,
 										"timeline": 21
 									},
 									{
 										"id": 6,
-										"key": 1,
+										"key": 2,
 										"parent": 5,
 										"timeline": 22
 									},
 									{
 										"id": 7,
-										"key": 1,
+										"key": 2,
 										"parent": 6,
 										"timeline": 23
 									},
 									{
 										"id": 8,
-										"key": 1,
+										"key": 2,
 										"parent": 7,
 										"timeline": 24
 									},
 									{
 										"id": 9,
-										"key": 0,
+										"key": 1,
 										"parent": 0,
 										"timeline": 25
 									},
@@ -522,7 +522,7 @@
 								"object_ref": [
 									{
 										"id": 0,
-										"key": 0,
+										"key": 1,
 										"parent": 12,
 										"timeline": "7",
 										"z_index": "0"
@@ -571,7 +571,7 @@
 									},
 									{
 										"id": 7,
-										"key": 0,
+										"key": 1,
 										"parent": 0,
 										"timeline": "1",
 										"z_index": "7"
@@ -599,7 +599,7 @@
 									},
 									{
 										"id": 11,
-										"key": 0,
+										"key": 1,
 										"parent": 1,
 										"timeline": "0",
 										"z_index": "11"
@@ -613,7 +613,7 @@
 									},
 									{
 										"id": 13,
-										"key": 0,
+										"key": 1,
 										"parent": 4,
 										"timeline": "12",
 										"z_index": "13"
@@ -639,7 +639,7 @@
 								"bone_ref": [
 									{
 										"id": 0,
-										"key": 0,
+										"key": 1,
 										"timeline": 16
 									},
 									{
@@ -656,43 +656,43 @@
 									},
 									{
 										"id": 3,
-										"key": 0,
+										"key": 1,
 										"parent": 0,
 										"timeline": 19
 									},
 									{
 										"id": 4,
-										"key": 1,
+										"key": 3,
 										"parent": 3,
 										"timeline": 20
 									},
 									{
 										"id": 5,
-										"key": 1,
+										"key": 3,
 										"parent": 4,
 										"timeline": 21
 									},
 									{
 										"id": 6,
-										"key": 1,
+										"key": 3,
 										"parent": 5,
 										"timeline": 22
 									},
 									{
 										"id": 7,
-										"key": 1,
+										"key": 3,
 										"parent": 6,
 										"timeline": 23
 									},
 									{
 										"id": 8,
-										"key": 1,
+										"key": 3,
 										"parent": 7,
 										"timeline": 24
 									},
 									{
 										"id": 9,
-										"key": 0,
+										"key": 1,
 										"parent": 0,
 										"timeline": 25
 									},
@@ -731,7 +731,7 @@
 								"object_ref": [
 									{
 										"id": 0,
-										"key": 0,
+										"key": 1,
 										"parent": 12,
 										"timeline": "7",
 										"z_index": "0"
@@ -745,7 +745,7 @@
 									},
 									{
 										"id": 2,
-										"key": 0,
+										"key": 1,
 										"parent": 14,
 										"timeline": "11",
 										"z_index": "2"
@@ -780,7 +780,7 @@
 									},
 									{
 										"id": 7,
-										"key": 0,
+										"key": 1,
 										"parent": 0,
 										"timeline": "1",
 										"z_index": "7"
@@ -808,7 +808,7 @@
 									},
 									{
 										"id": 11,
-										"key": 0,
+										"key": 1,
 										"parent": 1,
 										"timeline": "0",
 										"z_index": "11"
@@ -822,216 +822,7 @@
 									},
 									{
 										"id": 13,
-										"key": 0,
-										"parent": 4,
-										"timeline": "12",
-										"z_index": "13"
-									},
-									{
-										"id": 14,
-										"key": 0,
-										"parent": 5,
-										"timeline": "4",
-										"z_index": "14"
-									},
-									{
-										"id": 15,
-										"key": 0,
-										"parent": 4,
-										"timeline": "13",
-										"z_index": "15"
-									}
-								],
-								"time": 460
-							},
-							{
-								"bone_ref": [
-									{
-										"id": 0,
-										"key": 0,
-										"timeline": 16
-									},
-									{
-										"id": 1,
 										"key": 1,
-										"parent": 0,
-										"timeline": 17
-									},
-									{
-										"id": 2,
-										"key": 1,
-										"parent": 1,
-										"timeline": 18
-									},
-									{
-										"id": 3,
-										"key": 0,
-										"parent": 0,
-										"timeline": 19
-									},
-									{
-										"id": 4,
-										"key": 2,
-										"parent": 3,
-										"timeline": 20
-									},
-									{
-										"id": 5,
-										"key": 2,
-										"parent": 4,
-										"timeline": 21
-									},
-									{
-										"id": 6,
-										"key": 2,
-										"parent": 5,
-										"timeline": 22
-									},
-									{
-										"id": 7,
-										"key": 2,
-										"parent": 6,
-										"timeline": 23
-									},
-									{
-										"id": 8,
-										"key": 2,
-										"parent": 7,
-										"timeline": 24
-									},
-									{
-										"id": 9,
-										"key": 0,
-										"parent": 0,
-										"timeline": 25
-									},
-									{
-										"id": 10,
-										"key": 2,
-										"parent": 9,
-										"timeline": 26
-									},
-									{
-										"id": 11,
-										"key": 2,
-										"parent": 10,
-										"timeline": 27
-									},
-									{
-										"id": 12,
-										"key": 2,
-										"parent": 11,
-										"timeline": 28
-									},
-									{
-										"id": 13,
-										"key": 2,
-										"parent": 12,
-										"timeline": 29
-									},
-									{
-										"id": 14,
-										"key": 2,
-										"parent": 13,
-										"timeline": 30
-									}
-								],
-								"id": 4,
-								"object_ref": [
-									{
-										"id": 0,
-										"key": 0,
-										"parent": 12,
-										"timeline": "7",
-										"z_index": "0"
-									},
-									{
-										"id": 1,
-										"key": 0,
-										"parent": 13,
-										"timeline": "9",
-										"z_index": "1"
-									},
-									{
-										"id": 2,
-										"key": 0,
-										"parent": 14,
-										"timeline": "11",
-										"z_index": "2"
-									},
-									{
-										"id": 3,
-										"key": 0,
-										"parent": 10,
-										"timeline": "14",
-										"z_index": "3"
-									},
-									{
-										"id": 4,
-										"key": 0,
-										"parent": 11,
-										"timeline": "5",
-										"z_index": "4"
-									},
-									{
-										"id": 5,
-										"key": 0,
-										"parent": 10,
-										"timeline": "15",
-										"z_index": "5"
-									},
-									{
-										"id": 6,
-										"key": 0,
-										"parent": 9,
-										"timeline": "3",
-										"z_index": "6"
-									},
-									{
-										"id": 7,
-										"key": 0,
-										"parent": 0,
-										"timeline": "1",
-										"z_index": "7"
-									},
-									{
-										"id": 8,
-										"key": 0,
-										"parent": 6,
-										"timeline": "6",
-										"z_index": "8"
-									},
-									{
-										"id": 9,
-										"key": 0,
-										"parent": 7,
-										"timeline": "8",
-										"z_index": "9"
-									},
-									{
-										"id": 10,
-										"key": 0,
-										"parent": 8,
-										"timeline": "10",
-										"z_index": "10"
-									},
-									{
-										"id": 11,
-										"key": 0,
-										"parent": 1,
-										"timeline": "0",
-										"z_index": "11"
-									},
-									{
-										"id": 12,
-										"key": 0,
-										"parent": 3,
-										"timeline": "2",
-										"z_index": "12"
-									},
-									{
-										"id": 13,
-										"key": 0,
 										"parent": 4,
 										"timeline": "12",
 										"z_index": "13"
@@ -1057,7 +848,7 @@
 								"bone_ref": [
 									{
 										"id": 0,
-										"key": 0,
+										"key": 1,
 										"timeline": 16
 									},
 									{
@@ -1074,43 +865,43 @@
 									},
 									{
 										"id": 3,
-										"key": 0,
+										"key": 1,
 										"parent": 0,
 										"timeline": 19
 									},
 									{
 										"id": 4,
-										"key": 3,
+										"key": 4,
 										"parent": 3,
 										"timeline": 20
 									},
 									{
 										"id": 5,
-										"key": 3,
+										"key": 4,
 										"parent": 4,
 										"timeline": 21
 									},
 									{
 										"id": 6,
-										"key": 3,
+										"key": 4,
 										"parent": 5,
 										"timeline": 22
 									},
 									{
 										"id": 7,
-										"key": 3,
+										"key": 4,
 										"parent": 6,
 										"timeline": 23
 									},
 									{
 										"id": 8,
-										"key": 3,
+										"key": 4,
 										"parent": 7,
 										"timeline": 24
 									},
 									{
 										"id": 9,
-										"key": 0,
+										"key": 1,
 										"parent": 0,
 										"timeline": 25
 									},
@@ -1134,22 +925,22 @@
 									},
 									{
 										"id": 13,
-										"key": 2,
+										"key": 3,
 										"parent": 12,
 										"timeline": 29
 									},
 									{
 										"id": 14,
-										"key": 2,
+										"key": 3,
 										"parent": 13,
 										"timeline": 30
 									}
 								],
-								"id": 5,
+								"id": 4,
 								"object_ref": [
 									{
 										"id": 0,
-										"key": 0,
+										"key": 1,
 										"parent": 12,
 										"timeline": "7",
 										"z_index": "0"
@@ -1163,7 +954,7 @@
 									},
 									{
 										"id": 2,
-										"key": 0,
+										"key": 2,
 										"parent": 14,
 										"timeline": "11",
 										"z_index": "2"
@@ -1198,7 +989,7 @@
 									},
 									{
 										"id": 7,
-										"key": 0,
+										"key": 1,
 										"parent": 0,
 										"timeline": "1",
 										"z_index": "7"
@@ -1226,7 +1017,7 @@
 									},
 									{
 										"id": 11,
-										"key": 0,
+										"key": 1,
 										"parent": 1,
 										"timeline": "0",
 										"z_index": "11"
@@ -1240,14 +1031,14 @@
 									},
 									{
 										"id": 13,
-										"key": 0,
+										"key": 1,
 										"parent": 4,
 										"timeline": "12",
 										"z_index": "13"
 									},
 									{
 										"id": 14,
-										"key": 0,
+										"key": 1,
 										"parent": 5,
 										"timeline": "4",
 										"z_index": "14"
@@ -1266,7 +1057,7 @@
 								"bone_ref": [
 									{
 										"id": 0,
-										"key": 1,
+										"key": 2,
 										"timeline": 16
 									},
 									{
@@ -1283,43 +1074,43 @@
 									},
 									{
 										"id": 3,
-										"key": 1,
+										"key": 2,
 										"parent": 0,
 										"timeline": 19
 									},
 									{
 										"id": 4,
-										"key": 4,
+										"key": 5,
 										"parent": 3,
 										"timeline": 20
 									},
 									{
 										"id": 5,
-										"key": 4,
+										"key": 5,
 										"parent": 4,
 										"timeline": 21
 									},
 									{
 										"id": 6,
-										"key": 4,
+										"key": 5,
 										"parent": 5,
 										"timeline": 22
 									},
 									{
 										"id": 7,
-										"key": 4,
+										"key": 5,
 										"parent": 6,
 										"timeline": 23
 									},
 									{
 										"id": 8,
-										"key": 4,
+										"key": 5,
 										"parent": 7,
 										"timeline": 24
 									},
 									{
 										"id": 9,
-										"key": 1,
+										"key": 2,
 										"parent": 0,
 										"timeline": 25
 									},
@@ -1343,18 +1134,18 @@
 									},
 									{
 										"id": 13,
-										"key": 3,
+										"key": 4,
 										"parent": 12,
 										"timeline": 29
 									},
 									{
 										"id": 14,
-										"key": 3,
+										"key": 4,
 										"parent": 13,
 										"timeline": 30
 									}
 								],
-								"id": 6,
+								"id": 5,
 								"object_ref": [
 									{
 										"id": 0,
@@ -1365,42 +1156,42 @@
 									},
 									{
 										"id": 1,
-										"key": 1,
+										"key": 0,
 										"parent": 13,
 										"timeline": "9",
 										"z_index": "1"
 									},
 									{
 										"id": 2,
-										"key": 1,
+										"key": 2,
 										"parent": 14,
 										"timeline": "11",
 										"z_index": "2"
 									},
 									{
 										"id": 3,
-										"key": 1,
+										"key": 0,
 										"parent": 10,
 										"timeline": "14",
 										"z_index": "3"
 									},
 									{
 										"id": 4,
-										"key": 1,
+										"key": 0,
 										"parent": 11,
 										"timeline": "5",
 										"z_index": "4"
 									},
 									{
 										"id": 5,
-										"key": 1,
+										"key": 0,
 										"parent": 10,
 										"timeline": "15",
 										"z_index": "5"
 									},
 									{
 										"id": 6,
-										"key": 1,
+										"key": 0,
 										"parent": 9,
 										"timeline": "3",
 										"z_index": "6"
@@ -1414,14 +1205,14 @@
 									},
 									{
 										"id": 8,
-										"key": 1,
+										"key": 0,
 										"parent": 6,
 										"timeline": "6",
 										"z_index": "8"
 									},
 									{
 										"id": 9,
-										"key": 1,
+										"key": 0,
 										"parent": 7,
 										"timeline": "8",
 										"z_index": "9"
@@ -1442,7 +1233,7 @@
 									},
 									{
 										"id": 12,
-										"key": 1,
+										"key": 0,
 										"parent": 3,
 										"timeline": "2",
 										"z_index": "12"
@@ -1463,7 +1254,7 @@
 									},
 									{
 										"id": 15,
-										"key": 1,
+										"key": 0,
 										"parent": 4,
 										"timeline": "13",
 										"z_index": "15"
@@ -1475,7 +1266,7 @@
 								"bone_ref": [
 									{
 										"id": 0,
-										"key": 2,
+										"key": 3,
 										"timeline": 16
 									},
 									{
@@ -1492,145 +1283,151 @@
 									},
 									{
 										"id": 3,
-										"key": 2,
+										"key": 3,
 										"parent": 0,
 										"timeline": 19
 									},
 									{
 										"id": 4,
-										"key": 5,
+										"key": 6,
 										"parent": 3,
 										"timeline": 20
 									},
 									{
 										"id": 5,
-										"key": 5,
+										"key": 6,
 										"parent": 4,
 										"timeline": 21
 									},
 									{
 										"id": 6,
-										"key": 5,
+										"key": 6,
 										"parent": 5,
 										"timeline": 22
 									},
 									{
 										"id": 7,
-										"key": 5,
+										"key": 6,
 										"parent": 6,
 										"timeline": 23
 									},
 									{
 										"id": 8,
-										"key": 5,
+										"key": 6,
 										"parent": 7,
 										"timeline": 24
 									},
 									{
 										"id": 9,
-										"key": 2,
-										"parent": 0,
-										"timeline": 25
+										"key": 0,
+										"parent": 3,
+										"timeline": 31
 									},
 									{
 										"id": 10,
-										"key": 4,
-										"parent": 9,
-										"timeline": 26
+										"key": 3,
+										"parent": 0,
+										"timeline": 25
 									},
 									{
 										"id": 11,
 										"key": 4,
 										"parent": 10,
-										"timeline": 27
+										"timeline": 26
 									},
 									{
 										"id": 12,
 										"key": 4,
 										"parent": 11,
-										"timeline": 28
+										"timeline": 27
 									},
 									{
 										"id": 13,
 										"key": 4,
 										"parent": 12,
-										"timeline": 29
+										"timeline": 28
 									},
 									{
 										"id": 14,
-										"key": 4,
+										"key": 5,
 										"parent": 13,
+										"timeline": 29
+									},
+									{
+										"id": 15,
+										"key": 5,
+										"parent": 14,
 										"timeline": 30
 									}
 								],
-								"id": 7,
+								"id": 6,
 								"object_ref": [
 									{
 										"id": 0,
-										"key": 2,
-										"parent": 12,
+										"key": 1,
+										"parent": 13,
 										"timeline": "7",
 										"z_index": "0"
 									},
 									{
 										"id": 1,
-										"key": 2,
-										"parent": 13,
+										"key": 1,
+										"parent": 14,
 										"timeline": "9",
 										"z_index": "1"
 									},
 									{
 										"id": 2,
-										"key": 2,
-										"parent": 14,
+										"key": 3,
+										"parent": 15,
 										"timeline": "11",
 										"z_index": "2"
 									},
 									{
 										"id": 3,
-										"key": 2,
-										"parent": 10,
+										"key": 0,
+										"parent": 11,
 										"timeline": "14",
 										"z_index": "3"
 									},
 									{
 										"id": 4,
-										"key": 2,
-										"parent": 11,
+										"key": 0,
+										"parent": 12,
 										"timeline": "5",
 										"z_index": "4"
 									},
 									{
 										"id": 5,
-										"key": 2,
-										"parent": 10,
+										"key": 0,
+										"parent": 11,
 										"timeline": "15",
 										"z_index": "5"
 									},
 									{
 										"id": 6,
-										"key": 2,
-										"parent": 9,
+										"key": 0,
+										"parent": 10,
 										"timeline": "3",
 										"z_index": "6"
 									},
 									{
 										"id": 7,
-										"key": 2,
+										"key": 1,
 										"parent": 0,
 										"timeline": "1",
 										"z_index": "7"
 									},
 									{
 										"id": 8,
-										"key": 2,
+										"key": 0,
 										"parent": 6,
 										"timeline": "6",
 										"z_index": "8"
 									},
 									{
 										"id": 9,
-										"key": 2,
+										"key": 0,
 										"parent": 7,
 										"timeline": "8",
 										"z_index": "9"
@@ -1644,35 +1441,35 @@
 									},
 									{
 										"id": 11,
-										"key": 2,
+										"key": 1,
 										"parent": 1,
 										"timeline": "0",
 										"z_index": "11"
 									},
 									{
 										"id": 12,
-										"key": 2,
+										"key": 0,
 										"parent": 3,
 										"timeline": "2",
 										"z_index": "12"
 									},
 									{
 										"id": 13,
-										"key": 2,
+										"key": 1,
 										"parent": 4,
 										"timeline": "12",
 										"z_index": "13"
 									},
 									{
 										"id": 14,
-										"key": 2,
+										"key": 1,
 										"parent": 5,
 										"timeline": "4",
 										"z_index": "14"
 									},
 									{
 										"id": 15,
-										"key": 2,
+										"key": 0,
 										"parent": 4,
 										"timeline": "13",
 										"z_index": "15"
@@ -1684,141 +1481,141 @@
 								"bone_ref": [
 									{
 										"id": 0,
-										"key": 2,
+										"key": 3,
 										"timeline": 16
 									},
 									{
 										"id": 1,
-										"key": 3,
+										"key": 4,
 										"parent": 0,
 										"timeline": 17
 									},
 									{
 										"id": 2,
-										"key": 3,
+										"key": 4,
 										"parent": 1,
 										"timeline": 18
 									},
 									{
 										"id": 3,
-										"key": 2,
+										"key": 3,
 										"parent": 0,
 										"timeline": 19
 									},
 									{
 										"id": 4,
-										"key": 5,
+										"key": 6,
 										"parent": 3,
 										"timeline": 20
 									},
 									{
 										"id": 5,
-										"key": 5,
+										"key": 6,
 										"parent": 4,
 										"timeline": 21
 									},
 									{
 										"id": 6,
-										"key": 5,
+										"key": 6,
 										"parent": 5,
 										"timeline": 22
 									},
 									{
 										"id": 7,
-										"key": 6,
+										"key": 7,
 										"parent": 6,
 										"timeline": 23
 									},
 									{
 										"id": 8,
-										"key": 6,
+										"key": 7,
 										"parent": 7,
 										"timeline": 24
 									},
 									{
 										"id": 9,
-										"key": 2,
+										"key": 4,
 										"parent": 0,
 										"timeline": 25
 									},
 									{
 										"id": 10,
-										"key": 4,
+										"key": 5,
 										"parent": 9,
 										"timeline": 26
 									},
 									{
 										"id": 11,
-										"key": 4,
+										"key": 5,
 										"parent": 10,
 										"timeline": 27
 									},
 									{
 										"id": 12,
-										"key": 4,
+										"key": 5,
 										"parent": 11,
 										"timeline": 28
 									},
 									{
 										"id": 13,
-										"key": 4,
+										"key": 6,
 										"parent": 12,
 										"timeline": 29
 									},
 									{
 										"id": 14,
-										"key": 5,
+										"key": 6,
 										"parent": 13,
 										"timeline": 30
 									}
 								],
-								"id": 8,
+								"id": 7,
 								"object_ref": [
 									{
 										"id": 0,
-										"key": 2,
+										"key": 1,
 										"parent": 12,
 										"timeline": "7",
 										"z_index": "0"
 									},
 									{
 										"id": 1,
-										"key": 2,
+										"key": 1,
 										"parent": 13,
 										"timeline": "9",
 										"z_index": "1"
 									},
 									{
 										"id": 2,
-										"key": 2,
+										"key": 3,
 										"parent": 14,
 										"timeline": "11",
 										"z_index": "2"
 									},
 									{
 										"id": 3,
-										"key": 2,
+										"key": 0,
 										"parent": 10,
 										"timeline": "14",
 										"z_index": "3"
 									},
 									{
 										"id": 4,
-										"key": 2,
+										"key": 0,
 										"parent": 11,
 										"timeline": "5",
 										"z_index": "4"
 									},
 									{
 										"id": 5,
-										"key": 2,
+										"key": 0,
 										"parent": 10,
 										"timeline": "15",
 										"z_index": "5"
 									},
 									{
 										"id": 6,
-										"key": 2,
+										"key": 0,
 										"parent": 9,
 										"timeline": "3",
 										"z_index": "6"
@@ -1832,14 +1629,14 @@
 									},
 									{
 										"id": 8,
-										"key": 2,
+										"key": 0,
 										"parent": 6,
 										"timeline": "6",
 										"z_index": "8"
 									},
 									{
 										"id": 9,
-										"key": 2,
+										"key": 0,
 										"parent": 7,
 										"timeline": "8",
 										"z_index": "9"
@@ -1860,28 +1657,28 @@
 									},
 									{
 										"id": 12,
-										"key": 2,
+										"key": 0,
 										"parent": 3,
 										"timeline": "2",
 										"z_index": "12"
 									},
 									{
 										"id": 13,
-										"key": 2,
+										"key": 1,
 										"parent": 4,
 										"timeline": "12",
 										"z_index": "13"
 									},
 									{
 										"id": 14,
-										"key": 2,
+										"key": 1,
 										"parent": 5,
 										"timeline": "4",
 										"z_index": "14"
 									},
 									{
 										"id": 15,
-										"key": 2,
+										"key": 0,
 										"parent": 4,
 										"timeline": "13",
 										"z_index": "15"
@@ -1893,141 +1690,141 @@
 								"bone_ref": [
 									{
 										"id": 0,
-										"key": 3,
+										"key": 4,
 										"timeline": 16
 									},
 									{
 										"id": 1,
-										"key": 4,
+										"key": 5,
 										"parent": 0,
 										"timeline": 17
 									},
 									{
 										"id": 2,
-										"key": 4,
+										"key": 5,
 										"parent": 1,
 										"timeline": 18
 									},
 									{
 										"id": 3,
-										"key": 3,
+										"key": 4,
 										"parent": 0,
 										"timeline": 19
 									},
 									{
 										"id": 4,
-										"key": 6,
+										"key": 7,
 										"parent": 3,
 										"timeline": 20
 									},
 									{
 										"id": 5,
-										"key": 6,
+										"key": 7,
 										"parent": 4,
 										"timeline": 21
 									},
 									{
 										"id": 6,
-										"key": 6,
+										"key": 7,
 										"parent": 5,
 										"timeline": 22
 									},
 									{
 										"id": 7,
-										"key": 7,
+										"key": 8,
 										"parent": 6,
 										"timeline": 23
 									},
 									{
 										"id": 8,
-										"key": 7,
+										"key": 8,
 										"parent": 7,
 										"timeline": 24
 									},
 									{
 										"id": 9,
-										"key": 3,
+										"key": 5,
 										"parent": 0,
 										"timeline": 25
 									},
 									{
 										"id": 10,
-										"key": 5,
+										"key": 6,
 										"parent": 9,
 										"timeline": 26
 									},
 									{
 										"id": 11,
-										"key": 5,
+										"key": 6,
 										"parent": 10,
 										"timeline": 27
 									},
 									{
 										"id": 12,
-										"key": 5,
+										"key": 6,
 										"parent": 11,
 										"timeline": 28
 									},
 									{
 										"id": 13,
-										"key": 5,
+										"key": 7,
 										"parent": 12,
 										"timeline": 29
 									},
 									{
 										"id": 14,
-										"key": 6,
+										"key": 7,
 										"parent": 13,
 										"timeline": 30
 									}
 								],
-								"id": 9,
+								"id": 8,
 								"object_ref": [
 									{
 										"id": 0,
-										"key": 2,
+										"key": 1,
 										"parent": 12,
 										"timeline": "7",
 										"z_index": "0"
 									},
 									{
 										"id": 1,
-										"key": 2,
+										"key": 1,
 										"parent": 13,
 										"timeline": "9",
 										"z_index": "1"
 									},
 									{
 										"id": 2,
-										"key": 2,
+										"key": 3,
 										"parent": 14,
 										"timeline": "11",
 										"z_index": "2"
 									},
 									{
 										"id": 3,
-										"key": 2,
+										"key": 0,
 										"parent": 10,
 										"timeline": "14",
 										"z_index": "3"
 									},
 									{
 										"id": 4,
-										"key": 2,
+										"key": 0,
 										"parent": 11,
 										"timeline": "5",
 										"z_index": "4"
 									},
 									{
 										"id": 5,
-										"key": 2,
+										"key": 0,
 										"parent": 10,
 										"timeline": "15",
 										"z_index": "5"
 									},
 									{
 										"id": 6,
-										"key": 2,
+										"key": 0,
 										"parent": 9,
 										"timeline": "3",
 										"z_index": "6"
@@ -2041,56 +1838,56 @@
 									},
 									{
 										"id": 8,
-										"key": 2,
+										"key": 0,
 										"parent": 6,
 										"timeline": "6",
 										"z_index": "8"
 									},
 									{
 										"id": 9,
-										"key": 2,
+										"key": 0,
 										"parent": 7,
 										"timeline": "8",
 										"z_index": "9"
 									},
 									{
 										"id": 10,
-										"key": 2,
+										"key": 3,
 										"parent": 8,
 										"timeline": "10",
 										"z_index": "10"
 									},
 									{
 										"id": 11,
-										"key": 2,
+										"key": 3,
 										"parent": 1,
 										"timeline": "0",
 										"z_index": "11"
 									},
 									{
 										"id": 12,
-										"key": 2,
+										"key": 0,
 										"parent": 3,
 										"timeline": "2",
 										"z_index": "12"
 									},
 									{
 										"id": 13,
-										"key": 2,
+										"key": 1,
 										"parent": 4,
 										"timeline": "12",
 										"z_index": "13"
 									},
 									{
 										"id": 14,
-										"key": 2,
+										"key": 1,
 										"parent": 5,
 										"timeline": "4",
 										"z_index": "14"
 									},
 									{
 										"id": 15,
-										"key": 2,
+										"key": 0,
 										"parent": 4,
 										"timeline": "13",
 										"z_index": "15"
@@ -2102,141 +1899,141 @@
 								"bone_ref": [
 									{
 										"id": 0,
-										"key": 3,
+										"key": 4,
 										"timeline": 16
 									},
 									{
 										"id": 1,
-										"key": 4,
+										"key": 6,
 										"parent": 0,
 										"timeline": 17
 									},
 									{
 										"id": 2,
-										"key": 4,
+										"key": 6,
 										"parent": 1,
 										"timeline": 18
 									},
 									{
 										"id": 3,
-										"key": 3,
+										"key": 4,
 										"parent": 0,
 										"timeline": 19
 									},
 									{
 										"id": 4,
-										"key": 6,
+										"key": 7,
 										"parent": 3,
 										"timeline": 20
 									},
 									{
 										"id": 5,
-										"key": 6,
+										"key": 7,
 										"parent": 4,
 										"timeline": 21
 									},
 									{
 										"id": 6,
-										"key": 6,
+										"key": 7,
 										"parent": 5,
 										"timeline": 22
 									},
 									{
 										"id": 7,
-										"key": 7,
+										"key": 8,
 										"parent": 6,
 										"timeline": 23
 									},
 									{
 										"id": 8,
-										"key": 7,
+										"key": 8,
 										"parent": 7,
 										"timeline": 24
 									},
 									{
 										"id": 9,
-										"key": 3,
+										"key": 5,
 										"parent": 0,
 										"timeline": 25
 									},
 									{
 										"id": 10,
-										"key": 5,
+										"key": 6,
 										"parent": 9,
 										"timeline": 26
 									},
 									{
 										"id": 11,
-										"key": 5,
+										"key": 6,
 										"parent": 10,
 										"timeline": 27
 									},
 									{
 										"id": 12,
-										"key": 6,
+										"key": 7,
 										"parent": 11,
 										"timeline": 28
 									},
 									{
 										"id": 13,
-										"key": 6,
+										"key": 8,
 										"parent": 12,
 										"timeline": 29
 									},
 									{
 										"id": 14,
-										"key": 7,
+										"key": 8,
 										"parent": 13,
 										"timeline": 30
 									}
 								],
-								"id": 10,
+								"id": 9,
 								"object_ref": [
 									{
 										"id": 0,
-										"key": 2,
+										"key": 1,
 										"parent": 12,
 										"timeline": "7",
 										"z_index": "0"
 									},
 									{
 										"id": 1,
-										"key": 2,
+										"key": 1,
 										"parent": 13,
 										"timeline": "9",
 										"z_index": "1"
 									},
 									{
 										"id": 2,
-										"key": 2,
+										"key": 3,
 										"parent": 14,
 										"timeline": "11",
 										"z_index": "2"
 									},
 									{
 										"id": 3,
-										"key": 2,
+										"key": 0,
 										"parent": 10,
 										"timeline": "14",
 										"z_index": "3"
 									},
 									{
 										"id": 4,
-										"key": 2,
+										"key": 1,
 										"parent": 11,
 										"timeline": "5",
 										"z_index": "4"
 									},
 									{
 										"id": 5,
-										"key": 2,
+										"key": 0,
 										"parent": 10,
 										"timeline": "15",
 										"z_index": "5"
 									},
 									{
 										"id": 6,
-										"key": 2,
+										"key": 0,
 										"parent": 9,
 										"timeline": "3",
 										"z_index": "6"
@@ -2250,56 +2047,56 @@
 									},
 									{
 										"id": 8,
-										"key": 2,
+										"key": 0,
 										"parent": 6,
 										"timeline": "6",
 										"z_index": "8"
 									},
 									{
 										"id": 9,
-										"key": 2,
+										"key": 0,
 										"parent": 7,
 										"timeline": "8",
 										"z_index": "9"
 									},
 									{
 										"id": 10,
-										"key": 2,
+										"key": 4,
 										"parent": 8,
 										"timeline": "10",
 										"z_index": "10"
 									},
 									{
 										"id": 11,
-										"key": 2,
+										"key": 3,
 										"parent": 1,
 										"timeline": "0",
 										"z_index": "11"
 									},
 									{
 										"id": 12,
-										"key": 2,
+										"key": 0,
 										"parent": 3,
 										"timeline": "2",
 										"z_index": "12"
 									},
 									{
 										"id": 13,
-										"key": 2,
+										"key": 1,
 										"parent": 4,
 										"timeline": "12",
 										"z_index": "13"
 									},
 									{
 										"id": 14,
-										"key": 2,
+										"key": 1,
 										"parent": 5,
 										"timeline": "4",
 										"z_index": "14"
 									},
 									{
 										"id": 15,
-										"key": 2,
+										"key": 0,
 										"parent": 4,
 										"timeline": "13",
 										"z_index": "15"
@@ -2311,120 +2108,120 @@
 								"bone_ref": [
 									{
 										"id": 0,
-										"key": 3,
+										"key": 4,
 										"timeline": 16
 									},
 									{
 										"id": 1,
-										"key": 4,
+										"key": 7,
 										"parent": 0,
 										"timeline": 17
 									},
 									{
 										"id": 2,
-										"key": 4,
+										"key": 7,
 										"parent": 1,
 										"timeline": 18
 									},
 									{
 										"id": 3,
-										"key": 3,
+										"key": 4,
 										"parent": 0,
 										"timeline": 19
 									},
 									{
 										"id": 4,
-										"key": 7,
+										"key": 8,
 										"parent": 3,
 										"timeline": 20
 									},
 									{
 										"id": 5,
-										"key": 7,
+										"key": 8,
 										"parent": 4,
 										"timeline": 21
 									},
 									{
 										"id": 6,
-										"key": 7,
+										"key": 8,
 										"parent": 5,
 										"timeline": 22
 									},
 									{
 										"id": 7,
-										"key": 8,
+										"key": 9,
 										"parent": 6,
 										"timeline": 23
 									},
 									{
 										"id": 8,
-										"key": 8,
+										"key": 9,
 										"parent": 7,
 										"timeline": 24
 									},
 									{
 										"id": 9,
-										"key": 3,
+										"key": 5,
 										"parent": 0,
 										"timeline": 25
 									},
 									{
 										"id": 10,
-										"key": 5,
+										"key": 6,
 										"parent": 9,
 										"timeline": 26
 									},
 									{
 										"id": 11,
-										"key": 5,
+										"key": 7,
 										"parent": 10,
 										"timeline": 27
 									},
 									{
 										"id": 12,
-										"key": 7,
+										"key": 8,
 										"parent": 11,
 										"timeline": 28
 									},
 									{
 										"id": 13,
-										"key": 7,
+										"key": 9,
 										"parent": 12,
 										"timeline": 29
 									},
 									{
 										"id": 14,
-										"key": 8,
+										"key": 9,
 										"parent": 13,
 										"timeline": 30
 									}
 								],
-								"id": 11,
+								"id": 10,
 								"object_ref": [
 									{
 										"id": 0,
-										"key": 2,
+										"key": 1,
 										"parent": 12,
 										"timeline": "7",
 										"z_index": "0"
 									},
 									{
 										"id": 1,
-										"key": 2,
+										"key": 1,
 										"parent": 13,
 										"timeline": "9",
 										"z_index": "1"
 									},
 									{
 										"id": 2,
-										"key": 2,
+										"key": 3,
 										"parent": 14,
 										"timeline": "11",
 										"z_index": "2"
 									},
 									{
 										"id": 3,
-										"key": 2,
+										"key": 0,
 										"parent": 10,
 										"timeline": "14",
 										"z_index": "3"
@@ -2438,14 +2235,14 @@
 									},
 									{
 										"id": 5,
-										"key": 2,
+										"key": 0,
 										"parent": 10,
 										"timeline": "15",
 										"z_index": "5"
 									},
 									{
 										"id": 6,
-										"key": 2,
+										"key": 0,
 										"parent": 9,
 										"timeline": "3",
 										"z_index": "6"
@@ -2459,56 +2256,56 @@
 									},
 									{
 										"id": 8,
-										"key": 2,
+										"key": 0,
 										"parent": 6,
 										"timeline": "6",
 										"z_index": "8"
 									},
 									{
 										"id": 9,
-										"key": 2,
+										"key": 0,
 										"parent": 7,
 										"timeline": "8",
 										"z_index": "9"
 									},
 									{
 										"id": 10,
-										"key": 2,
+										"key": 5,
 										"parent": 8,
 										"timeline": "10",
 										"z_index": "10"
 									},
 									{
 										"id": 11,
-										"key": 2,
+										"key": 4,
 										"parent": 1,
 										"timeline": "0",
 										"z_index": "11"
 									},
 									{
 										"id": 12,
-										"key": 2,
+										"key": 0,
 										"parent": 3,
 										"timeline": "2",
 										"z_index": "12"
 									},
 									{
 										"id": 13,
-										"key": 2,
+										"key": 1,
 										"parent": 4,
 										"timeline": "12",
 										"z_index": "13"
 									},
 									{
 										"id": 14,
-										"key": 2,
+										"key": 1,
 										"parent": 5,
 										"timeline": "4",
 										"z_index": "14"
 									},
 									{
 										"id": 15,
-										"key": 2,
+										"key": 0,
 										"parent": 4,
 										"timeline": "13",
 										"z_index": "15"
@@ -2520,106 +2317,106 @@
 								"bone_ref": [
 									{
 										"id": 0,
-										"key": 4,
+										"key": 5,
 										"timeline": 16
 									},
 									{
 										"id": 1,
-										"key": 5,
+										"key": 8,
 										"parent": 0,
 										"timeline": 17
 									},
 									{
 										"id": 2,
-										"key": 5,
+										"key": 8,
 										"parent": 1,
 										"timeline": 18
 									},
 									{
 										"id": 3,
-										"key": 4,
+										"key": 5,
 										"parent": 0,
 										"timeline": 19
 									},
 									{
 										"id": 4,
-										"key": 8,
+										"key": 9,
 										"parent": 3,
 										"timeline": 20
 									},
 									{
 										"id": 5,
-										"key": 8,
+										"key": 9,
 										"parent": 4,
 										"timeline": 21
 									},
 									{
 										"id": 6,
-										"key": 8,
+										"key": 9,
 										"parent": 5,
 										"timeline": 22
 									},
 									{
 										"id": 7,
-										"key": 9,
+										"key": 10,
 										"parent": 6,
 										"timeline": 23
 									},
 									{
 										"id": 8,
-										"key": 9,
+										"key": 10,
 										"parent": 7,
 										"timeline": 24
 									},
 									{
 										"id": 9,
-										"key": 4,
+										"key": 6,
 										"parent": 0,
 										"timeline": 25
 									},
 									{
 										"id": 10,
-										"key": 6,
+										"key": 7,
 										"parent": 9,
 										"timeline": 26
 									},
 									{
 										"id": 11,
-										"key": 6,
+										"key": 8,
 										"parent": 10,
 										"timeline": 27
 									},
 									{
 										"id": 12,
-										"key": 8,
+										"key": 9,
 										"parent": 11,
 										"timeline": 28
 									},
 									{
 										"id": 13,
-										"key": 8,
+										"key": 10,
 										"parent": 12,
 										"timeline": 29
 									},
 									{
 										"id": 14,
-										"key": 9,
+										"key": 10,
 										"parent": 13,
 										"timeline": 30
 									}
 								],
-								"id": 12,
+								"id": 11,
 								"object_ref": [
 									{
 										"id": 0,
-										"key": 3,
+										"key": 1,
 										"parent": 12,
 										"timeline": "7",
 										"z_index": "0"
 									},
 									{
 										"id": 1,
-										"key": 3,
+										"key": 1,
 										"parent": 13,
 										"timeline": "9",
 										"z_index": "1"
@@ -2633,91 +2430,91 @@
 									},
 									{
 										"id": 3,
-										"key": 3,
+										"key": 0,
 										"parent": 10,
 										"timeline": "14",
 										"z_index": "3"
 									},
 									{
 										"id": 4,
-										"key": 3,
+										"key": 2,
 										"parent": 11,
 										"timeline": "5",
 										"z_index": "4"
 									},
 									{
 										"id": 5,
-										"key": 3,
+										"key": 0,
 										"parent": 10,
 										"timeline": "15",
 										"z_index": "5"
 									},
 									{
 										"id": 6,
-										"key": 3,
+										"key": 0,
 										"parent": 9,
 										"timeline": "3",
 										"z_index": "6"
 									},
 									{
 										"id": 7,
-										"key": 3,
+										"key": 2,
 										"parent": 0,
 										"timeline": "1",
 										"z_index": "7"
 									},
 									{
 										"id": 8,
-										"key": 3,
+										"key": 1,
 										"parent": 6,
 										"timeline": "6",
 										"z_index": "8"
 									},
 									{
 										"id": 9,
-										"key": 3,
+										"key": 0,
 										"parent": 7,
 										"timeline": "8",
 										"z_index": "9"
 									},
 									{
 										"id": 10,
-										"key": 3,
+										"key": 6,
 										"parent": 8,
 										"timeline": "10",
 										"z_index": "10"
 									},
 									{
 										"id": 11,
-										"key": 3,
+										"key": 5,
 										"parent": 1,
 										"timeline": "0",
 										"z_index": "11"
 									},
 									{
 										"id": 12,
-										"key": 3,
+										"key": 0,
 										"parent": 3,
 										"timeline": "2",
 										"z_index": "12"
 									},
 									{
 										"id": 13,
-										"key": 3,
+										"key": 1,
 										"parent": 4,
 										"timeline": "12",
 										"z_index": "13"
 									},
 									{
 										"id": 14,
-										"key": 3,
+										"key": 1,
 										"parent": 5,
 										"timeline": "4",
 										"z_index": "14"
 									},
 									{
 										"id": 15,
-										"key": 3,
+										"key": 0,
 										"parent": 4,
 										"timeline": "13",
 										"z_index": "15"
@@ -2727,7 +2524,7 @@
 							}
 						]
 					},
-					"name": "mecha_walk",
+					"name": "walk",
 					"timeline": [
 						{
 							"id": 0,
@@ -2736,47 +2533,80 @@
 									"id": 0,
 									"object": {
 										"angle": 269.575595,
-										"file": 0,
+										"file": 3,
 										"folder": 0,
+										"scale_x": 0.5,
+										"scale_y": 0.5,
 										"x": 30.194549,
 										"y": 9.656742
 									},
-									"spin": 0
+									"spin": -1
 								},
 								{
 									"id": 1,
 									"object": {
-										"angle": 269.575595,
-										"file": 0,
+										"angle": 267.397891,
+										"file": 3,
 										"folder": 0,
-										"x": 30.194549,
-										"y": 9.656742
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 30.184409,
+										"y": 8.656793
 									},
-									"spin": 0,
-									"time": 878
+									"time": 256
 								},
 								{
 									"id": 2,
 									"object": {
-										"angle": 269.575595,
-										"file": 0,
+										"angle": 270.242706,
+										"file": 3,
 										"folder": 0,
-										"x": 30.194549,
-										"y": 9.656742
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 30.190815,
+										"y": 10.233025
 									},
-									"spin": 0,
-									"time": 1000
+									"time": 1261
 								},
 								{
 									"id": 3,
 									"object": {
-										"angle": 269.575595,
-										"file": 0,
+										"angle": 271.970311,
+										"file": 3,
 										"folder": 0,
-										"x": 30.194549,
-										"y": 9.656742
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 30.191835,
+										"y": 10.075503
 									},
-									"spin": 0,
+									"spin": -1,
+									"time": 1463
+								},
+								{
+									"id": 4,
+									"object": {
+										"angle": 268.403887,
+										"file": 3,
+										"folder": 0,
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 30.179151,
+										"y": 9.366709
+									},
+									"spin": -1,
+									"time": 1731
+								},
+								{
+									"id": 5,
+									"object": {
+										"angle": 267.307373,
+										"file": 3,
+										"folder": 0,
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 30.187565,
+										"y": 9.525203
+									},
 									"time": 1878
 								}
 							],
@@ -2789,48 +2619,41 @@
 									"id": 0,
 									"object": {
 										"angle": 270,
-										"file": 1,
+										"file": 0,
 										"folder": 0,
+										"scale_x": 0.5,
+										"scale_y": 0.5,
 										"x": 9.976267,
 										"y": 6.914887
 									},
-									"spin": 0
+									"spin": -1
 								},
 								{
 									"id": 1,
 									"object": {
-										"angle": 270,
-										"file": 1,
+										"angle": 267.497014,
+										"file": 0,
 										"folder": 0,
-										"x": 9.976267,
-										"y": 6.914887
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 12.476247,
+										"y": 6.924777
 									},
-									"spin": 0,
-									"time": 878
+									"time": 256
 								},
 								{
 									"id": 2,
 									"object": {
-										"angle": 270,
-										"file": 1,
+										"angle": 273.446863,
+										"file": 0,
 										"folder": 0,
-										"x": 9.976267,
-										"y": 6.914887
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 11.035605,
+										"y": 6.919078
 									},
-									"spin": 0,
-									"time": 1000
-								},
-								{
-									"id": 3,
-									"object": {
-										"angle": 270,
-										"file": 1,
-										"folder": 0,
-										"x": 9.976267,
-										"y": 6.914887
-									},
-									"spin": 0,
-									"time": 1878
+									"spin": -1,
+									"time": 1261
 								}
 							],
 							"name": "body"
@@ -2842,48 +2665,14 @@
 									"id": 0,
 									"object": {
 										"angle": 8.130102000000022,
-										"file": 2,
+										"file": 6,
 										"folder": 0,
+										"scale_x": 0.5,
+										"scale_y": 0.5,
 										"x": 15.18865,
 										"y": -0.670883
 									},
 									"spin": 0
-								},
-								{
-									"id": 1,
-									"object": {
-										"angle": 8.130102000000022,
-										"file": 2,
-										"folder": 0,
-										"x": 15.18865,
-										"y": -0.670883
-									},
-									"spin": 0,
-									"time": 878
-								},
-								{
-									"id": 2,
-									"object": {
-										"angle": 8.130102000000022,
-										"file": 2,
-										"folder": 0,
-										"x": 15.18865,
-										"y": -0.670883
-									},
-									"spin": 0,
-									"time": 1000
-								},
-								{
-									"id": 3,
-									"object": {
-										"angle": 8.130102000000022,
-										"file": 2,
-										"folder": 0,
-										"x": 15.18865,
-										"y": -0.670883
-									},
-									"spin": 0,
-									"time": 1878
 								}
 							],
 							"name": "shoulder_right"
@@ -2895,48 +2684,14 @@
 									"id": 0,
 									"object": {
 										"angle": 8.63713100000001,
-										"file": 3,
+										"file": 5,
 										"folder": 0,
+										"scale_x": 0.5,
+										"scale_y": 0.5,
 										"x": 16.1987,
 										"y": 2.472076
 									},
 									"spin": 0
-								},
-								{
-									"id": 1,
-									"object": {
-										"angle": 8.63713100000001,
-										"file": 3,
-										"folder": 0,
-										"x": 16.1987,
-										"y": 2.472076
-									},
-									"spin": 0,
-									"time": 878
-								},
-								{
-									"id": 2,
-									"object": {
-										"angle": 8.63713100000001,
-										"file": 3,
-										"folder": 0,
-										"x": 16.1987,
-										"y": 2.472076
-									},
-									"spin": 0,
-									"time": 1000
-								},
-								{
-									"id": 3,
-									"object": {
-										"angle": 8.63713100000001,
-										"file": 3,
-										"folder": 0,
-										"x": 16.1987,
-										"y": 2.472076
-									},
-									"spin": 0,
-									"time": 1878
 								}
 							],
 							"name": "shoulder_left"
@@ -2948,48 +2703,27 @@
 									"id": 0,
 									"object": {
 										"angle": 99.16234700000001,
-										"file": 5,
+										"file": 7,
 										"folder": 0,
-										"x": 7.611393,
-										"y": 0.068352
-									},
-									"spin": 0
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 7.751725,
+										"y": -1.988419
+									}
 								},
 								{
 									"id": 1,
 									"object": {
-										"angle": 99.16234700000001,
-										"file": 5,
+										"angle": 102.99899099999999,
+										"file": 7,
 										"folder": 0,
-										"x": 7.611393,
-										"y": 0.068352
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 8.249636,
+										"y": -2.034073
 									},
-									"spin": 0,
-									"time": 878
-								},
-								{
-									"id": 2,
-									"object": {
-										"angle": 99.16234700000001,
-										"file": 5,
-										"folder": 0,
-										"x": 7.611393,
-										"y": 0.068352
-									},
-									"spin": 0,
-									"time": 1000
-								},
-								{
-									"id": 3,
-									"object": {
-										"angle": 99.16234700000001,
-										"file": 5,
-										"folder": 0,
-										"x": 7.611393,
-										"y": 0.068352
-									},
-									"spin": 0,
-									"time": 1878
+									"spin": -1,
+									"time": 735
 								}
 							],
 							"name": "upper_articulation"
@@ -3001,48 +2735,40 @@
 									"id": 0,
 									"object": {
 										"angle": 101.76366300000001,
-										"file": 5,
+										"file": 7,
 										"folder": 0,
+										"scale_x": 0.5,
+										"scale_y": 0.5,
 										"x": 6.248471,
 										"y": -0.057195
-									},
-									"spin": 0
+									}
 								},
 								{
 									"id": 1,
 									"object": {
-										"angle": 101.76366300000001,
-										"file": 5,
+										"angle": 113.73277100000001,
+										"file": 7,
 										"folder": 0,
-										"x": 6.248471,
-										"y": -0.057195
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 9.190522,
+										"y": -1.557327
 									},
-									"spin": 0,
-									"time": 878
+									"time": 1568
 								},
 								{
 									"id": 2,
 									"object": {
-										"angle": 101.76366300000001,
-										"file": 5,
+										"angle": 114.97700800000001,
+										"file": 7,
 										"folder": 0,
-										"x": 6.248471,
-										"y": -0.057195
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 6.826471,
+										"y": -1.01423
 									},
-									"spin": 0,
-									"time": 1000
-								},
-								{
-									"id": 3,
-									"object": {
-										"angle": 101.76366300000001,
-										"file": 5,
-										"folder": 0,
-										"x": 6.248471,
-										"y": -0.057195
-									},
-									"spin": 0,
-									"time": 1878
+									"spin": -1,
+									"time": 1731
 								}
 							],
 							"name": "upper_articulation_000"
@@ -3054,8 +2780,10 @@
 									"id": 0,
 									"object": {
 										"angle": 101.22889199999997,
-										"file": 6,
+										"file": 4,
 										"folder": 0,
+										"scale_x": 0.5,
+										"scale_y": 0.5,
 										"x": 29.561656,
 										"y": -5.47757
 									},
@@ -3065,32 +2793,10 @@
 									"id": 1,
 									"object": {
 										"angle": 101.22889199999997,
-										"file": 6,
+										"file": 4,
 										"folder": 0,
-										"x": 29.561656,
-										"y": -5.47757
-									},
-									"spin": 0,
-									"time": 878
-								},
-								{
-									"id": 2,
-									"object": {
-										"angle": 101.22889199999997,
-										"file": 6,
-										"folder": 0,
-										"x": 29.561656,
-										"y": -5.47757
-									},
-									"spin": 0,
-									"time": 1000
-								},
-								{
-									"id": 3,
-									"object": {
-										"angle": 101.22889199999997,
-										"file": 6,
-										"folder": 0,
+										"scale_x": 0.5,
+										"scale_y": 0.5,
 										"x": 29.561656,
 										"y": -5.47757
 									},
@@ -3107,10 +2813,12 @@
 									"id": 0,
 									"object": {
 										"angle": 102.706503,
-										"file": 6,
+										"file": 4,
 										"folder": 0,
-										"x": 31.181516,
-										"y": -7.50115
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 30.72577,
+										"y": -7.29549
 									},
 									"spin": 0
 								},
@@ -3118,37 +2826,15 @@
 									"id": 1,
 									"object": {
 										"angle": 102.706503,
-										"file": 6,
+										"file": 4,
 										"folder": 0,
-										"x": 31.181516,
-										"y": -7.50115
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 30.246947,
+										"y": -7.151518
 									},
 									"spin": 0,
-									"time": 878
-								},
-								{
-									"id": 2,
-									"object": {
-										"angle": 102.706503,
-										"file": 6,
-										"folder": 0,
-										"x": 31.181516,
-										"y": -7.50115
-									},
-									"spin": 0,
-									"time": 1000
-								},
-								{
-									"id": 3,
-									"object": {
-										"angle": 102.706503,
-										"file": 6,
-										"folder": 0,
-										"x": 31.181516,
-										"y": -7.50115
-									},
-									"spin": 0,
-									"time": 1878
+									"time": 256
 								}
 							],
 							"name": "leg_000"
@@ -3160,48 +2846,14 @@
 									"id": 0,
 									"object": {
 										"angle": 68.962489,
-										"file": 7,
+										"file": 1,
 										"folder": 0,
-										"x": 12.147347,
-										"y": -0.011953
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 13.717786,
+										"y": -0.195585
 									},
 									"spin": 0
-								},
-								{
-									"id": 1,
-									"object": {
-										"angle": 68.962489,
-										"file": 7,
-										"folder": 0,
-										"x": 12.147347,
-										"y": -0.011953
-									},
-									"spin": 0,
-									"time": 878
-								},
-								{
-									"id": 2,
-									"object": {
-										"angle": 68.962489,
-										"file": 7,
-										"folder": 0,
-										"x": 12.147347,
-										"y": -0.011953
-									},
-									"spin": 0,
-									"time": 1000
-								},
-								{
-									"id": 3,
-									"object": {
-										"angle": 68.962489,
-										"file": 7,
-										"folder": 0,
-										"x": 12.147347,
-										"y": -0.011953
-									},
-									"spin": 0,
-									"time": 1878
 								}
 							],
 							"name": "down_leg"
@@ -3213,8 +2865,10 @@
 									"id": 0,
 									"object": {
 										"angle": 71.77658600000001,
-										"file": 7,
+										"file": 1,
 										"folder": 0,
+										"scale_x": 0.5,
+										"scale_y": 0.5,
 										"x": 11.150837,
 										"y": -0.333734
 									},
@@ -3224,37 +2878,15 @@
 									"id": 1,
 									"object": {
 										"angle": 71.77658600000001,
-										"file": 7,
+										"file": 1,
 										"folder": 0,
-										"x": 11.150837,
-										"y": -0.333734
-									},
-									"spin": 0,
-									"time": 878
-								},
-								{
-									"id": 2,
-									"object": {
-										"angle": 71.77658600000001,
-										"file": 7,
-										"folder": 0,
-										"x": 11.150837,
-										"y": -0.333734
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 12.621993,
+										"y": -0.040987
 									},
 									"spin": 0,
 									"time": 1000
-								},
-								{
-									"id": 3,
-									"object": {
-										"angle": 71.77658600000001,
-										"file": 7,
-										"folder": 0,
-										"x": 11.150837,
-										"y": -0.333734
-									},
-									"spin": 0,
-									"time": 1878
 								}
 							],
 							"name": "down_leg_000"
@@ -3266,10 +2898,12 @@
 									"id": 0,
 									"object": {
 										"angle": 57.144277999999986,
-										"file": 8,
+										"file": 2,
 										"folder": 0,
-										"x": 12.977761,
-										"y": 4.367378
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 13.533353,
+										"y": 5.198833
 									},
 									"spin": 0
 								},
@@ -3277,36 +2911,82 @@
 									"id": 1,
 									"object": {
 										"angle": 57.144277999999986,
-										"file": 8,
+										"file": 2,
 										"folder": 0,
-										"x": 12.977761,
-										"y": 4.367378
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 12.567405,
+										"y": 4.635854
 									},
-									"spin": 0,
+									"spin": -1,
 									"time": 878
 								},
 								{
 									"id": 2,
 									"object": {
-										"angle": 57.144277999999986,
-										"file": 8,
+										"angle": 54.69154400000002,
+										"file": 2,
 										"folder": 0,
-										"x": 12.977761,
-										"y": 4.367378
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 11.943613,
+										"y": 3.380409
 									},
-									"spin": 0,
 									"time": 1000
 								},
 								{
 									"id": 3,
 									"object": {
 										"angle": 57.144277999999986,
-										"file": 8,
+										"file": 2,
 										"folder": 0,
-										"x": 12.977761,
-										"y": 4.367378
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 13.897209,
+										"y": 4.365961
 									},
 									"spin": 0,
+									"time": 1463
+								},
+								{
+									"id": 4,
+									"object": {
+										"angle": 57.144277999999986,
+										"file": 2,
+										"folder": 0,
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 13.132727,
+										"y": 4.389945
+									},
+									"time": 1568
+								},
+								{
+									"id": 5,
+									"object": {
+										"angle": 58.263236000000006,
+										"file": 2,
+										"folder": 0,
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 13.855053,
+										"y": 3.73402
+									},
+									"spin": -1,
+									"time": 1731
+								},
+								{
+									"id": 6,
+									"object": {
+										"angle": 57.65176100000002,
+										"file": 2,
+										"folder": 0,
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 13.398913,
+										"y": 4.120479
+									},
+									"spin": -1,
 									"time": 1878
 								}
 							],
@@ -3318,49 +2998,55 @@
 								{
 									"id": 0,
 									"object": {
-										"angle": 63.68395800000002,
-										"file": 8,
+										"angle": 64.84152599999999,
+										"file": 2,
 										"folder": 0,
-										"x": 12.80024,
-										"y": 4.654501
-									},
-									"spin": 0
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 12.415979,
+										"y": 5.002881
+									}
 								},
 								{
 									"id": 1,
 									"object": {
-										"angle": 63.68395800000002,
-										"file": 8,
+										"angle": 67.24825299999998,
+										"file": 2,
 										"folder": 0,
-										"x": 12.80024,
-										"y": 4.654501
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 11.937677,
+										"y": 6.333444
 									},
-									"spin": 0,
-									"time": 878
+									"time": 580
 								},
 								{
 									"id": 2,
 									"object": {
-										"angle": 63.68395800000002,
-										"file": 8,
+										"angle": 68.51874900000001,
+										"file": 2,
 										"folder": 0,
-										"x": 12.80024,
-										"y": 4.654501
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 12.362319,
+										"y": 7.202029
 									},
-									"spin": 0,
-									"time": 1000
+									"spin": -1,
+									"time": 735
 								},
 								{
 									"id": 3,
 									"object": {
-										"angle": 63.68395800000002,
-										"file": 8,
+										"angle": 64.84152599999999,
+										"file": 2,
 										"folder": 0,
-										"x": 12.80024,
-										"y": 4.654501
+										"scale_x": 0.5,
+										"scale_y": 0.5,
+										"x": 13.42243,
+										"y": 5.33038
 									},
 									"spin": 0,
-									"time": 1878
+									"time": 1000
 								}
 							],
 							"name": "foot_000"
@@ -3371,49 +3057,28 @@
 								{
 									"id": 0,
 									"object": {
-										"angle": 158.824261,
-										"file": 9,
+										"angle": 160.65806,
+										"file": 8,
 										"folder": 0,
+										"scale_x": 0.5,
+										"scale_y": 0.5,
 										"x": 29.619554,
 										"y": -0.087713
-									},
-									"spin": 0
+									}
 								},
 								{
 									"id": 1,
 									"object": {
-										"angle": 158.824261,
-										"file": 9,
+										"angle": 161.124651,
+										"file": 8,
 										"folder": 0,
+										"scale_x": 0.5,
+										"scale_y": 0.5,
 										"x": 29.619554,
 										"y": -0.087713
 									},
-									"spin": 0,
-									"time": 878
-								},
-								{
-									"id": 2,
-									"object": {
-										"angle": 158.824261,
-										"file": 9,
-										"folder": 0,
-										"x": 29.619554,
-										"y": -0.087713
-									},
-									"spin": 0,
-									"time": 1000
-								},
-								{
-									"id": 3,
-									"object": {
-										"angle": 158.824261,
-										"file": 9,
-										"folder": 0,
-										"x": 29.619554,
-										"y": -0.087713
-									},
-									"spin": 0,
-									"time": 1878
+									"spin": -1,
+									"time": 256
 								}
 							],
 							"name": "upper_leg_behind"
@@ -3425,48 +3090,14 @@
 									"id": 0,
 									"object": {
 										"angle": 158.824261,
-										"file": 10,
+										"file": 9,
 										"folder": 0,
+										"scale_x": 0.5,
+										"scale_y": 0.5,
 										"x": 22.238846,
 										"y": -1.607538
 									},
 									"spin": 0
-								},
-								{
-									"id": 1,
-									"object": {
-										"angle": 158.824261,
-										"file": 10,
-										"folder": 0,
-										"x": 22.238846,
-										"y": -1.607538
-									},
-									"spin": 0,
-									"time": 878
-								},
-								{
-									"id": 2,
-									"object": {
-										"angle": 158.824261,
-										"file": 10,
-										"folder": 0,
-										"x": 22.238846,
-										"y": -1.607538
-									},
-									"spin": 0,
-									"time": 1000
-								},
-								{
-									"id": 3,
-									"object": {
-										"angle": 158.824261,
-										"file": 10,
-										"folder": 0,
-										"x": 22.238846,
-										"y": -1.607538
-									},
-									"spin": 0,
-									"time": 1878
 								}
 							],
 							"name": "upper_leg_front"
@@ -3478,48 +3109,14 @@
 									"id": 0,
 									"object": {
 										"angle": 163.156165,
-										"file": 9,
+										"file": 8,
 										"folder": 0,
+										"scale_x": 0.5,
+										"scale_y": 0.5,
 										"x": 29.318295,
 										"y": -1.912989
 									},
 									"spin": 0
-								},
-								{
-									"id": 1,
-									"object": {
-										"angle": 163.156165,
-										"file": 9,
-										"folder": 0,
-										"x": 29.318295,
-										"y": -1.912989
-									},
-									"spin": 0,
-									"time": 878
-								},
-								{
-									"id": 2,
-									"object": {
-										"angle": 163.156165,
-										"file": 9,
-										"folder": 0,
-										"x": 29.318295,
-										"y": -1.912989
-									},
-									"spin": 0,
-									"time": 1000
-								},
-								{
-									"id": 3,
-									"object": {
-										"angle": 163.156165,
-										"file": 9,
-										"folder": 0,
-										"x": 29.318295,
-										"y": -1.912989
-									},
-									"spin": 0,
-									"time": 1878
 								}
 							],
 							"name": "upper_leg_behind_000"
@@ -3531,48 +3128,14 @@
 									"id": 0,
 									"object": {
 										"angle": 163.156165,
-										"file": 10,
+										"file": 9,
 										"folder": 0,
+										"scale_x": 0.5,
+										"scale_y": 0.5,
 										"x": 20.84234,
 										"y": -4.745132
 									},
 									"spin": 0
-								},
-								{
-									"id": 1,
-									"object": {
-										"angle": 163.156165,
-										"file": 10,
-										"folder": 0,
-										"x": 20.84234,
-										"y": -4.745132
-									},
-									"spin": 0,
-									"time": 878
-								},
-								{
-									"id": 2,
-									"object": {
-										"angle": 163.156165,
-										"file": 10,
-										"folder": 0,
-										"x": 20.84234,
-										"y": -4.745132
-									},
-									"spin": 0,
-									"time": 1000
-								},
-								{
-									"id": 3,
-									"object": {
-										"angle": 163.156165,
-										"file": 10,
-										"folder": 0,
-										"x": 20.84234,
-										"y": -4.745132
-									},
-									"spin": 0,
-									"time": 1878
 								}
 							],
 							"name": "upper_leg_front_000"
@@ -3583,47 +3146,69 @@
 								{
 									"bone": {
 										"angle": 90,
-										"x": 21.340611,
-										"y": 155.458515
+										"scale_x": 2,
+										"scale_y": 2,
+										"x": 42.681222,
+										"y": 305.91703
 									},
 									"id": 0,
 									"spin": -1
 								},
 								{
 									"bone": {
-										"angle": 89.22263199999998,
-										"x": 18.165765,
-										"y": 157.556673
+										"angle": 89.77334100000002,
+										"scale_x": 2,
+										"scale_y": 2,
+										"x": 40.829831,
+										"y": 311.598416
 									},
 									"id": 1,
+									"spin": -1,
+									"time": 256
+								},
+								{
+									"bone": {
+										"angle": 89.22263199999998,
+										"scale_x": 2,
+										"scale_y": 2,
+										"x": 36.33153,
+										"y": 315.113346
+									},
+									"id": 2,
 									"time": 878
 								},
 								{
 									"bone": {
 										"angle": 90,
-										"x": 21.340611,
-										"y": 155.458515
+										"scale_x": 2,
+										"scale_y": 2,
+										"x": 42.681222,
+										"y": 305.91703
 									},
-									"id": 2,
+									"id": 3,
 									"time": 1000
 								},
 								{
 									"bone": {
 										"angle": 92.91083800000001,
-										"x": 18.340611,
-										"y": 158.951965
+										"scale_x": 2,
+										"scale_y": 2,
+										"x": 36.681222,
+										"y": 317.90393
 									},
-									"id": 3,
+									"id": 4,
 									"spin": -1,
 									"time": 1463
 								},
 								{
 									"bone": {
 										"angle": 91.33631300000002,
-										"x": 18.340611,
-										"y": 157.062295
+										"scale_x": 2,
+										"scale_y": 2,
+										"x": 36.681222,
+										"y": 314.12459
 									},
-									"id": 4,
+									"id": 5,
 									"spin": -1,
 									"time": 1878
 								}
@@ -3646,13 +3231,12 @@
 								},
 								{
 									"bone": {
-										"angle": 359.563588,
-										"scale_x": 1.002963,
+										"angle": 359.43904535098613,
 										"x": 22.270742,
-										"y": -7.423581
+										"y": -7.423580999999999
 									},
 									"id": 1,
-									"time": 460
+									"time": 459
 								},
 								{
 									"bone": {
@@ -3676,20 +3260,49 @@
 								},
 								{
 									"bone": {
-										"angle": 356.817853,
+										"angle": 359.832408,
 										"x": 22.270742,
 										"y": -7.423581
 									},
 									"id": 4,
-									"time": 1463
+									"spin": -1,
+									"time": 1261
 								},
 								{
 									"bone": {
-										"angle": 358.768703,
+										"angle": 358.316943,
 										"x": 22.270742,
 										"y": -7.423581
 									},
 									"id": 5,
+									"time": 1463
+								},
+								{
+									"bone": {
+										"angle": 358.810681,
+										"x": 22.270742,
+										"y": -7.423581
+									},
+									"id": 6,
+									"time": 1568
+								},
+								{
+									"bone": {
+										"angle": 359.714929,
+										"x": 22.270742,
+										"y": -7.423581
+									},
+									"id": 7,
+									"time": 1731
+								},
+								{
+									"bone": {
+										"angle": 0.4464929999999754,
+										"x": 22.270742,
+										"y": -7.423581
+									},
+									"id": 8,
+									"spin": -1,
 									"time": 1878
 								}
 							],
@@ -3713,13 +3326,13 @@
 								{
 									"bone": {
 										"angle": 268.258682,
-										"scale_x": 1.043857,
-										"x": 40.865772,
-										"y": 34.196054
+										"scale_x": 1.046949,
+										"x": 40.865772000000035,
+										"y": 34.19605399999998
 									},
 									"id": 1,
 									"spin": 0,
-									"time": 460
+									"time": 459
 								},
 								{
 									"bone": {
@@ -3752,7 +3365,7 @@
 									},
 									"id": 4,
 									"spin": 0,
-									"time": 1463
+									"time": 1261
 								},
 								{
 									"bone": {
@@ -3762,6 +3375,39 @@
 										"y": 34.196054
 									},
 									"id": 5,
+									"spin": 0,
+									"time": 1463
+								},
+								{
+									"bone": {
+										"angle": 268.258682,
+										"scale_x": 1.046949,
+										"x": 40.865772,
+										"y": 34.196054
+									},
+									"id": 6,
+									"spin": 0,
+									"time": 1568
+								},
+								{
+									"bone": {
+										"angle": 268.258682,
+										"scale_x": 1.046949,
+										"x": 40.865772,
+										"y": 34.196054
+									},
+									"id": 7,
+									"spin": 0,
+									"time": 1731
+								},
+								{
+									"bone": {
+										"angle": 268.258682,
+										"scale_x": 1.046949,
+										"x": 40.865772,
+										"y": 34.196054
+									},
+									"id": 8,
 									"spin": 0,
 									"time": 1878
 								}
@@ -3776,10 +3422,19 @@
 								{
 									"bone": {
 										"angle": 261.869898,
-										"x": 10.917031,
+										"x": 13.417031,
 										"y": 41.048035
 									},
 									"id": 0
+								},
+								{
+									"bone": {
+										"angle": 264.2908,
+										"x": 17.132869,
+										"y": 40.965094
+									},
+									"id": 1,
+									"time": 256
 								},
 								{
 									"bone": {
@@ -3787,17 +3442,17 @@
 										"x": 9.870306,
 										"y": 40.699127
 									},
-									"id": 1,
+									"id": 2,
+									"spin": -1,
 									"time": 878
 								},
 								{
 									"bone": {
-										"angle": 281.513831,
-										"x": 9.606987,
+										"angle": 267.170618,
+										"x": 11.606987,
 										"y": 40.611354
 									},
-									"id": 2,
-									"spin": -1,
+									"id": 3,
 									"time": 1000
 								},
 								{
@@ -3806,7 +3461,7 @@
 										"x": 9.934498,
 										"y": 40.720524
 									},
-									"id": 3,
+									"id": 4,
 									"spin": -1,
 									"time": 1463
 								},
@@ -3816,7 +3471,7 @@
 										"x": 10.615721,
 										"y": 40.947598
 									},
-									"id": 4,
+									"id": 5,
 									"time": 1878
 								}
 							],
@@ -3838,11 +3493,21 @@
 								},
 								{
 									"bone": {
+										"angle": 196.190114,
+										"x": 28.801028,
+										"y": -5.975784
+									},
+									"id": 1,
+									"spin": -1,
+									"time": 256
+								},
+								{
+									"bone": {
 										"angle": 184.315281,
 										"x": 29.014917,
 										"y": -4.152331
 									},
-									"id": 1,
+									"id": 2,
 									"time": 459
 								},
 								{
@@ -3851,7 +3516,7 @@
 										"x": 29.065358,
 										"y": -5.104441
 									},
-									"id": 2,
+									"id": 3,
 									"time": 580
 								},
 								{
@@ -3860,7 +3525,7 @@
 										"x": 29.077366,
 										"y": -5.331102
 									},
-									"id": 3,
+									"id": 4,
 									"time": 735
 								},
 								{
@@ -3869,17 +3534,17 @@
 										"x": 29.088445,
 										"y": -5.540214
 									},
-									"id": 4,
+									"id": 5,
 									"spin": -1,
 									"time": 878
 								},
 								{
 									"bone": {
-										"angle": 229.3458,
+										"angle": 232.955513,
 										"x": 27.86942,
 										"y": -4.575291
 									},
-									"id": 5,
+									"id": 6,
 									"spin": -1,
 									"time": 1000
 								},
@@ -3889,7 +3554,7 @@
 										"x": 28.199364,
 										"y": -6.025974
 									},
-									"id": 6,
+									"id": 7,
 									"spin": -1,
 									"time": 1463
 								},
@@ -3899,7 +3564,7 @@
 										"x": 28.365879,
 										"y": -6.973427
 									},
-									"id": 7,
+									"id": 8,
 									"time": 1731
 								},
 								{
@@ -3908,7 +3573,7 @@
 										"x": 28.529778,
 										"y": -7.905999
 									},
-									"id": 8,
+									"id": 9,
 									"time": 1878
 								}
 							],
@@ -3929,11 +3594,20 @@
 								},
 								{
 									"bone": {
+										"angle": 68.414312,
+										"x": 55.731151,
+										"y": -1.350946
+									},
+									"id": 1,
+									"time": 256
+								},
+								{
+									"bone": {
 										"angle": 83.78912600000001,
 										"x": 55.239137,
 										"y": -1.261938
 									},
-									"id": 1,
+									"id": 2,
 									"spin": -1,
 									"time": 459
 								},
@@ -3943,7 +3617,7 @@
 										"x": 55.239137,
 										"y": -1.261938
 									},
-									"id": 2,
+									"id": 3,
 									"spin": -1,
 									"time": 580
 								},
@@ -3953,7 +3627,7 @@
 										"x": 55.239137,
 										"y": -1.261938
 									},
-									"id": 3,
+									"id": 4,
 									"time": 735
 								},
 								{
@@ -3962,17 +3636,17 @@
 										"x": 55.239137,
 										"y": -1.261938
 									},
-									"id": 4,
-									"spin": -1,
+									"id": 5,
 									"time": 878
 								},
 								{
 									"bone": {
-										"angle": 54.92585600000001,
+										"angle": 64.57480299999997,
 										"x": 55.239137,
 										"y": -1.261938
 									},
-									"id": 5,
+									"id": 6,
+									"spin": -1,
 									"time": 1000
 								},
 								{
@@ -3981,7 +3655,7 @@
 										"x": 55.239137,
 										"y": -1.261938
 									},
-									"id": 6,
+									"id": 7,
 									"spin": -1,
 									"time": 1463
 								},
@@ -3991,7 +3665,7 @@
 										"x": 55.239137,
 										"y": -1.261938
 									},
-									"id": 7,
+									"id": 8,
 									"spin": -1,
 									"time": 1731
 								},
@@ -4001,7 +3675,7 @@
 										"x": 55.239137,
 										"y": -1.261938
 									},
-									"id": 8,
+									"id": 9,
 									"spin": -1,
 									"time": 1878
 								}
@@ -4016,10 +3690,19 @@
 								{
 									"bone": {
 										"angle": 357.080456,
-										"x": 18.73241,
-										"y": -0.959567
+										"x": 20.621501,
+										"y": -1.924623
 									},
 									"id": 0
+								},
+								{
+									"bone": {
+										"angle": 10.933487000000014,
+										"x": 19.720224,
+										"y": -1.306942
+									},
+									"id": 1,
+									"time": 256
 								},
 								{
 									"bone": {
@@ -4027,7 +3710,7 @@
 										"x": 19.005539,
 										"y": -0.81714
 									},
-									"id": 1,
+									"id": 2,
 									"time": 459
 								},
 								{
@@ -4036,7 +3719,7 @@
 										"x": 18.159,
 										"y": 1.604581
 									},
-									"id": 2,
+									"id": 3,
 									"time": 580
 								},
 								{
@@ -4045,7 +3728,7 @@
 										"x": 18.684818,
 										"y": 0.389548
 									},
-									"id": 3,
+									"id": 4,
 									"spin": -1,
 									"time": 735
 								},
@@ -4055,16 +3738,17 @@
 										"x": 19.169928,
 										"y": -0.731417
 									},
-									"id": 4,
+									"id": 5,
 									"time": 878
 								},
 								{
 									"bone": {
-										"angle": 4.815199000000007,
+										"angle": 7.839700999999991,
 										"x": 19.279992,
 										"y": -0.674023
 									},
-									"id": 5,
+									"id": 6,
+									"spin": -1,
 									"time": 1000
 								},
 								{
@@ -4073,7 +3757,7 @@
 										"x": 19.143096,
 										"y": -0.745409
 									},
-									"id": 6,
+									"id": 7,
 									"spin": -1,
 									"time": 1463
 								},
@@ -4083,17 +3767,17 @@
 										"x": 18.999598,
 										"y": -0.820238
 									},
-									"id": 7,
+									"id": 8,
 									"spin": -1,
 									"time": 1731
 								},
 								{
 									"bone": {
 										"angle": 3.2756309999999758,
-										"x": 18.858354,
-										"y": -0.893892
+										"x": 19.804862,
+										"y": -0.57121
 									},
-									"id": 8,
+									"id": 9,
 									"spin": -1,
 									"time": 1878
 								}
@@ -4108,10 +3792,19 @@
 								{
 									"bone": {
 										"angle": 9.09336300000001,
-										"x": 65.602534,
-										"y": 1.448736
+										"x": 66.314672,
+										"y": -0.420183
 									},
 									"id": 0
+								},
+								{
+									"bone": {
+										"angle": 23.197404000000006,
+										"x": 65.924434,
+										"y": -0.377799
+									},
+									"id": 1,
+									"time": 256
 								},
 								{
 									"bone": {
@@ -4119,82 +3812,82 @@
 										"x": 65.602534,
 										"y": 1.448736
 									},
-									"id": 1,
+									"id": 2,
 									"spin": -1,
 									"time": 459
 								},
 								{
 									"bone": {
 										"angle": 9.461873000000026,
-										"x": 65.602534,
-										"y": 1.448736
+										"x": 64.913627,
+										"y": 0.025568
 									},
-									"id": 2,
+									"id": 3,
 									"time": 580
 								},
 								{
 									"bone": {
 										"angle": 23.93910599999998,
-										"x": 65.602534,
-										"y": 1.448736
+										"x": 66.01321,
+										"y": -0.078138
 									},
-									"id": 3,
+									"id": 4,
 									"spin": -1,
 									"time": 735
 								},
 								{
 									"bone": {
 										"angle": 8.377524999999991,
-										"x": 65.602534,
-										"y": 1.448736
+										"x": 65.177357,
+										"y": -0.074164
 									},
-									"id": 4,
+									"id": 5,
 									"time": 878
 								},
 								{
 									"bone": {
 										"angle": 10.563082000000009,
-										"x": 65.602534,
-										"y": 1.448736
+										"x": 65.269324,
+										"y": -0.096894
 									},
-									"id": 5,
+									"id": 6,
 									"time": 1000
 								},
 								{
 									"bone": {
 										"angle": 21.410642999999993,
-										"x": 65.602534,
-										"y": 1.448736
+										"x": 65.552932,
+										"y": -0.131625
 									},
-									"id": 6,
+									"id": 7,
 									"spin": -1,
 									"time": 1261
 								},
 								{
 									"bone": {
 										"angle": 15.521331999999973,
-										"x": 65.602534,
-										"y": 1.448736
+										"x": 65.285332,
+										"y": -0.017341
 									},
-									"id": 7,
+									"id": 8,
 									"time": 1463
 								},
 								{
 									"bone": {
 										"angle": 20.718729999999994,
-										"x": 65.602534,
-										"y": 1.448736
+										"x": 65.757178,
+										"y": -0.545276
 									},
-									"id": 8,
+									"id": 9,
 									"time": 1731
 								},
 								{
 									"bone": {
 										"angle": 25.83449300000001,
-										"x": 65.602534,
-										"y": 1.448736
+										"x": 65.656978,
+										"y": -0.612098
 									},
-									"id": 9,
+									"id": 10,
 									"spin": -1,
 									"time": 1878
 								}
@@ -4217,11 +3910,21 @@
 								},
 								{
 									"bone": {
+										"angle": 348.082358,
+										"x": 33.563752,
+										"y": 0.355881
+									},
+									"id": 1,
+									"spin": -1,
+									"time": 256
+								},
+								{
+									"bone": {
 										"angle": 302.538372,
 										"x": 33.920094,
 										"y": -1.480833
 									},
-									"id": 1,
+									"id": 2,
 									"time": 459
 								},
 								{
@@ -4230,7 +3933,7 @@
 										"x": 33.841649,
 										"y": -0.737631
 									},
-									"id": 2,
+									"id": 3,
 									"spin": -1,
 									"time": 580
 								},
@@ -4240,7 +3943,7 @@
 										"x": 33.822974,
 										"y": -0.560703
 									},
-									"id": 3,
+									"id": 4,
 									"time": 735
 								},
 								{
@@ -4249,7 +3952,7 @@
 										"x": 33.805746,
 										"y": -0.397473
 									},
-									"id": 4,
+									"id": 5,
 									"time": 878
 								},
 								{
@@ -4258,7 +3961,7 @@
 										"x": 33.967137,
 										"y": 0.030612
 									},
-									"id": 5,
+									"id": 6,
 									"spin": -1,
 									"time": 1000
 								},
@@ -4268,7 +3971,7 @@
 										"x": 34.928129,
 										"y": -0.657282
 									},
-									"id": 6,
+									"id": 7,
 									"time": 1261
 								},
 								{
@@ -4277,7 +3980,7 @@
 										"x": 34.785526,
 										"y": -0.299938
 									},
-									"id": 7,
+									"id": 8,
 									"time": 1463
 								},
 								{
@@ -4286,7 +3989,7 @@
 										"x": 35.697888,
 										"y": 1.473146
 									},
-									"id": 8,
+									"id": 9,
 									"time": 1731
 								},
 								{
@@ -4295,7 +3998,7 @@
 										"x": 35.679935,
 										"y": 1.475881
 									},
-									"id": 9,
+									"id": 10,
 									"time": 1878
 								}
 							],
@@ -4309,7 +4012,7 @@
 								{
 									"bone": {
 										"angle": 270.818455,
-										"x": 3.930131,
+										"x": 6.430131,
 										"y": -9.606987
 									},
 									"id": 0,
@@ -4317,30 +4020,48 @@
 								},
 								{
 									"bone": {
-										"angle": 265.133742,
-										"x": 3.399969,
-										"y": -9.450012
+										"angle": 269.160953,
+										"x": 4.046633,
+										"y": -9.567151
 									},
 									"id": 1,
 									"spin": -1,
+									"time": 256
+								},
+								{
+									"bone": {
+										"angle": 260.59377,
+										"x": 3.399969,
+										"y": -9.450012
+									},
+									"id": 2,
 									"time": 878
 								},
 								{
 									"bone": {
 										"angle": 262.568592,
-										"x": 3.930131,
+										"x": 5.930131,
 										"y": -9.606987
 									},
-									"id": 2,
+									"id": 3,
 									"time": 1000
 								},
 								{
 									"bone": {
-										"angle": 264.148212,
-										"x": 3.930131,
-										"y": -9.606987
+										"angle": 263.459047,
+										"x": 12.611998,
+										"y": -9.830697
 									},
-									"id": 3,
+									"id": 4,
+									"time": 1261
+								},
+								{
+									"bone": {
+										"angle": 264.148212,
+										"x": 8.424325,
+										"y": -9.835505
+									},
+									"id": 5,
 									"time": 1463
 								},
 								{
@@ -4349,7 +4070,7 @@
 										"x": 3.930131,
 										"y": -9.606987
 									},
-									"id": 4,
+									"id": 6,
 									"spin": -1,
 									"time": 1878
 								}
@@ -4378,7 +4099,7 @@
 									},
 									"id": 1,
 									"spin": -1,
-									"time": 250
+									"time": 256
 								},
 								{
 									"bone": {
@@ -4387,12 +4108,11 @@
 										"y": -1.804019
 									},
 									"id": 2,
-									"spin": -1,
 									"time": 459
 								},
 								{
 									"bone": {
-										"angle": 209.3431,
+										"angle": 213.346952,
 										"x": 40.346958,
 										"y": -5.62717
 									},
@@ -4402,7 +4122,7 @@
 								},
 								{
 									"bone": {
-										"angle": 208.258821,
+										"angle": 198.077767,
 										"x": 39.662025,
 										"y": -7.840903
 									},
@@ -4412,11 +4132,21 @@
 								},
 								{
 									"bone": {
+										"angle": 188.805297,
+										"x": 38.765498,
+										"y": -6.266488
+									},
+									"id": 5,
+									"spin": -1,
+									"time": 1261
+								},
+								{
+									"bone": {
 										"angle": 181.628902,
 										"x": 38.071635,
 										"y": -5.047976
 									},
-									"id": 5,
+									"id": 6,
 									"time": 1463
 								},
 								{
@@ -4425,7 +4155,7 @@
 										"x": 42.535797,
 										"y": 1.011718
 									},
-									"id": 6,
+									"id": 7,
 									"spin": -1,
 									"time": 1878
 								}
@@ -4448,11 +4178,11 @@
 								{
 									"bone": {
 										"angle": 50.74712499999998,
-										"x": 54.324259,
-										"y": 0.030536
+										"x": 54.710949,
+										"y": -0.286435
 									},
 									"id": 1,
-									"time": 250
+									"time": 256
 								},
 								{
 									"bone": {
@@ -4471,12 +4201,11 @@
 										"y": 0.030536
 									},
 									"id": 3,
-									"spin": -1,
 									"time": 878
 								},
 								{
 									"bone": {
-										"angle": 38.46706399999999,
+										"angle": 48.64811800000001,
 										"x": 54.324259,
 										"y": 0.030536
 									},
@@ -4485,13 +4214,32 @@
 								},
 								{
 									"bone": {
-										"angle": 57.75554199999999,
+										"angle": 53.78210899999999,
 										"x": 54.324259,
 										"y": 0.030536
 									},
 									"id": 5,
+									"time": 1261
+								},
+								{
+									"bone": {
+										"angle": 57.75554199999999,
+										"x": 54.324259,
+										"y": 0.030536
+									},
+									"id": 6,
 									"spin": -1,
 									"time": 1463
+								},
+								{
+									"bone": {
+										"angle": 48.08615099999997,
+										"x": 54.324259,
+										"y": 0.030536
+									},
+									"id": 7,
+									"spin": -1,
+									"time": 1731
 								},
 								{
 									"bone": {
@@ -4499,7 +4247,7 @@
 										"x": 54.324259,
 										"y": 0.030536
 									},
-									"id": 6,
+									"id": 8,
 									"time": 1878
 								}
 							],
@@ -4527,7 +4275,7 @@
 									},
 									"id": 1,
 									"spin": -1,
-									"time": 250
+									"time": 256
 								},
 								{
 									"bone": {
@@ -4541,7 +4289,7 @@
 								},
 								{
 									"bone": {
-										"angle": 11.633264999999994,
+										"angle": 4.070067999999992,
 										"x": 15.312382,
 										"y": 1.95779
 									},
@@ -4560,11 +4308,20 @@
 								},
 								{
 									"bone": {
+										"angle": 34.824162,
+										"x": 15.088753,
+										"y": 2.750961
+									},
+									"id": 5,
+									"time": 1261
+								},
+								{
+									"bone": {
 										"angle": 58.839223000000004,
 										"x": 14.641884,
 										"y": 3.244233
 									},
-									"id": 5,
+									"id": 6,
 									"time": 1463
 								},
 								{
@@ -4573,17 +4330,17 @@
 										"x": 14.911629,
 										"y": 3.227012
 									},
-									"id": 6,
+									"id": 7,
 									"spin": -1,
 									"time": 1568
 								},
 								{
 									"bone": {
 										"angle": 60.319541000000015,
-										"x": 15.330377,
-										"y": 3.200278
+										"x": 13.755549,
+										"y": 4.077727
 									},
-									"id": 7,
+									"id": 8,
 									"spin": -1,
 									"time": 1731
 								},
@@ -4593,7 +4350,7 @@
 										"x": 15.70802,
 										"y": 3.176168
 									},
-									"id": 8,
+									"id": 9,
 									"time": 1878
 								}
 							],
@@ -4607,19 +4364,19 @@
 								{
 									"bone": {
 										"angle": 8.279856999999993,
-										"x": 66.426067,
-										"y": 0.394447
+										"x": 66.014747,
+										"y": -0.517044
 									},
 									"id": 0
 								},
 								{
 									"bone": {
 										"angle": 9.951348999999993,
-										"x": 66.426067,
-										"y": 0.394447
+										"x": 66.282095,
+										"y": -0.084377
 									},
 									"id": 1,
-									"time": 250
+									"time": 256
 								},
 								{
 									"bone": {
@@ -4632,11 +4389,21 @@
 								},
 								{
 									"bone": {
-										"angle": 14.173711000000026,
+										"angle": 13.304035999999996,
+										"x": 66.410985,
+										"y": 0.224061
+									},
+									"id": 3,
+									"time": 735
+								},
+								{
+									"bone": {
+										"angle": 20.662453000000028,
 										"x": 66.426067,
 										"y": 0.394447
 									},
-									"id": 3,
+									"id": 4,
+									"spin": -1,
 									"time": 878
 								},
 								{
@@ -4645,43 +4412,52 @@
 										"x": 66.426067,
 										"y": 0.394447
 									},
-									"id": 4,
+									"id": 5,
 									"time": 1000
 								},
 								{
 									"bone": {
-										"angle": 20.303651000000002,
-										"x": 66.426067,
-										"y": 0.394447
+										"angle": 18.276122999999984,
+										"x": 66.935784,
+										"y": 0.153693
 									},
-									"id": 5,
+									"id": 6,
+									"time": 1261
+								},
+								{
+									"bone": {
+										"angle": 20.303651000000002,
+										"x": 67.330278,
+										"y": -0.032638
+									},
+									"id": 7,
 									"time": 1463
 								},
 								{
 									"bone": {
 										"angle": 20.43565000000001,
-										"x": 66.426067,
-										"y": 0.394447
+										"x": 67.141657,
+										"y": -0.304073
 									},
-									"id": 6,
+									"id": 8,
 									"time": 1568
 								},
 								{
 									"bone": {
 										"angle": 20.640562999999986,
-										"x": 66.426067,
-										"y": 0.394447
+										"x": 66.988803,
+										"y": -0.43219
 									},
-									"id": 7,
+									"id": 9,
 									"time": 1731
 								},
 								{
 									"bone": {
 										"angle": 20.825361999999984,
-										"x": 66.426067,
-										"y": 0.394447
+										"x": 66.018788,
+										"y": -0.518857
 									},
-									"id": 8,
+									"id": 10,
 									"spin": -1,
 									"time": 1878
 								}
@@ -4708,7 +4484,7 @@
 										"y": 1.566907
 									},
 									"id": 1,
-									"time": 250
+									"time": 256
 								},
 								{
 									"bone": {
@@ -4721,20 +4497,30 @@
 								},
 								{
 									"bone": {
+										"angle": 18.50553000000002,
+										"x": 26.876736,
+										"y": 2.791237
+									},
+									"id": 3,
+									"time": 735
+								},
+								{
+									"bone": {
 										"angle": 23.277886000000024,
 										"x": 28.297035,
 										"y": 3.004417
 									},
-									"id": 3,
+									"id": 4,
+									"spin": -1,
 									"time": 878
 								},
 								{
 									"bone": {
-										"angle": 38.02741400000002,
+										"angle": 19.13788199999999,
 										"x": 30.431185,
 										"y": 3.981371
 									},
-									"id": 4,
+									"id": 5,
 									"spin": -1,
 									"time": 1000
 								},
@@ -4744,7 +4530,7 @@
 										"x": 30.073621,
 										"y": 1.697464
 									},
-									"id": 5,
+									"id": 6,
 									"spin": -1,
 									"time": 1261
 								},
@@ -4754,7 +4540,7 @@
 										"x": 29.747566,
 										"y": -0.38518
 									},
-									"id": 6,
+									"id": 7,
 									"time": 1463
 								},
 								{
@@ -4763,7 +4549,7 @@
 										"x": 30.06099,
 										"y": -0.260611
 									},
-									"id": 7,
+									"id": 8,
 									"time": 1568
 								},
 								{
@@ -4772,7 +4558,7 @@
 										"x": 30.547543,
 										"y": -0.067233
 									},
-									"id": 8,
+									"id": 9,
 									"time": 1731
 								},
 								{
@@ -4781,12 +4567,30 @@
 										"x": 30.986336,
 										"y": 0.107164
 									},
-									"id": 9,
+									"id": 10,
 									"time": 1878
 								}
 							],
 							"name": "bone_014",
 							"obj": 14,
+							"object_type": "bone"
+						},
+						{
+							"id": 31,
+							"key": [
+								{
+									"bone": {
+										"angle": 232.955513,
+										"x": 27.86942,
+										"y": -4.575291
+									},
+									"id": 0,
+									"spin": 0,
+									"time": 1000
+								}
+							],
+							"name": "bone_015",
+							"obj": 15,
 							"object_type": "bone"
 						}
 					]
@@ -4794,7 +4598,7 @@
 			],
 			"character_map": [],
 			"id": 0,
-			"name": "entity_000",
+			"name": "mecha",
 			"obj_info": [
 				{
 					"h": 10,
@@ -4885,6 +4689,12 @@
 					"name": "bone_014",
 					"type": "bone",
 					"w": 25.271
+				},
+				{
+					"h": 10,
+					"name": "bone_015",
+					"type": "bone",
+					"w": 51.9816
 				}
 			]
 		}
@@ -4893,92 +4703,84 @@
 		{
 			"file": [
 				{
-					"height": 116,
+					"height": 110,
 					"id": 0,
-					"name": "head.png",
+					"name": "mecha_body.png",
 					"pivot_x": 0.5,
 					"pivot_y": 0.5,
-					"width": 118
+					"width": 213
 				},
 				{
-					"height": 55,
+					"height": 95,
 					"id": 1,
-					"name": "body.png",
+					"name": "mecha_down_leg.png",
 					"pivot_x": 0.5,
 					"pivot_y": 0.5,
-					"width": 107
+					"width": 62
 				},
 				{
-					"height": 38,
+					"height": 83,
 					"id": 2,
-					"name": "shoulder_right.png",
+					"name": "mecha_foot.png",
 					"pivot_x": 0.5,
 					"pivot_y": 0.5,
-					"width": 63
+					"width": 133
 				},
 				{
-					"height": 38,
+					"height": 232,
 					"id": 3,
-					"name": "shoulder_left.png",
+					"name": "mecha_head.png",
 					"pivot_x": 0.5,
 					"pivot_y": 0.5,
-					"width": 61
+					"width": 235
 				},
 				{
-					"height": 50,
+					"height": 179,
 					"id": 4,
-					"name": "upper_leg.png",
+					"name": "mecha_leg.png",
 					"pivot_x": 0.5,
 					"pivot_y": 0.5,
-					"width": 77
+					"width": 96
 				},
 				{
-					"height": 33,
+					"height": 76,
 					"id": 5,
-					"name": "upper_articulation.png",
+					"name": "mecha_shoulder_left.png",
 					"pivot_x": 0.5,
 					"pivot_y": 0.5,
-					"width": 40
+					"width": 122
 				},
 				{
-					"height": 90,
+					"height": 76,
 					"id": 6,
-					"name": "leg.png",
+					"name": "mecha_shoulder_right.png",
 					"pivot_x": 0.5,
 					"pivot_y": 0.5,
-					"width": 48
+					"width": 126
 				},
 				{
-					"height": 48,
+					"height": 66,
 					"id": 7,
-					"name": "down_leg.png",
+					"name": "mecha_upper_articulation.png",
 					"pivot_x": 0.5,
 					"pivot_y": 0.5,
-					"width": 31
+					"width": 79
 				},
 				{
-					"height": 42,
+					"height": 93,
 					"id": 8,
-					"name": "foot.png",
+					"name": "mecha_upper_leg_behind.png",
 					"pivot_x": 0.5,
 					"pivot_y": 0.5,
-					"width": 66
+					"width": 140
 				},
 				{
-					"height": 46,
+					"height": 100,
 					"id": 9,
-					"name": "upper_leg_behind.png",
+					"name": "mecha_upper_leg_front.png",
 					"pivot_x": 0.5,
 					"pivot_y": 0.5,
-					"width": 70
-				},
-				{
-					"height": 50,
-					"id": 10,
-					"name": "upper_leg_front.png",
-					"pivot_x": 0.5,
-					"pivot_y": 0.5,
-					"width": 70
+					"width": 140
 				}
 			],
 			"id": 0
