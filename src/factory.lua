@@ -15,7 +15,8 @@ Factory = Factory or {
     boxExplosions = {},
     bloods = {},
     enemies = {},
-    bullets = {}
+    bullets = {},
+    particles = {}
 }
 
 function Factory:pickFromPool(t)
@@ -270,6 +271,36 @@ function Factory:createBlood()
             ComponentPoolable(),
             {
                 pool = self.bloods
+            }
+            )
+
+        e:addComponent(
+            ComponentRemover(),
+            {
+            }
+            )
+    end
+
+    e.particles:reset()
+
+    return e
+end
+
+function Factory:createParticles(properties)
+    local e = self:pickFromPool(self.particles)
+    if not e then
+        e = gengine.entity.create()
+
+        e:addComponent(
+            ComponentParticleSystem(),
+            properties,
+            "particles"
+            )
+
+        e:addComponent(
+            ComponentPoolable(),
+            {
+                pool = self.particles
             }
             )
 
