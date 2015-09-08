@@ -182,8 +182,34 @@ function Factory:createBullet(velocity, weapon, is_enemy)
                 pool = self.bullets
             }
             )
+
+        e:addComponent(
+            ComponentParticleSystem(),
+            {
+                size = 128,
+                emitterRate = 20,
+                emitterLifeTime = 1024,
+                extentRange = {vector2(8,8), vector2(16,16)},
+                directionRange = {0, 2*3.14},
+                speedRange = {0, 0},
+                rotationRange = {-3, 3},
+                spinRange = {-10, 10},
+                linearAccelerationRange = {vector2(0, 0), vector2(0, 0)},
+                layer = 100,
+                keepLocal = false
+            },
+            "particles"
+            )
     end
 
+
+    if weapon.particle then
+        for k, v in pairs(weapon.particle) do
+            e.particles[k] = v
+        end
+    else
+        e.particles.emitterRate = 0
+    end
 
     e.bullet.velocity = velocity
     e.bullet.damage = weapon.damage
@@ -193,6 +219,8 @@ function Factory:createBullet(velocity, weapon, is_enemy)
     e.sprite.texture = gengine.graphics.texture.get(weapon.texture)
     e.sprite.extent = weapon.extent
     e.sprite.color = weapon.color or vector4(1,1,1,1)
+
+    e.particles:reset()
 
     return e
 end
