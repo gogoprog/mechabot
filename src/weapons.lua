@@ -18,7 +18,8 @@ return {
             return "shoot"
         end,
         bulletRadius = 20,
-        color = vector4(0.2, 1.0, 0.2, 1)
+        color = vector4(0.2, 1.0, 0.2, 1),
+        debris = "particle"
     },
     rocket = {
         texture = function(level) return "rocket" end,
@@ -45,6 +46,7 @@ return {
             scales = {vector2(1, 1), vector2(10, 10)},
             colors = {vector4(0.8,0.8,0.9,1), vector4(0,0,0,0)},
             lifeTimeRange = {0.9, 0.9},
-        }
+        },
+        debris = "rocket"
     }
 }

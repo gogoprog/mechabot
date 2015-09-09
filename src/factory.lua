@@ -12,7 +12,7 @@ require 'component_player'
 require 'component_shooter'
 
 Factory = Factory or {
-    boxExplosions = {},
+    explosions = {},
     bloods = {},
     enemies = {},
     bullets = {},
@@ -215,6 +215,7 @@ function Factory:createBullet(velocity, weapon, is_enemy)
     e.bullet.damage = weapon.damage
     e.bullet.radius = weapon.bulletRadius
     e.bullet.itIsEnemy = is_enemy
+    e.bullet.weapon = weapon
 
     e.sprite.texture = gengine.graphics.texture.get(weapon.texture)
     e.sprite.extent = weapon.extent
@@ -225,8 +226,8 @@ function Factory:createBullet(velocity, weapon, is_enemy)
     return e
 end
 
-function Factory:createBoxExplosion(box_definition)
-    local e = self:pickFromPool(self.boxExplosions)
+function Factory:createExplosion(texture)
+    local e = self:pickFromPool(self.explosions)
     if not e then
         e = gengine.entity.create()
 
@@ -242,7 +243,7 @@ function Factory:createBoxExplosion(box_definition)
                 speedRange = {50, 300},
                 rotationRange = {-3, 3},
                 spinRange = {-10, 10},
-                linearAccelerationRange = {vector2(0,-1000), vector2(0,-1000)},
+                linearAccelerationRange = {vector2(-10,-1000), vector2(10,-1100)},
                 scales = {vector2(1, 1)},
                 colors = {vector4(0.8,0.8,0.9,1), vector4(0,0,0,0)},
                 layer = 100
@@ -253,7 +254,7 @@ function Factory:createBoxExplosion(box_definition)
         e:addComponent(
             ComponentPoolable(),
             {
-                pool = self.boxExplosions
+                pool = self.explosions
             }
             )
 
@@ -264,7 +265,8 @@ function Factory:createBoxExplosion(box_definition)
             )
     end
 
-    e.particles.texture = gengine.graphics.texture.get("box")
+    e.particles.texture = gengine.graphics.texture.get(texture or "box")
+    e.particles:reset()
 
     return e
 end
@@ -299,36 +301,6 @@ function Factory:createBlood()
             ComponentPoolable(),
             {
                 pool = self.bloods
-            }
-            )
-
-        e:addComponent(
-            ComponentRemover(),
-            {
-            }
-            )
-    end
-
-    e.particles:reset()
-
-    return e
-end
-
-function Factory:createParticles(properties)
-    local e = self:pickFromPool(self.particles)
-    if not e then
-        e = gengine.entity.create()
-
-        e:addComponent(
-            ComponentParticleSystem(),
-            properties,
-            "particles"
-            )
-
-        e:addComponent(
-            ComponentPoolable(),
-            {
-                pool = self.particles
             }
             )
 

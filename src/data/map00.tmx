@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="12" tilewidth="64" tileheight="64" nextobjectid="1">
- <tileset firstgid="1" name="tiles" tilewidth="64" tileheight="64" spacing="2" margin="1" tilecount="16">
-  <image source="tiles.png" width="264" height="264"/>
-  <terraintypes>
-   <terrain name="test" tile="12"/>
-   <terrain name="New Terrain" tile="14"/>
-  </terraintypes>
-  <tile id="14" terrain="1,1,1,1"/>
- </tileset>
- <tileset firstgid="17" name="crates2" tilewidth="64" tileheight="64" tilecount="10">
-  <image source="crates2.png" width="320" height="128"/>
-  <tile id="1">
-   <properties>
-    <property name="component" value="Shooter"/>
-   </properties>
-  </tile>
-  <tile id="4">
-   <properties>
-    <property name="component" value="Spawner"/>
-    <property name="life" value="50"/>
-   </properties>
-  </tile>
- </tileset>
+ <tileset firstgid="1" source="tiles1"/>
+ <tileset firstgid="17" source="crates"/>
  <tileset firstgid="27" name="spawners" tilewidth="192" tileheight="128" tilecount="1">
   <tile id="0">
    <properties>
@@ -29,6 +9,21 @@
     <property name="life" value="100"/>
    </properties>
    <image width="192" height="128" source="spawner.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="28" name="tanks" tilewidth="128" tileheight="64" tilecount="3">
+  <image source="tanks.png" width="128" height="192"/>
+  <tile id="0">
+   <properties>
+    <property name="component" value="Shooter"/>
+    <property name="life" value="500"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="component" value="Shooter"/>
+    <property name="life" value="400"/>
+   </properties>
   </tile>
  </tileset>
  <layer name="Tile Layer 1" width="64" height="12">
@@ -506,8 +501,8 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="28"/>
    <tile gid="0"/>
-   <tile gid="18"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -644,7 +639,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="28"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -781,7 +776,7 @@
    <tile gid="10"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="29"/>
    <tile gid="0"/>
    <tile gid="10"/>
    <tile gid="10"/>

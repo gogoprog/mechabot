@@ -22,7 +22,7 @@ function ComponentBullet:update(dt)
         for k, v in ipairs(Map.boxes) do
             local p = v.position
             if gengine.math.doesCircleIntersectRectangle(self_position, self.radius, p, v.sprite.extent) then
-                self.entity:remove()
+                self:explode()
                 v.box:hit(self.damage, k)
                 return
             end
@@ -35,7 +35,7 @@ function ComponentBullet:update(dt)
             local offset = vector2(0, 32)
             if gengine.math.doesCircleIntersectRectangle(self_position, self.radius, p + offset, enemyExtent) then
 
-                self.entity:remove()
+                self:explode()
 
                 local e = Factory:createBlood()
                 e:insert()
@@ -52,15 +52,15 @@ function ComponentBullet:update(dt)
         for k, v in ipairs(Game.bullets) do
             local p = v.position
             if v.bullet.itIsEnemy and gengine.math.doCirclesIntersect(self_position, self.radius, p, v.bullet.radius) then
-                self.entity:remove()
-                v:remove()
+                self:explode()
+                v.bullet:explode()
                 return
             end
         end
     else
         local player = Game.player
         if gengine.math.doesCircleIntersectRectangle(self_position, self.radius, player.position, player.player.extent) then
-            self.entity:remove()
+            self:explode()
         end
     end
 end
@@ -73,5 +73,14 @@ function ComponentBullet:remove()
             table.remove(bullets, k)
             return
         end
+    end
+end
+
+function ComponentBullet:explode()
+    self.entity:remove()
+    if self.weapon.debris then
+        local e = Factory:createExplosion(self.weapon.debris)
+        e:insert()
+        e.position = self.entity.position
     end
 end

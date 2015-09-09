@@ -21,11 +21,8 @@ function ComponentBox:hit(dmg, boxIndex)
     self.entity.blink:blink()
 
     if self.life <= 0 then
-        local e = Factory:createBoxExplosion(self.definition)
-
+        local e = Factory:createExplosion()
         e:insert()
-        e.particles:reset()
-
         e.position = self.entity.position
 
         Map:removeBox(boxIndex, self.entity)
