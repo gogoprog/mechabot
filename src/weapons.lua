@@ -47,6 +47,7 @@ return {
             colors = {vector4(0.8,0.8,0.9,1), vector4(0,0,0,0)},
             lifeTimeRange = {0.9, 0.9},
         },
-        debris = "rocket"
+        debris = "rocket",
+        explosionSound = "explosion"
     }
 }
