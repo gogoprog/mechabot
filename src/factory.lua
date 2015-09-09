@@ -111,7 +111,7 @@ function Factory:createPlayer()
         ComponentSpriter(),
         {
             animation = gengine.graphics.spriter.get("mecha-walk"),
-            layer = 0
+            layer = 4
         },
         "sprite"
         )
@@ -140,7 +140,7 @@ function Factory:createArm()
         ComponentSpriter(),
         {
             animation = gengine.graphics.spriter.get("arm-fireing"),
-            layer = 1
+            layer = 5
         },
         "sprite"
         )

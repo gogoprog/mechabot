@@ -111,6 +111,21 @@ function Game.onStateExit:inGame()
     self.running = false
 end
 
+function Game.onStateEnter:dying()
+    self.running = false
+    self.arm:remove()
+end
+
+function Game.onStateUpdate:dying(dt)
+
+    if gengine.input.keyboard:isJustUp(41) then
+        self:stop()
+    end
+end
+
+function Game.onStateExit:dying()
+end
+
 function Game:addKills(v)
     self.kills = self.kills + v
     gengine.gui.executeScript("updateKills(" .. self.kills .. ");")

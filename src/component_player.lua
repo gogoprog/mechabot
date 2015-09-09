@@ -1,7 +1,8 @@
 ComponentPlayer = {}
 
 function ComponentPlayer:init()
-    self.life = 1000
+    self.life = 100
+    self.maxLife = 100
     self.extent = vector2(300, 1024)
     self.lastGenUpdate = 0
 end
@@ -42,17 +43,21 @@ function ComponentPlayer:remove()
 end
 
 function ComponentPlayer:hit(dmg)
-    local shield_dmg = math.min(dmg * self.shield.absorption, self.shield.currentValue)
-    local real_dmg = dmg - shield_dmg
-    self.shield.currentValue = self.shield.currentValue - shield_dmg
-    self.life = self.life - real_dmg
-    self.entity.blink:blink()
+    if Game.running then
+        local shield_dmg = math.min(dmg * self.shield.absorption, self.shield.currentValue)
+        local real_dmg = dmg - shield_dmg
+        self.shield.currentValue = self.shield.currentValue - shield_dmg
+        self.life = self.life - real_dmg
+        self.entity.blink:blink()
 
-    if self.life < 0 then
-        print("Game is lost. Humanity has won.")
+        if self.life < 0 then
+            Game.player.sprite.timeFactor = 1
+            self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-death"..math.random(1,2))
+            Game:changeState("dying")
+        end
+
+        gengine.gui.executeScript("updateLife(" .. self.life / self.maxLife .. ")")
     end
-
-    gengine.gui.executeScript("updateLife(" .. self.life / 1000 .. ")")
 end
 
 function ComponentPlayer:initWeapon(name, level)

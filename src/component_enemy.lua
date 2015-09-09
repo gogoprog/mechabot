@@ -34,7 +34,7 @@ function ComponentEnemy:update(dt)
         self.vy = 0
     end
 
-    if gengine.math.doRectanglesIntersect(p, enemyExtent, Game.player.position, playerExtent) then
+    if Game.player.player.life > 0 and gengine.math.doRectanglesIntersect(p, enemyExtent, Game.player.position, playerExtent) then
         Game.player.player:hit(10)
         local e = Factory:createBlood()
         e:insert()
