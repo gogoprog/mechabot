@@ -60,6 +60,7 @@ function ComponentBullet:update(dt)
     else
         local player = Game.player
         if gengine.math.doesCircleIntersectRectangle(self_position, self.radius, player.position, player.player.extent) then
+            player.player:hit(self.damage)
             self:explode()
         end
     end

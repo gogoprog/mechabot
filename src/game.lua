@@ -12,6 +12,8 @@ function Game:init()
     Factory:init()
 
     self.weapons = dofile("weapons.lua")
+    self.generators = dofile("generators.lua")
+    self.shields = dofile("shields.lua")
 
     self.player = Factory:createPlayer()
     self.arm = Factory:createArm()
@@ -24,6 +26,7 @@ end
 function Game:start(map)
     self.player.player:initWeapon("plasma", 1)
     self.player.player:initGenerator("small")
+    self.player.player:initShield("small")
     self.kills = 0
     self:addKills(0)
     Map:start(map)
@@ -125,6 +128,20 @@ end
 
 function Game:getWeapon(name, level)
     local def = self.weapons[name]
+    return self:getItem(def, level)
+end
+
+function Game:getGenerator(name, level)
+    local def = self.generators[name]
+    return self:getItem(def, level)
+end
+
+function Game:getShield(name, level)
+    local def = self.shields[name]
+    return self:getItem(def, level)
+end
+
+function Game:getItem(def, level)
     local w = {}
     for k, v in pairs(def) do
         if type(v) == "function" then

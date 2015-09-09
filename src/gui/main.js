@@ -50,6 +50,11 @@ function updateGenerator(v)
     $( "#generatorBar" ).progressbar( "value", v );
 }
 
+function updateShield(v)
+{
+    $( "#shieldBar" ).progressbar( "value", v );
+}
+
 function updateKills(v)
 {
     $("#kills").html(v);
