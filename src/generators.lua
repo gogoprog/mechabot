@@ -1,7 +1,7 @@
 return {
     small = {
-        capacity = 1000,
-        powerPerSecond = 10,
+        capacity = 100,
+        powerPerSecond = 99,
         price = 100
     },
     tank = {
