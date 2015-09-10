@@ -152,6 +152,13 @@ function Factory:createArm()
         "arm"
         )
 
+    e:addComponent(
+        ComponentBlink(),
+        {
+        },
+        "blink"
+        )
+
     return e
 end
 

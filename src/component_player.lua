@@ -11,30 +11,32 @@ function ComponentPlayer:insert()
 end
 
 function ComponentPlayer:update(dt)
-    local g = self.generator
-    local s = self.shield
+    if self.life > 0 then
+        local g = self.generator
+        local s = self.shield
 
-    g.currentValue = g.currentValue + g.powerPerSecond * dt
+        g.currentValue = g.currentValue + g.powerPerSecond * dt
 
-    if g.currentValue > g.capacity then
-        g.currentValue = g.capacity
-    end
-
-    if s.currentValue < s.capacity then
-        local v = s.powerCostPerSecond * dt
-        if g.currentValue > v then
-            g.currentValue = g.currentValue - v
-            s.currentValue = math.min(s.currentValue + s.regenerationPerSecond * dt, s.capacity)
+        if g.currentValue > g.capacity then
+            g.currentValue = g.capacity
         end
-    end
 
-    self.lastGenUpdate = self.lastGenUpdate + dt
+        if s.currentValue < s.capacity then
+            local v = s.powerCostPerSecond * dt
+            if g.currentValue > v then
+                g.currentValue = g.currentValue - v
+                s.currentValue = math.min(s.currentValue + s.regenerationPerSecond * dt, s.capacity)
+            end
+        end
 
-    if self.lastGenUpdate > 0.15 then
-        gengine.gui.executeScript("updateGenerator(" .. g.currentValue / g.capacity .. ")")
-        gengine.gui.executeScript("updateShield(" .. s.currentValue / s.capacity .. ")")
+        self.lastGenUpdate = self.lastGenUpdate + dt
 
-        self.lastGenUpdate = 0
+        if self.lastGenUpdate > 0.15 then
+            gengine.gui.executeScript("updateGenerator(" .. g.currentValue / g.capacity .. ")")
+            gengine.gui.executeScript("updateShield(" .. s.currentValue / s.capacity .. ")")
+
+            self.lastGenUpdate = 0
+        end
     end
 end
 
@@ -49,6 +51,7 @@ function ComponentPlayer:hit(dmg)
         self.shield.currentValue = self.shield.currentValue - shield_dmg
         self.life = self.life - real_dmg
         self.entity.blink:blink()
+        Game.arm.blink:blink()
 
         if self.life < 0 then
             Game.player.sprite.timeFactor = 1
