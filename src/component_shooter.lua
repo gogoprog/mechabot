@@ -18,6 +18,9 @@ function ComponentShooter:update(dt)
         e.position:set(position)
         e:insert()
         self.timeLeft = self.interval
+        if self.weapon.sound then
+            gengine.audio.playSound(gengine.audio.sound.get(self.weapon.sound), 0.3)
+        end
     end
 end
 

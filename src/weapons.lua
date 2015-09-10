@@ -14,9 +14,7 @@ return {
         bulletSpeed = function(level)
             return 1200
         end,
-        sound = function(level)
-            return "shoot"
-        end,
+        sound = "laser",
         bulletRadius = 20,
         color = vector4(0.2, 1.0, 0.2, 1),
         debris = "particle"
@@ -36,9 +34,7 @@ return {
         bulletSpeed = function(level)
             return 1200
         end,
-        sound = function(level)
-            return "shoot"
-        end,
+        sound = "rocket_firing",
         bulletRadius = 20,
         particle = {
             texture = gengine.graphics.texture.get("rocket_smoke"),
