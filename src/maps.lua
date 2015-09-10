@@ -2,6 +2,7 @@ return {
     {
         title = "The Arrival",
         filename = "data/map00.lua",
+        length = 92*64,
         parallaxes = {
             {
                 y = 48,

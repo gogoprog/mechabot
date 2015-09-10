@@ -32,6 +32,7 @@ function Map:start(index)
     Game.player.position:set(self.x - 650, 0)
 
     gengine.audio.playMusic(map.music, 0.8, true)
+    self.definition = map
 end
 
 function Map:stop()

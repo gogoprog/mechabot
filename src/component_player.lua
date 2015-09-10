@@ -53,7 +53,7 @@ function ComponentPlayer:hit(dmg)
         self.entity.blink:blink()
         Game.arm.blink:blink()
 
-        if self.life < 0 then
+        if self.life <= 0 then
             Game.player.sprite.timeFactor = 1
             self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-death"..math.random(1,2))
             Game:changeState("dying")

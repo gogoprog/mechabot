@@ -105,6 +105,11 @@ function Game.onStateUpdate:inGame(dt)
     if gengine.input.keyboard:isJustUp(41) then
         self:stop()
     end
+
+    if Game.player.position.x > Map.definition.length then
+        print("win!")
+        self:changeState("winning")
+    end
 end
 
 function Game.onStateExit:inGame()
@@ -124,6 +129,19 @@ function Game.onStateUpdate:dying(dt)
 end
 
 function Game.onStateExit:dying()
+end
+
+function Game.onStateEnter:winning()
+    self.running = false
+end
+
+function Game.onStateUpdate:winning(dt)
+    if gengine.input.keyboard:isJustUp(41) then
+        self:stop()
+    end
+end
+
+function Game.onStateExit:winning()
 end
 
 function Game:addKills(v)
