@@ -22,7 +22,7 @@ function ComponentArm:update(dt)
     local mouse_position = gengine.input.mouse:getPosition()
     local world_position = Map.cameraEntity.camera:getWorldPosition(mouse_position)
 
-    local angle = gengine.math.getAngle(self_position, world_position)
+    local angle = gengine.math.getPolarAngle(world_position - self_position)
 
     local length = gengine.math.getDistance(world_position, self_position)
 
