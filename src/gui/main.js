@@ -72,18 +72,21 @@ function addMap(index, title)
     $("#maps").append(content);
 }
 
-function setupPages(pages)
+function setupPages(pages, containerName)
 {
-    for(var k in pages)
+    var children = $('#' + containerName).children();
+
+    for(var i=0; i<children.size(); ++i)
     {
-        pages[k].element = $('#' + k);
-        pages[k].element.hide();
+        var name = $(children.get(i)).attr('id');
+        pages[name].element = $('#' + name);
+        pages[name].element.hide();
     }
 }
 
 $(function() {
-    setupPages(mainPages);
-    setupPages(menuPages);
+    setupPages(mainPages, "pages");
+    setupPages(menuPages, "menu");
 
     fader = $('#fader');
     fader.hide();
