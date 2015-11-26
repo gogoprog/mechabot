@@ -21,7 +21,6 @@ function ComponentEnemy:update(dt)
     local testPosition = p - vector2(0, 0)
 
     if p.y > 0 then
-
         for k, v in ipairs(Map.boxes) do
             if not v.spawner and gengine.math.doesCircleIntersectRectangle(testPosition, 1, v.position, v.sprite.extent) then
                 self.vy = 0

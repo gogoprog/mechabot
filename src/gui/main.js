@@ -32,7 +32,7 @@ function showPage(pages, name, duration, lua)
             }
         }
 
-        gengine_execute("Game:interState()")
+        gengine_execute("Game:interState()");
 
         fader.fadeTo(duration, 0, function() {
             fader.hide();

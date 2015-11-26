@@ -20,10 +20,16 @@ function Game:init()
 
     Map:init()
 
-    self:changeState("idle");
+    self:changeState("idle")
 end
 
 function Game:start(map)
+    for k, v in pairs(self.bullets) do
+        v:remove()
+    end
+    for k, v in pairs(self.enemies) do
+        v:remove()
+    end
     self.player.player:initWeapon("plasma", 1)
     self.player.player:initGenerator("small")
     self.player.player:initShield("small")

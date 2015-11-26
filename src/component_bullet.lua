@@ -9,12 +9,13 @@ end
 
 function ComponentBullet:insert()
     table.insert(Game.bullets, self.entity)
+    self.totalTime = 0
 end
 
 function ComponentBullet:update(dt)
     local self_position = self.entity.position
     local velocity = self.velocity
-
+    self.totalTime = self.totalTime + dt
     self_position.x = self_position.x + dt * velocity.x
     self_position.y = self_position.y + dt * velocity.y
 
@@ -65,6 +66,10 @@ function ComponentBullet:update(dt)
                 self:explode()
             end
         end
+    end
+
+    if self.totalTime > 10 then
+        self.entity:remove()
     end
 end
 
