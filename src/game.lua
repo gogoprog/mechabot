@@ -38,7 +38,7 @@ function Game:start(map)
     self.player.player:initGenerator("small")
     self.player.player:initShield("small")
     self.arm.arm.weapon = self.player.player.weapon
-    
+
     self.kills = 0
     self:addKills(0)
     Map:start(map)
@@ -53,7 +53,6 @@ function Game:stop()
     end
     for k,v in ipairs(self.bullets) do
         v:remove()
-        print("removed")
     end
 
     self.bullets = {}
@@ -146,16 +145,36 @@ function Game.onStateExit:dying()
 end
 
 function Game.onStateEnter:winning()
-    self.running = false
+    self.introDuration = 1
+    self.timeLeft = self.introDuration
+    local e = Factory:createRedLight()
+    e.position = self.player.position
+    e:insert()
+    self.redLight = e
+
+    self.player.sprite.timeFactor = 100
 end
 
 function Game.onStateUpdate:winning(dt)
-    if gengine.input.keyboard:isJustUp(41) then
+    local alpha = (self.timeLeft / self.introDuration)
+    self.player.sprite.alpha = alpha
+    self.arm.sprite.alpha = alpha
+    self.timeLeft = self.timeLeft - dt
+
+    local y = 500 - (self.timeLeft / self.introDuration) * 500
+    self.player.position.y = y
+
+    if self.timeLeft < 0 then
         self:stop()
     end
 end
 
 function Game.onStateExit:winning()
+    self.player.sprite.timeFactor = 1
+    self.player.sprite.alpha = 1
+    self.arm.sprite.alpha = 1
+    self.redLight:remove()
+    gengine.entity.destroy(self.redLight)
 end
 
 function Game:addKills(v)
