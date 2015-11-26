@@ -209,7 +209,6 @@ function Factory:createBullet(velocity, weapon, is_enemy)
             )
     end
 
-
     if weapon.particle then
         for k, v in pairs(weapon.particle) do
             e.particles[k] = v

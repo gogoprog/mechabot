@@ -7,7 +7,9 @@ function ComponentPlayer:insert()
     self.life = 10
     self.maxLife = 10
     self.extent = vector2(300, 1024)
-    self.lastGenUpdate = 0
+    self.lastGenUpdate = -1000
+    self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-walk")
+    gengine.gui.executeScript("updateLife(" .. self.life / self.maxLife .. ")")
 end
 
 function ComponentPlayer:update(dt)

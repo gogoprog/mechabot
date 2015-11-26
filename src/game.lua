@@ -17,6 +17,7 @@ function Game:init()
 
     self.player = Factory:createPlayer()
     self.arm = Factory:createArm()
+    self.arm.arm.weapon = self.player.player.weapon
 
     Map:init()
 
@@ -24,12 +25,16 @@ function Game:init()
 end
 
 function Game:start(map)
-    for k, v in pairs(self.bullets) do
+    for k,v in ipairs(self.enemies) do
         v:remove()
     end
-    for k, v in pairs(self.enemies) do
+    for k,v in ipairs(self.bullets) do
         v:remove()
     end
+
+    self.bullets = {}
+    self.enemies = {}
+
     self.player.player:initWeapon("plasma", 1)
     self.player.player:initGenerator("small")
     self.player.player:initShield("small")
@@ -38,7 +43,6 @@ function Game:start(map)
     Map:start(map)
     self.player:insert()
     self.arm:insert()
-    self.arm.arm.weapon = self.player.player.weapon
     self:changeState("inGameIntro")
 end
 
@@ -46,7 +50,12 @@ function Game:stop()
     for k,v in ipairs(self.enemies) do
         v:remove()
     end
+    for k,v in ipairs(self.bullets) do
+        v:remove()
+        print("removed")
+    end
 
+    self.bullets = {}
     self.enemies = {}
 
     self.player:remove()
@@ -113,7 +122,6 @@ function Game.onStateUpdate:inGame(dt)
     end
 
     if Game.player.position.x > Map.definition.length then
-        print("win!")
         self:changeState("winning")
     end
 end
@@ -128,8 +136,7 @@ function Game.onStateEnter:dying()
 end
 
 function Game.onStateUpdate:dying(dt)
-
-    if gengine.input.keyboard:isJustUp(41) then
+    if gengine.input.keyboard:isJustUp(41) or gengine.input.mouse:isJustUp(1) then
         self:stop()
     end
 end

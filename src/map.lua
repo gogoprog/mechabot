@@ -37,20 +37,18 @@ end
 
 function Map:stop()
     for k, v in ipairs(self.parallaxes) do
-        v:remove()
-    end
-
-    for k, v in ipairs(self.boxes) do
-        v:remove()
         gengine.entity.destroy(v)
     end
 
-    self.boxes = {}
+    for k, v in ipairs(self.boxes) do
+        gengine.entity.destroy(v)
+    end
 
     for k, v in ipairs(self.futureBoxes) do
         gengine.entity.destroy(v)
     end
-
+    
+    self.boxes = {}
     self.futureBoxes = {}
     self.parallaxes = {}
 end

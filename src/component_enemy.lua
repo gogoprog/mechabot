@@ -39,7 +39,7 @@ function ComponentEnemy:update(dt)
         e:insert()
         e.position:set(p)
 
-        self.entity:remove()
+        self:removeFromGame()
         gengine.audio.playSound(Factory.hitSound, 0.6)
 
         Game:addKills(1)
@@ -47,6 +47,9 @@ function ComponentEnemy:update(dt)
 end
 
 function ComponentEnemy:remove()
+end
+
+function ComponentEnemy:removeFromGame()
     local e = self.entity
     local enemies = Game.enemies
     for k = #enemies, 1, -1 do
@@ -55,4 +58,5 @@ function ComponentEnemy:remove()
             return
         end
     end
+    e:remove()
 end

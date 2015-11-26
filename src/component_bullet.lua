@@ -69,11 +69,14 @@ function ComponentBullet:update(dt)
     end
 
     if self.totalTime > 10 then
-        self.entity:remove()
+        self:removeFromGame()
     end
 end
 
 function ComponentBullet:remove()
+end
+
+function ComponentBullet:removeFromGame()
     local e = self.entity
     local bullets = Game.bullets
     for k = #bullets, 1, -1 do
@@ -82,10 +85,11 @@ function ComponentBullet:remove()
             return
         end
     end
+    e:remove()
 end
 
 function ComponentBullet:explode()
-    self.entity:remove()
+    self:removeFromGame()
     if self.weapon.debris then
         local e = Factory:createExplosion(self.weapon.debris)
         e:insert()
