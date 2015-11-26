@@ -178,7 +178,12 @@ function Game.onStateExit:winning()
 end
 
 function Game.onStateEnter:shop()
-
+    self.player:insert()
+    self.arm:insert()
+    self.player.player:initWeapon("plasma", 1)
+    self.player.player:initGenerator("small")
+    self.player.player:initShield("small")
+    self.arm.arm.weapon = self.player.player.weapon
 end
 
 function Game.onStateUpdate:shop(dt)
