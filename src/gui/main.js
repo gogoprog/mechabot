@@ -1,12 +1,13 @@
 var menuPages = {
     mainScreen: {},
     mapSelect: {}
-}
+};
 
 var mainPages = {
     menu: {},
-    hud: {}
-}
+    hud: {},
+    shop: {}
+};
 
 var fader;
 var faderOpacity = 0;
@@ -62,7 +63,7 @@ function updateKills(v)
 
 function startGame(n)
 {
-    showPage(mainPages, 'hud', 300, "Game:start(" + n + ")");
+    showPage(mainPages, 'hud', 300, "Application:changeState('inGame')");
 }
 
 function addMap(index, title)
@@ -106,6 +107,10 @@ $(function() {
     $("#generatorBar > div").css({ 'background': 'Blue' });
     $("#shieldBar").css({ 'background': 'LightYellow' });
     $("#shieldBar > div").css({ 'background': 'Yellow' });
+
+    $("#garage").on("click", function() {
+        showPage(mainPages, 'shop', 300, "Application:changeState('shop')");
+    });
 
     showPage(mainPages, 'menu', 0);
     showPage(menuPages, 'mainScreen', 0);

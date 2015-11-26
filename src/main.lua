@@ -1,4 +1,4 @@
-require 'game'
+require 'application'
 
 function init()
     gengine.application.setName("Mechabot")
@@ -15,16 +15,7 @@ function start()
 end
 
 function update(dt)
-    Game:update(dt)
-
-    -- debug keys
-
-    local kb = gengine.input.keyboard
-
-    if kb:isJustUp(26) then
-        print("oui")
-        Game:changeState("winning")
-    end
+    Application:updateState(dt)
 end
 
 function stop()

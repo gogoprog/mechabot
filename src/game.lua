@@ -177,6 +177,17 @@ function Game.onStateExit:winning()
     gengine.entity.destroy(self.redLight)
 end
 
+function Game.onStateEnter:shop()
+
+end
+
+function Game.onStateUpdate:shop(dt)
+
+end
+
+function Game.onStateExit:shop()
+end
+
 function Game:addKills(v)
     self.kills = self.kills + v
     gengine.gui.executeScript("updateKills(" .. self.kills .. ");")

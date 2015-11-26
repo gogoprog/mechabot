@@ -47,7 +47,7 @@ function Map:stop()
     for k, v in ipairs(self.futureBoxes) do
         gengine.entity.destroy(v)
     end
-    
+
     self.boxes = {}
     self.futureBoxes = {}
     self.parallaxes = {}
