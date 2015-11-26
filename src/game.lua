@@ -17,7 +17,6 @@ function Game:init()
 
     self.player = Factory:createPlayer()
     self.arm = Factory:createArm()
-    self.arm.arm.weapon = self.player.player.weapon
 
     Map:init()
 
@@ -38,6 +37,8 @@ function Game:start(map)
     self.player.player:initWeapon("plasma", 1)
     self.player.player:initGenerator("small")
     self.player.player:initShield("small")
+    self.arm.arm.weapon = self.player.player.weapon
+    
     self.kills = 0
     self:addKills(0)
     Map:start(map)
