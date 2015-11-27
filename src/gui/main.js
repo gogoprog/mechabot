@@ -11,6 +11,8 @@ var mainPages = {
 
 var fader;
 var faderOpacity = 0;
+var shopContainer;
+var shopModel;
 
 function showPage(pages, name, duration, lua)
 {
@@ -84,6 +86,19 @@ function setupPages(pages, containerName)
     }
 }
 
+function clearShop()
+{
+
+}
+
+function addShopItem(name)
+{
+    var item = shopModel.clone();
+    shopContainer.append(item);
+    item.show();
+    item.find(".name").html(name);
+}
+
 $(function() {
     setupPages(mainPages, "pages");
     setupPages(menuPages, "menu");
@@ -118,4 +133,37 @@ $(function() {
     showPage(mainPages, 'menu', 0);
     showPage(menuPages, 'mainScreen', 0);
     gengine_execute("Game:onGuiLoaded()");
+
+    shopContainer = $("#shop .items");
+    shopModel = $("#shop .model");
+    shopModel.hide();
+
+    addShopItem("Test");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test2");
+    addShopItem("Test200");
 });

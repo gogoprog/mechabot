@@ -70,9 +70,6 @@ function Game:update(dt)
 end
 
 function Game.onStateUpdate:idle(dt)
-    if gengine.input.keyboard:isJustUp(41) then
-        gengine.application.quit()
-    end
 end
 
 function Game.onStateEnter:inGameIntro()
@@ -184,6 +181,10 @@ function Game.onStateEnter:shop()
     self.player.player:initGenerator("small")
     self.player.player:initShield("small")
     self.arm.arm.weapon = self.player.player.weapon
+    self.arm.arm.forcedShot = true
+
+    self.player.position.x = 400
+    self.player.sprite.timeFactor = 0
 end
 
 function Game.onStateUpdate:shop(dt)
@@ -191,6 +192,8 @@ function Game.onStateUpdate:shop(dt)
 end
 
 function Game.onStateExit:shop()
+    self.arm.arm.forcedShot = false
+    self.player.sprite.timeFactor = 1
 end
 
 function Game:addKills(v)

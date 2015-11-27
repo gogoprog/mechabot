@@ -15,9 +15,11 @@ function ComponentArm:insert()
 end
 
 function ComponentArm:update(dt)
+
     local self_position = self.entity.position
     self_position.x = Game.player.position.x + offset_x
     self_position.y = Game.player.position.y + offset_y
+
 
     local mouse_position = gengine.input.mouse:getPosition()
     local world_position = Map.cameraEntity.camera:getWorldPosition(mouse_position)
@@ -25,6 +27,11 @@ function ComponentArm:update(dt)
     local angle = gengine.math.getPolarAngle(world_position - self_position)
 
     local length = gengine.math.getDistance(world_position, self_position)
+
+    if not Game.running then
+        angle = 0
+        length = 0
+    end
 
     if length > 95 then
         local angle2 = math.acos(95 / length)
@@ -37,7 +44,7 @@ function ComponentArm:update(dt)
 
     self.timeSinceLastBullet = self.timeSinceLastBullet + dt
 
-    if gengine.input.mouse:isDown(1) then
+    if (Game.running and gengine.input.mouse:isDown(1)) or self.forcedShot then
         self.entity.sprite.timeFactor = 1
 
         if self.timeSinceLastBullet > self.weapon.interval then
@@ -55,8 +62,10 @@ function ComponentArm:update(dt)
 
                 self.timeSinceLastBullet = 0
 
+                if not self.forcedShot then
+                    gengine.audio.playSound(self.bulletSound, 0.3)
+                end
 
-                gengine.audio.playSound(self.bulletSound, 0.3)
                 Game.player.player.generator.currentValue = Game.player.player.generator.currentValue - self.weapon.powerCost
             end
         end
