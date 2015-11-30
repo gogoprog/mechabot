@@ -52,11 +52,11 @@ end
 function ComponentEnemy:removeFromGame()
     local e = self.entity
     local enemies = Game.enemies
+    e:remove()
     for k = #enemies, 1, -1 do
         if enemies[k] == e then
             table.remove(enemies, k)
             return
         end
     end
-    e:remove()
 end

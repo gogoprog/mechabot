@@ -44,7 +44,7 @@ function ComponentBullet:update(dt)
                 gengine.audio.playSound(Factory.hitSound, 0.6)
                 Game:addKills(1)
 
-                enemies[k].remove()
+                enemies[k]:remove()
                 table.remove(enemies, k)
                 return
             end
@@ -79,13 +79,13 @@ end
 function ComponentBullet:removeFromGame()
     local e = self.entity
     local bullets = Game.bullets
+    e:remove()
     for k = #bullets, 1, -1 do
         if bullets[k] == e then
             table.remove(bullets, k)
             return
         end
     end
-    e:remove()
 end
 
 function ComponentBullet:explode()
