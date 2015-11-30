@@ -91,12 +91,18 @@ function clearShop()
 
 }
 
-function addShopItem(name)
+function addShopItem(type, name, level, title, price)
 {
     var item = shopModel.clone();
     shopContainer.append(item);
     item.show();
-    item.find(".name").html(name);
+    item.addClass(type);
+    item.find(".name").html(title + " " + level);
+    item.find(".price").html(price);
+    item.data("type", type);
+    item.data("name", name);
+    item.data("level", level);
+    item.data("price", price);
 }
 
 $(function() {
@@ -138,32 +144,14 @@ $(function() {
     shopModel = $("#shop .model");
     shopModel.hide();
 
-    addShopItem("Test");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test2");
-    addShopItem("Test200");
+    addShopItem("weapon", "plasma", 1, "Plasma", 100);
+    addShopItem("shield", "small", 1, "SmallS", 100);
+    addShopItem("generator", "small", 1, "SmallG", 200);
+
+    var items = $(".items").children();
+    items.on('click', function() {
+        var that = $(this);
+        items.removeClass("selected");
+        that.addClass("selected");
+    });
 });

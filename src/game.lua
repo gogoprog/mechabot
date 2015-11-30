@@ -180,12 +180,12 @@ function Game.onStateEnter:shop()
     self.player.player:initWeapon("plasma", 1)
     self.player.player:initGenerator("small")
     self.player.player:initShield("small")
-    self.arm.arm.weapon = self.player.player.weapon
     self.arm.arm.forcedShot = true
 
     self.player.position.x = 400
     self.player.sprite.timeFactor = 0
 end
+
 
 function Game.onStateUpdate:shop(dt)
 

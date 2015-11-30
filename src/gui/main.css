@@ -154,7 +154,7 @@ body{
     left:5%;
 }
 
-#shop .price {
+#shop .bank {
     width:40%;
     height:8%;
     bottom: 5%;
@@ -172,18 +172,45 @@ body{
 }
 
 #shop .model {
+    position:relative;
+    display:block;
     width:99%;
     border: 2px solid black;
     height:auto;
-    font-size:14px;
+    font-size:16px;
     text-align:left;
+}
+
+#shop .selected {
+    background-color:white;
 }
 
 #shop .model .icon {
     display:inline-block;
     width:32px;
     height:32px;
-    background-color:red;
     vertical-align:middle;
     margin-right:5px;
+}
+
+#shop .model .price {
+    display:block;
+    position:absolute;
+    width:128px;
+    height:32px;
+    right:5px;
+    top:0;
+    text-align:right;
+}
+
+.weapon .icon {
+    background-image: url("/gui/icon_weapon.png");
+}
+
+.generator .icon {
+    background-image: url("/gui/icon_generator.png");
+}
+
+.shield .icon {
+    background-image: url("/gui/icon_shield.png");
 }

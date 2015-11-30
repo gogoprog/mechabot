@@ -7,7 +7,7 @@ function ComponentPlayer:insert()
     self.maxLife = 100
     self.life = self.maxLife
     self.extent = vector2(300, 1024)
-    self.lastGenUpdate = -1000
+    self.lastGenUpdate = 0
     self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-walk")
     gengine.gui.executeScript("updateLife(" .. self.life / self.maxLife .. ")")
 end
@@ -69,14 +69,15 @@ function ComponentPlayer:initWeapon(name, level)
     local w = Game:getWeapon(name, level)
     Game.arm.arm.bulletSound = gengine.audio.sound.get(w.sound)
     self.weapon = w
+    Game.arm.arm.weapon = w
 end
 
-function ComponentPlayer:initGenerator(name)
-    self.generator = Game:getGenerator(name)
+function ComponentPlayer:initGenerator(name, level)
+    self.generator = Game:getGenerator(name, level)
     self.generator.currentValue = self.generator.capacity
 end
 
-function ComponentPlayer:initShield(name)
-    self.shield = Game:getShield(name)
+function ComponentPlayer:initShield(name, level)
+    self.shield = Game:getShield(name, level)
     self.shield.currentValue = self.shield.capacity
 end
