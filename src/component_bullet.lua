@@ -29,7 +29,6 @@ function ComponentBullet:update(dt)
             end
         end
 
-        local e = self.entity
         local enemies = Game.enemies
         for k = #enemies, 1, -1 do
             local p = enemies[k].position
@@ -45,7 +44,8 @@ function ComponentBullet:update(dt)
                 gengine.audio.playSound(Factory.hitSound, 0.6)
                 Game:addKills(1)
 
-                enemies[k]:remove()
+                enemies[k].remove()
+                table.remove(enemies, k)
                 return
             end
         end
