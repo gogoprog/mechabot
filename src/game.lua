@@ -1,4 +1,5 @@
 require 'factory'
+require 'session'
 require 'map'
 
 Game = Game or {
@@ -10,6 +11,7 @@ gengine.stateMachine(Game)
 
 function Game:init()
     Factory:init()
+    Session:init()
 
     self.weapons = dofile("weapons.lua")
     self.generators = dofile("generators.lua")
@@ -18,9 +20,7 @@ function Game:init()
     self.player = Factory:createPlayer()
     self.arm = Factory:createArm()
 
-    self.player.player:setWeapon("plasma", 1)
-    self.player.player:setGenerator("small")
-    self.player.player:setShield("small")
+    self:resetItems()
 
     Map:init()
 
@@ -234,4 +234,11 @@ function Game:getItem(def, level)
     end
 
     return w
+end
+
+function Game:resetItems()
+    local player = self.player.player
+    player:setWeapon(Session.weapon.name, Session.weapon.level)
+    player:setGenerator(Session.generator.name, Session.generator.level)
+    player:setShield(Session.shield.name, Session.shield.level)
 end

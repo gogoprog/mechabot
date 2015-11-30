@@ -38,7 +38,7 @@ return {
         bulletRadius = 20,
         particle = {
             texture = gengine.graphics.texture.get("rocket_smoke"),
-            emitterRate = 5,
+            emitterRate = 15,
             scales = {vector2(1, 1), vector2(10, 10)},
             colors = {vector4(0.8,0.8,0.9,1), vector4(0,0,0,0)},
             lifeTimeRange = {0.9, 0.9},

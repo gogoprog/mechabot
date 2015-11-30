@@ -155,23 +155,47 @@ $(function() {
     var items = $(".items").children();
     items.on('click', function() {
         var that = $(this);
+        gengine_execute("Game:resetItems()");
+
+        if(that.hasClass("selected"))
+        {
+            items.removeClass("selected");
+            return;
+        }
+
         items.removeClass("selected");
+
         that.addClass("selected");
 
         var type = that.data("type");
+        var code;
+
         switch(type)
         {
             case "weapon":
             {
-                var code = "Game.player.player:setWeapon('";
-                code += that.data("name");
-                code += "',";
-                code += that.data("level");
-                code += ")";
+                code = "Game.player.player:setWeapon('";
+            }
+            break;
 
-                gengine_execute(code);
+            case "generator":
+            {
+                code = "Game.player.player:setGenerator('";
+            }
+            break;
+
+            case "shield":
+            {
+                code = "Game.player.player:setShield('";
             }
             break;
         }
+
+        code += that.data("name");
+        code += "',";
+        code += that.data("level");
+        code += ")";
+
+        gengine_execute(code);
     });
 });
