@@ -1,7 +1,7 @@
 return {
     plasma = {
         texture = function(level) return "particle" end,
-        extent = function(level) return vector2(64,64) end,
+        extent = function(level) return vector2(64,64) + vector2(level-1, level-1) * 5 end,
         damage = function(level)
             return 10 * level
         end,
@@ -26,7 +26,7 @@ return {
             return 10 * level
         end,
         interval = function(level)
-            return 0.1
+            return 0.500
         end,
         powerCost = function(level)
             return 10

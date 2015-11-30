@@ -145,7 +145,11 @@ $(function() {
     shopModel.hide();
 
     addShopItem("weapon", "plasma", 1, "Plasma", 100);
+    addShopItem("weapon", "plasma", 10, "Plasma", 100);
+    addShopItem("weapon", "rocket", 1, "Rocket", 100);
+
     addShopItem("shield", "small", 1, "SmallS", 100);
+
     addShopItem("generator", "small", 1, "SmallG", 200);
 
     var items = $(".items").children();
@@ -153,5 +157,21 @@ $(function() {
         var that = $(this);
         items.removeClass("selected");
         that.addClass("selected");
+
+        var type = that.data("type");
+        switch(type)
+        {
+            case "weapon":
+            {
+                var code = "Game.player.player:setWeapon('";
+                code += that.data("name");
+                code += "',";
+                code += that.data("level");
+                code += ")";
+
+                gengine_execute(code);
+            }
+            break;
+        }
     });
 });

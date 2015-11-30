@@ -65,19 +65,19 @@ function ComponentPlayer:hit(dmg)
     end
 end
 
-function ComponentPlayer:initWeapon(name, level)
+function ComponentPlayer:setWeapon(name, level)
     local w = Game:getWeapon(name, level)
     Game.arm.arm.bulletSound = gengine.audio.sound.get(w.sound)
     self.weapon = w
     Game.arm.arm.weapon = w
 end
 
-function ComponentPlayer:initGenerator(name, level)
+function ComponentPlayer:setGenerator(name, level)
     self.generator = Game:getGenerator(name, level)
     self.generator.currentValue = self.generator.capacity
 end
 
-function ComponentPlayer:initShield(name, level)
+function ComponentPlayer:setShield(name, level)
     self.shield = Game:getShield(name, level)
     self.shield.currentValue = self.shield.capacity
 end

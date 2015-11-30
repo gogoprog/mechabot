@@ -18,6 +18,10 @@ function Game:init()
     self.player = Factory:createPlayer()
     self.arm = Factory:createArm()
 
+    self.player.player:setWeapon("plasma", 1)
+    self.player.player:setGenerator("small")
+    self.player.player:setShield("small")
+
     Map:init()
 
     self:changeState("idle")
@@ -33,11 +37,6 @@ function Game:start(map)
 
     self.bullets = {}
     self.enemies = {}
-
-    self.player.player:initWeapon("plasma", 1)
-    self.player.player:initGenerator("small")
-    self.player.player:initShield("small")
-    self.arm.arm.weapon = self.player.player.weapon
 
     self.kills = 0
     self:addKills(0)
@@ -177,9 +176,7 @@ end
 function Game.onStateEnter:shop()
     self.player:insert()
     self.arm:insert()
-    self.player.player:initWeapon("plasma", 1)
-    self.player.player:initGenerator("small")
-    self.player.player:initShield("small")
+
     self.arm.arm.forcedShot = true
 
     self.player.position.x = 400
