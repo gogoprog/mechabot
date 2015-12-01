@@ -13,6 +13,7 @@ var fader;
 var faderOpacity = 0;
 var shopContainer;
 var shopModel;
+var generatorBar, shieldBar, lifeBar;
 
 function showPage(pages, name, duration, lua)
 {
@@ -45,17 +46,17 @@ function showPage(pages, name, duration, lua)
 
 function updateLife(v)
 {
-    $(".lifeBar").progressbar( "value", v );
+    lifeBar.progressbar( "value", v );
 }
 
 function updateGenerator(v)
 {
-    $(".generatorBar").progressbar( "value", v );
+    generatorBar.progressbar( "value", v );
 }
 
 function updateShield(v)
 {
-    $(".shieldBar").progressbar( "value", v );
+    shieldBar.progressbar( "value", v );
 }
 
 function updateKills(v)
@@ -112,15 +113,19 @@ $(function() {
     fader = $('#fader');
     fader.hide();
 
-    $( ".lifeBar" ).progressbar({
+    generatorBar = $(".generatorBar");
+    lifeBar = $(".lifeBar" );
+    shieldBar = $(".shieldBar");
+
+    lifeBar.progressbar({
         value: 1,
         max: 1
     });
-    $( ".generatorBar" ).progressbar({
+    generatorBar.progressbar({
         value: 1,
         max: 1
     });
-    $( ".shieldBar" ).progressbar({
+    shieldBar.progressbar({
         value: 1,
         max: 1
     });
@@ -140,62 +145,5 @@ $(function() {
     showPage(menuPages, 'mainScreen', 0);
     gengine_execute("Game:onGuiLoaded()");
 
-    shopContainer = $("#shop .items");
-    shopModel = $("#shop .model");
-    shopModel.hide();
-
-    addShopItem("weapon", "plasma", 1, "Plasma", 100);
-    addShopItem("weapon", "plasma", 10, "Plasma", 100);
-    addShopItem("weapon", "rocket", 1, "Rocket", 100);
-
-    addShopItem("shield", "small", 1, "SmallS", 100);
-
-    addShopItem("generator", "small", 1, "SmallG", 200);
-
-    var items = $(".items").children();
-    items.on('click', function() {
-        var that = $(this);
-        gengine_execute("Game:resetItems()");
-
-        if(that.hasClass("selected"))
-        {
-            items.removeClass("selected");
-            return;
-        }
-
-        items.removeClass("selected");
-
-        that.addClass("selected");
-
-        var type = that.data("type");
-        var code;
-
-        switch(type)
-        {
-            case "weapon":
-            {
-                code = "Game.player.player:setWeapon('";
-            }
-            break;
-
-            case "generator":
-            {
-                code = "Game.player.player:setGenerator('";
-            }
-            break;
-
-            case "shield":
-            {
-                code = "Game.player.player:setShield('";
-            }
-            break;
-        }
-
-        code += that.data("name");
-        code += "',";
-        code += that.data("level");
-        code += ")";
-
-        gengine_execute(code);
-    });
+    initShop();
 });
