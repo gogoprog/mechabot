@@ -179,7 +179,7 @@ function Game.onStateEnter:shop()
 
     self.arm.arm.forcedShot = true
 
-    self.player.position.x = 400
+    self.player.position.x = 250
     self.player.sprite.timeFactor = 0
 end
 

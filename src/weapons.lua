@@ -9,7 +9,7 @@ return {
             return 0.1
         end,
         powerCost = function(level)
-            return 10
+            return 10 + level * 0.5
         end,
         bulletSpeed = function(level)
             return 1200

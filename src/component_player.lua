@@ -33,7 +33,7 @@ function ComponentPlayer:update(dt)
 
         self.lastGenUpdate = self.lastGenUpdate + dt
 
-        if self.lastGenUpdate > 0.15 then
+        if self.lastGenUpdate > 0.05 then
             gengine.gui.executeScript("updateGenerator(" .. g.currentValue / g.capacity .. ")")
             gengine.gui.executeScript("updateShield(" .. s.currentValue / s.capacity .. ")")
 

@@ -45,17 +45,17 @@ function showPage(pages, name, duration, lua)
 
 function updateLife(v)
 {
-    $( "#lifeBar" ).progressbar( "value", v );
+    $(".lifeBar").progressbar( "value", v );
 }
 
 function updateGenerator(v)
 {
-    $( "#generatorBar" ).progressbar( "value", v );
+    $(".generatorBar").progressbar( "value", v );
 }
 
 function updateShield(v)
 {
-    $( "#shieldBar" ).progressbar( "value", v );
+    $(".shieldBar").progressbar( "value", v );
 }
 
 function updateKills(v)
@@ -112,25 +112,25 @@ $(function() {
     fader = $('#fader');
     fader.hide();
 
-    $( "#lifeBar" ).progressbar({
+    $( ".lifeBar" ).progressbar({
         value: 1,
         max: 1
     });
-    $( "#generatorBar" ).progressbar({
+    $( ".generatorBar" ).progressbar({
         value: 1,
         max: 1
     });
-    $( "#shieldBar" ).progressbar({
+    $( ".shieldBar" ).progressbar({
         value: 1,
         max: 1
     });
 
-    $("#lifeBar").css({ 'background': 'LightRed' });
-    $("#lifeBar > div").css({ 'background': 'Red' });
-    $("#generatorBar").css({ 'background': 'LightBlue' });
-    $("#generatorBar > div").css({ 'background': 'Blue' });
-    $("#shieldBar").css({ 'background': 'LightYellow' });
-    $("#shieldBar > div").css({ 'background': 'Yellow' });
+    $(".lifeBar").css({ 'background': 'LightRed' });
+    $(".lifeBar > div").css({ 'background': 'Red' });
+    $(".generatorBar").css({ 'background': 'LightBlue' });
+    $(".generatorBar > div").css({ 'background': 'Blue' });
+    $(".shieldBar").css({ 'background': 'LightYellow' });
+    $(".shieldBar > div").css({ 'background': 'Yellow' });
 
     $("#garage").on("click", function() {
         showPage(mainPages, 'shop', 300, "Application:changeState('shop')");
