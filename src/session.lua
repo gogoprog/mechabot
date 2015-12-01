@@ -16,3 +16,8 @@ function Session:init()
         level = 1
     }
 end
+
+
+function Session:isCurrentItem(_type, name, level)
+    return self[_type].name == name and self[_type].level == level
+end

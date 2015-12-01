@@ -89,3 +89,12 @@
     right:0;
     top: 0;
 }
+
+#shop .selected .info {
+    display:block;
+}
+
+#shop .info{
+    display:none;
+    height:120px;
+}

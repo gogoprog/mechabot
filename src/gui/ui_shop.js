@@ -28,6 +28,8 @@ function initShop()
         that.addClass("selected");
 
         var type = that.data("type");
+        var name = that.data("name");
+        var level = that.data("level");
         var code;
 
         switch(type)
@@ -51,9 +53,9 @@ function initShop()
             break;
         }
 
-        code += that.data("name");
+        code += name;
         code += "',";
-        code += that.data("level");
+        code += level;
         code += ")";
 
         gengine_execute(code);
@@ -74,6 +76,7 @@ function addShopItem(type, name, level, title, price)
     item.addClass(type);
     item.find(".name").html(title + " " + level);
     item.find(".price").html(price);
+    item.find(".buy").button();
     item.data("type", type);
     item.data("name", name);
     item.data("level", level);
