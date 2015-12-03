@@ -96,5 +96,12 @@
 
 #shop .info{
     display:none;
-    height:120px;
+    height:100px;
+}
+
+#shop .buy {
+    font-size:14px;
+    position:absolute;
+    bottom:2px;
+    right:2px;
 }

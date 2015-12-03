@@ -17,7 +17,8 @@ return {
         sound = "laser",
         bulletRadius = 20,
         color = vector4(0.2, 1.0, 0.2, 1),
-        debris = "particle"
+        debris = "particle",
+        price = function(level) return 100 * level end
     },
     rocket = {
         texture = function(level) return "rocket" end,
@@ -44,6 +45,7 @@ return {
             lifeTimeRange = {0.9, 0.9},
         },
         debris = "rocket",
-        explosionSound = "explosion"
+        explosionSound = "explosion",
+        price = function(level) return 100 * level end
     }
 }

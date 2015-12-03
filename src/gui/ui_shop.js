@@ -17,11 +17,11 @@ function initShop()
         var that = $(this);
         gengine_execute("Game:resetItems()");
 
-        if(that.hasClass("selected"))
+        /*if(that.hasClass("selected"))
         {
             items.removeClass("selected");
             return;
-        }
+        }*/
 
         items.removeClass("selected");
 
@@ -59,6 +59,17 @@ function initShop()
         code += ")";
 
         gengine_execute(code);
+    });
+
+    items.find(".buy").on('click', function() {
+        var that = $(this);
+        var parent = that.parent().parent();
+
+        var type = parent.data("type");
+        var name = parent.data("name");
+        var level = parent.data("level");
+
+        var code = "Session:buy('" + type + "'" + name + "','" + level + "')";
     });
 }
 

@@ -15,9 +15,14 @@ function Session:init()
         name = "small",
         level = 1
     }
-end
 
+    self.money = 1000
+end
 
 function Session:isCurrentItem(_type, name, level)
     return self[_type].name == name and self[_type].level == level
+end
+
+function Session:buy(_type, name, level)
+
 end
