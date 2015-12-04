@@ -105,3 +105,21 @@
     bottom:2px;
     right:2px;
 }
+
+#shop .money, #shop .money_label {
+    position:absolute;
+    display:block;
+    width:50%;
+    bottom:3px;
+    font-size:24px;
+}
+
+#shop .money {
+    right:10px;
+    text-align:right;
+}
+
+#shop .money_label {
+    left:10px;
+    text-align:left;
+}

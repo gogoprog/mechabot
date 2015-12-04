@@ -15,6 +15,8 @@ end
 
 function Application.onStateEnter:shop()
     Game:changeState("shop")
+    gengine.gui.executeScript("shop.updateMoney(" .. Session.money .. ")")
+
 end
 
 function Application.onStateUpdate:shop(dt)

@@ -210,20 +210,25 @@ end
 
 function Game:getWeapon(name, level)
     local def = self.weapons[name]
-    return self:getItem(def, level)
+    return self:getComputedItem(def, level)
 end
 
 function Game:getGenerator(name, level)
     local def = self.generators[name]
-    return self:getItem(def, level)
+    return self:getComputedItem(def, level)
 end
 
 function Game:getShield(name, level)
     local def = self.shields[name]
-    return self:getItem(def, level)
+    return self:getComputedItem(def, level)
 end
 
-function Game:getItem(def, level)
+function Game:getItem(_type, name, level)
+    local def = self[_type .. 's'][name]
+    return self:getComputedItem(def, level)
+end
+
+function Game:getComputedItem(def, level)
     local w = {}
     for k, v in pairs(def) do
         if type(v) == "function" then

@@ -16,7 +16,7 @@ function Session:init()
         level = 1
     }
 
-    self.money = 1000
+    self.money = 10000
 end
 
 function Session:isCurrentItem(_type, name, level)
@@ -24,5 +24,16 @@ function Session:isCurrentItem(_type, name, level)
 end
 
 function Session:buy(_type, name, level)
+    local item = Game:getItem(_type, name, level)
+    local price = item.price
 
+    if price then
+        if price <= self.money then
+            self[_type].name = name
+            self[_type].level = level
+
+            self.money = self.money - price
+            gengine.gui.executeScript("shop.updateMoney(" .. self.money .. ")")
+        end
+    end
 end

@@ -11,8 +11,6 @@ var mainPages = {
 
 var fader;
 var faderOpacity = 0;
-var shopContainer;
-var shopModel;
 var generatorBar, shieldBar, lifeBar;
 
 function showPage(pages, name, duration, lua)
@@ -87,25 +85,6 @@ function setupPages(pages, containerName)
     }
 }
 
-function clearShop()
-{
-
-}
-
-function addShopItem(type, name, level, title, price)
-{
-    var item = shopModel.clone();
-    shopContainer.append(item);
-    item.show();
-    item.addClass(type);
-    item.find(".name").html(title + " " + level);
-    item.find(".price").html(price);
-    item.data("type", type);
-    item.data("name", name);
-    item.data("level", level);
-    item.data("price", price);
-}
-
 $(function() {
     setupPages(mainPages, "pages");
     setupPages(menuPages, "menu");
@@ -145,5 +124,5 @@ $(function() {
     showPage(menuPages, 'mainScreen', 0);
     gengine_execute("Game:onGuiLoaded()");
 
-    initShop();
+    shop.init();
 });
