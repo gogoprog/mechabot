@@ -16,7 +16,7 @@ end
 function Application.onStateEnter:shop()
     Game:changeState("shop")
     gengine.gui.executeScript("shop.updateMoney(" .. Session.money .. ")")
-
+    self:fillShop()
 end
 
 function Application.onStateUpdate:shop(dt)
@@ -46,4 +46,27 @@ function Application.onStateUpdate:inGame(dt)
 end
 
 function Application.onStateExit:inGame()
+end
+
+function Application:fillShop()
+    gengine.gui.executeScript("shop.clear()")
+
+    self:addSomeItems("weapon", 3)
+    self:addSomeItems("generator", 3)
+    self:addSomeItems("shield", 3)
+
+    gengine.gui.executeScript("shop.postFill()")
+end
+
+function Application:addSomeItems(type, count)
+    for k, v in pairs(Game[type .. 's']) do
+        for i=1,count do
+            local item = Game:getItem(type, k, i)
+            self:addShopItem(type, k, i, k, item.price)
+        end
+    end
+end
+
+function Application:addShopItem(type, name, level, title, price)
+    gengine.gui.executeScript("shop.addItem('" .. type .. "', '" .. name .. "', " .. level .. ", '" .. title .. "', " .. price .. ")")
 end

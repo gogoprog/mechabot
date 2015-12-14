@@ -5,14 +5,17 @@ var shop = {
         this.model = $("#shop .model");
         this.money = $("#shop .money");
         this.model.hide();
-
+    },
+    postFill: function()
+    {
+/*
         this.addItem("weapon", "plasma", 1, "Plasma", 100);
         this.addItem("weapon", "plasma", 10, "Plasma", 100);
         this.addItem("weapon", "rocket", 1, "Rocket", 100);
 
         this.addItem("shield", "small", 1, "SmallS", 100);
 
-        this.addItem("generator", "small", 1, "SmallG", 200);
+        this.addItem("generator", "small", 1, "SmallG", 200);*/
 
         var items = $(".items").children();
         items.on('click', function() {
@@ -71,7 +74,7 @@ var shop = {
     },
     clear: function()
     {
-
+        this.container.find(".itemInstance").remove();
     },
     addItem: function(type, name, level, title, price)
     {
@@ -79,6 +82,7 @@ var shop = {
         this.container.append(item);
         item.show();
         item.addClass(type);
+        item.addClass("itemInstance");
         item.find(".name").html(title + " " + level);
         item.find(".price").html(price);
         item.find(".buy").button();
