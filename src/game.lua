@@ -60,8 +60,7 @@ function Game:stop()
     self.player:remove()
     self.arm:remove()
     Map:stop()
-    self:changeState("idle")
-    gengine.gui.executeScript("showPage(mainPages, 'menu', 300)")
+    Application:goToShop()
 end
 
 function Game:update(dt)
@@ -174,6 +173,7 @@ function Game.onStateExit:winning()
 end
 
 function Game.onStateEnter:shop()
+    Map.cameraEntity.position:set(0, 512)
     self.player:insert()
     self.arm:insert()
 

@@ -30,6 +30,13 @@ return {
                 texture = "sky_colours"
             }
         },
-        music = "data/robot.mp3"
+        music = "data/robot.mp3",
+        shop = {
+            {
+                type = "weapon",
+                name = "plasma",
+                level = "3"
+            }
+        }
     }
 }

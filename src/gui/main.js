@@ -64,7 +64,7 @@ function updateKills(v)
 
 function startGame(n)
 {
-    showPage(mainPages, 'hud', 300, "Application:changeState('inGame')");
+    gengine_execute("Session:start(1)");
 }
 
 function addMap(index, title)
@@ -83,6 +83,16 @@ function setupPages(pages, containerName)
         pages[name].element = $('#' + name);
         pages[name].element.hide();
     }
+}
+
+function goToShop()
+{
+    showPage(mainPages, 'shop', 300, "Application:changeState('shop')");
+}
+
+function goToGame()
+{
+    showPage(mainPages, 'hud', 300, "Application:changeState('inGame')");
 }
 
 $(function() {

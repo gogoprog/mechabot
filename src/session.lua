@@ -19,6 +19,22 @@ function Session:init()
     self.money = 10000
 end
 
+function Session:start(lvl)
+    self.currentLevel = lvl
+
+    local shop_def = Map.definitions[lvl].shop
+
+    Application:clearShop()
+
+    for k, v in ipairs(shop_def) do
+        Application:addShopItem(v.type, v.name, v.level)
+    end
+
+    Application:shopPostFill()
+
+    Application:goToShop()
+end
+
 function Session:isCurrentItem(_type, name, level)
     return self[_type].name == name and self[_type].level == level
 end
