@@ -30,11 +30,14 @@ function Session:start(lvl)
     Application:addShopItem("generator", self.generator.name, self.generator.level)
     Application:addShopItem("shield", self.shield.name, self.shield.level)
 
+
     for k, v in ipairs(shop_def) do
         Application:addShopItem(v.type, v.name, v.level)
     end
 
     Application:shopPostFill()
+
+    self:updateShop()
 
     Application:goToShop()
 end
@@ -56,4 +59,13 @@ function Session:buy(_type, name, level)
             gengine.gui.executeScript("shop.updateMoney(" .. self.money .. ")")
         end
     end
+
+    self:updateShop()
+end
+
+function Session:updateShop()
+    gengine.gui.executeScript("shop.setCurrentItem('weapon', '" .. self.weapon.name .. "', " .. self.weapon.level .. ");")
+    gengine.gui.executeScript("shop.setCurrentItem('generator', '" .. self.generator.name .. "', " .. self.generator.level .. ");")
+    gengine.gui.executeScript("shop.setCurrentItem('shield', '" .. self.shield.name .. "', " .. self.shield.level .. ");")
+    gengine.gui.executeScript("shop.update()")
 end

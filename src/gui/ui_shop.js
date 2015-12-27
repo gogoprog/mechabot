@@ -1,4 +1,5 @@
 var shop = {
+    currentItems: {},
     init: function()
     {
         this.container = $("#shop .items");
@@ -8,15 +9,6 @@ var shop = {
     },
     postFill: function()
     {
-/*
-        this.addItem("weapon", "plasma", 1, "Plasma", 100);
-        this.addItem("weapon", "plasma", 10, "Plasma", 100);
-        this.addItem("weapon", "rocket", 1, "Rocket", 100);
-
-        this.addItem("shield", "small", 1, "SmallS", 100);
-
-        this.addItem("generator", "small", 1, "SmallG", 200);*/
-
         var items = $(".items").children();
         items.on('click', function() {
             var that = $(this);
@@ -93,5 +85,30 @@ var shop = {
     },
     updateMoney: function(amount) {
         this.money.html(amount);
-    }
+    },
+    setCurrentItem: function(type, name, level) {
+        this.currentItems[type] = {name:name, level:level};
+    },
+    update: function() {
+        var items = this.container.find(".itemInstance");
+        var that = this;
+
+        items.each(function(index) {
+            var _this = $(this);
+
+            var type = _this.data("type");
+            var name = _this.data("name");
+            var level = _this.data("level");
+
+            if(that.currentItems[type].name == name && that.currentItems[type].level == level)
+            {
+                _this.find(".buy").hide();
+                _this.find(".price").html("current");
+            }
+            else {
+                _this.find(".buy").show();
+                _this.find(".price").html(_this.data("price"));
+            }
+        });
+    },
 };
