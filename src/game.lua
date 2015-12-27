@@ -173,7 +173,7 @@ function Game.onStateExit:winning()
 end
 
 function Game.onStateEnter:shop()
-    Map.cameraEntity.position:set(0, 512)
+    Map.cameraEntity.position:set(0, 0)
     self.player:insert()
     self.arm:insert()
 

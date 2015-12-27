@@ -26,6 +26,10 @@ function Session:start(lvl)
 
     Application:clearShop()
 
+    Application:addShopItem("weapon", self.weapon.name, self.weapon.level)
+    Application:addShopItem("generator", self.generator.name, self.generator.level)
+    Application:addShopItem("shield", self.shield.name, self.shield.level)
+
     for k, v in ipairs(shop_def) do
         Application:addShopItem(v.type, v.name, v.level)
     end
