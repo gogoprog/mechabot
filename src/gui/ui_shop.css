@@ -123,3 +123,18 @@
     left:10px;
     text-align:left;
 }
+
+#shop .play {
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    width:10%;
+    height:9%;
+    padding:5px;
+    background-color:grey;
+    border:2px solid black;
+}
+
+#shop .play:hover {
+    background-color:white;
+}
