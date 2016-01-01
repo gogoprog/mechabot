@@ -13,6 +13,8 @@ var fader;
 var faderOpacity = 0;
 var generatorBar, shieldBar, lifeBar;
 
+var confirmDialog;
+
 function showPage(pages, name, duration, lua)
 {
     pages.nextPageName = name;
@@ -95,6 +97,26 @@ function goToGame()
     showPage(mainPages, 'hud', 300, "Application:changeState('inGame')");
 }
 
+function showConfirmDialog(title, code)
+{
+    confirmDialog.attr("title", title);
+    confirmDialog.dialog({
+      height:166,
+      modal: true,
+      show: { effect: "fadeIn", duration: 200 },
+      hide: { effect: "fadeOut", duration: 200 },
+      buttons: {
+        "Yes": function() {
+          gengine_execute(code);
+          $( this ).dialog( "close" );
+        },
+        "No": function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
+}
+
 $(function() {
     setupPages(mainPages, "pages");
     setupPages(menuPages, "menu");
@@ -135,4 +157,6 @@ $(function() {
     gengine_execute("Game:onGuiLoaded()");
 
     shop.init();
+
+    confirmDialog = $("#dialog-confirm");
 });

@@ -113,7 +113,7 @@ function Game.onStateUpdate:inGame(dt)
     Map:update(dt)
 
     if gengine.input.keyboard:isJustUp(41) then
-        self:stop()
+        Application:showConfirmDialog("Leave game?", "Game:stop()")
     end
 
     if Game.player.position.x > Map.definition.length then
