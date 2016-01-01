@@ -126,7 +126,7 @@ function Game.onStateExit:inGame()
 end
 
 function Game.onStateEnter:pausing()
-    self.running = true
+    self.running = false
     Application:showConfirmDialog("Leave game?", "Game:stop()", "Game:changeState(\"inGame\")")
 end
 
@@ -138,7 +138,6 @@ function Game.onStateUpdate:pausing(dt)
 end
 
 function Game.onStateExit:pausing()
-    self.running = false
 end
 
 function Game.onStateEnter:dying()

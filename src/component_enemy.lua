@@ -13,6 +13,10 @@ function ComponentEnemy:insert()
 end
 
 function ComponentEnemy:update(dt)
+    if not Game.running then
+        return
+    end
+
     local p = self.entity.position
 
     p.x = p.x - self.speed * dt

@@ -8,6 +8,10 @@ function ComponentSpawner:insert()
 end
 
 function ComponentSpawner:update(dt)
+    if not Game.running then
+        return
+    end
+
     self.timeLeft = self.timeLeft - dt
 
     if self.timeLeft <= 0 then

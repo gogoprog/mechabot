@@ -13,6 +13,10 @@ function ComponentBullet:insert()
 end
 
 function ComponentBullet:update(dt)
+    if not (Game.running or Game.state == "shop") then
+        return
+    end
+
     local self_position = self.entity.position
     local velocity = self.velocity
     self.totalTime = self.totalTime + dt
