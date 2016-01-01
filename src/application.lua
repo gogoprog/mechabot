@@ -67,6 +67,10 @@ function Application:goToGame()
     gengine.gui.executeScript("goToGame()")
 end
 
-function Application:showConfirmDialog(title, code)
-    gengine.gui.executeScript("showConfirmDialog('" .. title .. "', '" .. code .. "')")
+function Application:showConfirmDialog(title, yes_code, no_code)
+    gengine.gui.executeScript("showConfirmDialog('" .. title .. "', '" .. yes_code .. "', '" .. no_code .. "');")
+end
+
+function Application:closeConfirmDialog()
+    gengine.gui.executeScript("closeConfirmDialog()")
 end

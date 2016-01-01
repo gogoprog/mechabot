@@ -97,7 +97,7 @@ function goToGame()
     showPage(mainPages, 'hud', 300, "Application:changeState('inGame')");
 }
 
-function showConfirmDialog(title, code)
+function showConfirmDialog(title, yes_code, no_code)
 {
     confirmDialog.attr("title", title);
     confirmDialog.dialog({
@@ -107,14 +107,20 @@ function showConfirmDialog(title, code)
       hide: { effect: "fadeOut", duration: 200 },
       buttons: {
         "Yes": function() {
-          gengine_execute(code);
+          gengine_execute(yes_code);
           $( this ).dialog( "close" );
         },
         "No": function() {
+          gengine_execute(no_code);
           $( this ).dialog( "close" );
         }
       }
     });
+}
+
+function closeConfirmDialog()
+{
+    confirmDialog.dialog("close");
 }
 
 $(function() {
