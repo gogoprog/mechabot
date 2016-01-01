@@ -51,6 +51,8 @@ function Map:stop()
     self.boxes = {}
     self.futureBoxes = {}
     self.parallaxes = {}
+
+    gengine.audio.stopMusic()
 end
 
 function Map:update(dt)
