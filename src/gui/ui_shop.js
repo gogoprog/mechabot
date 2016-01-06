@@ -12,7 +12,7 @@ var shop = {
         var items = $(".items").children();
         items.on('click', function() {
             var that = $(this);
-            gengine_execute("Game:resetItems()");
+            gengine.execute("Game:resetItems()");
 
             items.removeClass("selected");
 
@@ -49,7 +49,7 @@ var shop = {
             code += level;
             code += ")";
 
-            gengine_execute(code);
+            gengine.execute(code);
         });
 
         items.find(".buy").on('click', function() {
@@ -61,7 +61,7 @@ var shop = {
             var level = parent.data("level");
 
             var code = "Session:buy('" + type + "','" + name + "'," + level + ")";
-            gengine_execute(code);
+            gengine.execute(code);
         });
     },
     clear: function()

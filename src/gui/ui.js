@@ -18,7 +18,7 @@ var confirmDialog;
 function showPage(pages, name, duration, lua)
 {
     pages.nextPageName = name;
-    gengine_execute("Game.interState = function() " + ((typeof lua == "undefined") ? "" : lua) + "end");
+    gengine.execute("Game.interState = function() " + ((typeof lua == "undefined") ? "" : lua) + "end");
     fader.show();
     fader.fadeTo(duration, 1, function() {
         for(var k in pages)
@@ -36,7 +36,7 @@ function showPage(pages, name, duration, lua)
             }
         }
 
-        gengine_execute("Game:interState()");
+        gengine.execute("Game:interState()");
 
         fader.fadeTo(duration, 0, function() {
             fader.hide();
@@ -66,7 +66,7 @@ function updateKills(v)
 
 function startGame(n)
 {
-    gengine_execute("Session:start(1)");
+    gengine.execute("Session:start(1)");
 }
 
 function addMap(index, title)
@@ -107,11 +107,11 @@ function showConfirmDialog(title, yes_code, no_code)
       hide: { effect: "fadeOut", duration: 200 },
       buttons: {
         "Yes": function() {
-          gengine_execute(yes_code);
+          gengine.execute(yes_code);
           $( this ).dialog( "close" );
         },
         "No": function() {
-          gengine_execute(no_code);
+          gengine.execute(no_code);
           $( this ).dialog( "close" );
         }
       }
@@ -160,7 +160,7 @@ $(function() {
 
     showPage(mainPages, 'menu', 0);
     showPage(menuPages, 'mainScreen', 0);
-    gengine_execute("Game:onGuiLoaded()");
+    gengine.execute("Game:onGuiLoaded()");
 
     shop.init();
 
