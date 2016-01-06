@@ -193,6 +193,8 @@ function Game.onStateEnter:shop()
     self.arm:insert()
 
     self.arm.arm.forcedShot = true
+    self.arm.arm.currentAngle = 0
+    self.arm.rotation = 0
 
     self.player.position.x = 250
     self.player.sprite.timeFactor = 0
