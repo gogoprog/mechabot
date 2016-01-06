@@ -116,7 +116,7 @@ function Game.onStateUpdate:inGame(dt)
         self:changeState("pausing")
     end
 
-    if Game.player.position.x > Map.definition.length then
+    if Game.player.position.x > Map.length then
         self:changeState("winning")
     end
 end

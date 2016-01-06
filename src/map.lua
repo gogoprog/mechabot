@@ -28,6 +28,7 @@ function Map:start(index)
     end
 
     self.x = 0
+    self.parallaxOffset = 0
     self.cameraEntity.position:set(0, 512)
     Game.player.position:set(self.x - 650, 0)
 
@@ -58,10 +59,14 @@ end
 function Map:update(dt)
     if not self:isPlayerBlocked(dt) then
         self.x = self.x + dt * 150
-        self.cameraEntity.position.x = self.x
 
-        for k, v in ipairs(self.parallaxes) do
-            v.position.x = self.x
+        if self.x < self.length - 500 then
+            self.parallaxOffset = self.x
+            self.cameraEntity.position.x = self.x
+
+            for k, v in ipairs(self.parallaxes) do
+                v.position.x = self.x
+            end
         end
 
         Game.player.position.x = self.x - 650
@@ -130,4 +135,7 @@ end
 
 function Map:loadFile(filename)
     self.futureBoxes = gengine.tiled.createEntities(filename,vector2(0,-32))
+
+    local def = dofile(filename)
+    self.length = def.width * def.tilewidth
 end
