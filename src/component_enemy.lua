@@ -46,7 +46,7 @@ function ComponentEnemy:update(dt)
         self:removeFromGame()
         gengine.audio.playSound(Factory.hitSound, 0.6)
 
-        Game:addKills(1)
+        Game:addScore(100)
     end
 end
 

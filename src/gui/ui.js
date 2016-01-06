@@ -1,5 +1,5 @@
 var generatorBar, shieldBar, lifeBar;
-
+var score;
 var confirmDialog;
 
 function updateLife(v)
@@ -17,9 +17,9 @@ function updateShield(v)
     shieldBar.progressbar( "value", v );
 }
 
-function updateKills(v)
+function updateLevelScore(v)
 {
-    $("#kills").html(v);
+    score.html(v);
 }
 
 function startGame(n)
@@ -70,6 +70,7 @@ $(function() {
     generatorBar = $(".generatorBar");
     lifeBar = $(".lifeBar" );
     shieldBar = $(".shieldBar");
+    score = $("#score");
 
     lifeBar.progressbar({
         value: 1,

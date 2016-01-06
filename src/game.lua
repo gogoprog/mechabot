@@ -38,8 +38,8 @@ function Game:start(map)
     self.bullets = {}
     self.enemies = {}
 
-    self.kills = 0
-    self:addKills(0)
+    self.score = 0
+    self:addScore(0)
     Map:start(map)
     self.player:insert()
     self.arm:insert()
@@ -208,9 +208,9 @@ function Game.onStateExit:shop()
     self.player.sprite.timeFactor = 1
 end
 
-function Game:addKills(v)
-    self.kills = self.kills + v
-    gengine.gui.executeScript("updateKills(" .. self.kills .. ");")
+function Game:addScore(v)
+    self.score = self.score + v
+    gengine.gui.executeScript("updateLevelScore(" .. self.score .. ");")
 end
 
 function Game:interState()

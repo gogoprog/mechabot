@@ -97,9 +97,7 @@ body{
 
 #hud span {
     font-size:25px;
-    width:96px;
     display:inline-block;
-    text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ffffff , 0 0 70px #ffffff , 0 0 80px #ffffff , 0 0 100px #ffffff ;
 }
 
 .generatorBar,
@@ -134,4 +132,27 @@ body{
 
 #dialog-confirm {
     font-size:10px;
+}
+
+.barContainer {
+    position: absolute;
+    display:block;
+    top:0;
+    left:0;
+    width:350px;
+    text-align:right;
+    background-color:rgba(255,255,255,0.6);
+    padding:5px 5px 5px 5px;
+}
+
+.scoreContainer {
+    position: absolute;
+    display:block;
+    top:0;
+    right:0;
+    width:256px;
+    height:32px;
+    text-align:left;
+    background-color:rgba(255,255,255,0.6);
+    padding:5px 5px 5px 5px;
 }

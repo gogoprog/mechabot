@@ -46,7 +46,7 @@ function ComponentBullet:update(dt)
                 e.position:set(enemies[k].position)
 
                 gengine.audio.playSound(Factory.hitSound, 0.6)
-                Game:addKills(1)
+                Game:addScore(100)
 
                 enemies[k]:remove()
                 table.remove(enemies, k)
