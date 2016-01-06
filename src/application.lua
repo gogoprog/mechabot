@@ -1,4 +1,5 @@
 require 'game'
+require 'gui'
 
 Application = Application or {}
 
@@ -8,6 +9,9 @@ function Application.onStateEnter:menu()
 end
 
 function Application.onStateUpdate:menu(dt)
+    if gengine.input.keyboard:isJustUp(41) then
+        gengine.application.quit()
+    end
 end
 
 function Application.onStateExit:menu()
@@ -20,7 +24,7 @@ end
 
 function Application.onStateUpdate:shop(dt)
     if gengine.input.keyboard:isJustUp(41) then
-        self:goToGame()
+        gengine.gui.showPage('menu', 'slide', 300)
     end
 end
 
@@ -57,14 +61,6 @@ end
 function Application:addShopItem(type, name, level)
     local item = Game:getItem(type, name, level)
     gengine.gui.executeScript("shop.addItem('" .. type .. "', '" .. name .. "', " .. level .. ", '" .. name .. "', " .. item.price .. ")")
-end
-
-function Application:goToShop()
-    gengine.gui.executeScript("goToShop()")
-end
-
-function Application:goToGame()
-    gengine.gui.executeScript("goToGame()")
 end
 
 function Application:showConfirmDialog(title, yes_code, no_code)

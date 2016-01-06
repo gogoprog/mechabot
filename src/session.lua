@@ -30,7 +30,6 @@ function Session:start(lvl)
     Application:addShopItem("generator", self.generator.name, self.generator.level)
     Application:addShopItem("shield", self.shield.name, self.shield.level)
 
-
     for k, v in ipairs(shop_def) do
         Application:addShopItem(v.type, v.name, v.level)
     end
@@ -39,7 +38,7 @@ function Session:start(lvl)
 
     self:updateShop()
 
-    Application:goToShop()
+    gengine.gui.showPage("shop", "slide", 300)
 end
 
 function Session:isCurrentItem(_type, name, level)

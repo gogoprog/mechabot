@@ -60,7 +60,7 @@ function Game:stop()
     self.player:remove()
     self.arm:remove()
     Map:stop()
-    Application:goToShop()
+    gengine.gui.showPage('shop', 'fade', 400)
 end
 
 function Game:update(dt)
@@ -215,12 +215,6 @@ end
 
 function Game:interState()
 
-end
-
-function Game:onGuiLoaded()
-    for k, v in ipairs(Map.definitions) do
-        gengine.gui.executeScript("addMap(" .. k .. ",'" .. v.title .. "');")
-    end
 end
 
 function Game:getWeapon(name, level)

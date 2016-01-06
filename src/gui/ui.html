@@ -14,32 +14,23 @@
 
 <body>
   <div id="body">
-    <div id="pages">
-      <div id="menu">
+      <div id="menu" class="gengine-page">
         <div id="mainScreen">
           <span class="title">Mechabot</span>
 
           <ul>
-            <li><span class="button" onclick="showPage(menuPages, 'mapSelect', 300);">Play!</span></li>
-            <li><span class="button" id="garage">Garage</span></li>
-          </ul>
-        </div>
-        <div id="mapSelect">
-          <span class="title">Mechabot</span>
-          <span class="subtitle">Map selection</span>
-
-          <ul id="maps">
+            <li><span class="button" onclick="startGame(1)">Play!</span></li>
           </ul>
         </div>
       </div>
-      <div id="hud">
+      <div id="hud" class="gengine-page">
         <span>Life : </span><div class="lifeBar"></div><br/>
         <span>Power : </span><div class="generatorBar"></div><br/>
         <span>Shield : </span><div class="shieldBar"></div><br/>
         <span>Kills : </span><span id="kills"></span><br/>
       </div>
 
-      <div id="shop">
+      <div id="shop" class="gengine-page">
           <div class="generatorBar"></div>
           <div class="panel mainPanel">
               <span class="title">Items</span>
@@ -57,14 +48,11 @@
               <span class="money_label">Money : </span>
               <span class="money">1000</span>
           </div>
-          <div class="play" onclick="goToGame();">
+          <div class="play" onclick="gengine.gui.showPage('hud', 'fade', 500);">
               Play
           </div>
       </div>
-    </div>
 
-    <div id="fader">
-    </div>
     <div id="dialog-confirm" title="Leave game?">
     </div>
   </div>

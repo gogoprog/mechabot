@@ -1,48 +1,6 @@
-var menuPages = {
-    mainScreen: {},
-    mapSelect: {}
-};
-
-var mainPages = {
-    menu: {},
-    hud: {},
-    shop: {}
-};
-
-var fader;
-var faderOpacity = 0;
 var generatorBar, shieldBar, lifeBar;
 
 var confirmDialog;
-
-function showPage(pages, name, duration, lua)
-{
-    pages.nextPageName = name;
-    gengine.execute("Game.interState = function() " + ((typeof lua == "undefined") ? "" : lua) + "end");
-    fader.show();
-    fader.fadeTo(duration, 1, function() {
-        for(var k in pages)
-        {
-            if(k!="nextPageName")
-            {
-                if(k == pages.nextPageName)
-                {
-                    pages[k].element.show();
-                }
-                else
-                {
-                    pages[k].element.hide();
-                }
-            }
-        }
-
-        gengine.execute("Game:interState()");
-
-        fader.fadeTo(duration, 0, function() {
-            fader.hide();
-        });
-    });
-}
 
 function updateLife(v)
 {
@@ -69,12 +27,6 @@ function startGame(n)
     gengine.execute("Session:start(1)");
 }
 
-function addMap(index, title)
-{
-    var content = '<li><span class="button" onclick="startGame(' + index + ');">' + title + '</span></li>';
-    $("#maps").append(content);
-}
-
 function setupPages(pages, containerName)
 {
     var children = $('#' + containerName).children();
@@ -85,16 +37,6 @@ function setupPages(pages, containerName)
         pages[name].element = $('#' + name);
         pages[name].element.hide();
     }
-}
-
-function goToShop()
-{
-    showPage(mainPages, 'shop', 300, "Application:changeState('shop')");
-}
-
-function goToGame()
-{
-    showPage(mainPages, 'hud', 300, "Application:changeState('inGame')");
 }
 
 function showConfirmDialog(title, yes_code, no_code)
@@ -124,12 +66,7 @@ function closeConfirmDialog()
 }
 
 $(function() {
-    setupPages(mainPages, "pages");
-    setupPages(menuPages, "menu");
-
-    fader = $('#fader');
-    fader.hide();
-
+    gengine.gui.showPage('menu', 'fade', 1);
     generatorBar = $(".generatorBar");
     lifeBar = $(".lifeBar" );
     shieldBar = $(".shieldBar");
@@ -153,14 +90,6 @@ $(function() {
     $(".generatorBar > div").css({ 'background': 'Blue' });
     $(".shieldBar").css({ 'background': 'LightYellow' });
     $(".shieldBar > div").css({ 'background': 'Yellow' });
-
-    $("#garage").on("click", function() {
-        showPage(mainPages, 'shop', 300, "Application:changeState('shop')");
-    });
-
-    showPage(mainPages, 'menu', 0);
-    showPage(menuPages, 'mainScreen', 0);
-    gengine.execute("Game:onGuiLoaded()");
 
     shop.init();
 
