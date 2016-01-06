@@ -146,7 +146,7 @@ function Game.onStateEnter:dying()
 end
 
 function Game.onStateUpdate:dying(dt)
-    if gengine.input.keyboard:isJustUp(41) or gengine.input.mouse:isJustUp(1) then
+    if gengine.input.keyboard:isJustUp(41) then
         self:stop()
     end
 end
