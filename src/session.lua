@@ -68,3 +68,8 @@ function Session:updateShop()
     gengine.gui.executeScript("shop.setCurrentItem('shield', '" .. self.shield.name .. "', " .. self.shield.level .. ");")
     gengine.gui.executeScript("shop.update()")
 end
+
+function Session:onLevelWon(score)
+    self.money = self.money + score
+    Session:start(self.currentLevel + 1)
+end

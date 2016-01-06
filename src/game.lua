@@ -176,6 +176,8 @@ function Game.onStateUpdate:winning(dt)
 
     if self.timeLeft < 0 then
         self:stop()
+        self:changeState("none")
+        Session:onLevelWon(self.score)
     end
 end
 
@@ -197,6 +199,7 @@ function Game.onStateEnter:shop()
     self.arm.rotation = 0
 
     self.player.position.x = 250
+    self.player.position.y = 0
     self.player.sprite.timeFactor = 0
 end
 
