@@ -10,12 +10,15 @@
 #shop .panel {
     position:absolute;
     background-color:grey;
-    border: 2px solid blue;
+    background-clip:content-box;
+    border-color: orange;
+    border-width: 15px;
+    border-image:url("/gui/border4.png") 25 25 25 25 repeat;
 }
 
 #shop .mainPanel {
     width:40%;
-    height:80%;
+    height:70%;
     top: 5%;
     left:5%;
 }
