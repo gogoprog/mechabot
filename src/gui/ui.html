@@ -18,9 +18,11 @@
         <div id="mainScreen">
           <span class="title">Mechabot</span>
 
-          <ul>
-            <li><span class="button" onclick="startGame(1)">Play!</span></li>
-          </ul>
+          <br/>
+
+          <button onclick="startGame(1)">Play!</button><p/>
+          <button onclick="gengine.execute('gengine.application.quit()')">Quit</button><p/>
+
         </div>
       </div>
       <div id="hud" class="gengine-page">
@@ -52,9 +54,9 @@
               <span class="money_label">Money : </span>
               <span class="money">1000</span>
           </div>
-          <div class="play" onclick="gengine.gui.showPage('hud', 'fade', 500);">
+          <button class="play" onclick="gengine.gui.showPage('hud', 'fade', 500);">
               Play
-          </div>
+          </button>
       </div>
 
     <div id="dialog-confirm" title="Leave game?">
