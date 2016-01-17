@@ -42,27 +42,6 @@ body{
     transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
 }
 
-.subtitle {
-    font-size:50px;
-    display: block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 5px;
-    border: none;
-    color: black;
-    text-decoration: normal;
-    text-align: center;
-    -o-text-overflow: clip;
-    text-overflow: clip;
-    white-space: pre;
-    text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff0011 , 0 0 70px #ff0011 , 0 0 80px #ff0011 , 0 0 100px #ff0011 ;
-    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-}
-
 button {
     display:inline-block;
     padding:5px;
@@ -76,6 +55,13 @@ button {
 
 button:hover {
     color:white;
+}
+
+.panel {
+    background-image: url("/gui/bg.jpg");
+    background-clip:content-box;
+    border-width: 8px;
+    border-image:url("/gui/border_panel.png") 8 8 8 8 repeat;
 }
 
 #menu {
@@ -135,8 +121,6 @@ button:hover {
     left:0;
     width:360px;
     text-align:right;
-    background-color:rgba(255,255,255,0.6);
-    padding:5px 5px 5px 5px;
 }
 
 .scoreContainer {
@@ -147,6 +131,4 @@ button:hover {
     width:256px;
     height:32px;
     text-align:left;
-    background-color:rgba(255,255,255,0.6);
-    padding:5px 5px 5px 5px;
 }
