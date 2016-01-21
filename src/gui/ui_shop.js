@@ -5,6 +5,7 @@ var shop = {
         this.container = $("#shop .items");
         this.model = $("#shop .model");
         this.money = $("#shop .money");
+        this.levelName = $("#shop .nextLevel");
         this.model.hide();
     },
     postFill: function()
@@ -85,6 +86,9 @@ var shop = {
     },
     updateMoney: function(amount) {
         this.money.html(amount);
+    },
+    updateLevelName: function(name) {
+        this.levelName.html(name);
     },
     setCurrentItem: function(type, name, level) {
         this.currentItems[type] = {name:name, level:level};

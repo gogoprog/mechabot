@@ -21,6 +21,7 @@ end
 
 function Session:start(lvl)
     self.currentLevel = lvl
+    self.currentLevelDef = Map.definitions[lvl]
 
     local shop_def = Map.definitions[lvl].shop
 
