@@ -34,7 +34,7 @@ return {
             {
                 type = "weapon",
                 name = "plasma",
-                level = "3"
+                level = 3
             }
         }
     },
@@ -73,7 +73,7 @@ return {
             {
                 type = "weapon",
                 name = "plasma",
-                level = "10"
+                level = 10
             }
         }
     }

@@ -49,16 +49,17 @@ function ComponentArm:update(dt)
 
         if self.timeSinceLastBullet > self.weapon.interval then
             if Game.player.player.generator.currentValue >= self.weapon.powerCost then
-                local direction = gengine.math.getRotated(vector2(1,0), self.currentAngle)
+                for k, v in ipairs(self.weapon.directions) do
+                    local direction = gengine.math.getRotated(v, self.currentAngle)
+                    direction = gengine.math.getNormalized(direction)
+                    local e = Factory:createBullet(direction * self.weapon.bulletSpeed, self.weapon)
+                    local bulletOffset = gengine.math.getRotated(vector2(0, bullet_offset_y), angle)
 
-                direction = gengine.math.getNormalized(direction)
+                    e.position = self_position + direction * bullet_offset_x + bulletOffset
+                    e:insert()
+                end
 
-                local e = Factory:createBullet(direction * self.weapon.bulletSpeed, self.weapon)
 
-                local bulletOffset = gengine.math.getRotated(vector2(0, bullet_offset_y), angle)
-
-                e.position = self_position + direction * bullet_offset_x + bulletOffset
-                e:insert()
 
                 self.timeSinceLastBullet = 0
 
