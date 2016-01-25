@@ -28,6 +28,8 @@ function Game:init()
 end
 
 function Game:start(map)
+    self:resetItems()
+
     for k,v in ipairs(self.enemies) do
         v:remove()
     end

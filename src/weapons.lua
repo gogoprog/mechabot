@@ -1,12 +1,12 @@
 return {
     plasma = {
         texture = function(level) return "particle" end,
-        extent = function(level) return vector2(64,64) + vector2(level-1, level-1) * 5 end,
+        extent = function(level) return vector2(32,32) + vector2(level, level) * 5 end,
         damage = function(level)
             return 10 * level
         end,
         interval = function(level)
-            return 0.1
+            return 0.3 - level/100
         end,
         powerCost = function(level)
             return 10 + level * 0.5
@@ -22,11 +22,19 @@ return {
         directions = function(level)
             if level < 3 then
                 return { vector2(1, 0) }
+            elseif level < 5 then
+                return {
+                    vector2(1, 0.05),
+                    vector2(1, 0),
+                    vector2(1, -0.05)
+                }
             end
 
             return {
                 vector2(1, 0.1),
+                vector2(1, 0.05),
                 vector2(1, 0),
+                vector2(1, -0.05),
                 vector2(1, -0.1)
             }
         end

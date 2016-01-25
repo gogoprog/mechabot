@@ -16,6 +16,12 @@ end
 
 function update(dt)
     Application:updateState(dt)
+
+    local kb = gengine.input.keyboard
+
+    if kb:isDown(44) then
+        print(gengine.entity.getCount())
+    end
 end
 
 function stop()

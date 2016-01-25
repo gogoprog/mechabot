@@ -30,6 +30,7 @@ function Application.onStateUpdate:shop(dt)
 end
 
 function Application.onStateExit:shop()
+    
 end
 
 function Application.onStateEnter:inGame()

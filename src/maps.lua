@@ -34,7 +34,22 @@ return {
             {
                 type = "weapon",
                 name = "plasma",
+                level = 2
+            },
+            {
+                type = "weapon",
+                name = "plasma",
                 level = 3
+            },
+            {
+                type = "weapon",
+                name = "plasma",
+                level = 4
+            },
+            {
+                type = "weapon",
+                name = "plasma",
+                level = 5
             }
         }
     },

@@ -72,7 +72,7 @@ function ComponentBullet:update(dt)
         end
     end
 
-    if self.totalTime > 10 then
+    if self.totalTime > 5 then
         self:removeFromGame()
     end
 end
