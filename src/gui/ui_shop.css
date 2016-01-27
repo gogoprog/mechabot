@@ -35,6 +35,19 @@
     overflow-y:scroll;
 }
 
+#shop .items::-webkit-scrollbar {
+    width: 0.3em;
+}
+
+#shop .items::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+#shop .items::-webkit-scrollbar-thumb {
+    background-color: red;
+    outline: 1px solid black;
+}
+
 #shop .model {
     position:relative;
     display:block;
