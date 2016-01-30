@@ -1,7 +1,7 @@
 return {
     {
         title = "The Arrival",
-        filename = "data/map00.lua",
+        filename = "data/maps/map00.lua",
         parallaxes = {
             {
                 y = 48,
@@ -55,7 +55,7 @@ return {
     },
     {
         title = "On the way",
-        filename = "data/map01.lua",
+        filename = "data/maps/map01.lua",
         parallaxes = {
             {
                 y = 48,
