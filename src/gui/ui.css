@@ -48,17 +48,27 @@ body{
 button {
     display:inline-block;
     padding:5px;
-    background-color:#9e3436;
+    padding-left:15px;
+    padding-right:15px;
+    background-color:rgba(153, 0, 2, 1);
     background-clip:padding-box;
-    border-width: 8px;
-    border-image:url("/gui/border_button.png") 8 8 8 8 repeat;
+    border-width:  8px;
+    border-image:url("/gui/border_button.png")  8 repeat;
     font-size:32px;
     font-family: "AldotheApache";
+    color:white;
+    
 }
 
 button:hover {
-    color:white;
+    padding-top:7px;
+    padding-bottom:3px;
+    border-image:url("/gui/border_button-pushed.png") 8 repeat;
+    
+    
 }
+
+
 
 .panel:before{
     content:"";
