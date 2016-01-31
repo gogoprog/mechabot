@@ -1,8 +1,9 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "0.13.0",
+  tiledversion = "0.15.0",
   orientation = "orthogonal",
+  renderorder = "right-down",
   width = 92,
   height = 12,
   tilewidth = 64,
@@ -18,7 +19,7 @@ return {
       tileheight = 64,
       spacing = 2,
       margin = 1,
-      image = "tiles.png",
+      image = "../tiles.png",
       imagewidth = 264,
       imageheight = 264,
       tileoffset = {
@@ -26,18 +27,7 @@ return {
         y = 0
       },
       properties = {},
-      terrains = {
-        {
-          name = "test",
-          tile = 12,
-          properties = {}
-        },
-        {
-          name = "New Terrain",
-          tile = 14,
-          properties = {}
-        }
-      },
+      terrains = {},
       tilecount = 16,
       tiles = {
         {
@@ -54,7 +44,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "crates2.png",
+      image = "../crates2.png",
       imagewidth = 320,
       imageheight = 128,
       tileoffset = {
@@ -101,7 +91,7 @@ return {
             ["component"] = "Spawner",
             ["life"] = "100"
           },
-          image = "spawner.png",
+          image = "../spawner.png",
           width = 192,
           height = 128
         }
@@ -114,7 +104,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "tanks.png",
+      image = "../tanks.png",
       imagewidth = 128,
       imageheight = 192,
       tileoffset = {
@@ -153,6 +143,8 @@ return {
       height = 12,
       visible = true,
       opacity = 1,
+      offsetx = 0,
+      offsety = 0,
       properties = {
         ["component"] = "Sprite,Box,Blink"
       },
