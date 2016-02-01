@@ -5,6 +5,7 @@ require 'component_bullet'
 require 'component_shaker'
 require 'component_poolable'
 require 'component_enemy'
+require 'component_flying_enemy'
 require 'component_spawner'
 require 'component_remover'
 require 'component_blink'
@@ -16,7 +17,8 @@ Factory = Factory or {
     bloods = {},
     enemies = {},
     bullets = {},
-    particles = {}
+    particles = {},
+    flyingEnemies = {}
 }
 
 function Factory:pickFromPool(t)
@@ -367,6 +369,44 @@ function Factory:createRedLight()
         )
 
     e.sprite:pushAnimation(gengine.graphics.spriter.get("entity_000-start"))
+
+    return e
+end
+
+
+function Factory.createFlyingEnemy(object, properties)
+    local e = Factory:pickFromPool(Factory.flyingEnemies)
+    if not e then
+        e = gengine.entity.create()
+
+        e:addComponent(
+            ComponentSpriter(),
+            {
+                animation = gengine.graphics.spriter.get("soldier-walk"),
+                layer = 10
+            },
+            "sprite"
+            )
+
+        e:addComponent(
+            ComponentFlyingEnemy(),
+            {
+                positions = object.polyline
+            },
+            "enemy"
+            )
+
+        e:addComponent(
+            ComponentPoolable(),
+            {
+                pool = Factory.flyingEnemies
+            }
+            )
+    end
+
+    e.position:set(object.x, object.y)
+
+    table.insert(Map.futureEnemies, e)
 
     return e
 end
