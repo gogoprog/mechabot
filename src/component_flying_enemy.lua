@@ -5,7 +5,6 @@ local playerExtent = {x=256, y=512}
 
 function ComponentFlyingEnemy:init()
     self.speed = self.speed or 150
-    self.vy = 0
 end
 
 function ComponentFlyingEnemy:insert()
@@ -20,15 +19,21 @@ function ComponentFlyingEnemy:update(dt)
         return
     end
 
-    if self.positions then
+    local positions = self.positions
+    if positions then
         if not self.currentTargetPositionIndex or self.time > self.duration then
             local initial_p = self.initialPosition
             self.currentTargetPositionIndex = (self.currentTargetPositionIndex or 1) + 1
-            self.fromPosition = vector2(initial_p.x + self.positions[self.currentTargetPositionIndex - 1].x, initial_p.y + self.positions[self.currentTargetPositionIndex - 1].y)
-            self.toPosition = vector2(initial_p.x + self.positions[self.currentTargetPositionIndex].x, initial_p.y + self.positions[self.currentTargetPositionIndex].y)
-            local length = gengine.math.getDistance(self.fromPosition, self.toPosition)
-            self.duration = length / self.speed
-            self.time = 0
+            if self.currentTargetPositionIndex > #positions then
+                self.entity.position = initial_p + positions[#positions]
+                self.positions = nil
+            else
+                self.fromPosition = initial_p + positions[self.currentTargetPositionIndex - 1]
+                self.toPosition = initial_p + positions[self.currentTargetPositionIndex]
+                local length = gengine.math.getDistance(self.fromPosition, self.toPosition)
+                self.duration = length / self.speed
+                self.time = 0
+            end
         end
 
         self.time = self.time + dt
