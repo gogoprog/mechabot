@@ -23,26 +23,15 @@ function ComponentFlyingEnemy:update(dt)
     if self.positions then
         if not self.currentTargetPositionIndex or self.time > self.duration then
             local initial_p = self.initialPosition
-
             self.currentTargetPositionIndex = (self.currentTargetPositionIndex or 1) + 1
-
-            print(self.currentTargetPositionIndex)
             self.fromPosition = vector2(initial_p.x + self.positions[self.currentTargetPositionIndex - 1].x, initial_p.y + self.positions[self.currentTargetPositionIndex - 1].y)
             self.toPosition = vector2(initial_p.x + self.positions[self.currentTargetPositionIndex].x, initial_p.y + self.positions[self.currentTargetPositionIndex].y)
             local length = gengine.math.getDistance(self.fromPosition, self.toPosition)
             self.duration = length / self.speed
-            print("from " .. self.fromPosition.x)
-            print("to " .. self.toPosition.x)
-
-            self.time = self.time or 0
-
-            while self.time > self.duration do
-                self.time = self.time - self.duration
-            end
+            self.time = 0
         end
 
         self.time = self.time + dt
-
         self.entity.position = self.fromPosition + (self.toPosition - self.fromPosition) * (self.time / self.duration)
     end
 
