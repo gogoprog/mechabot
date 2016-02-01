@@ -13,9 +13,9 @@ function Game:init()
     Factory:init()
     Session:init()
 
-    self.weapons = dofile("weapons.lua")
-    self.generators = dofile("generators.lua")
-    self.shields = dofile("shields.lua")
+    self.weapons = dofile("data/defs/weapons.lua")
+    self.generators = dofile("data/defs/generators.lua")
+    self.shields = dofile("data/defs/shields.lua")
 
     self.player = Factory:createPlayer()
     self.arm = Factory:createArm()

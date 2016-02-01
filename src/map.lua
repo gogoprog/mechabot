@@ -14,7 +14,7 @@ local boxExtent = {x=32, y=32}
 function Map:init()
     self.cameraEntity = Factory:createCamera()
     self.cameraEntity:insert()
-    self.definitions = dofile("maps.lua")
+    self.definitions = dofile("data/defs/maps.lua")
 end
 
 function Map:start(index)
