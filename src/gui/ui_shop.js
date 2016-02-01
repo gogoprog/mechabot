@@ -108,6 +108,7 @@ var shop = {
             {
                 _this.find(".buy").hide();
                 _this.find(".price").html("current");
+                _this.addClass("current");
             }
             else {
                 _this.find(".buy").show();
