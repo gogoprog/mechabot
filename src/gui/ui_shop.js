@@ -113,6 +113,7 @@ var shop = {
             else {
                 _this.find(".buy").show();
                 _this.find(".price").html(_this.data("price"));
+                _this.removeClass("current");
             }
         });
     },
