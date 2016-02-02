@@ -410,6 +410,17 @@ function Factory.createFlyingEnemy(object, properties)
                 pool = Factory.flyingEnemies
             }
             )
+
+        e:addComponent(
+            ComponentShooter(),
+            {
+                weaponName = def.weapon[1],
+                weaponLevel = def.weapon[2],
+                direction = def.shootDirection
+            },
+            "shooter"
+            )
+
     end
 
     e.position:set(object.x, object.y)

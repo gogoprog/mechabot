@@ -1,7 +1,6 @@
 ComponentBullet = {}
 
 local bulletRadius = 20
-local enemyExtent = {x=64, y=64}
 
 function ComponentBullet:init()
     self.damage = 50
@@ -10,6 +9,8 @@ end
 function ComponentBullet:insert()
     table.insert(Game.bullets, self.entity)
     self.totalTime = 0
+
+    self.entity.rotation = gengine.math.getPolarAngle(self.velocity) - 3.14
 end
 
 function ComponentBullet:update(dt)
@@ -37,7 +38,7 @@ function ComponentBullet:update(dt)
         for k = #enemies, 1, -1 do
             local p = enemies[k].position
             local offset = vector2(0, 32)
-            if gengine.math.doesCircleIntersectRectangle(self_position, self.radius, p + offset, enemyExtent) then
+            if gengine.math.doesCircleIntersectRectangle(self_position, self.radius, p + offset, enemies[k].enemy.def.extent) then
 
                 self:explode()
 

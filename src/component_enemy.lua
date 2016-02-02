@@ -1,11 +1,13 @@
 ComponentEnemy = {}
 
-local enemyExtent = {x=64, y=64}
 local playerExtent = {x=256, y=512}
 
 function ComponentEnemy:init()
     self.speed = self.speed or 150
     self.vy = 0
+    self.def = {
+        extent = vector2(64, 64)
+    }
 end
 
 function ComponentEnemy:insert()
@@ -37,7 +39,7 @@ function ComponentEnemy:update(dt)
         self.vy = 0
     end
 
-    if Game.player.player.life > 0 and gengine.math.doRectanglesIntersect(p, enemyExtent, Game.player.position, playerExtent) then
+    if Game.player.player.life > 0 and gengine.math.doRectanglesIntersect(p, self.def.extent, Game.player.position, playerExtent) then
         Game.player.player:hit(10)
         local e = Factory:createBlood()
         e:insert()

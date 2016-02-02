@@ -3,7 +3,10 @@ ComponentShooter = {}
 function ComponentShooter:init()
     self.interval = self.interval or 1
     self.timeLeft = self.interval
-    self.weapon = Game:getWeapon("rocket", 1)
+    self.weapon = Game:getWeapon(self.weaponName or "rocket", self.weaponLevel or 1)
+    self.direction = self.direction or vector2(-1, 0)
+    self.direction = gengine.math.getNormalized(self.direction)
+    self.bulletSpeedFactor = self.bulletSpeedFactor or 1
 end
 
 function ComponentShooter:insert()
@@ -18,7 +21,7 @@ function ComponentShooter:update(dt)
 
     if self.timeLeft <= 0 then
         local position = self.entity.position
-        local e = Factory:createBullet(vector2(-200,0), self.weapon, true)
+        local e = Factory:createBullet(self.direction * self.weapon.bulletSpeed * self.bulletSpeedFactor, self.weapon, true)
         e.position:set(position)
         e:insert()
         self.timeLeft = self.interval

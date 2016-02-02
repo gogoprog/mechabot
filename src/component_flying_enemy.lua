@@ -9,8 +9,8 @@ end
 function ComponentFlyingEnemy:insert()
     local p = self.entity.position
     self.initialPosition = vector2(p.x, p.y)
-    print(p.x)
     table.insert(Game.enemies, self.entity)
+    self.currentTargetPositionIndex = nil
 end
 
 function ComponentFlyingEnemy:update(dt)

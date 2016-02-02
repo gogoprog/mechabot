@@ -59,8 +59,6 @@ function ComponentArm:update(dt)
                     e:insert()
                 end
 
-
-
                 self.timeSinceLastBullet = 0
 
                 if not self.forcedShot then
