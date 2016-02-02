@@ -1,10 +1,9 @@
 ComponentFlyingEnemy = {}
 
-local enemyExtent = {x=64, y=64}
 local playerExtent = {x=256, y=512}
 
 function ComponentFlyingEnemy:init()
-    self.speed = self.speed or 150
+    self.speed = self.def.speed or 150
 end
 
 function ComponentFlyingEnemy:insert()
@@ -42,7 +41,7 @@ function ComponentFlyingEnemy:update(dt)
 
     local p = self.entity.position
 
-    if Game.player.player.life > 0 and gengine.math.doRectanglesIntersect(p, enemyExtent, Game.player.position, playerExtent) then
+    if Game.player.player.life > 0 and gengine.math.doRectanglesIntersect(p, self.def.extent, Game.player.position, playerExtent) then
         Game.player.player:hit(10)
         local e = Factory:createBlood()
         e:insert()

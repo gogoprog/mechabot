@@ -35,6 +35,10 @@ end
 function Factory:init()
     local atlas
 
+    self.definitions = {
+        enemies = dofile("data/defs/enemies.lua")
+    }
+
     gengine.graphics.texture.createFromDirectory("data/")
     gengine.audio.sound.createFromDirectory("data/")
     gengine.graphics.spriter.createFromDirectory("data/")
@@ -376,14 +380,17 @@ end
 
 function Factory.createFlyingEnemy(object, properties)
     local e = Factory:pickFromPool(Factory.flyingEnemies)
+    local def = Factory.definitions.enemies[properties.type]
+
     if not e then
         e = gengine.entity.create()
 
         e:addComponent(
-            ComponentSpriter(),
+            ComponentSprite(),
             {
-                animation = gengine.graphics.spriter.get("soldier-walk"),
-                layer = 10
+                texture = gengine.graphics.texture.get(def.texture),
+                layer = 10,
+                extent = def.extent
             },
             "sprite"
             )
@@ -391,7 +398,8 @@ function Factory.createFlyingEnemy(object, properties)
         e:addComponent(
             ComponentFlyingEnemy(),
             {
-                positions = object.polyline
+                positions = object.polyline,
+                def = def
             },
             "enemy"
             )
