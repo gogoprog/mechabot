@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="12" tilewidth="64" tileheight="64" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="12" tilewidth="64" tileheight="64" nextobjectid="11">
  <tileset firstgid="1" source="tiles1"/>
  <tileset firstgid="17" source="crates"/>
  <tileset firstgid="27" name="spawners" tilewidth="192" tileheight="128" tilecount="1" columns="0">
@@ -418,4 +418,16 @@
    <tile gid="22"/>
   </data>
  </layer>
+ <objectgroup color="#ff0000" name="enemies">
+  <properties>
+   <property name="function" value="Factory.createFlyingEnemy"/>
+   <property name="type" value="Copter"/>
+  </properties>
+  <object id="6" x="857" y="102" width="56" height="43">
+   <ellipse/>
+  </object>
+  <object id="7" x="787" y="136">
+   <polyline points="0,0 -173,-40 -275,70 -15,135 454,-87 389,-164"/>
+  </object>
+ </objectgroup>
 </map>

@@ -8,7 +8,7 @@ return {
   height = 12,
   tilewidth = 64,
   tileheight = 64,
-  nextobjectid = 1,
+  nextobjectid = 11,
   properties = {},
   tilesets = {
     {
@@ -162,6 +162,54 @@ return {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 4, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 4, 0, 0, 0, 10, 0, 0, 10, 0, 0, 0, 0, 0, 0, 22
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "enemies",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {
+        ["function"] = "Factory.createFlyingEnemy",
+        ["type"] = "Copter"
+      },
+      objects = {
+        {
+          id = 6,
+          name = "",
+          type = "",
+          shape = "ellipse",
+          x = 857,
+          y = 102,
+          width = 56,
+          height = 43,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 7,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 787,
+          y = 136,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -173, y = -40 },
+            { x = -275, y = 70 },
+            { x = -15, y = 135 },
+            { x = 454, y = -87 },
+            { x = 389, y = -164 }
+          },
+          properties = {}
+        }
       }
     }
   }

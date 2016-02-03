@@ -5,6 +5,7 @@ require 'component_bullet'
 require 'component_shaker'
 require 'component_poolable'
 require 'component_enemy'
+require 'component_flying_enemy'
 require 'component_spawner'
 require 'component_remover'
 require 'component_blink'
@@ -16,7 +17,8 @@ Factory = Factory or {
     bloods = {},
     enemies = {},
     bullets = {},
-    particles = {}
+    particles = {},
+    flyingEnemies = {}
 }
 
 function Factory:pickFromPool(t)
@@ -32,6 +34,10 @@ end
 
 function Factory:init()
     local atlas
+
+    self.definitions = {
+        enemies = dofile("data/defs/enemies.lua")
+    }
 
     gengine.graphics.texture.createFromDirectory("data/")
     gengine.audio.sound.createFromDirectory("data/")
@@ -367,6 +373,59 @@ function Factory:createRedLight()
         )
 
     e.sprite:pushAnimation(gengine.graphics.spriter.get("entity_000-start"))
+
+    return e
+end
+
+
+function Factory.createFlyingEnemy(object, properties)
+    local e = Factory:pickFromPool(Factory.flyingEnemies)
+    local def = Factory.definitions.enemies[properties.type]
+
+    if not e then
+        e = gengine.entity.create()
+
+        e:addComponent(
+            ComponentSprite(),
+            {
+                texture = gengine.graphics.texture.get(def.texture),
+                layer = 10,
+                extent = def.extent
+            },
+            "sprite"
+            )
+
+        e:addComponent(
+            ComponentFlyingEnemy(),
+            {
+                positions = object.polyline,
+                def = def
+            },
+            "enemy"
+            )
+
+        e:addComponent(
+            ComponentPoolable(),
+            {
+                pool = Factory.flyingEnemies
+            }
+            )
+
+        e:addComponent(
+            ComponentShooter(),
+            {
+                weaponName = def.weapon[1],
+                weaponLevel = def.weapon[2],
+                direction = def.shootDirection
+            },
+            "shooter"
+            )
+
+    end
+
+    e.position:set(object.x, object.y)
+
+    table.insert(Map.futureEnemies, e)
 
     return e
 end
