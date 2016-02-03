@@ -102,11 +102,17 @@ var shop = {
 
             case "generator":
             {
+                item.find(".label1").html("Power/s :");
+                item.find(".label2").html("Capacity :");
+                item.find(".label3").html("");
             }
             break;
 
             case "shield":
             {
+                item.find(".label1").html("Capacity / Absorption :");
+                item.find(".label2").html("Regeneration :");
+                item.find(".label3").html("Power cost/s :");
             }
             break;
         }

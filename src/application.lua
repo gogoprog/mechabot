@@ -67,14 +67,25 @@ function Application:shopPostFill()
     gengine.gui.executeScript("shop.postFill()")
 end
 
+local function round(val, decimal)
+    return math.floor( (val * 10^decimal) + 0.5) / (10^decimal)
+end
+
 function Application:addShopItem(type, name, level)
     local item = Game:getItem(type, name, level)
-    local infos = {"?","?","?"}
+    local infos = {"", "", ""}
 
     if type == 'weapon' then
         infos[1] = math.floor(item.damage / item.interval)
         infos[2] = math.floor(item.bulletSpeed / 100)
         infos[3] = math.floor(item.powerCost / item.interval)
+    elseif type == 'generator' then
+        infos[1] = math.floor(item.powerPerSecond)
+        infos[2] = math.floor(item.capacity)
+    elseif type == 'shield' then
+        infos[1] = math.floor(item.capacity) .. " / " .. math.floor(item.absorption * 100) .. "%"
+        infos[2] = round(item.regenerationPerSecond, 2)
+        infos[3] = round(item.powerCostPerSecond, 2)
     end
 
     gengine.gui.executeScript(
