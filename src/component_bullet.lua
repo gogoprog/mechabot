@@ -10,7 +10,7 @@ function ComponentBullet:insert()
     table.insert(Game.bullets, self.entity)
     self.totalTime = 0
 
-    self.entity.rotation = gengine.math.getPolarAngle(self.velocity) - 3.14
+    self.entity.rotation = gengine.math.getPolarAngle(self.velocity)
 end
 
 function ComponentBullet:update(dt)
