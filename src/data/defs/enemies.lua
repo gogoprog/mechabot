@@ -13,6 +13,6 @@ return {
         weapon = { "rocket", 4 },
         bulletSpeedFactor = 1,
         speed = 500,
-        life = 1000
+        life = 200
     }
 }

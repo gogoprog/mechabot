@@ -3,7 +3,6 @@ ComponentEnemy = {}
 local playerExtent = {x=256, y=512}
 
 function ComponentEnemy:init()
-    self.speed = self.def.speed or 150
 end
 
 function ComponentEnemy:insert()
@@ -12,6 +11,7 @@ function ComponentEnemy:insert()
     table.insert(Game.enemies, self.entity)
     self.currentTargetPositionIndex = nil
     self.life = self.def.life or 10
+    self.speed = self.def.speed or 150
 end
 
 function ComponentEnemy:update(dt)

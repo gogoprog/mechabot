@@ -388,9 +388,6 @@ function Factory.createEnemy(object, properties)
         e:addComponent(
             ComponentSprite(),
             {
-                texture = gengine.graphics.texture.get(def.texture),
-                layer = 10,
-                extent = def.extent
             },
             "sprite"
             )
@@ -398,8 +395,6 @@ function Factory.createEnemy(object, properties)
         e:addComponent(
             ComponentEnemy(),
             {
-                positions = object.polyline,
-                def = def
             },
             "enemy"
             )
@@ -414,9 +409,6 @@ function Factory.createEnemy(object, properties)
         e:addComponent(
             ComponentShooter(),
             {
-                weaponName = def.weapon[1],
-                weaponLevel = def.weapon[2],
-                direction = def.shootDirection
             },
             "shooter"
             )
@@ -428,6 +420,17 @@ function Factory.createEnemy(object, properties)
             "blink"
             )
     end
+
+    e.sprite.texture = gengine.graphics.texture.get(def.texture)
+    e.sprite.layer = 10
+    e.sprite.extent = def.extent
+
+    e.enemy.positions = object.polyline
+    e.enemy.def = def
+
+    e.shooter.weaponName = def.weapon[1]
+    e.shooter.weaponLevel = def.weapon[2]
+    e.shooter.direction = def.shootDirection
 
     e.position:set(object.x, object.y)
 

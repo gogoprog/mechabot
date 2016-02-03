@@ -20,6 +20,7 @@ function Session:init()
 end
 
 function Session:start(lvl, fast_show)
+    lvl = math.min(lvl, #Map.definitions)
     self.currentLevel = lvl
     self.currentLevelDef = Map.definitions[lvl]
 
@@ -76,7 +77,7 @@ function Session:onLevelWon(score)
 end
 
 function Session:nextLevel()
-    self:start(math.min(self.currentLevel + 1, #Map.definitions), true)
+    self:start(self.currentLevel + 1, true)
 end
 
 function Session:previousLevel()

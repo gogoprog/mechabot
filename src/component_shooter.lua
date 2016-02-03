@@ -1,15 +1,15 @@
 ComponentShooter = {}
 
 function ComponentShooter:init()
+end
+
+function ComponentShooter:insert()
     self.interval = self.interval or 1
     self.timeLeft = self.interval
     self.weapon = Game:getWeapon(self.weaponName or "rocket", self.weaponLevel or 1)
     self.direction = self.direction or vector2(-1, 0)
     self.direction = gengine.math.getNormalized(self.direction)
     self.bulletSpeedFactor = self.bulletSpeedFactor or 1
-end
-
-function ComponentShooter:insert()
 end
 
 function ComponentShooter:update(dt)

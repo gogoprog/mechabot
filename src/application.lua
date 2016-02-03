@@ -48,8 +48,11 @@ function Application.onStateUpdate:inGame(dt)
         Game:changeState("winning")
     end
 
-    if kb:isJustDown(15) then
+    if kb:isDown(15) then
         Game.player.player.life = 100
+        gengine.application.setUpdateFactor(5)
+    else
+        gengine.application.setUpdateFactor(1)
     end
 end
 
