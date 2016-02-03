@@ -421,7 +421,7 @@
  <objectgroup color="#ff0000" name="enemies">
   <properties>
    <property name="function" value="Factory.createEnemy"/>
-   <property name="type" value="Copter"/>
+   <property name="type" value="copter"/>
   </properties>
   <object id="6" x="857" y="102" width="56" height="43">
    <ellipse/>

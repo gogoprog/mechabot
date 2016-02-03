@@ -1141,7 +1141,7 @@
  <objectgroup name="copters">
   <properties>
    <property name="function" value="Factory.createEnemy"/>
-   <property name="type" value="Copter"/>
+   <property name="type" value="copter"/>
   </properties>
   <object id="1" x="1442.42" y="-27.2727">
    <polyline points="0,0 -184.848,269.697 -1012.12,196.97"/>
@@ -1198,7 +1198,7 @@
  <objectgroup name="boss">
   <properties>
    <property name="function" value="Factory.createEnemy"/>
-   <property name="type" value="BossCopter"/>
+   <property name="type" value="bossCopter"/>
   </properties>
   <object id="26" x="4272.73" y="-224.242">
    <polyline points="0,0 -636.364,351.515 -681.818,890.909 -357.576,318.182 -248.485,900 21.2121,290.909 175.758,909.091 490.909,303.03 636.364,951.515 872.727,242.424 1100,836.364 1206.06,287.879"/>

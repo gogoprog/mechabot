@@ -424,6 +424,7 @@ function Factory.createEnemy(object, properties)
     e.sprite.texture = gengine.graphics.texture.get(def.texture)
     e.sprite.layer = 10
     e.sprite.extent = def.extent
+    e.sprite.color = def.color or vector4(1,1,1,1)
 
     e.enemy.positions = object.polyline
     e.enemy.def = def

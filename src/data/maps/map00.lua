@@ -159,7 +159,7 @@ return {
       offsety = 0,
       properties = {
         ["function"] = "Factory.createEnemy",
-        ["type"] = "Copter"
+        ["type"] = "copter"
       },
       objects = {
         {
