@@ -9,7 +9,6 @@ body{
     overflow:hidden;
 }
 
-
 #body {
     position:absolute;
     font-family: "AldotheApache";
@@ -57,18 +56,13 @@ button {
     font-size:32px;
     font-family: "AldotheApache";
     color:white;
-    
 }
 
 button:hover {
     padding-top:7px;
     padding-bottom:3px;
     border-image:url("/gui/border_button-pushed.png") 8 repeat;
-    
-    
 }
-
-
 
 .panel:before{
     content:"";
@@ -84,9 +78,6 @@ button:hover {
     display:block;
     position:absolute;
     z-index:-1;
-    
-    
-
 }
 
 #menu {

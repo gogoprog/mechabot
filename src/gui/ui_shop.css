@@ -33,29 +33,22 @@
     height:85%;
     width:100%;
     overflow-y:scroll;
-    
-  
 }
 
 #shop .items::-webkit-scrollbar {
     width: 0.3em;
-        
-    
 }
 
 #shop .items::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
     border-radius:3px;
     background-color:rgba(51, 51, 51, 1);
-    
-   
 }
 
 #shop .items::-webkit-scrollbar-thumb {
     background-color:#CCC;
     border: 1px solid black;
     border-radius:4px;
-        
 }
 
 #shop .model {
@@ -79,7 +72,7 @@
     margin-right:5px;
     margin-top:-2px;
     margin-bottom:-2px;
-      
+
 }
 
 #shop .model .price {
@@ -94,64 +87,55 @@
 
 .weapon .icon {
     background-image: url("/gui/icon_weapon.png");
-   
 }
 
 .generator .icon {
     background-image: url("/gui/icon_generator.png");
-    
-
 }
-
 
 .shield .icon {
     background-image: url("/gui/icon_shield.png");
-   
-    
 }
 
 #shop .items .current {
-    color:white;}
+    color:white;
+}
 
-
-
-
-     
 .weapon {
      background-color:rgba(153, 0, 2, 0.5);
      border-bottom: 2px solid rgba(115, 29, 30, 1);
-     }
-     
+}
+
 .generator {
      background-color:rgba(71, 156, 16, 0.5);
      border-bottom: 2px solid rgba(48, 77, 31, 1);
-    }
-    
+}
+
 .shield {
      background-color:rgba(12, 115, 115, 0.5);
      border-bottom: 2px solid rgba(8, 79, 79, 1);
-	}
+}
 
 .weapon.current {
      background-color:rgba(153, 0, 2, 0.8);
      border-bottom: 2px solid rgba(115, 29, 30, 1);
-     }
-     
+}
+
 .generator.current {
      background-color:rgba(71, 156, 16, 0.8);
      border-bottom: 2px solid rgba(48, 77, 31, 1);
-    }
-    
+}
+
 .shield.current {
      background-color:rgba(12, 115, 115, 0.8);
      border-bottom: 2px solid rgba(8, 79, 79, 1);
-	}
-    
+}
+
 #shop .weapon:hover {
     background-color:rgba(211, 159, 159, 0.5);
     color: black;
 }
-    
+
 #shop .shield:hover {
     background-color:rgba(161, 231, 231, 0.5);
     color: black;
@@ -168,7 +152,7 @@
 
 #shop .weapon.current:hover{
     background-color:rgba(115, 29, 30, 1);
-         
+
 }
 #shop .shield.current:hover{
     background-color:rgba(8, 79, 79, 1);
@@ -176,7 +160,7 @@
 #shop .generator.current:hover{
     background-color:rgba(48, 77, 31, 1);
 }
-    
+
 #shop .weapon.current.selected:hover {
     background-color:rgba(153, 0, 2, 0.8);
     color: white;
@@ -266,5 +250,3 @@
 #shop .nextLevel {
     font-size:28px;
 }
-
-    
