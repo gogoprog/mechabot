@@ -39,6 +39,46 @@ return {
             }
         end
     },
+    laser = {
+        texture = function(level) return "laser" end,
+        extent = function(level) return vector2(86,32) + vector2(level, level) * 5 end,
+        damage = function(level)
+            return 10 * level
+        end,
+        interval = function(level)
+            return 0.3 - level/100
+        end,
+        powerCost = function(level)
+            return 10 + level * 0.5
+        end,
+        bulletSpeed = function(level)
+            return 1500
+        end,
+        sound = "laser",
+        bulletRadius = 20,
+        color = vector4(1, 0.9, 0.9, 0.9),
+        debris = "particle",
+        price = function(level) return 100 * level end,
+        directions = function(level)
+            if level < 3 then
+                return { vector2(1, 0) }
+            elseif level < 5 then
+                return {
+                    vector2(1, 0.05),
+                    vector2(1, 0),
+                    vector2(1, -0.05)
+                }
+            end
+
+            return {
+                vector2(1, 0.1),
+                vector2(1, 0.05),
+                vector2(1, 0),
+                vector2(1, -0.05),
+                vector2(1, -0.1)
+            }
+        end
+    },
     rocket = {
         texture = function(level) return "rocket" end,
         extent = function(level) return vector2(64,64) end,

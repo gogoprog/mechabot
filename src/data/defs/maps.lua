@@ -50,6 +50,11 @@ return {
                 type = "weapon",
                 name = "plasma",
                 level = 5
+            },
+            {
+                type = "weapon",
+                name = "laser",
+                level = 2
             }
         }
     },

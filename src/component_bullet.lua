@@ -63,6 +63,10 @@ function ComponentBullet:update(dt)
         end
     end
 
+    if self_position.y < self.radius / 2 then
+        self:explode()
+    end
+
     if self.totalTime > 5 then
         self:removeFromGame()
     end
