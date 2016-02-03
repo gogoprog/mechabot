@@ -420,7 +420,7 @@
  </layer>
  <objectgroup color="#ff0000" name="enemies">
   <properties>
-   <property name="function" value="Factory.createFlyingEnemy"/>
+   <property name="function" value="Factory.createEnemy"/>
    <property name="type" value="Copter"/>
   </properties>
   <object id="6" x="857" y="102" width="56" height="43">

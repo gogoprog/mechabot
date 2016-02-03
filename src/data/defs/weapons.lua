@@ -46,7 +46,7 @@ return {
             return 10 * level
         end,
         interval = function(level)
-            return 0.500
+            return 0.500 - level/100
         end,
         powerCost = function(level)
             return 10

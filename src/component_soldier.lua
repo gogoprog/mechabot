@@ -41,14 +41,7 @@ function ComponentSoldier:update(dt)
 
     if Game.player.player.life > 0 and gengine.math.doRectanglesIntersect(p, self.def.extent, Game.player.position, playerExtent) then
         Game.player.player:hit(10)
-        local e = Factory:createBlood()
-        e:insert()
-        e.position:set(p)
-
-        self:removeFromGame()
-        gengine.audio.playSound(Factory.hitSound, 0.6)
-
-        Game:addScore(100)
+        self:hit(10)
     end
 end
 
@@ -65,4 +58,16 @@ function ComponentSoldier:removeFromGame()
             return
         end
     end
+end
+
+function ComponentSoldier:hit(dmg)
+    Game.player.player:hit(10)
+    local e = Factory:createBlood()
+    e:insert()
+    e.position:set(self.entity.position)
+
+    self:removeFromGame()
+    gengine.audio.playSound(Factory.hitSound, 0.6)
+
+    Game:addScore(10)
 end

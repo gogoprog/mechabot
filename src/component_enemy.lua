@@ -11,6 +11,7 @@ function ComponentEnemy:insert()
     self.initialPosition = vector2(p.x, p.y)
     table.insert(Game.enemies, self.entity)
     self.currentTargetPositionIndex = nil
+    self.life = self.def.life or 10
 end
 
 function ComponentEnemy:update(dt)
@@ -38,20 +39,6 @@ function ComponentEnemy:update(dt)
         self.time = self.time + dt
         self.entity.position = self.fromPosition + (self.toPosition - self.fromPosition) * (self.time / self.duration)
     end
-
-    local p = self.entity.position
-
-    if Game.player.player.life > 0 and gengine.math.doRectanglesIntersect(p, self.def.extent, Game.player.position, playerExtent) then
-        Game.player.player:hit(10)
-        local e = Factory:createBlood()
-        e:insert()
-        e.position:set(p)
-
-        self:removeFromGame()
-        gengine.audio.playSound(Factory.hitSound, 0.6)
-
-        Game:addScore(100)
-    end
 end
 
 function ComponentEnemy:remove()
@@ -66,5 +53,18 @@ function ComponentEnemy:removeFromGame()
             table.remove(enemies, k)
             return
         end
+    end
+end
+
+function ComponentEnemy:hit(dmg)
+    self.life = self.life - dmg
+
+    self.entity.blink:blink()
+
+    if self.life <= 0 then
+        local e = Factory:createExplosion()
+        e:insert()
+        e.position = self.entity.position
+        self:removeFromGame()
     end
 end

@@ -421,6 +421,12 @@ function Factory.createEnemy(object, properties)
             "shooter"
             )
 
+        e:addComponent(
+            ComponentBlink(),
+            {
+            },
+            "blink"
+            )
     end
 
     e.position:set(object.x, object.y)

@@ -39,18 +39,8 @@ function ComponentBullet:update(dt)
             local p = enemies[k].position
             local offset = vector2(0, 32)
             if gengine.math.doesCircleIntersectRectangle(self_position, self.radius, p + offset, enemies[k].enemy.def.extent) then
-
                 self:explode()
-
-                local e = Factory:createBlood()
-                e:insert()
-                e.position:set(enemies[k].position)
-
-                gengine.audio.playSound(Factory.hitSound, 0.6)
-                Game:addScore(100)
-
-                enemies[k]:remove()
-                table.remove(enemies, k)
+                enemies[k].enemy:hit(self.damage)
                 return
             end
         end

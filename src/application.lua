@@ -47,6 +47,10 @@ function Application.onStateUpdate:inGame(dt)
     if kb:isJustUp(26) then
         Game:changeState("winning")
     end
+
+    if kb:isJustDown(15) then
+        Game.player.player.life = 100
+    end
 end
 
 function Application.onStateExit:inGame()

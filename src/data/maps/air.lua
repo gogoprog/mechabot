@@ -8,7 +8,7 @@ return {
   height = 12,
   tilewidth = 64,
   tileheight = 64,
-  nextobjectid = 18,
+  nextobjectid = 27,
   properties = {},
   tilesets = {
     {
@@ -499,6 +499,47 @@ return {
             { x = -1581.82, y = 257.576 },
             { x = -1318.18, y = 596.97 },
             { x = -1054.55, y = 324.242 }
+          },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "boss",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {
+        ["function"] = "Factory.createEnemy",
+        ["type"] = "BossCopter"
+      },
+      objects = {
+        {
+          id = 26,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 4272.73,
+          y = -224.242,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -636.364, y = 351.515 },
+            { x = -681.818, y = 890.909 },
+            { x = -357.576, y = 318.182 },
+            { x = -248.485, y = 900 },
+            { x = 21.2121, y = 290.909 },
+            { x = 175.758, y = 909.091 },
+            { x = 490.909, y = 303.03 },
+            { x = 636.364, y = 951.515 },
+            { x = 872.727, y = 242.424 },
+            { x = 1100, y = 836.364 },
+            { x = 1206.06, y = 287.879 }
           },
           properties = {}
         }
