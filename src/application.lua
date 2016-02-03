@@ -69,7 +69,17 @@ end
 
 function Application:addShopItem(type, name, level)
     local item = Game:getItem(type, name, level)
-    gengine.gui.executeScript("shop.addItem('" .. type .. "', '" .. name .. "', " .. level .. ", '" .. name .. "', " .. item.price .. ")")
+    local infos = {"?","?","?"}
+
+    if type == 'weapon' then
+        infos[1] = math.floor(item.damage / item.interval)
+        infos[2] = math.floor(item.bulletSpeed / 100)
+        infos[3] = math.floor(item.powerCost / item.interval)
+    end
+
+    gengine.gui.executeScript(
+        "shop.addItem('" .. type .. "', '" .. name .. "', " .. level .. ", '" .. name .. "', " .. item.price .. ", '" .. infos[1] .. "', '" .. infos[2] .. "', '" .. infos[3] .. "')"
+        )
 end
 
 function Application:showConfirmDialog(title, yes_code, no_code)

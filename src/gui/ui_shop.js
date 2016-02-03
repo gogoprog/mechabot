@@ -76,7 +76,7 @@ var shop = {
     {
         this.container.find(".itemInstance").remove();
     },
-    addItem: function(type, name, level, title, price)
+    addItem: function(type, name, level, title, price, info1, info2, info3)
     {
         var item = this.model.clone();
         this.container.append(item);
@@ -85,11 +85,35 @@ var shop = {
         item.addClass("itemInstance");
         item.find(".name").html(title + " " + level);
         item.find(".price").html(price);
-        item.find(".buy").button();
         item.data("type", type);
         item.data("name", name);
         item.data("level", level);
         item.data("price", price);
+
+        switch(type)
+        {
+            case "weapon":
+            {
+                item.find(".label1").html("Bullet damage/s :");
+                item.find(".label2").html("Bullet speed :");
+                item.find(".label3").html("Power cost/s :");
+            }
+            break;
+
+            case "generator":
+            {
+            }
+            break;
+
+            case "shield":
+            {
+            }
+            break;
+        }
+
+        item.find(".value1").html(info1);
+        item.find(".value2").html(info2);
+        item.find(".value3").html(info3);
     },
     updateMoney: function(amount) {
         this.money.html(amount);

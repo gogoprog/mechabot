@@ -203,8 +203,22 @@
 }
 
 #shop .info{
+    padding-top:8px;
+    padding-left:32px;
     display:none;
-    height:100px;
+    height:70px;
+    font-size:14px;
+}
+
+#shop .info label {
+    display:inline-block;
+    width:45%;
+}
+
+#shop .info span {
+    display:inline-block;
+    width:25%;
+    text-align:right;
 }
 
 #shop .buy {
