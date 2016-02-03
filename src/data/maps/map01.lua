@@ -14,7 +14,7 @@ return {
     {
       name = "tiles",
       firstgid = 1,
-      filename = "tiles1",
+      filename = "../../res/tiles.tsx",
       tilewidth = 64,
       tileheight = 64,
       spacing = 2,
@@ -39,7 +39,7 @@ return {
     {
       name = "crates2",
       firstgid = 17,
-      filename = "crates",
+      filename = "../../res/crates.tsx",
       tilewidth = 64,
       tileheight = 64,
       spacing = 0,
@@ -54,21 +54,7 @@ return {
       properties = {},
       terrains = {},
       tilecount = 10,
-      tiles = {
-        {
-          id = 1,
-          properties = {
-            ["component"] = "Shooter"
-          }
-        },
-        {
-          id = 4,
-          properties = {
-            ["component"] = "Spawner",
-            ["life"] = "50"
-          }
-        }
-      }
+      tiles = {}
     },
     {
       name = "spawners",
