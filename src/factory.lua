@@ -4,8 +4,8 @@ require 'component_arm'
 require 'component_bullet'
 require 'component_shaker'
 require 'component_poolable'
+require 'component_soldier'
 require 'component_enemy'
-require 'component_flying_enemy'
 require 'component_spawner'
 require 'component_remover'
 require 'component_blink'
@@ -15,10 +15,10 @@ require 'component_shooter'
 Factory = Factory or {
     explosions = {},
     bloods = {},
-    enemies = {},
+    soldiers = {},
     bullets = {},
     particles = {},
-    flyingEnemies = {}
+    enemies = {}
 }
 
 function Factory:pickFromPool(t)
@@ -328,8 +328,8 @@ function Factory:createBlood()
     return e
 end
 
-function Factory:createEnemy()
-    local e = self:pickFromPool(self.enemies)
+function Factory:createSoldier()
+    local e = self:pickFromPool(self.soldiers)
     if not e then
         e = gengine.entity.create()
 
@@ -343,7 +343,7 @@ function Factory:createEnemy()
             )
 
         e:addComponent(
-            ComponentEnemy(),
+            ComponentSoldier(),
             {
             },
             "enemy"
@@ -352,7 +352,7 @@ function Factory:createEnemy()
         e:addComponent(
             ComponentPoolable(),
             {
-                pool = self.enemies
+                pool = self.soldiers
             }
             )
     end
@@ -378,8 +378,8 @@ function Factory:createRedLight()
 end
 
 
-function Factory.createFlyingEnemy(object, properties)
-    local e = Factory:pickFromPool(Factory.flyingEnemies)
+function Factory.createEnemy(object, properties)
+    local e = Factory:pickFromPool(Factory.enemies)
     local def = Factory.definitions.enemies[properties.type]
 
     if not e then
@@ -396,7 +396,7 @@ function Factory.createFlyingEnemy(object, properties)
             )
 
         e:addComponent(
-            ComponentFlyingEnemy(),
+            ComponentEnemy(),
             {
                 positions = object.polyline,
                 def = def
@@ -407,7 +407,7 @@ function Factory.createFlyingEnemy(object, properties)
         e:addComponent(
             ComponentPoolable(),
             {
-                pool = Factory.flyingEnemies
+                pool = Factory.enemies
             }
             )
 

@@ -117,7 +117,8 @@ var shop = {
                 _this.find(".price").html("current");
                 _this.addClass("current");
             }
-            else {
+            else
+            {
                 _this.find(".buy").show();
                 _this.find(".price").html(_this.data("price"));
                 _this.removeClass("current");

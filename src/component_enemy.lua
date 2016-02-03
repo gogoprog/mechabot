@@ -3,15 +3,14 @@ ComponentEnemy = {}
 local playerExtent = {x=256, y=512}
 
 function ComponentEnemy:init()
-    self.speed = self.speed or 150
-    self.vy = 0
-    self.def = {
-        extent = vector2(64, 64)
-    }
+    self.speed = self.def.speed or 150
 end
 
 function ComponentEnemy:insert()
+    local p = self.entity.position
+    self.initialPosition = vector2(p.x, p.y)
     table.insert(Game.enemies, self.entity)
+    self.currentTargetPositionIndex = nil
 end
 
 function ComponentEnemy:update(dt)
@@ -19,25 +18,28 @@ function ComponentEnemy:update(dt)
         return
     end
 
-    local p = self.entity.position
-
-    p.x = p.x - self.speed * dt
-    p.y = p.y + self.vy * dt
-
-    local testPosition = p - vector2(0, 0)
-
-    if p.y > 0 then
-        for k, v in ipairs(Map.boxes) do
-            if not v.spawner and gengine.math.doesCircleIntersectRectangle(testPosition, 1, v.position, v.sprite.extent) then
-                self.vy = 0
-                p.y = v.position.y + v.sprite.extent.y * 0.5
+    local positions = self.positions
+    if positions then
+        if not self.currentTargetPositionIndex or self.time > self.duration then
+            local initial_p = self.initialPosition
+            self.currentTargetPositionIndex = (self.currentTargetPositionIndex or 1) + 1
+            if self.currentTargetPositionIndex > #positions then
+                self.entity.position = initial_p + positions[#positions]
+                self.positions = nil
+            else
+                self.fromPosition = initial_p + positions[self.currentTargetPositionIndex - 1]
+                self.toPosition = initial_p + positions[self.currentTargetPositionIndex]
+                local length = gengine.math.getDistance(self.fromPosition, self.toPosition)
+                self.duration = length / self.speed
+                self.time = 0
             end
         end
 
-        self.vy = self.vy - 1000 * dt
-    else
-        self.vy = 0
+        self.time = self.time + dt
+        self.entity.position = self.fromPosition + (self.toPosition - self.fromPosition) * (self.time / self.duration)
     end
+
+    local p = self.entity.position
 
     if Game.player.player.life > 0 and gengine.math.doRectanglesIntersect(p, self.def.extent, Game.player.position, playerExtent) then
         Game.player.player:hit(10)
