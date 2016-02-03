@@ -55,7 +55,10 @@
               <span class="money">1000</span>
           </div>
           <div class="panel continue">
-              Next level :<br/>
+              Next level :
+              <button class="cheat" onclick="gengine.execute('Session:previousLevel()');">&lt;</button>
+              <button class="cheat" onclick="gengine.execute('Session:nextLevel()');">&gt;</button>
+              <br/>
               <span class="nextLevel">?</span>
               <button class="play" onclick="gengine.gui.showPage('hud', 'fade', 500);">
                   Play

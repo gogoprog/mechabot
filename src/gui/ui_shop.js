@@ -116,5 +116,5 @@ var shop = {
                 _this.removeClass("current");
             }
         });
-    },
+    }
 };

@@ -20,7 +20,7 @@ end
 function Application.onStateEnter:shop()
     Game:changeState("shop")
     gengine.gui.executeScript("shop.updateMoney(" .. Session.money .. ")")
-    gengine.gui.executeScript("shop.updateLevelName('" .. Session.currentLevelDef.title .. "')")
+    gengine.gui.executeScript("shop.updateLevelName('" .. Session.currentLevel .. ". " .. Session.currentLevelDef.title .. "')")
 end
 
 function Application.onStateUpdate:shop(dt)
