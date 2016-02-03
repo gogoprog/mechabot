@@ -49,6 +49,8 @@ function Game:start(map)
 end
 
 function Game:stop()
+    self.running = false
+
     for k,v in ipairs(self.enemies) do
         v:remove()
     end
@@ -143,7 +145,7 @@ function Game.onStateExit:pausing()
 end
 
 function Game.onStateEnter:dying()
-    self.running = false
+    self.running = true
     self.arm:remove()
 end
 
