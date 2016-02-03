@@ -13,44 +13,51 @@ var shop = {
         var items = $(".items").children();
         items.on('click', function() {
             var that = $(this);
-            gengine.execute("Game:resetItems()");
 
-            items.removeClass("selected");
-
-            that.addClass("selected");
-
-            var type = that.data("type");
-            var name = that.data("name");
-            var level = that.data("level");
-            var code;
-
-            switch(type)
+            if(that.hasClass("selected"))
             {
-                case "weapon":
-                {
-                    code = "Game.player.player:setWeapon('";
-                }
-                break;
-
-                case "generator":
-                {
-                    code = "Game.player.player:setGenerator('";
-                }
-                break;
-
-                case "shield":
-                {
-                    code = "Game.player.player:setShield('";
-                }
-                break;
+                items.removeClass("selected");
+                gengine.execute("Game:resetItems()");
             }
+            else
+            {
+                items.removeClass("selected");
 
-            code += name;
-            code += "',";
-            code += level;
-            code += ")";
+                that.addClass("selected");
 
-            gengine.execute(code);
+                var type = that.data("type");
+                var name = that.data("name");
+                var level = that.data("level");
+                var code;
+
+                switch(type)
+                {
+                    case "weapon":
+                    {
+                        code = "Game.player.player:setWeapon('";
+                    }
+                    break;
+
+                    case "generator":
+                    {
+                        code = "Game.player.player:setGenerator('";
+                    }
+                    break;
+
+                    case "shield":
+                    {
+                        code = "Game.player.player:setShield('";
+                    }
+                    break;
+                }
+
+                code += name;
+                code += "',";
+                code += level;
+                code += ")";
+
+                gengine.execute(code);
+            }
         });
 
         items.find(".buy").on('click', function() {
