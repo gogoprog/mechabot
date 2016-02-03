@@ -13,11 +13,11 @@ var shop = {
         var items = $(".items").children();
         items.on('click', function() {
             var that = $(this);
+            gengine.execute("Game:resetItems()");
 
             if(that.hasClass("selected"))
             {
                 items.removeClass("selected");
-                gengine.execute("Game:resetItems()");
             }
             else
             {
