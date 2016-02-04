@@ -19,7 +19,7 @@ return {
       tileheight = 64,
       spacing = 2,
       margin = 1,
-      image = "../tiles.png",
+      image = "../textures/tiles.png",
       imagewidth = 264,
       imageheight = 264,
       tileoffset = {
@@ -44,7 +44,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "../crates2.png",
+      image = "../textures/crates2.png",
       imagewidth = 320,
       imageheight = 128,
       tileoffset = {
@@ -77,7 +77,7 @@ return {
             ["component"] = "Spawner",
             ["life"] = "100"
           },
-          image = "../spawner.png",
+          image = "../textures/spawner.png",
           width = 192,
           height = 128
         }
@@ -90,7 +90,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "../tanks.png",
+      image = "../textures/tanks.png",
       imagewidth = 128,
       imageheight = 192,
       tileoffset = {

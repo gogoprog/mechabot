@@ -39,9 +39,9 @@ function Factory:init()
         enemies = dofile("data/defs/enemies.lua")
     }
 
-    gengine.graphics.texture.createFromDirectory("data/")
+    gengine.graphics.texture.createFromDirectory("data/textures/")
     gengine.audio.sound.createFromDirectory("data/audio/")
-    gengine.graphics.spriter.createFromDirectory("data/")
+    gengine.graphics.spriter.createFromDirectory("data/animations/")
 
     atlas = gengine.graphics.atlas.create(
         "enemyMove",

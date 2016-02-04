@@ -8,11 +8,11 @@
     <property name="component" value="Spawner"/>
     <property name="life" value="100"/>
    </properties>
-   <image width="192" height="128" source="../data/spawner.png"/>
+   <image width="192" height="128" source="../data/textures/spawner.png"/>
   </tile>
  </tileset>
  <tileset firstgid="28" name="tanks" tilewidth="128" tileheight="64" tilecount="3" columns="1">
-  <image source="../data/tanks.png" width="128" height="192"/>
+  <image source="../data/textures/tanks.png" width="128" height="192"/>
   <tile id="0">
    <properties>
     <property name="component" value="Shooter"/>
