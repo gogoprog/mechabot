@@ -11,8 +11,8 @@ var shop = {
     postFill: function()
     {
         var items = $(".items").children();
-        items.on('click', function() {
-            var that = $(this);
+        items.find('.toggler').on('click', function() {
+            var that = $(this).parent();
             gengine.execute("Game:resetItems()");
 
             if(that.hasClass("selected"))
