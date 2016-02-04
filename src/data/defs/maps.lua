@@ -29,7 +29,7 @@ return {
                 texture = "sky_colours"
             }
         },
-        music = "data/robot.mp3",
+        music = "data/audio/robot.mp3",
         shop = {
             {
                 type = "weapon",
@@ -88,7 +88,7 @@ return {
                 texture = "sky_colours"
             }
         },
-        music = "data/robot.mp3",
+        music = "data/audio/robot.mp3",
         shop = {
             {
                 type = "weapon",
@@ -127,7 +127,7 @@ return {
                 texture = "sky_colours"
             }
         },
-        music = "data/robot.mp3",
+        music = "data/audio/robot.mp3",
         shop = {
             {
                 type = "weapon",

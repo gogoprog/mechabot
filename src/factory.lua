@@ -40,7 +40,7 @@ function Factory:init()
     }
 
     gengine.graphics.texture.createFromDirectory("data/")
-    gengine.audio.sound.createFromDirectory("data/")
+    gengine.audio.sound.createFromDirectory("data/audio/")
     gengine.graphics.spriter.createFromDirectory("data/")
 
     atlas = gengine.graphics.atlas.create(
