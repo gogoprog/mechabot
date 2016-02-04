@@ -14,7 +14,7 @@ return {
         bulletSpeed = function(level)
             return 1200
         end,
-        sound = "laser",
+        sound = "plasma",
         bulletRadius = 20,
         color = vector4(0.2, 1.0, 0.2, 1),
         debris = "particle",
