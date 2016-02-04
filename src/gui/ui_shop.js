@@ -11,6 +11,7 @@ var shop = {
     postFill: function()
     {
         var items = $(".items").children();
+        var container = this.container;
         items.find('.toggler').on('click', function() {
             var that = $(this).parent();
             gengine.execute("Game:resetItems()");
@@ -24,6 +25,9 @@ var shop = {
                 items.removeClass("selected");
 
                 that.addClass("selected");
+
+                var offset = that.offset().top - container.offset().top;
+                container.scrollTop(offset);
 
                 var type = that.data("type");
                 var name = that.data("name");
