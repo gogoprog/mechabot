@@ -94,7 +94,9 @@ function ComponentBullet:explode()
         e:insert()
         e.position = self.entity.position
     end
-    if self.weapon.explosionSound then
-        gengine.audio.playSound(gengine.audio.sound.get(self.weapon.explosionSound), 0.6)
+    if self.weapon.effects.hit then
+        local e = Factory:createEffect(self.weapon.effects.hit)
+        e.position = self.entity.position
+        e:insert()
     end
 end

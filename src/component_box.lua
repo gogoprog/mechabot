@@ -28,7 +28,6 @@ function ComponentBox:hit(dmg, boxIndex)
         Map:removeBox(boxIndex, self.entity)
 
         Map.cameraEntity.shaker:shake(0.1)
-        gengine.audio.playSound(Factory.explosionSound, 0.6)
 
         Game:addScore(10)
     end

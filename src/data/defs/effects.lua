@@ -9,6 +9,7 @@ return {
         }
     },
     blood = {
+        sound = gengine.audio.sound.get("hit"),
         particle = {
             texture = gengine.graphics.texture.get("particle"),
             size = 32,
@@ -26,6 +27,7 @@ return {
         }
     },
     explosion = {
+        sound = gengine.audio.sound.get("explosion"),
         particle = {
             texture = gengine.graphics.texture.get("box"),
             emitterRate = 20000,

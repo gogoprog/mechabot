@@ -59,9 +59,6 @@ function Factory:init()
             loop = true
         }
         )
-
-    self.explosionSound = gengine.audio.sound.get("explosion")
-    self.hitSound = gengine.audio.sound.get("hit")
 end
 
 function Factory:createCamera()
@@ -243,7 +240,7 @@ function Factory:createBullet(velocity, weapon, is_enemy)
     return e
 end
 
-function Factory:createEffect(name)
+function Factory:createEffect(name, no_sound)
     local e = self:pickFromPool(self.effects)
     if not e then
         e = gengine.entity.create()
@@ -280,8 +277,8 @@ function Factory:createEffect(name)
                 e.particles[k] = v
             end
         end
-        if effect.sound then
-            gengine.audio.playSound(effect.sound, 0.3)
+        if effect.sound and not no_sound then
+            gengine.audio.playSound(effect.sound, 0.5)
         end
     end
 

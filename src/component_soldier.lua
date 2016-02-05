@@ -67,7 +67,6 @@ function ComponentSoldier:hit(dmg)
     e.position:set(self.entity.position)
 
     self:removeFromGame()
-    gengine.audio.playSound(Factory.hitSound, 0.6)
 
     Game:addScore(10)
 end

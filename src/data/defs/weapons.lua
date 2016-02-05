@@ -15,7 +15,8 @@ return {
             return 1200
         end,
         effects = {
-            fire = "plasma_fire"
+            fire = "plasma_fire",
+            hit = "explosion"
         },
         bulletRadius = 20,
         color = vector4(0.2, 1.0, 0.2, 1),
@@ -57,7 +58,8 @@ return {
             return 1500
         end,
         effects = {
-            fire = "laser_fire"
+            fire = "laser_fire",
+            hit = "explosion"
         },
         bulletRadius = 20,
         color = vector4(1, 0.9, 0.9, 0.9),
@@ -101,10 +103,10 @@ return {
         bulletRadius = 20,
         effects = {
             bullet = "smoke",
-            fire = "rocket"
+            fire = "rocket",
+            hit = "explosion"
         },
         debris = "rocket",
-        explosionSound = "explosion",
         price = function(level) return 100 * level end,
         directions = {
             vector2(1, 0)
