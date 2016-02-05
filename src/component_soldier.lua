@@ -62,7 +62,7 @@ end
 
 function ComponentSoldier:hit(dmg)
     Game.player.player:hit(10)
-    local e = Factory:createBlood()
+    local e = Factory:createEffect("blood")
     e:insert()
     e.position:set(self.entity.position)
 

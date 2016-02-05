@@ -14,10 +14,10 @@ require 'component_shooter'
 
 Factory = Factory or {
     explosions = {},
-    bloods = {},
     soldiers = {},
     bullets = {},
     particles = {},
+    effects = {},
     enemies = {}
 }
 
@@ -35,13 +35,14 @@ end
 function Factory:init()
     local atlas
 
-    self.definitions = {
-        enemies = dofile("data/defs/enemies.lua")
-    }
-
     gengine.graphics.texture.createFromDirectory("data/textures/")
     gengine.audio.sound.createFromDirectory("data/audio/")
     gengine.graphics.spriter.createFromDirectory("data/animations/")
+
+    self.definitions = {
+        enemies = dofile("data/defs/enemies.lua"),
+        effects = dofile("data/defs/effects.lua"),
+    }
 
     atlas = gengine.graphics.atlas.create(
         "enemyMove",
@@ -215,12 +216,17 @@ function Factory:createBullet(velocity, weapon, is_enemy)
             )
     end
 
-    if weapon.particle then
-        for k, v in pairs(weapon.particle) do
-            e.particles[k] = v
+    e.particles.emitterRate = 0
+
+    if weapon.effect then
+        local effect = self.definitions.effects[weapon.effect]
+        if effect then
+            if effect.particle then
+                for k, v in pairs(effect.particle) do
+                    e.particles[k] = v
+                end
+            end
         end
-    else
-        e.particles.emitterRate = 0
     end
 
     e.bullet.velocity = velocity
@@ -283,28 +289,16 @@ function Factory:createExplosion(texture)
     return e
 end
 
-function Factory:createBlood()
-    local e = self:pickFromPool(self.bloods)
+function Factory:createEffect(name)
+    local e = self:pickFromPool(self.effects)
     if not e then
         e = gengine.entity.create()
 
         e:addComponent(
             ComponentParticleSystem(),
             {
-                texture = gengine.graphics.texture.get("particle"),
-                size = 32,
-                emitterRate = 20000,
-                emitterLifeTime = 0.1,
-                extentRange = {vector2(4,8)*2, vector2(8,16)*2},
-                lifeTimeRange = {0.4, 0.7},
-                directionRange = {0, 2*3.14},
-                speedRange = {50, 300},
-                rotationRange = {-3, 3},
-                spinRange = {-10, 10},
-                linearAccelerationRange = {vector2(1000,-1000), vector2(1000,-1000)},
-                scales = {vector2(1, 1)},
-                colors = {vector4(0.6,0.0,0.0,1), vector4(0.6,0,0,0.5)},
-                layer = 20
+                layer = 20,
+                size = 32
             },
             "particles"
             )
@@ -312,7 +306,7 @@ function Factory:createBlood()
         e:addComponent(
             ComponentPoolable(),
             {
-                pool = self.bloods
+                pool = self.effects
             }
             )
 
@@ -321,6 +315,15 @@ function Factory:createBlood()
             {
             }
             )
+    end
+
+    local effect = self.definitions.effects[name]
+    if effect then
+        if effect.particle then
+            for k, v in pairs(effect.particle) do
+                e.particles[k] = v
+            end
+        end
     end
 
     e.particles:reset()
