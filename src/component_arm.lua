@@ -62,7 +62,9 @@ function ComponentArm:update(dt)
                 self.timeSinceLastBullet = 0
 
                 if not self.forcedShot then
-                    gengine.audio.playSound(self.bulletSound, 0.3)
+                    local e = Factory:createEffect(self.weapon.effects.fire)
+                    e.position = self_position
+                    e:insert()
                 end
 
                 Game.player.player.generator.currentValue = Game.player.player.generator.currentValue - self.weapon.powerCost

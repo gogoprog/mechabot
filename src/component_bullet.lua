@@ -90,7 +90,7 @@ end
 function ComponentBullet:explode()
     self:removeFromGame()
     if self.weapon.debris then
-        local e = Factory:createExplosion(self.weapon.debris)
+        local e = Factory:createEffect("explosion")
         e:insert()
         e.position = self.entity.position
     end

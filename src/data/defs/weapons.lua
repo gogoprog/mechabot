@@ -14,7 +14,9 @@ return {
         bulletSpeed = function(level)
             return 1200
         end,
-        sound = "plasma",
+        effects = {
+            fire = "plasma_fire"
+        },
         bulletRadius = 20,
         color = vector4(0.2, 1.0, 0.2, 1),
         debris = "particle",
@@ -54,7 +56,9 @@ return {
         bulletSpeed = function(level)
             return 1500
         end,
-        sound = "laser",
+        effects = {
+            fire = "laser_fire"
+        },
         bulletRadius = 20,
         color = vector4(1, 0.9, 0.9, 0.9),
         debris = "particle",
@@ -94,9 +98,11 @@ return {
         bulletSpeed = function(level)
             return 1200
         end,
-        sound = "rocket_firing",
         bulletRadius = 20,
-        effect = "smoke",
+        effects = {
+            bullet = "smoke",
+            fire = "rocket"
+        },
         debris = "rocket",
         explosionSound = "explosion",
         price = function(level) return 100 * level end,

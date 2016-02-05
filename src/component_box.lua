@@ -21,7 +21,7 @@ function ComponentBox:hit(dmg, boxIndex)
     self.entity.blink:blink()
 
     if self.life <= 0 then
-        local e = Factory:createExplosion()
+        local e = Factory:createEffect("explosion")
         e:insert()
         e.position = self.entity.position
 

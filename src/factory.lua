@@ -13,7 +13,6 @@ require 'component_player'
 require 'component_shooter'
 
 Factory = Factory or {
-    explosions = {},
     soldiers = {},
     bullets = {},
     particles = {},
@@ -244,51 +243,6 @@ function Factory:createBullet(velocity, weapon, is_enemy)
     return e
 end
 
-function Factory:createExplosion(texture)
-    local e = self:pickFromPool(self.explosions)
-    if not e then
-        e = gengine.entity.create()
-
-        e:addComponent(
-            ComponentParticleSystem(),
-            {
-                size = 32,
-                emitterRate = 20000,
-                emitterLifeTime = 0.1,
-                extentRange = {vector2(8,8), vector2(16,16)},
-                lifeTimeRange = {0.4, 0.7},
-                directionRange = {0, 2*3.14},
-                speedRange = {50, 300},
-                rotationRange = {-3, 3},
-                spinRange = {-10, 10},
-                linearAccelerationRange = {vector2(-10,-1000), vector2(10,-1100)},
-                scales = {vector2(1, 1)},
-                colors = {vector4(0.8,0.8,0.9,1), vector4(0,0,0,0)},
-                layer = 100
-            },
-            "particles"
-            )
-
-        e:addComponent(
-            ComponentPoolable(),
-            {
-                pool = self.explosions
-            }
-            )
-
-        e:addComponent(
-            ComponentRemover(),
-            {
-            }
-            )
-    end
-
-    e.particles.texture = gengine.graphics.texture.get(texture or "box")
-    e.particles:reset()
-
-    return e
-end
-
 function Factory:createEffect(name)
     local e = self:pickFromPool(self.effects)
     if not e then
@@ -317,12 +271,17 @@ function Factory:createEffect(name)
             )
     end
 
+    e.particles.emitterRate = 0
+
     local effect = self.definitions.effects[name]
     if effect then
         if effect.particle then
             for k, v in pairs(effect.particle) do
                 e.particles[k] = v
             end
+        end
+        if effect.sound then
+            gengine.audio.playSound(effect.sound, 0.3)
         end
     end
 
