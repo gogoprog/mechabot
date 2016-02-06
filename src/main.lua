@@ -20,7 +20,7 @@ function update(dt)
     local kb = gengine.input.keyboard
 
     if kb:isDown(44) then
-        print(gengine.entity.getCount())
+        print(math.floor(1/dt) .. "fps | " .. gengine.entity.getCount())
     end
 end
 

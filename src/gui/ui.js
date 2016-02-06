@@ -65,6 +65,11 @@ function closeConfirmDialog()
     confirmDialog.dialog("close");
 }
 
+function playSound(name)
+{
+    gengine.execute("gengine.audio.playSound(gengine.audio.sound.get('" + name + "'), 0.5)");
+}
+
 $(function() {
     gengine.gui.showPage('menu', 'fade', 1);
     generatorBar = $(".generatorBar");
@@ -95,4 +100,8 @@ $(function() {
     shop.init();
 
     confirmDialog = $("#dialog-confirm");
+
+    $("button").on("click", function() {
+        playSound("button");
+    });
 });

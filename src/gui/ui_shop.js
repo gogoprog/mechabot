@@ -15,6 +15,7 @@ var shop = {
         items.find('.toggler').on('click', function() {
             var that = $(this).parent();
             gengine.execute("Game:resetItems()");
+            playSound("smooth_click");
 
             if(that.hasClass("selected"))
             {
@@ -74,6 +75,7 @@ var shop = {
 
             var code = "Session:buy('" + type + "','" + name + "'," + level + ")";
             gengine.execute(code);
+            playSound("button");
         });
     },
     clear: function()
