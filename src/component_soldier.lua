@@ -43,6 +43,10 @@ function ComponentSoldier:update(dt)
         Game.player.player:hit(10)
         self:hit(10)
     end
+
+    if p.x < Game.player.position.x - 512 then
+        self:removeFromGame()
+    end
 end
 
 function ComponentSoldier:remove()
