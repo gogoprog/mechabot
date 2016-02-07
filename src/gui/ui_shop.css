@@ -33,6 +33,7 @@
     height:85%;
     width:100%;
     overflow-y:scroll;
+    background-color:#333;
 }
 
 #shop .items::-webkit-scrollbar {
@@ -71,7 +72,6 @@
     margin-right:5px;
     margin-top:-2px;
     margin-bottom:-2px;
-
 }
 
 #shop .model .price {
