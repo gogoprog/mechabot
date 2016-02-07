@@ -4,7 +4,8 @@ Map = Map or {
     boxes = {},
     futureBoxes = {},
     x = 0,
-    stuckTime = 0
+    stuckTime = 0,
+    futureEnemies = {}
 }
 
 local playerExtent = {x=300, y=1024}
@@ -13,7 +14,7 @@ local boxExtent = {x=32, y=32}
 function Map:init()
     self.cameraEntity = Factory:createCamera()
     self.cameraEntity:insert()
-    self.definitions = dofile("maps.lua")
+    self.definitions = dofile("data/defs/maps.lua")
 end
 
 function Map:start(index)
@@ -49,9 +50,14 @@ function Map:stop()
         gengine.entity.destroy(v)
     end
 
+    for k, v in ipairs(self.futureEnemies) do
+        gengine.entity.destroy(v)
+    end
+
     self.boxes = {}
     self.futureBoxes = {}
     self.parallaxes = {}
+    self.futureEnemies = {}
 
     gengine.audio.stopMusic()
 end
@@ -82,6 +88,7 @@ function Map:update(dt)
     end
 
     self:handleFutureBoxes()
+    self:handleFutureEnemies()
     self:handleBoxes()
 end
 
@@ -106,6 +113,17 @@ function Map:handleFutureBoxes()
             self.futureBoxes[#self.futureBoxes] = nil
 
             table.insert(self.boxes, v)
+            v:insert()
+            return
+        end
+    end
+end
+
+function Map:handleFutureEnemies()
+    for k, v in ipairs(self.futureEnemies) do
+        if v.position.x < self.x + 1200 then
+            self.futureEnemies[k] = self.futureEnemies[#self.futureEnemies]
+            self.futureEnemies[#self.futureEnemies] = nil
             v:insert()
             return
         end

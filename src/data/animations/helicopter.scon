@@ -1,0 +1,305 @@
+{
+	"entity": [
+		{
+			"animation": [
+				{
+					"gline": [],
+					"id": 0,
+					"interval": 100,
+					"length": 200,
+					"mainline": {
+						"key": [
+							{
+								"bone_ref": [],
+								"id": 0,
+								"object_ref": [
+									{
+										"id": 0,
+										"key": 0,
+										"timeline": "1",
+										"z_index": "0"
+									},
+									{
+										"id": 1,
+										"key": 0,
+										"timeline": "0",
+										"z_index": "1"
+									},
+									{
+										"id": 2,
+										"key": 0,
+										"timeline": "2",
+										"z_index": "2"
+									}
+								]
+							},
+							{
+								"bone_ref": [],
+								"id": 1,
+								"object_ref": [
+									{
+										"id": 0,
+										"key": 1,
+										"timeline": "1",
+										"z_index": "0"
+									},
+									{
+										"id": 1,
+										"key": 0,
+										"timeline": "0",
+										"z_index": "1"
+									},
+									{
+										"id": 2,
+										"key": 1,
+										"timeline": "2",
+										"z_index": "2"
+									}
+								],
+								"time": 50
+							},
+							{
+								"bone_ref": [],
+								"id": 2,
+								"object_ref": [
+									{
+										"id": 0,
+										"key": 2,
+										"timeline": "1",
+										"z_index": "0"
+									},
+									{
+										"id": 1,
+										"key": 0,
+										"timeline": "0",
+										"z_index": "1"
+									},
+									{
+										"id": 2,
+										"key": 2,
+										"timeline": "2",
+										"z_index": "2"
+									}
+								],
+								"time": 100
+							},
+							{
+								"bone_ref": [],
+								"id": 3,
+								"object_ref": [
+									{
+										"id": 0,
+										"key": 3,
+										"timeline": "1",
+										"z_index": "0"
+									},
+									{
+										"id": 1,
+										"key": 0,
+										"timeline": "0",
+										"z_index": "1"
+									},
+									{
+										"id": 2,
+										"key": 3,
+										"timeline": "2",
+										"z_index": "2"
+									}
+								],
+								"time": 150
+							}
+						]
+					},
+					"name": "fly",
+					"timeline": [
+						{
+							"id": 0,
+							"key": [
+								{
+									"id": 0,
+									"object": {
+										"angle": 0,
+										"file": 0,
+										"folder": 0,
+										"x": -95,
+										"y": 93
+									},
+									"spin": 0
+								}
+							],
+							"name": "helicopter"
+						},
+						{
+							"id": 1,
+							"key": [
+								{
+									"id": 0,
+									"object": {
+										"angle": 0,
+										"file": 2,
+										"folder": 0,
+										"x": 159,
+										"y": 75
+									},
+									"spin": -1
+								},
+								{
+									"id": 1,
+									"object": {
+										"angle": 256.551384948314,
+										"file": 2,
+										"folder": 0,
+										"x": 159,
+										"y": 75
+									},
+									"spin": -1,
+									"time": 50
+								},
+								{
+									"id": 2,
+									"object": {
+										"angle": 178.090847567004,
+										"file": 2,
+										"folder": 0,
+										"x": 159,
+										"y": 75
+									},
+									"spin": -1,
+									"time": 100
+								},
+								{
+									"id": 3,
+									"object": {
+										"angle": 65.72555886556052,
+										"file": 2,
+										"folder": 0,
+										"x": 159,
+										"y": 75
+									},
+									"spin": -1,
+									"time": 150
+								}
+							],
+							"name": "back-helice"
+						},
+						{
+							"id": 2,
+							"key": [
+								{
+									"id": 0,
+									"object": {
+										"angle": 0,
+										"file": 1,
+										"folder": 0,
+										"x": -132,
+										"y": 87
+									},
+									"spin": 0
+								},
+								{
+									"id": 1,
+									"object": {
+										"angle": 0,
+										"file": 3,
+										"folder": 0,
+										"x": -132,
+										"y": 87
+									},
+									"spin": 0,
+									"time": 50
+								},
+								{
+									"id": 2,
+									"object": {
+										"angle": 0,
+										"file": 4,
+										"folder": 0,
+										"x": -132,
+										"y": 87
+									},
+									"spin": 0,
+									"time": 100
+								},
+								{
+									"id": 3,
+									"object": {
+										"angle": 0,
+										"file": 5,
+										"folder": 0,
+										"x": -132,
+										"y": 87
+									},
+									"spin": 0,
+									"time": 150
+								}
+							],
+							"name": "helice1_000"
+						}
+					]
+				}
+			],
+			"character_map": [],
+			"id": 0,
+			"name": "helicopter",
+			"obj_info": []
+		}
+	],
+	"folder": [
+		{
+			"file": [
+				{
+					"height": 148,
+					"id": 0,
+					"name": "helicopter.png",
+					"pivot_x": 0,
+					"pivot_y": 1,
+					"width": 271
+				},
+				{
+					"height": 90,
+					"id": 1,
+					"name": "helice1.png",
+					"pivot_x": 0,
+					"pivot_y": 1,
+					"width": 254
+				},
+				{
+					"height": 54,
+					"id": 2,
+					"name": "back-helice.png",
+					"pivot_x": 0.5,
+					"pivot_y": 0.5,
+					"width": 52
+				},
+				{
+					"height": 90,
+					"id": 3,
+					"name": "helice2.png",
+					"pivot_x": 0,
+					"pivot_y": 1,
+					"width": 254
+				},
+				{
+					"height": 90,
+					"id": 4,
+					"name": "helice3.png",
+					"pivot_x": 0,
+					"pivot_y": 1,
+					"width": 254
+				},
+				{
+					"height": 90,
+					"id": 5,
+					"name": "helice4.png",
+					"pivot_x": 0,
+					"pivot_y": 1,
+					"width": 254
+				}
+			],
+			"id": 0
+		}
+	],
+	"generator": "BrashMonkey Spriter",
+	"generator_version": "r3",
+	"scon_version": "1.0"
+}

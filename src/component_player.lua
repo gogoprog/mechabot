@@ -67,7 +67,6 @@ end
 
 function ComponentPlayer:setWeapon(name, level)
     local w = Game:getWeapon(name, level)
-    Game.arm.arm.bulletSound = gengine.audio.sound.get(w.sound)
     self.weapon = w
     Game.arm.arm.weapon = w
 end

@@ -21,14 +21,13 @@ function ComponentBox:hit(dmg, boxIndex)
     self.entity.blink:blink()
 
     if self.life <= 0 then
-        local e = Factory:createExplosion()
+        local e = Factory:createEffect("explosion")
         e:insert()
         e.position = self.entity.position
 
         Map:removeBox(boxIndex, self.entity)
 
         Map.cameraEntity.shaker:shake(0.1)
-        gengine.audio.playSound(Factory.explosionSound, 0.6)
 
         Game:addScore(10)
     end

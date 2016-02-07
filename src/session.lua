@@ -19,7 +19,8 @@ function Session:init()
     self.money = 10000
 end
 
-function Session:start(lvl)
+function Session:start(lvl, fast_show)
+    lvl = math.min(lvl, #Map.definitions)
     self.currentLevel = lvl
     self.currentLevelDef = Map.definitions[lvl]
 
@@ -39,7 +40,7 @@ function Session:start(lvl)
 
     self:updateShop()
 
-    gengine.gui.showPage("shop", "slide", 300)
+    gengine.gui.showPage("shop", "slide", fast_show and 30 or 300)
 end
 
 function Session:isCurrentItem(_type, name, level)
@@ -73,4 +74,12 @@ end
 function Session:onLevelWon(score)
     self.money = self.money + score
     Session:start(self.currentLevel + 1)
+end
+
+function Session:nextLevel()
+    self:start(self.currentLevel + 1, true)
+end
+
+function Session:previousLevel()
+    self:start(math.max(self.currentLevel - 1, 1), true)
 end

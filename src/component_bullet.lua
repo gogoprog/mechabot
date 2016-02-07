@@ -1,7 +1,6 @@
 ComponentBullet = {}
 
 local bulletRadius = 20
-local enemyExtent = {x=64, y=64}
 
 function ComponentBullet:init()
     self.damage = 50
@@ -10,6 +9,8 @@ end
 function ComponentBullet:insert()
     table.insert(Game.bullets, self.entity)
     self.totalTime = 0
+
+    self.entity.rotation = gengine.math.getPolarAngle(self.velocity)
 end
 
 function ComponentBullet:update(dt)
@@ -37,19 +38,9 @@ function ComponentBullet:update(dt)
         for k = #enemies, 1, -1 do
             local p = enemies[k].position
             local offset = vector2(0, 32)
-            if gengine.math.doesCircleIntersectRectangle(self_position, self.radius, p + offset, enemyExtent) then
-
+            if gengine.math.doesCircleIntersectRectangle(self_position, self.radius, p + offset, enemies[k].enemy.def.extent) then
                 self:explode()
-
-                local e = Factory:createBlood()
-                e:insert()
-                e.position:set(enemies[k].position)
-
-                gengine.audio.playSound(Factory.hitSound, 0.6)
-                Game:addScore(100)
-
-                enemies[k]:remove()
-                table.remove(enemies, k)
+                enemies[k].enemy:hit(self.damage)
                 return
             end
         end
@@ -70,6 +61,10 @@ function ComponentBullet:update(dt)
                 self:explode()
             end
         end
+    end
+
+    if self_position.y < self.radius / 2 then
+        self:explode()
     end
 
     if self.totalTime > 5 then
@@ -95,11 +90,13 @@ end
 function ComponentBullet:explode()
     self:removeFromGame()
     if self.weapon.debris then
-        local e = Factory:createExplosion(self.weapon.debris)
+        local e = Factory:createEffect("explosion")
         e:insert()
         e.position = self.entity.position
     end
-    if self.weapon.explosionSound then
-        gengine.audio.playSound(gengine.audio.sound.get(self.weapon.explosionSound), 0.6)
+    if self.weapon.effects.hit then
+        local e = Factory:createEffect(self.weapon.effects.hit)
+        e.position = self.entity.position
+        e:insert()
     end
 end

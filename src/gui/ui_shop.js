@@ -11,46 +11,58 @@ var shop = {
     postFill: function()
     {
         var items = $(".items").children();
-        items.on('click', function() {
-            var that = $(this);
+        var container = this.container;
+        items.find('.toggler').on('click', function() {
+            var that = $(this).parent();
             gengine.execute("Game:resetItems()");
+            playSound("smooth_click");
 
-            items.removeClass("selected");
-
-            that.addClass("selected");
-
-            var type = that.data("type");
-            var name = that.data("name");
-            var level = that.data("level");
-            var code;
-
-            switch(type)
+            if(that.hasClass("selected"))
             {
-                case "weapon":
-                {
-                    code = "Game.player.player:setWeapon('";
-                }
-                break;
-
-                case "generator":
-                {
-                    code = "Game.player.player:setGenerator('";
-                }
-                break;
-
-                case "shield":
-                {
-                    code = "Game.player.player:setShield('";
-                }
-                break;
+                items.removeClass("selected");
             }
+            else
+            {
+                items.removeClass("selected");
 
-            code += name;
-            code += "',";
-            code += level;
-            code += ")";
+                that.addClass("selected");
 
-            gengine.execute(code);
+                var offset = that.offset().top - container.offset().top;
+                container.scrollTop(offset);
+
+                var type = that.data("type");
+                var name = that.data("name");
+                var level = that.data("level");
+                var code;
+
+                switch(type)
+                {
+                    case "weapon":
+                    {
+                        code = "Game.player.player:setWeapon('";
+                    }
+                    break;
+
+                    case "generator":
+                    {
+                        code = "Game.player.player:setGenerator('";
+                    }
+                    break;
+
+                    case "shield":
+                    {
+                        code = "Game.player.player:setShield('";
+                    }
+                    break;
+                }
+
+                code += name;
+                code += "',";
+                code += level;
+                code += ")";
+
+                gengine.execute(code);
+            }
         });
 
         items.find(".buy").on('click', function() {
@@ -63,13 +75,14 @@ var shop = {
 
             var code = "Session:buy('" + type + "','" + name + "'," + level + ")";
             gengine.execute(code);
+            playSound("button");
         });
     },
     clear: function()
     {
         this.container.find(".itemInstance").remove();
     },
-    addItem: function(type, name, level, title, price)
+    addItem: function(type, name, level, title, price, info1, info2, info3)
     {
         var item = this.model.clone();
         this.container.append(item);
@@ -78,11 +91,41 @@ var shop = {
         item.addClass("itemInstance");
         item.find(".name").html(title + " " + level);
         item.find(".price").html(price);
-        item.find(".buy").button();
         item.data("type", type);
         item.data("name", name);
         item.data("level", level);
         item.data("price", price);
+
+        switch(type)
+        {
+            case "weapon":
+            {
+                item.find(".label1").html("Bullet damage/s :");
+                item.find(".label2").html("Bullet speed :");
+                item.find(".label3").html("Power cost/s :");
+            }
+            break;
+
+            case "generator":
+            {
+                item.find(".label1").html("Power/s :");
+                item.find(".label2").html("Capacity :");
+                item.find(".label3").html("");
+            }
+            break;
+
+            case "shield":
+            {
+                item.find(".label1").html("Capacity / Absorption :");
+                item.find(".label2").html("Regeneration :");
+                item.find(".label3").html("Power cost/s :");
+            }
+            break;
+        }
+
+        item.find(".value1").html(info1);
+        item.find(".value2").html(info2);
+        item.find(".value3").html(info3);
     },
     updateMoney: function(amount) {
         this.money.html(amount);
@@ -110,11 +153,12 @@ var shop = {
                 _this.find(".price").html("current");
                 _this.addClass("current");
             }
-            else {
+            else
+            {
                 _this.find(".buy").show();
                 _this.find(".price").html(_this.data("price"));
                 _this.removeClass("current");
             }
         });
-    },
+    }
 };

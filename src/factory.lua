@@ -4,6 +4,7 @@ require 'component_arm'
 require 'component_bullet'
 require 'component_shaker'
 require 'component_poolable'
+require 'component_soldier'
 require 'component_enemy'
 require 'component_spawner'
 require 'component_remover'
@@ -12,11 +13,11 @@ require 'component_player'
 require 'component_shooter'
 
 Factory = Factory or {
-    explosions = {},
-    bloods = {},
-    enemies = {},
+    soldiers = {},
     bullets = {},
-    particles = {}
+    particles = {},
+    effects = {},
+    enemies = {}
 }
 
 function Factory:pickFromPool(t)
@@ -33,9 +34,14 @@ end
 function Factory:init()
     local atlas
 
-    gengine.graphics.texture.createFromDirectory("data/")
-    gengine.audio.sound.createFromDirectory("data/")
-    gengine.graphics.spriter.createFromDirectory("data/")
+    gengine.graphics.texture.createFromDirectory("data/textures/")
+    gengine.audio.sound.createFromDirectory("data/audio/")
+    gengine.graphics.spriter.createFromDirectory("data/animations/")
+
+    self.definitions = {
+        enemies = dofile("data/defs/enemies.lua"),
+        effects = dofile("data/defs/effects.lua"),
+    }
 
     atlas = gengine.graphics.atlas.create(
         "enemyMove",
@@ -53,9 +59,6 @@ function Factory:init()
             loop = true
         }
         )
-
-    self.explosionSound = gengine.audio.sound.get("explosion")
-    self.hitSound = gengine.audio.sound.get("hit")
 end
 
 function Factory:createCamera()
@@ -209,12 +212,17 @@ function Factory:createBullet(velocity, weapon, is_enemy)
             )
     end
 
-    if weapon.particle then
-        for k, v in pairs(weapon.particle) do
-            e.particles[k] = v
+    e.particles.emitterRate = 0
+
+    if weapon.effect then
+        local effect = self.definitions.effects[weapon.effect]
+        if effect then
+            if effect.particle then
+                for k, v in pairs(effect.particle) do
+                    e.particles[k] = v
+                end
+            end
         end
-    else
-        e.particles.emitterRate = 0
     end
 
     e.bullet.velocity = velocity
@@ -232,27 +240,16 @@ function Factory:createBullet(velocity, weapon, is_enemy)
     return e
 end
 
-function Factory:createExplosion(texture)
-    local e = self:pickFromPool(self.explosions)
+function Factory:createEffect(name, no_sound)
+    local e = self:pickFromPool(self.effects)
     if not e then
         e = gengine.entity.create()
 
         e:addComponent(
             ComponentParticleSystem(),
             {
-                size = 32,
-                emitterRate = 20000,
-                emitterLifeTime = 0.1,
-                extentRange = {vector2(8,8), vector2(16,16)},
-                lifeTimeRange = {0.4, 0.7},
-                directionRange = {0, 2*3.14},
-                speedRange = {50, 300},
-                rotationRange = {-3, 3},
-                spinRange = {-10, 10},
-                linearAccelerationRange = {vector2(-10,-1000), vector2(10,-1100)},
-                scales = {vector2(1, 1)},
-                colors = {vector4(0.8,0.8,0.9,1), vector4(0,0,0,0)},
-                layer = 100
+                layer = 20,
+                size = 32
             },
             "particles"
             )
@@ -260,7 +257,7 @@ function Factory:createExplosion(texture)
         e:addComponent(
             ComponentPoolable(),
             {
-                pool = self.explosions
+                pool = self.effects
             }
             )
 
@@ -271,50 +268,18 @@ function Factory:createExplosion(texture)
             )
     end
 
-    e.particles.texture = gengine.graphics.texture.get(texture or "box")
-    e.particles:reset()
+    e.particles.emitterRate = 0
 
-    return e
-end
-
-function Factory:createBlood()
-    local e = self:pickFromPool(self.bloods)
-    if not e then
-        e = gengine.entity.create()
-
-        e:addComponent(
-            ComponentParticleSystem(),
-            {
-                texture = gengine.graphics.texture.get("particle"),
-                size = 32,
-                emitterRate = 20000,
-                emitterLifeTime = 0.1,
-                extentRange = {vector2(4,8)*2, vector2(8,16)*2},
-                lifeTimeRange = {0.4, 0.7},
-                directionRange = {0, 2*3.14},
-                speedRange = {50, 300},
-                rotationRange = {-3, 3},
-                spinRange = {-10, 10},
-                linearAccelerationRange = {vector2(1000,-1000), vector2(1000,-1000)},
-                scales = {vector2(1, 1)},
-                colors = {vector4(0.6,0.0,0.0,1), vector4(0.6,0,0,0.5)},
-                layer = 20
-            },
-            "particles"
-            )
-
-        e:addComponent(
-            ComponentPoolable(),
-            {
-                pool = self.bloods
-            }
-            )
-
-        e:addComponent(
-            ComponentRemover(),
-            {
-            }
-            )
+    local effect = self.definitions.effects[name]
+    if effect then
+        if effect.particle then
+            for k, v in pairs(effect.particle) do
+                e.particles[k] = v
+            end
+        end
+        if effect.sound and not no_sound then
+            gengine.audio.playSound(effect.sound, 0.5)
+        end
     end
 
     e.particles:reset()
@@ -322,8 +287,8 @@ function Factory:createBlood()
     return e
 end
 
-function Factory:createEnemy()
-    local e = self:pickFromPool(self.enemies)
+function Factory:createSoldier()
+    local e = self:pickFromPool(self.soldiers)
     if not e then
         e = gengine.entity.create()
 
@@ -337,7 +302,7 @@ function Factory:createEnemy()
             )
 
         e:addComponent(
-            ComponentEnemy(),
+            ComponentSoldier(),
             {
             },
             "enemy"
@@ -346,7 +311,7 @@ function Factory:createEnemy()
         e:addComponent(
             ComponentPoolable(),
             {
-                pool = self.enemies
+                pool = self.soldiers
             }
             )
     end
@@ -367,6 +332,69 @@ function Factory:createRedLight()
         )
 
     e.sprite:pushAnimation(gengine.graphics.spriter.get("entity_000-start"))
+
+    return e
+end
+
+
+function Factory.createEnemy(object, properties)
+    local e = Factory:pickFromPool(Factory.enemies)
+    local def = Factory.definitions.enemies[properties.type]
+
+    if not e then
+        e = gengine.entity.create()
+
+        e:addComponent(
+            ComponentSpriter(),
+            {
+            },
+            "sprite"
+            )
+
+        e:addComponent(
+            ComponentEnemy(),
+            {
+            },
+            "enemy"
+            )
+
+        e:addComponent(
+            ComponentPoolable(),
+            {
+                pool = Factory.enemies
+            }
+            )
+
+        e:addComponent(
+            ComponentShooter(),
+            {
+            },
+            "shooter"
+            )
+
+        e:addComponent(
+            ComponentBlink(),
+            {
+            },
+            "blink"
+            )
+    end
+
+    e.sprite.animation = gengine.graphics.spriter.get(def.animation)
+    e.sprite.layer = 10
+    e.sprite.color = def.color or vector4(1,1,1,1)
+
+    e.enemy.positions = object.polyline
+    e.enemy.def = def
+
+    e.shooter.weaponName = def.weapon[1]
+    e.shooter.weaponLevel = def.weapon[2]
+    e.shooter.direction = def.shootDirection
+
+    e.position:set(object.x, object.y)
+    e.scale:set(def.scale or 1, def.scale or 1)
+
+    table.insert(Map.futureEnemies, e)
 
     return e
 end

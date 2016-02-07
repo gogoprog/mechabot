@@ -42,10 +42,15 @@
               <span class="title">Items</span>
               <div class="items">
                   <div class="model">
-                      <div class="icon"></div><span class="name"></span>
-                      <span class="price"></span>
+                      <div class="toggler">
+                        <div class="icon"></div><span class="name"></span>
+                        <span class="price"></span>
+                      </div>
                       <div class="info">
-                          <div class="buy">Buy</div>
+                          <label class="label1"></label><span class="value1"></span><br/>
+                          <label class="label2"></label><span class="value2"></span><br/>
+                          <label class="label3"></label><span class="value3"></span><br/>
+                          <button class="buy">Buy</button>
                       </div>
                   </div>
               </div>
@@ -55,7 +60,10 @@
               <span class="money">1000</span>
           </div>
           <div class="panel continue">
-              Next level :<br/>
+              Next level :
+              <button class="cheat" onclick="gengine.execute('Session:previousLevel()');">&lt;</button>
+              <button class="cheat" onclick="gengine.execute('Session:nextLevel()');">&gt;</button>
+              <br/>
               <span class="nextLevel">?</span>
               <button class="play" onclick="gengine.gui.showPage('hud', 'fade', 500);">
                   Play

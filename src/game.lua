@@ -13,9 +13,9 @@ function Game:init()
     Factory:init()
     Session:init()
 
-    self.weapons = dofile("weapons.lua")
-    self.generators = dofile("generators.lua")
-    self.shields = dofile("shields.lua")
+    self.weapons = dofile("data/defs/weapons.lua")
+    self.generators = dofile("data/defs/generators.lua")
+    self.shields = dofile("data/defs/shields.lua")
 
     self.player = Factory:createPlayer()
     self.arm = Factory:createArm()
@@ -49,6 +49,8 @@ function Game:start(map)
 end
 
 function Game:stop()
+    self.running = false
+
     for k,v in ipairs(self.enemies) do
         v:remove()
     end
@@ -143,7 +145,7 @@ function Game.onStateExit:pausing()
 end
 
 function Game.onStateEnter:dying()
-    self.running = false
+    self.running = true
     self.arm:remove()
 end
 

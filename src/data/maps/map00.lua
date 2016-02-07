@@ -8,18 +8,18 @@ return {
   height = 12,
   tilewidth = 64,
   tileheight = 64,
-  nextobjectid = 1,
+  nextobjectid = 11,
   properties = {},
   tilesets = {
     {
       name = "tiles",
       firstgid = 1,
-      filename = "tiles1",
+      filename = "../../res/tiles.tsx",
       tilewidth = 64,
       tileheight = 64,
       spacing = 2,
       margin = 1,
-      image = "../tiles.png",
+      image = "../textures/tiles.png",
       imagewidth = 264,
       imageheight = 264,
       tileoffset = {
@@ -39,12 +39,12 @@ return {
     {
       name = "crates2",
       firstgid = 17,
-      filename = "crates",
+      filename = "../../res/crates.tsx",
       tilewidth = 64,
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "../crates2.png",
+      image = "../textures/crates2.png",
       imagewidth = 320,
       imageheight = 128,
       tileoffset = {
@@ -54,21 +54,7 @@ return {
       properties = {},
       terrains = {},
       tilecount = 10,
-      tiles = {
-        {
-          id = 1,
-          properties = {
-            ["component"] = "Shooter"
-          }
-        },
-        {
-          id = 4,
-          properties = {
-            ["component"] = "Spawner",
-            ["life"] = "50"
-          }
-        }
-      }
+      tiles = {}
     },
     {
       name = "spawners",
@@ -91,7 +77,7 @@ return {
             ["component"] = "Spawner",
             ["life"] = "100"
           },
-          image = "../spawner.png",
+          image = "../textures/spawner.png",
           width = 192,
           height = 128
         }
@@ -104,7 +90,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "../tanks.png",
+      image = "../textures/tanks.png",
       imagewidth = 128,
       imageheight = 192,
       tileoffset = {
@@ -162,6 +148,54 @@ return {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 4, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 4, 0, 0, 0, 10, 0, 0, 10, 0, 0, 0, 0, 0, 0, 22
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "enemies",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {
+        ["function"] = "Factory.createEnemy",
+        ["type"] = "copter"
+      },
+      objects = {
+        {
+          id = 6,
+          name = "",
+          type = "",
+          shape = "ellipse",
+          x = 857,
+          y = 102,
+          width = 56,
+          height = 43,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 7,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 787,
+          y = 136,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -173, y = -40 },
+            { x = -275, y = 70 },
+            { x = -15, y = 135 },
+            { x = 454, y = -87 },
+            { x = 389, y = -164 }
+          },
+          properties = {}
+        }
       }
     }
   }

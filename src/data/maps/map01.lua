@@ -14,12 +14,12 @@ return {
     {
       name = "tiles",
       firstgid = 1,
-      filename = "tiles1",
+      filename = "../../res/tiles.tsx",
       tilewidth = 64,
       tileheight = 64,
       spacing = 2,
       margin = 1,
-      image = "../tiles.png",
+      image = "../textures/tiles.png",
       imagewidth = 264,
       imageheight = 264,
       tileoffset = {
@@ -39,12 +39,12 @@ return {
     {
       name = "crates2",
       firstgid = 17,
-      filename = "crates",
+      filename = "../../res/crates.tsx",
       tilewidth = 64,
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "../crates2.png",
+      image = "../textures/crates2.png",
       imagewidth = 320,
       imageheight = 128,
       tileoffset = {
@@ -54,21 +54,7 @@ return {
       properties = {},
       terrains = {},
       tilecount = 10,
-      tiles = {
-        {
-          id = 1,
-          properties = {
-            ["component"] = "Shooter"
-          }
-        },
-        {
-          id = 4,
-          properties = {
-            ["component"] = "Spawner",
-            ["life"] = "50"
-          }
-        }
-      }
+      tiles = {}
     },
     {
       name = "spawners",
@@ -91,7 +77,7 @@ return {
             ["component"] = "Spawner",
             ["life"] = "100"
           },
-          image = "../spawner.png",
+          image = "../textures/spawner.png",
           width = 192,
           height = 128
         }
@@ -104,7 +90,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "../tanks.png",
+      image = "../textures/tanks.png",
       imagewidth = 128,
       imageheight = 192,
       tileoffset = {
