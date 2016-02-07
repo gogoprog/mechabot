@@ -12,7 +12,6 @@ return {
         sound = gengine.audio.sound.get("hit"),
         particle = {
             texture = gengine.graphics.texture.get("particle"),
-            size = 32,
             emitterRate = 20000,
             emitterLifeTime = 0.1,
             extentRange = {vector2(4,8)*2, vector2(8,16)*2},

@@ -20,7 +20,6 @@ return {
         },
         bulletRadius = 20,
         color = vector4(0.2, 1.0, 0.2, 1),
-        debris = "particle",
         price = function(level) return 100 * level end,
         directions = function(level)
             if level < 3 then
@@ -63,7 +62,6 @@ return {
         },
         bulletRadius = 20,
         color = vector4(1, 0.9, 0.9, 0.9),
-        debris = "particle",
         price = function(level) return 100 * level end,
         directions = function(level)
             if level < 3 then
@@ -106,7 +104,6 @@ return {
             fire = "rocket",
             hit = "explosion"
         },
-        debris = "rocket",
         price = function(level) return 100 * level end,
         directions = {
             vector2(1, 0)
