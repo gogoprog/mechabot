@@ -1,13 +1,14 @@
 return {
     copter = {
-        texture = "helicopter",
+        animation = "helicopter-fly",
         extent = vector2(256, 128),
         shootDirection = vector2(-1, -0.3),
         weapon = { "rocket", 1 },
         bulletSpeedFactor = 0.5
     },
     bossCopter = {
-        texture = "helicopter",
+        animation = "helicopter-fly",
+        scale = 2,
         extent = vector2(512, 256),
         shootDirection = vector2(-1, -0.3),
         weapon = { "rocket", 4 },

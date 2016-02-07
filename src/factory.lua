@@ -345,7 +345,7 @@ function Factory.createEnemy(object, properties)
         e = gengine.entity.create()
 
         e:addComponent(
-            ComponentSprite(),
+            ComponentSpriter(),
             {
             },
             "sprite"
@@ -380,9 +380,8 @@ function Factory.createEnemy(object, properties)
             )
     end
 
-    e.sprite.texture = gengine.graphics.texture.get(def.texture)
+    e.sprite.animation = gengine.graphics.spriter.get(def.animation)
     e.sprite.layer = 10
-    e.sprite.extent = def.extent
     e.sprite.color = def.color or vector4(1,1,1,1)
 
     e.enemy.positions = object.polyline
@@ -393,6 +392,7 @@ function Factory.createEnemy(object, properties)
     e.shooter.direction = def.shootDirection
 
     e.position:set(object.x, object.y)
+    e.scale:set(def.scale or 1, def.scale or 1)
 
     table.insert(Map.futureEnemies, e)
 
