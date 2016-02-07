@@ -58,7 +58,7 @@ function ComponentArm:update(dt)
                     direction = gengine.math.getNormalized(direction)
                     local e = Factory:createBullet(direction * self.weapon.bulletSpeed, self.weapon)
 
-                    e.position = firePosition
+                    e.position:set(firePosition.x, firePosition.y)
                     e:insert()
                 end
 
