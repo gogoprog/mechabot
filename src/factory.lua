@@ -196,7 +196,7 @@ function Factory:createBullet(velocity, weapon, is_enemy)
         e:addComponent(
             ComponentParticleSystem(),
             {
-                size = 128,
+                size = 32,
                 emitterRate = 20,
                 emitterLifeTime = 1024,
                 extentRange = {vector2(8,8), vector2(16,16)},
@@ -214,8 +214,8 @@ function Factory:createBullet(velocity, weapon, is_enemy)
 
     e.particles.emitterRate = 0
 
-    if weapon.effect then
-        local effect = self.definitions.effects[weapon.effect]
+    if weapon.effects and weapon.effects.bullet then
+        local effect = self.definitions.effects[weapon.effects.bullet]
         if effect then
             if effect.particle then
                 for k, v in pairs(effect.particle) do

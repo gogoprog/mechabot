@@ -50,5 +50,22 @@ return {
     },
     laser_fire = {
         sound = gengine.audio.sound.get("laser")
+    },
+    laser_trail = {
+        particle = {
+            texture = gengine.graphics.texture.get("laser"),
+            emitterRate = 200,
+            emitterLifeTime = 5,
+            extentRange = {vector2(30,10), vector2(30,10)},
+            lifeTimeRange = {0.1, 0.2},
+            directionRange = {0, 0},
+            speedRange = {1000, 1000},
+            rotationRange = {0, 0},
+            spinRange = {0, 0},
+            linearAccelerationRange = {vector2(0,0), vector2(0,0)},
+            scales = {vector2(0.1, 1), vector2(1, 1)},
+            colors = {vector4(1,0,0,1), vector4(1,0,0,0)},
+            keepLocal = true
+        }
     }
 }
