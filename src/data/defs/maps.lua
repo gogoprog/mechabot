@@ -133,6 +133,11 @@ return {
                 type = "weapon",
                 name = "plasma",
                 level = 10
+            },
+            {
+                type = "weapon",
+                name = "rocket",
+                level = 10
             }
         }
     }

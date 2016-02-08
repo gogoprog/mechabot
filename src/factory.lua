@@ -15,6 +15,7 @@ require 'component_shooter'
 Factory = Factory or {
     soldiers = {},
     bullets = {},
+    bulletsWithParticles = {},
     particles = {},
     effects = {},
     enemies = {}
@@ -166,7 +167,9 @@ function Factory:createArm()
 end
 
 function Factory:createBullet(velocity, weapon, is_enemy)
-    local e = self:pickFromPool(self.bullets)
+    local has_particles = weapon.effects and weapon.effects.bullet
+    local pool = has_particles and self.bulletsWithParticles or self.bullets
+    local e = self:pickFromPool(pool)
     if not e then
         e = gengine.entity.create()
 
@@ -189,32 +192,35 @@ function Factory:createBullet(velocity, weapon, is_enemy)
         e:addComponent(
             ComponentPoolable(),
             {
-                pool = self.bullets
+                pool = pool
             }
             )
 
-        e:addComponent(
-            ComponentParticleSystem(),
-            {
-                size = 32,
-                emitterRate = 20,
-                emitterLifeTime = 1024,
-                extentRange = {vector2(8,8), vector2(16,16)},
-                directionRange = {0, 2*3.14},
-                speedRange = {0, 0},
-                rotationRange = {-3, 3},
-                spinRange = {-10, 10},
-                linearAccelerationRange = {vector2(0, 0), vector2(0, 0)},
-                layer = 100,
-                keepLocal = false
-            },
-            "particles"
-            )
+        if has_particles then
+            e:addComponent(
+                ComponentParticleSystem(),
+                {
+                    size = 32,
+                    emitterRate = 20,
+                    emitterLifeTime = 1024,
+                    extentRange = {vector2(8,8), vector2(16,16)},
+                    directionRange = {0, 2*3.14},
+                    speedRange = {0, 0},
+                    rotationRange = {-3, 3},
+                    spinRange = {-10, 10},
+                    linearAccelerationRange = {vector2(0, 0), vector2(0, 0)},
+                    layer = 100,
+                    keepLocal = false
+                },
+                "particles"
+                )
+        end
     end
 
-    e.particles.emitterRate = 0
 
-    if weapon.effects and weapon.effects.bullet then
+    if has_particles then
+        e.particles.emitterRate = 0
+
         local effect = self.definitions.effects[weapon.effects.bullet]
         if effect then
             if effect.particle then
@@ -223,6 +229,8 @@ function Factory:createBullet(velocity, weapon, is_enemy)
                 end
             end
         end
+
+        e.particles:reset()
     end
 
     e.bullet.velocity = velocity
@@ -234,8 +242,6 @@ function Factory:createBullet(velocity, weapon, is_enemy)
     e.sprite.texture = gengine.graphics.texture.get(weapon.texture)
     e.sprite.extent = weapon.extent
     e.sprite.color = weapon.color or vector4(1,1,1,1)
-
-    e.particles:reset()
 
     return e
 end
