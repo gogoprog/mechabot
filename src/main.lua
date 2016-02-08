@@ -19,7 +19,7 @@ function update(dt)
 
     local kb = gengine.input.keyboard
 
-    if kb:isDown(44) then
+    if kb:isDown(7) then
         print(math.floor(1/dt) .. "fps | " .. gengine.entity.getCount())
     end
 end

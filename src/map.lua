@@ -10,11 +10,14 @@ Map = Map or {
 
 local playerExtent = {x=300, y=1024}
 local boxExtent = {x=32, y=32}
+local input
 
 function Map:init()
     self.cameraEntity = Factory:createCamera()
     self.cameraEntity:insert()
     self.definitions = dofile("data/defs/maps.lua")
+
+    input = gengine.input
 end
 
 function Map:start(index)
@@ -63,28 +66,32 @@ function Map:stop()
 end
 
 function Map:update(dt)
-    if not self:isPlayerBlocked(dt) then
-        self.x = self.x + dt * 150
+    if self:mustMove() then
+        if not self:isPlayerBlocked(dt) then
+            self.x = self.x + dt * 150
 
-        if self.x < self.length - 500 then
-            self.parallaxOffset = self.x
-            self.cameraEntity.position.x = self.x
+            if self.x < self.length - 500 then
+                self.parallaxOffset = self.x
+                self.cameraEntity.position.x = self.x
 
-            for k, v in ipairs(self.parallaxes) do
-                v.position.x = self.x
+                for k, v in ipairs(self.parallaxes) do
+                    v.position.x = self.x
+                end
+            end
+
+            Game.player.position.x = self.x - 650
+
+            Game.player.sprite.timeFactor = 1
+        else
+            Game.player.sprite.timeFactor = 0.1
+            self.stuckTime = self.stuckTime + dt
+            if self.stuckTime > 0.5 then
+                self.stuckTime = 0
+                Game.player.player:hit(10)
             end
         end
-
-        Game.player.position.x = self.x - 650
-
-        Game.player.sprite.timeFactor = 1
     else
-        Game.player.sprite.timeFactor = 0.1
-        self.stuckTime = self.stuckTime + dt
-        if self.stuckTime > 0.5 then
-            self.stuckTime = 0
-            Game.player.player:hit(10)
-        end
+        Game.player.sprite.timeFactor = 0
     end
 
     self:handleFutureBoxes()
@@ -92,7 +99,16 @@ function Map:update(dt)
     self:handleBoxes()
 end
 
+function Map:mustMove()
+    if input.mouse:isDown(3) or input.keyboard:isDown(44) or input.keyboard:isDown(79) then
+        return true
+    end
+
+    return false
+end
+
 function Map:isPlayerBlocked(dt)
+
     local player_position = Game.player.position
     player_position.x = player_position.x + dt * 100
     for k, v in ipairs(self.boxes) do
