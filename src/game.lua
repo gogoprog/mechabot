@@ -75,29 +75,27 @@ function Game.onStateUpdate:idle(dt)
 end
 
 function Game.onStateEnter:inGameIntro()
+    self.player.position:set(- 650, 2000)
+
     self.introDuration = 1
     self.timeLeft = self.introDuration
     local e = Factory:createRedLight()
-    e.position = self.player.position
+    e.position:set(-650, 0)
     e:insert()
     self.redLight = e
 
-    self.player.sprite.timeFactor = 100
+    self.player.sprite.timeFactor = 0
 end
 
 function Game.onStateUpdate:inGameIntro(dt)
-    local alpha = 1 - (self.timeLeft / self.introDuration)
-    self.player.sprite.alpha = alpha
-    self.arm.sprite.alpha = alpha
-    self.timeLeft = self.timeLeft - dt
-
-    local y = 0 + (self.timeLeft / self.introDuration) * 500
-    self.player.position.y = y
-
     Map:handleFutureBoxes()
 
-    if self.timeLeft < 0 then
+    if self.player.position.y < 0 then
         self:changeState("inGame")
+    end
+
+    if gengine.input.keyboard:isJustUp(41) then
+        self:changeState("pausing")
     end
 end
 

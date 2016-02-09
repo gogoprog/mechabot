@@ -10,6 +10,7 @@ function ComponentPlayer:insert()
     self.lastGenUpdate = 0
     self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-walk")
     gengine.gui.executeScript("updateLife(" .. self.life / self.maxLife .. ")")
+    self.velocity = vector2(0, 0)
 end
 
 function ComponentPlayer:update(dt)
@@ -40,6 +41,19 @@ function ComponentPlayer:update(dt)
             self.lastGenUpdate = 0
         end
     end
+
+    local position = self.entity.position
+    local velocity = self.velocity
+
+    if position.y < 0 then
+        position.y = 0
+        velocity.y = 0
+        Map.cameraEntity.shaker:shake(0.3, 10)
+    elseif position.y > 0 then
+        velocity.y = velocity.y - 1500 * dt
+    end
+
+    self.entity.position = position + velocity * dt
 end
 
 function ComponentPlayer:remove()

@@ -19,7 +19,7 @@ function ComponentShaker:update(dt)
 
         if self.time > 0.02 then
             local p = self.entity.position
-            local d = vector2(math.random(-3, 3), math.random(-3, 3))
+            local d = vector2(math.random(-self.intensity, self.intensity), math.random(-self.intensity, self.intensity))
             self.offset = self.offset + d
             p.x = p.x + d.x
             p.y = p.y + d.y
@@ -39,8 +39,8 @@ function ComponentShaker:remove()
 
 end
 
-function ComponentShaker:shake(duration)
+function ComponentShaker:shake(duration, intensity)
     self.timeLeft = duration
     self.time = 0
+    self.intensity = intensity or 3
 end
-
