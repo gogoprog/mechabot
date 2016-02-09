@@ -1,6 +1,9 @@
 ComponentPlayer = {}
 
+local input
+
 function ComponentPlayer:init()
+    input = gengine.input
 end
 
 function ComponentPlayer:insert()
@@ -13,7 +16,14 @@ function ComponentPlayer:insert()
     self.velocity = vector2(0, 0)
 end
 
+local mmax = math.max
+local mmin = math.min
+local mabs = math.abs
+
 function ComponentPlayer:update(dt)
+    local position = self.entity.position
+    local velocity = self.velocity
+
     if self.life > 0 then
         local g = self.generator
         local s = self.shield
@@ -40,10 +50,23 @@ function ComponentPlayer:update(dt)
 
             self.lastGenUpdate = 0
         end
-    end
 
-    local position = self.entity.position
-    local velocity = self.velocity
+        local x_move = self:getXMove()
+
+        if x_move then
+            velocity.x = 150 * x_move
+        else
+            if velocity.x > 0 then
+                velocity.x = math.max(velocity.x - 100 * dt, 0)
+            elseif velocity.x < 0 then
+                velocity.x = math.min(velocity.x + 100 * dt, 0)
+            end
+        end
+
+        if position.y == 0 and input.keyboard:isDown(26) then
+            velocity.y = velocity.y + 1024
+        end
+    end
 
     if position.y < 0 then
         position.y = 0
@@ -51,6 +74,12 @@ function ComponentPlayer:update(dt)
         Map.cameraEntity.shaker:shake(0.3, 10)
     elseif position.y > 0 then
         velocity.y = velocity.y - 1500 * dt
+    end
+
+    if position.y == 0 then
+        Game.player.sprite.timeFactor = mabs(velocity.x) / 120
+    else
+        Game.player.sprite.timeFactor = 0
     end
 
     self.entity.position = position + velocity * dt
@@ -93,4 +122,16 @@ end
 function ComponentPlayer:setShield(name, level)
     self.shield = Game:getShield(name, level)
     self.shield.currentValue = self.shield.capacity
+end
+
+function ComponentPlayer:getXMove()
+    if input.keyboard:isDown(7) or input.keyboard:isDown(79) then
+        return 1
+    end
+
+    if input.keyboard:isDown(4) or input.keyboard:isDown(81) then
+        return -1
+    end
+
+    return false
 end

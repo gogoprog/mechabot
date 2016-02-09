@@ -45,11 +45,11 @@ function Application.onStateUpdate:inGame(dt)
 
     local kb = gengine.input.keyboard
 
-    if kb:isJustUp(26) then
+    if kb:isJustUp(59) then
         Game:changeState("winning")
     end
 
-    if kb:isDown(15) then
+    if kb:isDown(60) then
         Game.player.player.life = 100
         gengine.application.setUpdateFactor(5)
     else
