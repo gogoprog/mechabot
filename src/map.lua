@@ -66,29 +66,22 @@ end
 
 function Map:update(dt)
     if self:mustMove() then
-        if not self:isPlayerBlocked(dt) then
-            self.x = self.x + dt * 150
+        self.x = self.x + dt * 150
 
-            if self.x < self.length - 500 then
-                self.parallaxOffset = self.x
-                self.cameraEntity.position.x = self.x
+        if self.x < self.length - 500 then
+            self.parallaxOffset = self.x
+            self.cameraEntity.position.x = self.x
 
-                for k, v in ipairs(self.parallaxes) do
-                    v.position.x = self.x
-                end
-            end
-
-            Game.player.position.x = self.x - 650
-
-            Game.player.sprite.timeFactor = 1
-        else
-            Game.player.sprite.timeFactor = 0.1
-            self.stuckTime = self.stuckTime + dt
-            if self.stuckTime > 0.5 then
-                self.stuckTime = 0
-                Game.player.player:hit(10)
+            for k, v in ipairs(self.parallaxes) do
+                v.position.x = self.x
             end
         end
+
+        Game.player.position.x = self.x - 650
+
+        Game.player.sprite.timeFactor = 1
+
+        self:handleCollisions()
     else
         Game.player.sprite.timeFactor = 0
     end
@@ -99,7 +92,7 @@ function Map:update(dt)
 end
 
 function Map:mustMove()
-    if input.mouse:isDown(3) or input.keyboard:isDown(44) or input.keyboard:isDown(79) then
+    if input.mouse:isDown(3) or input.keyboard:isDown(7) or input.keyboard:isDown(79) then
         return true
     end
 
@@ -120,6 +113,22 @@ function Map:isPlayerBlocked(dt)
 
     return false
 end
+
+
+function Map:handleCollisions()
+    local player_position = Game.player.position
+    for k, v in ipairs(self.boxes) do
+        local p = v.position
+        if gengine.math.doRectanglesIntersect(player_position, playerExtent, p, v.sprite.extent) then
+            Game.player.player:hit(v.box.life)
+            v.box:hit(10000, k)
+            return true
+        end
+    end
+
+    return false
+end
+
 
 function Map:handleFutureBoxes()
     for k, v in ipairs(self.futureBoxes) do
