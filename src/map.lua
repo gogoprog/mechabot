@@ -8,7 +8,6 @@ Map = Map or {
     futureEnemies = {}
 }
 
-local playerExtent = {x=300, y=1024}
 local boxExtent = {x=32, y=32}
 local input
 
@@ -105,7 +104,7 @@ function Map:isPlayerBlocked(dt)
     player_position.x = player_position.x + dt * 100
     for k, v in ipairs(self.boxes) do
         local p = v.position
-        if gengine.math.doRectanglesIntersect(player_position, playerExtent, p, boxExtent) then
+        if gengine.math.doRectanglesIntersect(player_position, Game.player.player.extent, p, boxExtent) then
             player_position.x = player_position.x - dt * 100
             return true
         end
@@ -119,7 +118,7 @@ function Map:handleCollisions()
     local player_position = Game.player.position
     for k, v in ipairs(self.boxes) do
         local p = v.position
-        if gengine.math.doRectanglesIntersect(player_position, playerExtent, p, v.sprite.extent) then
+        if gengine.math.doRectanglesIntersect(player_position, Game.player.player.extent, p, v.sprite.extent) then
             Game.player.player:hit(v.box.life)
             v.box:hit(10000, k)
             return true

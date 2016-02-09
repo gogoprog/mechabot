@@ -1,7 +1,5 @@
 ComponentSoldier = {}
 
-local playerExtent = {x=256, y=512}
-
 function ComponentSoldier:init()
     self.speed = self.speed or 150
     self.vy = 0
@@ -39,7 +37,7 @@ function ComponentSoldier:update(dt)
         self.vy = 0
     end
 
-    if Game.player.player.life > 0 and gengine.math.doRectanglesIntersect(p, self.def.extent, Game.player.position, playerExtent) then
+    if Game.player.player.life > 0 and gengine.math.doRectanglesIntersect(p, self.def.extent, Game.player.position, Game.player.player.extent) then
         Game.player.player:hit(1)
         self:hit(10)
     end
