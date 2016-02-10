@@ -4,6 +4,9 @@ local input
 
 gengine.stateMachine(ComponentPlayer)
 
+local mmax = math.max
+local mmin = math.min
+local mabs = math.abs
 
 function ComponentPlayer:init()
     input = gengine.input
@@ -26,10 +29,6 @@ function ComponentPlayer:insert()
     self:changeState("idling")
 end
 
-local mmax = math.max
-local mmin = math.min
-local mabs = math.abs
-
 function ComponentPlayer:update(dt)
     local position = self.entity.position
     local velocity = self.velocity
@@ -49,7 +48,7 @@ function ComponentPlayer:update(dt)
             local v = s.powerCostPerSecond * dt
             if g.currentValue > v then
                 g.currentValue = g.currentValue - v
-                s.currentValue = math.min(s.currentValue + s.regenerationPerSecond * dt, s.capacity)
+                s.currentValue = mmin(s.currentValue + s.regenerationPerSecond * dt, s.capacity)
             end
         end
 
@@ -66,11 +65,17 @@ function ComponentPlayer:update(dt)
         self.xMove = x_move
 
         if x_move then
-            velocity.x = velocity.x + self.acceleration * x_move * dt
+
+            if velocity.x * x_move < 0 then
+                velocity.x = velocity.x + (self.acceleration+self.deceleration) * x_move * dt
+            else
+                velocity.x = velocity.x + self.acceleration * x_move * dt
+            end
+
             if x_move > 0 then
-                velocity.x = math.min(velocity.x, self.maxSpeed)
+                velocity.x = mmin(velocity.x, self.maxSpeed)
             elseif x_move < 0 then
-                velocity.x = math.max(velocity.x, -self.maxSpeed)
+                velocity.x = mmax(velocity.x, -self.maxSpeed)
             end
         end
     end
@@ -84,7 +89,7 @@ end
 
 function ComponentPlayer:hit(dmg)
     if Game.running then
-        local shield_dmg = math.min(dmg * self.shield.absorption, self.shield.currentValue)
+        local shield_dmg = mmin(dmg * self.shield.absorption, self.shield.currentValue)
         local real_dmg = dmg - shield_dmg
         self.shield.currentValue = self.shield.currentValue - shield_dmg
         self.life = self.life - real_dmg
@@ -152,9 +157,9 @@ function ComponentPlayer.onStateUpdate:walking(dt)
 
     if not self.xMove then
         if velocity.x > 0 then
-            velocity.x = math.max(velocity.x - self.deceleration * dt, 0)
+            velocity.x = mmax(velocity.x - self.deceleration * dt, 0)
         elseif velocity.x < 0 then
-            velocity.x = math.min(velocity.x + self.deceleration * dt, 0)
+            velocity.x = mmin(velocity.x + self.deceleration * dt, 0)
         end
     end
 
