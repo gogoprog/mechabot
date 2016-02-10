@@ -61,6 +61,7 @@ function ComponentPlayer:update(dt)
         end
 
         local x_move = self:getXMove()
+        self.xMove = x_move
 
         if x_move then
             velocity.x = velocity.x + self.acceleration * x_move * dt
@@ -68,12 +69,6 @@ function ComponentPlayer:update(dt)
                 velocity.x = math.min(velocity.x, self.maxSpeed)
             elseif x_move < 0 then
                 velocity.x = math.max(velocity.x, -self.maxSpeed)
-            end
-        else
-            if velocity.x > 0 then
-                velocity.x = math.max(velocity.x - self.deceleration * dt, 0)
-            elseif velocity.x < 0 then
-                velocity.x = math.min(velocity.x + self.deceleration * dt, 0)
             end
         end
     end
@@ -154,12 +149,22 @@ function ComponentPlayer.onStateUpdate:walking(dt)
         return
     end
 
+    if not self.xMove then
+        if velocity.x > 0 then
+            velocity.x = math.max(velocity.x - self.deceleration * dt, 0)
+        elseif velocity.x < 0 then
+            velocity.x = math.min(velocity.x + self.deceleration * dt, 0)
+        end
+    end
+
     local r = Map:movePlayer(position, self.collidePosition, self.extent, velocity, dt)
 
     Game.player.sprite.timeFactor = mabs(velocity.x) / 120
 
     if r == 0 then
         self:changeState("falling")
+    elseif r == 2 then
+        velocity.x = 0
     end
 end
 
