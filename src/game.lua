@@ -43,6 +43,8 @@ function Game:start(map)
     self.score = 0
     self:addScore(0)
     Map:start(map)
+
+    self.player.position:set(128, 2000)
     self.player:insert()
     self.arm:insert()
     self:changeState("inGameIntro")
@@ -75,13 +77,13 @@ function Game.onStateUpdate:idle(dt)
 end
 
 function Game.onStateEnter:inGameIntro()
-    self.player.position:set(- 650, 2000)
+    self.running = true
     self.player.player:changeState("falling")
 
-    self.introDuration = 1
+    self.introDuration = 5
     self.timeLeft = self.introDuration
     local e = Factory:createRedLight()
-    e.position:set(-650, 0)
+    e.position:set(128, 0)
     e:insert()
     self.redLight = e
 
@@ -89,9 +91,11 @@ function Game.onStateEnter:inGameIntro()
 end
 
 function Game.onStateUpdate:inGameIntro(dt)
-    Map:handleFutureBoxes()
+    Map:update(dt)
 
-    if self.player.position.y < 1 then
+    self.timeLeft = self.timeLeft - dt
+
+    if self.timeLeft < 0 then
         self:changeState("inGame")
     end
 

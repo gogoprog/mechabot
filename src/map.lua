@@ -8,8 +8,6 @@ Map = Map or {
     futureEnemies = {}
 }
 
-local boxExtent = {x=32, y=32}
-
 function Map:init()
     self.cameraEntity = Factory:createCamera()
     self.cameraEntity:insert()
@@ -140,14 +138,15 @@ function Map:movePlayer(player_position, collide_position, extent, velocity, dt,
 end
 
 function Map:handleFutureBoxes()
-    for k, v in ipairs(self.futureBoxes) do
+    local futureBoxes = self.futureBoxes
+    for k = #futureBoxes, 1, -1 do
+        local v = futureBoxes[k]
         if v.position.x < self.x + 1200 then
-            self.futureBoxes[k] = self.futureBoxes[#self.futureBoxes]
-            self.futureBoxes[#self.futureBoxes] = nil
+            futureBoxes[k] = futureBoxes[#futureBoxes]
+            futureBoxes[#futureBoxes] = nil
 
             table.insert(self.boxes, v)
             v:insert()
-            return
         end
     end
 end

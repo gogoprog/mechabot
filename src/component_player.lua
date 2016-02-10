@@ -21,6 +21,8 @@ function ComponentPlayer:insert()
     gengine.gui.executeScript("updateLife(" .. self.life / self.maxLife .. ")")
     self.velocity = vector2(0, 0)
 
+    self.collidePosition = self.entity.position + vector2(0, 256)
+
     self:changeState("idling")
 end
 
@@ -143,7 +145,7 @@ function ComponentPlayer.onStateUpdate:walking(dt)
     local position = self.entity.position
     local velocity = self.velocity
 
-    if input.keyboard:isJustDown(26) or input.keyboard:isDown(82) then
+    if input.keyboard:isDown(26) or input.keyboard:isDown(82) then
         self:changeState("jumping")
         return
     end

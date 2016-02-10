@@ -2,7 +2,7 @@
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="12" tilewidth="64" tileheight="64" nextobjectid="11">
  <tileset firstgid="1" source="tiles.tsx"/>
  <tileset firstgid="17" source="crates.tsx"/>
- <tileset firstgid="27" name="spawners" tilewidth="192" tileheight="128" tilecount="1" columns="0">
+ <tileset firstgid="27" name="spawners" tilewidth="192" tileheight="128" tilecount="1">
   <tile id="0">
    <properties>
     <property name="component" value="Spawner"/>
@@ -11,7 +11,7 @@
    <image width="192" height="128" source="../data/textures/spawner.png"/>
   </tile>
  </tileset>
- <tileset firstgid="28" name="tanks" tilewidth="128" tileheight="64" tilecount="3" columns="1">
+ <tileset firstgid="28" name="tanks" tilewidth="128" tileheight="64" tilecount="3">
   <image source="../data/textures/tanks.png" width="128" height="192"/>
   <tile id="0">
    <properties>
@@ -256,6 +256,10 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="22"/>
+   <tile gid="22"/>
+   <tile gid="22"/>
+   <tile gid="22"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -284,6 +288,10 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="23"/>
+   <tile gid="23"/>
+   <tile gid="23"/>
+   <tile gid="23"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -312,18 +320,10 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="22"/>
+   <tile gid="22"/>
+   <tile gid="22"/>
+   <tile gid="22"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -352,10 +352,10 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="23"/>
+   <tile gid="23"/>
+   <tile gid="23"/>
+   <tile gid="23"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -384,10 +384,10 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="22"/>
+   <tile gid="22"/>
+   <tile gid="22"/>
+   <tile gid="22"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -423,11 +423,8 @@
    <property name="function" value="Factory.createEnemy"/>
    <property name="type" value="copter"/>
   </properties>
-  <object id="6" x="857" y="102" width="56" height="43">
-   <ellipse/>
-  </object>
-  <object id="7" x="787" y="136">
-   <polyline points="0,0 -173,-40 -275,70 -15,135 454,-87 389,-164"/>
+  <object id="7" x="1597.06" y="91.3846">
+   <polyline points="0,0 -272.433,-36.9231 -433.059,64.6154 -23.6214,124.615 714.941,-80.3077 612.582,-151.385"/>
   </object>
  </objectgroup>
 </map>
