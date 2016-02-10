@@ -2,6 +2,9 @@ ComponentPlayer = {}
 
 local input
 
+gengine.stateMachine(ComponentPlayer)
+
+
 function ComponentPlayer:init()
     input = gengine.input
 end
@@ -9,11 +12,13 @@ end
 function ComponentPlayer:insert()
     self.maxLife = 100
     self.life = self.maxLife
-    self.extent = vector2(300, 1024)
+    self.extent = vector2(300, 512)
     self.lastGenUpdate = 0
     self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-walk")
     gengine.gui.executeScript("updateLife(" .. self.life / self.maxLife .. ")")
     self.velocity = vector2(0, 0)
+
+    self:changeState("idling")
 end
 
 local mmax = math.max
@@ -23,8 +28,9 @@ local mabs = math.abs
 function ComponentPlayer:update(dt)
     local position = self.entity.position
     local velocity = self.velocity
+    self.collidePosition = position + vector2(0, 256)
 
-    if self.life > 0 then
+    if self.life > 0 and Game.running then
         local g = self.generator
         local s = self.shield
 
@@ -62,27 +68,9 @@ function ComponentPlayer:update(dt)
                 velocity.x = math.min(velocity.x + 100 * dt, 0)
             end
         end
-
-        if position.y == 0 and input.keyboard:isDown(26) then
-            velocity.y = velocity.y + 1024
-        end
     end
 
-    if position.y < 0 then
-        position.y = 0
-        velocity.y = 0
-        Map.cameraEntity.shaker:shake(0.3, 10)
-    elseif position.y > 0 then
-        velocity.y = velocity.y - 1500 * dt
-    end
-
-    if position.y == 0 then
-        Game.player.sprite.timeFactor = mabs(velocity.x) / 120
-    else
-        Game.player.sprite.timeFactor = 0
-    end
-
-    self.entity.position = position + velocity * dt
+    self:updateState(dt)
 end
 
 function ComponentPlayer:remove()
@@ -134,4 +122,88 @@ function ComponentPlayer:getXMove()
     end
 
     return false
+end
+
+function ComponentPlayer.onStateEnter:idling()
+end
+
+function ComponentPlayer.onStateUpdate:idling(dt)
+end
+
+function ComponentPlayer.onStateExit:idling()
+end
+
+function ComponentPlayer.onStateEnter:walking()
+    self.velocity.y = 0
+end
+
+function ComponentPlayer.onStateUpdate:walking(dt)
+    local position = self.entity.position
+    local velocity = self.velocity
+
+    if input.keyboard:isJustDown(26) then
+        self:changeState("jumping")
+        return
+    end
+
+    local r = Map:movePlayer(position, self.collidePosition, self.extent, velocity, dt)
+
+    Game.player.sprite.timeFactor = mabs(velocity.x) / 120
+
+    if r == 0 then
+        self:changeState("falling")
+    end
+end
+
+function ComponentPlayer.onStateExit:walking()
+    Game.player.sprite.timeFactor = 0
+end
+
+function ComponentPlayer.onStateEnter:jumping()
+    self.velocity.y = 1024
+end
+
+function ComponentPlayer.onStateUpdate:jumping(dt)
+    local position = self.entity.position
+    local velocity = self.velocity
+
+    velocity.y = velocity.y - 1500 * dt
+
+    if velocity.y < 0 then
+        self:changeState("falling")
+        return
+    end
+
+    local r = Map:movePlayer(position, self.collidePosition, self.extent, velocity, dt, 5, 0)
+    if r == 1 then
+        self:changeState("falling")
+    elseif r == 2 then
+        position.y = position.y + velocity.y * dt
+    end
+end
+
+function ComponentPlayer.onStateExit:jumping()
+end
+
+function ComponentPlayer.onStateEnter:falling()
+    self.velocity.y = 0
+end
+
+function ComponentPlayer.onStateUpdate:falling(dt)
+    local position = self.entity.position
+    local velocity = self.velocity
+
+    velocity.y = velocity.y - 1500 * dt
+
+    local r = Map:movePlayer(position, self.collidePosition, self.extent, velocity, dt)
+
+    if r ~= 0 then
+        self:changeState("walking")
+    end
+end
+
+function ComponentPlayer.onStateExit:falling()
+    if self.velocity.y < -600 then
+        Map.cameraEntity.shaker:shake(0.3, 10)
+    end
 end
