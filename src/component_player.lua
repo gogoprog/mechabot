@@ -90,9 +90,8 @@ function ComponentPlayer:hit(dmg)
         Game.arm.blink:blink()
 
         if self.life <= 0 then
-            Game.player.sprite.timeFactor = 1
-            self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-death"..math.random(1,2))
             Game:changeState("dying")
+            self:changeState("dying")
         end
 
         gengine.gui.executeScript("updateLife(" .. self.life / self.maxLife .. ")")
@@ -219,4 +218,21 @@ function ComponentPlayer.onStateExit:falling()
     if self.velocity.y < -600 then
         Map.cameraEntity.shaker:shake(0.3, 10)
     end
+
+    Map:crushUnderPlayer(self.collidePosition, self.extent, -self.velocity.y / 10)
+end
+
+function ComponentPlayer.onStateEnter:dying()
+    Game.player.sprite.timeFactor = 1
+    self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-death"..math.random(1,2))
+end
+
+function ComponentPlayer.onStateUpdate:dying(dt)
+    local position = self.entity.position
+    local velocity = self.velocity
+
+    velocity.y = velocity.y - 1500 * dt
+
+    local r = Map:movePlayer(position, self.collidePosition, self.extent, velocity, dt)
+
 end
