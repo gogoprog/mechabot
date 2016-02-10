@@ -9,14 +9,11 @@ Map = Map or {
 }
 
 local boxExtent = {x=32, y=32}
-local input
 
 function Map:init()
     self.cameraEntity = Factory:createCamera()
     self.cameraEntity:insert()
     self.definitions = dofile("data/defs/maps.lua")
-
-    input = gengine.input
 end
 
 function Map:start(index)
@@ -64,55 +61,24 @@ function Map:stop()
 end
 
 function Map:update(dt)
-    if self:mustMove() then
-        self.x = self.x + dt * 150
+    --self:handleCollisions()
 
-        if self.x < self.length - 500 then
-            self.parallaxOffset = self.x
-            self.cameraEntity.position.x = self.x
-
-            for k, v in ipairs(self.parallaxes) do
-                v.position.x = self.x
-            end
+    if self.x < self.length - 500 then
+        self.x = Game.player.position.x + 650
+        self.parallaxOffset = self.x
+        for k, v in ipairs(self.parallaxes) do
+            v.position.x = self.x
         end
-
-        Game.player.position.x = self.x - 650
-
-        Game.player.sprite.timeFactor = 1
-
-        self:handleCollisions()
     else
-        Game.player.sprite.timeFactor = 0
+        self.x = self.length - 500
     end
+
+    self.cameraEntity.position.x = self.x
 
     self:handleFutureBoxes()
     self:handleFutureEnemies()
     self:handleBoxes()
 end
-
-function Map:mustMove()
-    if input.mouse:isDown(3) or input.keyboard:isDown(7) or input.keyboard:isDown(79) then
-        return true
-    end
-
-    return false
-end
-
-function Map:isPlayerBlocked(dt)
-
-    local player_position = Game.player.position
-    player_position.x = player_position.x + dt * 100
-    for k, v in ipairs(self.boxes) do
-        local p = v.position
-        if gengine.math.doRectanglesIntersect(player_position, Game.player.player.extent, p, boxExtent) then
-            player_position.x = player_position.x - dt * 100
-            return true
-        end
-    end
-
-    return false
-end
-
 
 function Map:handleCollisions()
     local player_position = Game.player.position
@@ -128,6 +94,56 @@ function Map:handleCollisions()
     return false
 end
 
+function Map:collides(collide_position, extent)
+    for k, v in ipairs(self.boxes) do
+        local p = v.position
+        if gengine.math.doRectanglesIntersect(collide_position, extent, p, v.sprite.extent) then
+            return true
+        end
+    end
+
+    if collide_position.y - extent.y/2 < 0 then
+        return true
+    end
+
+    return false
+end
+
+function Map:movePlayer(player_position, collide_position, extent, velocity, dt, up, down)
+    local movement = velocity * dt
+    up = up or 5
+    down = down or 6
+
+    if self:collides(collide_position + vector2(0, up), extent) then
+        return 1
+    end
+
+    player_position.y = player_position.y + up
+    collide_position.y = collide_position.y + up
+
+    if self:collides(collide_position + movement, extent) then
+        player_position.y = player_position.y - up
+        collide_position.y = collide_position.y - up
+        return 2
+    end
+
+    player_position.x = player_position.x + movement.x
+    player_position.y = player_position.y + movement.y
+
+    collide_position.x = collide_position.x + movement.x
+    collide_position.y = collide_position.y + movement.y
+
+    if self:collides(collide_position + vector2(0, -down), extent) then
+        player_position.y = player_position.y - up
+        collide_position.y = collide_position.y - up
+        return 3
+    end
+
+    player_position.y = player_position.y - up
+    collide_position.y = collide_position.y - up
+
+    return 0
+end
 
 function Map:handleFutureBoxes()
     for k, v in ipairs(self.futureBoxes) do

@@ -76,6 +76,7 @@ end
 
 function Game.onStateEnter:inGameIntro()
     self.player.position:set(- 650, 2000)
+    self.player.player:changeState("falling")
 
     self.introDuration = 1
     self.timeLeft = self.introDuration
@@ -90,7 +91,7 @@ end
 function Game.onStateUpdate:inGameIntro(dt)
     Map:handleFutureBoxes()
 
-    if self.player.position.y < 0 then
+    if self.player.position.y < 1 then
         self:changeState("inGame")
     end
 
