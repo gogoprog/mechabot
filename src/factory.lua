@@ -246,7 +246,7 @@ function Factory:createBullet(velocity, weapon, is_enemy)
     return e
 end
 
-function Factory:createEffect(name, no_sound)
+function Factory:createEffect(name, no_sound, duration)
     local e = self:pickFromPool(self.effects)
     if not e then
         e = gengine.entity.create()
@@ -270,10 +270,12 @@ function Factory:createEffect(name, no_sound)
         e:addComponent(
             ComponentRemover(),
             {
-            }
+            },
+            "remover"
             )
     end
 
+    e.remover.duration = duration
     e.particles.emitterRate = 0
 
     local effect = self.definitions.effects[name]

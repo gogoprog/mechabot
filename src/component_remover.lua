@@ -4,7 +4,7 @@ function ComponentRemover:init()
 end
 
 function ComponentRemover:insert()
-    self.timeLeft = 1
+    self.timeLeft = self.duration or 1
 end
 
 function ComponentRemover:update(dt)

@@ -221,6 +221,13 @@ function ComponentPlayer.onStateExit:falling()
         Map.cameraEntity.shaker:shake(0.3, 10)
     end
 
+    for x = -128, 128, 32 do
+        local e = Factory:createEffect("largeSmoke")
+        e.position:set(self.entity.position)
+        e.position.x = e.position.x + x
+        e:insert()
+    end
+
     Map:crushUnderPlayer(self.collidePosition, self.extent, -self.velocity.y / 10)
 end
 
