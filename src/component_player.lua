@@ -12,6 +12,9 @@ end
 function ComponentPlayer:insert()
     self.maxLife = 100
     self.life = self.maxLife
+    self.maxSpeed = 2500
+    self.acceleration = 200
+    self.deceleration = 350
     self.extent = vector2(300, 512)
     self.lastGenUpdate = 0
     self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-walk")
@@ -60,12 +63,17 @@ function ComponentPlayer:update(dt)
         local x_move = self:getXMove()
 
         if x_move then
-            velocity.x = 150 * x_move
+            velocity.x = velocity.x + self.acceleration * x_move * dt
+            if x_move > 0 then
+                velocity.x = math.min(velocity.x, self.maxSpeed)
+            elseif x_move < 0 then
+                velocity.x = math.max(velocity.x, -self.maxSpeed)
+            end
         else
             if velocity.x > 0 then
-                velocity.x = math.max(velocity.x - 100 * dt, 0)
+                velocity.x = math.max(velocity.x - self.deceleration * dt, 0)
             elseif velocity.x < 0 then
-                velocity.x = math.min(velocity.x + 100 * dt, 0)
+                velocity.x = math.min(velocity.x + self.deceleration * dt, 0)
             end
         end
     end
@@ -117,7 +125,7 @@ function ComponentPlayer:getXMove()
         return 1
     end
 
-    if input.keyboard:isDown(4) or input.keyboard:isDown(81) then
+    if input.keyboard:isDown(4) or input.keyboard:isDown(80) then
         return -1
     end
 
@@ -141,7 +149,7 @@ function ComponentPlayer.onStateUpdate:walking(dt)
     local position = self.entity.position
     local velocity = self.velocity
 
-    if input.keyboard:isJustDown(26) then
+    if input.keyboard:isJustDown(26) or input.keyboard:isDown(82) then
         self:changeState("jumping")
         return
     end
