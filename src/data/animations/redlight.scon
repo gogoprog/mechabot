@@ -1,0 +1,215 @@
+{
+	"entity": [
+		{
+			"animation": [
+				{
+					"gline": [],
+					"id": 0,
+					"interval": 100,
+					"length": 499,
+					"mainline": {
+						"key": [
+							{
+								"bone_ref": [],
+								"id": 0,
+								"object_ref": [
+									{
+										"id": 0,
+										"key": 0,
+										"timeline": "0",
+										"z_index": "0"
+									}
+								]
+							},
+							{
+								"bone_ref": [],
+								"id": 1,
+								"object_ref": [
+									{
+										"id": 0,
+										"key": 1,
+										"timeline": "0",
+										"z_index": "0"
+									}
+								],
+								"time": 299
+							},
+							{
+								"bone_ref": [],
+								"id": 2,
+								"object_ref": [
+									{
+										"id": 0,
+										"key": 2,
+										"timeline": "0",
+										"z_index": "0"
+									}
+								],
+								"time": 499
+							}
+						]
+					},
+					"name": "start",
+					"looping": "false",
+					"timeline": [
+						{
+							"id": 0,
+							"key": [
+								{
+									"id": 0,
+									"object": {
+										"file": 0,
+										"folder": 0,
+										"scale_x": 0.2,
+										"scale_y": 0.05687999999999999,
+										"y": 3022.2506612063817
+									},
+									"spin": 0
+								},
+								{
+									"id": 1,
+									"object": {
+										"file": 0,
+										"folder": 0,
+										"scale_x": 0.2,
+										"scale_y": 0.8547885294073271,
+										"y": -94.8107009733917
+									},
+									"spin": 0,
+									"time": 299
+								},
+								{
+									"id": 2,
+									"object": {
+										"a": 0.8,
+										"file": 0,
+										"folder": 0,
+										"scale_y": 0.8541900000000001,
+										"y": -92.43005025574757
+									},
+									"spin": 0,
+									"time": 499
+								}
+							],
+							"name": "redlight"
+						}
+					]
+				},
+				{
+					"gline": [],
+					"id": 1,
+					"interval": 100,
+					"length": 400,
+					"mainline": {
+						"key": [
+							{
+								"bone_ref": [],
+								"id": 0,
+								"object_ref": [
+									{
+										"id": 0,
+										"key": 0,
+										"timeline": "0",
+										"z_index": "0"
+									}
+								]
+							},
+							{
+								"bone_ref": [],
+								"id": 1,
+								"object_ref": [
+									{
+										"id": 0,
+										"key": 1,
+										"timeline": "0",
+										"z_index": "0"
+									}
+								],
+								"time": 200
+							},
+							{
+								"bone_ref": [],
+								"id": 2,
+								"object_ref": [
+									{
+										"id": 0,
+										"key": 2,
+										"timeline": "0",
+										"z_index": "0"
+									}
+								],
+								"time": 399
+							}
+						]
+					},
+					"name": "ongoing",
+					"timeline": [
+						{
+							"id": 0,
+							"key": [
+								{
+									"id": 0,
+									"object": {
+										"a": 0.8,
+										"file": 0,
+										"folder": 0,
+										"scale_y": 0.8541900000000001,
+										"y": -92.43005025574757
+									},
+									"spin": 0
+								},
+								{
+									"id": 1,
+									"object": {
+										"file": 0,
+										"folder": 0,
+										"scale_x": 0.85,
+										"scale_y": 0.85419,
+										"y": -92.43005025574757
+									},
+									"spin": 0,
+									"time": 200
+								},
+								{
+									"id": 2,
+									"object": {
+										"a": 0.8,
+										"file": 0,
+										"folder": 0,
+										"scale_y": 0.85419,
+										"y": -92.43005025574757
+									},
+									"spin": 0,
+									"time": 399
+								}
+							],
+							"name": "redlight"
+						}
+					]
+				}
+			],
+			"character_map": [],
+			"id": 0,
+			"name": "redlight",
+			"obj_info": []
+		}
+	],
+	"folder": [
+		{
+			"file": [
+				{
+					"height": 3977,
+					"id": 0,
+					"name": "redlight.png",
+					"pivot_x": 0.5,
+					"pivot_y": 0,
+					"width": 1128
+				}
+			],
+			"id": 0
+		}
+	],
+	"generator": "BrashMonkey Spriter",
+	"generator_version": "r3",
+	"scon_version": "1.0"
+}

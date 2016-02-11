@@ -333,13 +333,13 @@ function Factory:createRedLight()
     e:addComponent(
         ComponentSpriter(),
         {
-            animation = gengine.graphics.spriter.get("entity_000-iddle"),
+            animation = gengine.graphics.spriter.get("redlight-ongoing"),
             layer = 10
         },
         "sprite"
         )
 
-    e.sprite:pushAnimation(gengine.graphics.spriter.get("entity_000-start"))
+    e.sprite:pushAnimation(gengine.graphics.spriter.get("redlight-start"))
 
     return e
 end

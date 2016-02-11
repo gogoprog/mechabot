@@ -25,6 +25,9 @@ function Game:init()
     Map:init()
 
     self:changeState("idle")
+
+    local e = Factory:createRedLight()
+    self.redLight = e
 end
 
 function Game:start(map)
@@ -48,6 +51,9 @@ function Game:start(map)
     self.player:insert()
     self.arm:insert()
     self:changeState("inGameIntro")
+
+    self.redLight.position.x = Map.length
+    self.redLight:insert()
 end
 
 function Game:stop()
@@ -85,7 +91,7 @@ function Game.onStateEnter:inGameIntro()
     local e = Factory:createRedLight()
     e.position:set(128, 0)
     e:insert()
-    self.redLight = e
+    self.introRedLight = e
 
     self.player.sprite.timeFactor = 0
 end
@@ -108,8 +114,8 @@ function Game.onStateExit:inGameIntro()
     self.player.sprite.timeFactor = 1
     self.player.sprite.alpha = 1
     self.arm.sprite.alpha = 1
-    self.redLight:remove()
-    gengine.entity.destroy(self.redLight)
+    self.introRedLight:remove()
+    gengine.entity.destroy(self.introRedLight)
 end
 
 function Game.onStateEnter:inGame()
@@ -162,26 +168,13 @@ function Game.onStateExit:dying()
 end
 
 function Game.onStateEnter:winning()
-    self.introDuration = 1
-    self.timeLeft = self.introDuration
-    local e = Factory:createRedLight()
-    e.position = self.player.position
-    e:insert()
-    self.redLight = e
-
     self.player.sprite.timeFactor = 100
+    self.player.player:changeState('jumping')
+    self.player.player.velocity.y = 5000
 end
 
 function Game.onStateUpdate:winning(dt)
-    local alpha = (self.timeLeft / self.introDuration)
-    self.player.sprite.alpha = alpha
-    self.arm.sprite.alpha = alpha
-    self.timeLeft = self.timeLeft - dt
-
-    local y = 500 - (self.timeLeft / self.introDuration) * 500
-    self.player.position.y = y
-
-    if self.timeLeft < 0 then
+    if self.player.position.y > 1400 then
         self:stop()
         self:changeState("none")
         Session:onLevelWon(self.score)
