@@ -13,18 +13,15 @@ function ComponentPlayer:init()
 end
 
 function ComponentPlayer:insert()
-    self.maxLife = 100
-    self.life = self.maxLife
-    self.maxSpeed = 2500
-    self.acceleration = 200
-    self.deceleration = 350
-    self.extent = vector2(300, 512)
+    self.def = dofile('data/defs/player.lua')
+    self.life = self.def.initialLife
+    self.extent = self.def.extent
     self.lastGenUpdate = 0
     self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-walk")
-    gengine.gui.executeScript("updateLife(" .. self.life / self.maxLife .. ")")
+    gengine.gui.executeScript("updateLife(" .. self.life / self.def.initialLife .. ")")
     self.velocity = vector2(0, 0)
 
-    self.collidePosition = self.entity.position + vector2(0, 256)
+    self.collidePosition = self.entity.position + vector2(0, self.extent.y / 2)
 
     self:changeState("idling")
 end
@@ -32,7 +29,7 @@ end
 function ComponentPlayer:update(dt)
     local position = self.entity.position
     local velocity = self.velocity
-    self.collidePosition = position + vector2(0, 256)
+    self.collidePosition = position + vector2(0, self.extent.y / 2)
 
     if self.life > 0 and Game.running then
         local g = self.generator
@@ -67,15 +64,15 @@ function ComponentPlayer:update(dt)
         if x_move then
 
             if velocity.x * x_move < 0 then
-                velocity.x = velocity.x + (self.acceleration+self.deceleration) * x_move * dt
+                velocity.x = velocity.x + (self.def.acceleration+self.def.deceleration) * x_move * dt
             else
-                velocity.x = velocity.x + self.acceleration * x_move * dt
+                velocity.x = velocity.x + self.def.acceleration * x_move * dt
             end
 
             if x_move > 0 then
-                velocity.x = mmin(velocity.x, self.maxSpeed)
+                velocity.x = mmin(velocity.x, self.def.maxSpeed)
             elseif x_move < 0 then
-                velocity.x = mmax(velocity.x, -self.maxSpeed)
+                velocity.x = mmax(velocity.x, -self.def.maxSpeed)
             end
         end
     end
@@ -101,7 +98,7 @@ function ComponentPlayer:hit(dmg)
             self:changeState("dying")
         end
 
-        gengine.gui.executeScript("updateLife(" .. self.life / self.maxLife .. ")")
+        gengine.gui.executeScript("updateLife(" .. self.life / self.def.initialLife .. ")")
     end
 end
 
@@ -157,9 +154,9 @@ function ComponentPlayer.onStateUpdate:walking(dt)
 
     if not self.xMove then
         if velocity.x > 0 then
-            velocity.x = mmax(velocity.x - self.deceleration * dt, 0)
+            velocity.x = mmax(velocity.x - self.def.deceleration * dt, 0)
         elseif velocity.x < 0 then
-            velocity.x = mmin(velocity.x + self.deceleration * dt, 0)
+            velocity.x = mmin(velocity.x + self.def.deceleration * dt, 0)
         end
     end
 
@@ -179,14 +176,14 @@ function ComponentPlayer.onStateExit:walking()
 end
 
 function ComponentPlayer.onStateEnter:jumping()
-    self.velocity.y = 1024
+    self.velocity.y = self.def.jumpImpulse
 end
 
 function ComponentPlayer.onStateUpdate:jumping(dt)
     local position = self.entity.position
     local velocity = self.velocity
 
-    velocity.y = velocity.y - 1500 * dt
+    velocity.y = velocity.y + self.def.gravity * dt
 
     if velocity.y < 0 then
         self:changeState("falling")
@@ -212,7 +209,7 @@ function ComponentPlayer.onStateUpdate:falling(dt)
     local position = self.entity.position
     local velocity = self.velocity
 
-    velocity.y = velocity.y - 1500 * dt
+    velocity.y = velocity.y + self.def.gravity * dt
 
     local r = Map:movePlayer(position, self.collidePosition, self.extent, velocity, dt)
 
@@ -226,7 +223,7 @@ function ComponentPlayer.onStateExit:falling()
         Map.cameraEntity.shaker:shake(0.3, 10)
     end
 
-    for x = -128, 128, 32 do
+    for x = -self.extent.x/2, self.extent.x/2, 32 do
         local e = Factory:createEffect("largeSmoke")
         e.position:set(self.entity.position)
         e.position.x = e.position.x + x
@@ -245,7 +242,7 @@ function ComponentPlayer.onStateUpdate:dying(dt)
     local position = self.entity.position
     local velocity = self.velocity
 
-    velocity.y = velocity.y - 1500 * dt
+    velocity.y = velocity.y + self.def.gravity * dt
 
     local r = Map:movePlayer(position, self.collidePosition, self.extent, velocity, dt)
 
