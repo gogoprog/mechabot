@@ -62,5 +62,18 @@ return {
                 level = 10
             }
         }
+    },
+    {
+        title = "Platforms",
+        filename = "data/maps/platforms.lua",
+        parallaxes = "default",
+        music = "data/audio/robot.mp3",
+        shop = {
+            {
+                type = "weapon",
+                name = "rocket",
+                level = 10
+            }
+        }
     }
 }
