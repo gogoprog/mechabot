@@ -16,10 +16,11 @@ end
 
 function Map:start(index)
     local map = self.definitions[index]
+    local parallaxesDefs = dofile("data/defs/parallaxes.lua")
 
     self:loadFile(map.filename)
 
-    for k, v in ipairs(map.parallaxes) do
+    for k, v in ipairs(parallaxesDefs[map.parallaxes]) do
         local p = Factory:createParallax(v.y, v.speed, v.texture)
         table.insert(self.parallaxes, p)
         p:insert()
