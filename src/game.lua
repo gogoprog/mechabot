@@ -185,8 +185,6 @@ function Game.onStateExit:winning()
     self.player.sprite.timeFactor = 1
     self.player.sprite.alpha = 1
     self.arm.sprite.alpha = 1
-    self.redLight:remove()
-    gengine.entity.destroy(self.redLight)
 end
 
 function Game.onStateEnter:shop()
@@ -202,7 +200,6 @@ function Game.onStateEnter:shop()
     self.player.position.y = 0
     self.player.sprite.timeFactor = 0
 end
-
 
 function Game.onStateUpdate:shop(dt)
 
