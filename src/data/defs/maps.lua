@@ -67,7 +67,7 @@ return {
         title = "Platforms",
         filename = "data/maps/platforms.lua",
         parallaxes = "default",
-        music = "data/audio/robot.mp3",
+        music = "data/audio/robot-02.mp3",
         shop = {
             {
                 type = "weapon",
