@@ -28,6 +28,8 @@ function Game:init()
 
     local e = Factory:createRedLight()
     self.redLight = e
+
+    self.shopBackground = Factory:createSprite("shop", -10)
 end
 
 function Game:start(map)
@@ -188,6 +190,7 @@ function Game.onStateExit:winning()
 end
 
 function Game.onStateEnter:shop()
+    self.shopBackground:insert()
     Map.cameraEntity.position:set(0, 0)
     self.player:insert()
     self.arm:insert()
@@ -208,6 +211,7 @@ end
 function Game.onStateExit:shop()
     self.arm.arm.forcedShot = false
     self.player.sprite.timeFactor = 1
+    self.shopBackground:remove()
 end
 
 function Game:addScore(v)
