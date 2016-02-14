@@ -30,6 +30,7 @@ function Game:init()
     self.redLight = e
 
     self.shopBackground = Factory:createSprite("shop", -10)
+    self.shopBackground.position.y = 140
 end
 
 function Game:start(map)
@@ -200,7 +201,7 @@ function Game.onStateEnter:shop()
     self.arm.rotation = 0
 
     self.player.position.x = 250
-    self.player.position.y = 0
+    self.player.position.y = -130
     self.player.sprite.timeFactor = 0
 end
 
