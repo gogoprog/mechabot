@@ -31,7 +31,7 @@ function ComponentPlayer:update(dt)
     local velocity = self.velocity
     self.collidePosition = position + vector2(0, self.extent.y / 2)
 
-    if self.life > 0 and Game.running then
+    if (self.life > 0 and Game.running) or Game.state == "shop" then
         local g = self.generator
         local s = self.shield
 
@@ -57,7 +57,9 @@ function ComponentPlayer:update(dt)
 
             self.lastGenUpdate = 0
         end
+    end
 
+    if self.life > 0 and Game.running then
         local x_move = self:getXMove()
         self.xMove = x_move
 
