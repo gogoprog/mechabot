@@ -143,6 +143,7 @@ end
 
 function ComponentPlayer.onStateEnter:walking()
     self.velocity.y = 0
+    self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-walk")
 end
 
 function ComponentPlayer.onStateUpdate:walking(dt)
@@ -174,11 +175,13 @@ function ComponentPlayer.onStateUpdate:walking(dt)
 end
 
 function ComponentPlayer.onStateExit:walking()
-    Game.player.sprite.timeFactor = 0
 end
 
 function ComponentPlayer.onStateEnter:jumping()
     self.velocity.y = self.def.jumpImpulse
+    self.entity.sprite.timeFactor = 1
+    self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-fly")
+    self.entity.sprite:pushAnimation(gengine.graphics.spriter.get("mecha-jump"))
 end
 
 function ComponentPlayer.onStateUpdate:jumping(dt)
@@ -188,6 +191,8 @@ function ComponentPlayer.onStateUpdate:jumping(dt)
     velocity.y = velocity.y + self.def.gravity * dt
 
     if velocity.y < 0 then
+        self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-walk")
+        self.entity.sprite:pushAnimation(gengine.graphics.spriter.get("mecha-jump-end"))
         self:changeState("falling")
         return
     end
@@ -233,6 +238,8 @@ function ComponentPlayer.onStateExit:falling()
     end
 
     Map:crushUnderPlayer(self.collidePosition, self.extent, -self.velocity.y / 10)
+
+    self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-walk")
 end
 
 function ComponentPlayer.onStateEnter:dying()
