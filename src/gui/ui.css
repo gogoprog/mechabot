@@ -66,7 +66,7 @@ button:hover {
 
 .panel:before{
     content:"";
-    background-color: rgba(204, 204, 204, 0.7);
+    background-color: rgba(153, 153, 153, 1);
     background-clip:content-box;
     border-style: solid;
     border-width: 13px 18px 16px 17px;
