@@ -344,6 +344,20 @@ function Factory:createRedLight()
     return e
 end
 
+function Factory:createSprite(texture_name, layer)
+    local e = gengine.entity.create()
+
+    e:addComponent(
+        ComponentSprite(),
+        {
+            texture = gengine.graphics.texture.get(texture_name),
+            layer = layer
+        },
+        "sprite"
+        )
+
+    return e
+end
 
 function Factory.createEnemy(object, properties)
     local e = Factory:pickFromPool(Factory.enemies)

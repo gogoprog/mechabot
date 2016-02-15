@@ -11986,6 +11986,7 @@
 						]
 					},
 					"name": "jump-end",
+					"looping": "false",
 					"timeline": [
 						{
 							"id": 0,

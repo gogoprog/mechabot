@@ -100,8 +100,8 @@ var shop = {
         {
             case "weapon":
             {
-                item.find(".label1").html("Bullet damage/s :");
-                item.find(".label2").html("Bullet speed :");
+                item.find(".label1").html("Damage/s :");
+                item.find(".label2").html("Speed :");
                 item.find(".label3").html("Power cost/s :");
             }
             break;
