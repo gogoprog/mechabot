@@ -192,6 +192,7 @@ function ComponentPlayer.onStateUpdate:jumping(dt)
 
     if velocity.y < 0 then
         self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-walk")
+        self.entity.sprite:pushAnimation(gengine.graphics.spriter.get("mecha-arrival"))
         self.entity.sprite:pushAnimation(gengine.graphics.spriter.get("mecha-jump-end"))
         self:changeState("falling")
         return
