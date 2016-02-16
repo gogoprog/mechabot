@@ -167,7 +167,7 @@ function ComponentPlayer.onStateUpdate:walking(dt)
 
     Game.player.sprite.timeFactor = mabs(velocity.x) / 120
 
-    if r == 0 then
+    if r == 0 or r == 1 then
         self:changeState("falling")
     elseif r == 2 then
         velocity.x = 0
@@ -219,7 +219,7 @@ function ComponentPlayer.onStateUpdate:falling(dt)
 
     velocity.y = velocity.y + self.def.gravity * dt
 
-    local r = Map:movePlayer(position, self.collidePosition, self.extent, velocity, dt)
+    local r = Map:movePlayer(position, self.collidePosition, self.extent, velocity, dt, 0, 0)
 
     if r ~= 0 then
         self:changeState("walking")

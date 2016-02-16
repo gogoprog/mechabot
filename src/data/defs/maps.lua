@@ -75,5 +75,18 @@ return {
                 level = 10
             }
         }
+    },
+    {
+        title = "Test",
+        filename = "data/maps/test.lua",
+        parallaxes = "default",
+        music = "data/audio/robot-02.mp3",
+        shop = {
+            {
+                type = "weapon",
+                name = "rocket",
+                level = 10
+            }
+        }
     }
 }
