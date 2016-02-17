@@ -259,5 +259,10 @@ function ComponentPlayer.onStateUpdate:dying(dt)
 end
 
 function ComponentPlayer:onSpriterEvent(name)
-    print("[event] " .. name)
+    local transform = self.entity.sprite:getBoneLocalTransform(name == "right step" and 8 or 14)
+    if transform then
+        local e = Factory:createEffect("largeSmoke")
+        e.position = transform.position + self.entity.position
+        e:insert()
+    end
 end
