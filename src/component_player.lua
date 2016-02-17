@@ -257,3 +257,7 @@ function ComponentPlayer.onStateUpdate:dying(dt)
     local r = Map:movePlayer(position, self.collidePosition, self.extent, velocity, dt)
 
 end
+
+function ComponentPlayer:onSpriterEvent(name)
+    print("[event] " .. name)
+end
