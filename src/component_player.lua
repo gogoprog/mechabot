@@ -263,6 +263,7 @@ function ComponentPlayer:onSpriterEvent(name)
     if transform then
         local e = Factory:createEffect("largeSmoke")
         e.position = transform.position + self.entity.position
+        e.position.y = e.position.y - 32
         e:insert()
     end
 end
