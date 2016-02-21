@@ -15,7 +15,6 @@ body{
     color:black;
     font-size:50px;
     text-align: center;
-    paddgin:0;
     margin-left:auto;
     margin-right:auto;
     width:100%;
@@ -94,6 +93,7 @@ button:hover {
 #hud span {
     font-size:25px;
     display:inline-block;
+    vertical-align: top;
 }
 
 .generatorBar,
@@ -101,9 +101,9 @@ button:hover {
 .shieldBar
 {
     display:inline-block;
-    width:256px;
+    width:25%;
     height:24px;
-    vertical-align: bottom;
+    vertical-align: top;
 }
 
 #fader {
@@ -135,8 +135,8 @@ button:hover {
     display:block;
     top:0;
     left:0;
-    width:360px;
-    text-align:right;
+    width:65%;
+    height:32px;
 }
 
 .scoreContainer {
@@ -144,7 +144,7 @@ button:hover {
     display:block;
     top:0;
     right:0;
-    width:256px;
+    width:30%;
     height:32px;
     text-align:left;
 }

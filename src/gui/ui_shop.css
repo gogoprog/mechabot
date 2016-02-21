@@ -227,12 +227,12 @@
 
 #shop .info label {
     display:inline-block;
-    width:48%;
+    width:30%;
 }
 
 #shop .info span {
     display:inline-block;
-    width:25%;
+    width:20%;
     text-align:right;
 }
 
@@ -284,4 +284,12 @@
     font-size:12px;
     width:32px;
     height:32px;
+}
+
+.positive {
+    color:lightgreen;
+}
+
+.negative {
+    color:red;
 }
