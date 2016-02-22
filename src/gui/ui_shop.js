@@ -12,6 +12,7 @@ var shop = {
     {
         var items = $(".items").children();
         var container = this.container;
+
         items.find('.toggler').on('click', function() {
             var that = $(this).parent();
             gengine.execute("Game:resetItems()");
@@ -34,6 +35,34 @@ var shop = {
                 var name = that.data("name");
                 var level = that.data("level");
                 var code;
+                var i;
+                var thisValues = shop[type+'s'][name][level];
+                var currentValues = shop[type+'s'][shop.currentItems[type].name][shop.currentItems[type].level];
+
+                for(i=0;i<3;i++)
+                {
+                    var c = thisValues[i] - currentValues[i];
+                    var element = that.find('.comparator' + (i+1));
+
+                    element.removeClass();
+                    element.addClass('comparator' + (i+1));
+
+                    if(c > 0)
+                    {
+                        c = '+' + c;
+                        element.addClass('positive');
+                    }
+                    else if(c===0)
+                    {
+                        c = '=';
+                    }
+                    else
+                    {
+                        element.addClass('negative');
+                    }
+
+                    element.html(c);
+                }
 
                 switch(type)
                 {
@@ -62,6 +91,7 @@ var shop = {
                 code += ")";
 
                 gengine.execute(code);
+
             }
         });
 
@@ -81,6 +111,9 @@ var shop = {
     clear: function()
     {
         this.container.find(".itemInstance").remove();
+        this.weapons = {};
+        this.shields = {};
+        this.generators = {};
     },
     addItem: function(type, name, level, title, price, info1, info2, info3)
     {
@@ -95,6 +128,9 @@ var shop = {
         item.data("name", name);
         item.data("level", level);
         item.data("price", price);
+
+        this[type + 's'][name] = this[type + 's'][name] || {};
+        this[type + 's'][name][level] = [parseFloat(info1), parseFloat(info2), parseFloat(info3)];
 
         switch(type)
         {
@@ -116,7 +152,7 @@ var shop = {
 
             case "shield":
             {
-                item.find(".label1").html("Capacity / Absorption :");
+                item.find(".label1").html("Capacity :");
                 item.find(".label2").html("Regeneration :");
                 item.find(".label3").html("Power cost/s :");
             }

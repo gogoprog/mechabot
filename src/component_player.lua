@@ -167,7 +167,7 @@ function ComponentPlayer.onStateUpdate:walking(dt)
 
     Game.player.sprite.timeFactor = mabs(velocity.x) / 120
 
-    if r == 0 then
+    if r == 0 or r == 1 then
         self:changeState("falling")
     elseif r == 2 then
         velocity.x = 0
@@ -192,6 +192,7 @@ function ComponentPlayer.onStateUpdate:jumping(dt)
 
     if velocity.y < 0 then
         self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-walk")
+        self.entity.sprite:pushAnimation(gengine.graphics.spriter.get("mecha-arrival"))
         self.entity.sprite:pushAnimation(gengine.graphics.spriter.get("mecha-jump-end"))
         self:changeState("falling")
         return
@@ -218,7 +219,7 @@ function ComponentPlayer.onStateUpdate:falling(dt)
 
     velocity.y = velocity.y + self.def.gravity * dt
 
-    local r = Map:movePlayer(position, self.collidePosition, self.extent, velocity, dt)
+    local r = Map:movePlayer(position, self.collidePosition, self.extent, velocity, dt, 0, 0)
 
     if r ~= 0 then
         self:changeState("walking")
@@ -255,4 +256,14 @@ function ComponentPlayer.onStateUpdate:dying(dt)
 
     local r = Map:movePlayer(position, self.collidePosition, self.extent, velocity, dt)
 
+end
+
+function ComponentPlayer:onSpriterEvent(name)
+    local transform = self.entity.sprite:getBoneLocalTransform(name == "right step" and 8 or 14)
+    if transform then
+        local e = Factory:createEffect("largeSmoke")
+        e.position = transform.position + self.entity.position
+        e.position.y = e.position.y - 32
+        e:insert()
+    end
 end
