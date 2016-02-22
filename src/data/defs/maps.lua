@@ -42,6 +42,16 @@ return {
                 type = "weapon",
                 name = "plasma",
                 level = 10
+            },
+            {
+                type = "generator",
+                name = "rotor",
+                level = 1
+            },
+            {
+                type = "shield",
+                name = "medium",
+                level = 1
             }
         }
     },
@@ -60,6 +70,16 @@ return {
                 type = "weapon",
                 name = "rocket",
                 level = 10
+            },
+            {
+                type = "generator",
+                name = "tank",
+                level = 10
+            },
+            {
+                type = "shield",
+                name = "large",
+                level = 1
             }
         }
     },
