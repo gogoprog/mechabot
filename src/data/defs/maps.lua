@@ -97,6 +97,29 @@ return {
         }
     },
     {
+        title = "bruxelles",
+        filename = "data/maps/bruxelles.lua",
+        parallaxes = "default",
+        music = "data/audio/robot.mp3",
+        shop = {
+            {
+                type = "weapon",
+                name = "plasma",
+                level = 10
+            },
+            {
+                type = "generator",
+                name = "rotor",
+                level = 1
+            },
+            {
+                type = "shield",
+                name = "medium",
+                level = 1
+            }
+        }
+    },
+    {
         title = "Test",
         filename = "data/maps/test.lua",
         parallaxes = "default",
