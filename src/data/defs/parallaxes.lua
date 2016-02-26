@@ -1,6 +1,11 @@
 return {
     default = {
         {
+            y = 530,
+            speed = 1/4096,
+            texture = "clouds"
+        },
+        {
             y = 48,
             speed = 1/4096,
             texture = "ground"
