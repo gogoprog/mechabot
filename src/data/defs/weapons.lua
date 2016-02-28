@@ -1,7 +1,7 @@
 return {
     plasma = {
-        texture = function(level) return "particle" end,
-        extent = function(level) return vector2(32,32) + vector2(level, level) * 5 end,
+        texture = function(level) return "plasma" end,
+        extent = function(level) return vector2(63,44) + vector2(level, level) * 5 end,
         damage = function(level)
             return 10 * level
         end,
@@ -19,7 +19,6 @@ return {
             hit = "explosion"
         },
         bulletRadius = 20,
-        color = vector4(0.2, 1.0, 0.2, 1),
         price = function(level) return 100 * level end,
         directions = function(level)
             if level < 3 then
