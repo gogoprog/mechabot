@@ -107,5 +107,31 @@ return {
         directions = {
             vector2(1, 0)
         }
+    },
+    vulcan = {
+        texture = function(level) return "vulcan" end,
+        extent = function(level) return vector2(64,16) end,
+        damage = function(level)
+            return 10 + level
+        end,
+        interval = function(level)
+            return 0.2 - level/100
+        end,
+        powerCost = function(level)
+            return 10 + level * 0.5
+        end,
+        bulletSpeed = function(level)
+            return 1200
+        end,
+        effects = {
+            fire = "plasma_fire",
+            hit = "explosion"
+        },
+        bulletRadius = 20,
+        color = vector4(1, 1, 1, 1),
+        price = function(level) return 100 * level end,
+        directions = {
+            vector2(1, 0)
+        }
     }
 }
