@@ -44,7 +44,7 @@ return {
         texture = function(level) return "machinegun" end,
         extent = function(level) return vector2(46,20) + vector2(level, level) * 5 end,
         damage = function(level)
-            return 2 * level
+            return 5 * level
         end,
         interval = function(level)
             return 0.1 - level/100
