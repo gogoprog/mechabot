@@ -132,6 +132,7 @@ return {
         price = function(level) return 100 * level end,
         directions = {
             vector2(1, 0)
-        }
+        },
+        yOffsetRange = 50
     }
 }
