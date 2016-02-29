@@ -53,6 +53,10 @@ function ComponentArm:update(dt)
                 local armDirection = gengine.math.getRotated(vector2(1,0), self.currentAngle)
                 local firePosition = self_position + armDirection * bullet_offset_x + bulletOffset
 
+                if self.weapon.yOffsetRange then
+                    firePosition.y = firePosition.y + (math.random() - 0.5) * self.weapon.yOffsetRange
+                end
+
                 for k, v in ipairs(self.weapon.directions) do
                     local direction = gengine.math.getRotated(v, self.currentAngle)
                     direction = gengine.math.getNormalized(direction)
