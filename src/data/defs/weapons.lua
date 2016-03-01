@@ -40,6 +40,31 @@ return {
             }
         end
     },
+    machinegun = {
+        texture = function(level) return "machinegun" end,
+        extent = function(level) return vector2(46,20) + vector2(level, level) * 5 end,
+        damage = function(level)
+            return 2 * level
+        end,
+        interval = function(level)
+            return 0.1 - level/100
+        end,
+        powerCost = function(level)
+            return 10 + level * 0.5
+        end,
+        bulletSpeed = function(level)
+            return 1200
+        end,
+        effects = {
+            fire = "plasma_fire",
+            hit = "explosion"
+        },
+        bulletRadius = 20,
+        price = function(level) return 100 * level end,
+        directions = {
+            vector2(1, 0)
+        }
+    },
     laser = {
         texture = function(level) return "laser" end,
         extent = function(level) return vector2(86,32) + vector2(level, level) * 5 end,
