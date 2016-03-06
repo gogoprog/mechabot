@@ -36,7 +36,6 @@ function ComponentShaker:update(dt)
 end
 
 function ComponentShaker:remove()
-
 end
 
 function ComponentShaker:shake(duration, intensity)
