@@ -109,7 +109,7 @@ return {
     },
     rocket = {
         texture = function(level) return "rocket" end,
-        extent = function(level) return vector2(64,64) end,
+        extent = function(level) return vector2(64,32) end,
         damage = function(level)
             return 10 * level
         end,
