@@ -29,6 +29,16 @@ return {
                 type = "weapon",
                 name = "laser",
                 level = 2
+            },
+            {
+                type = "weapon",
+                name = "machinegun",
+                level = 1
+            },
+            {
+                type = "weapon",
+                name = "vulcan",
+                level = 2
             }
         }
     },
