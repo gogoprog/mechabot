@@ -9,7 +9,7 @@ function Application.onStateEnter:menu()
 end
 
 function Application.onStateUpdate:menu(dt)
-    if gengine.input.keyboard:isJustUp(41) then
+    if gengine.input.isKeyJustDown(41) then
         gengine.application.quit()
     end
 end
