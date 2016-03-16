@@ -9,7 +9,7 @@ end
 function ComponentParallax:update(dt)
     local e = self.entity
 
-    e.sprite.uvOffset = vector2(Map.parallaxOffset * self.speed, 0)
+    e.sprite.uvOffset = Vector2(Map.parallaxOffset * self.speed, 0)
 end
 
 function ComponentParallax:remove()

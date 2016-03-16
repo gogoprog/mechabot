@@ -33,33 +33,10 @@ function Factory:pickFromPool(t)
 end
 
 function Factory:init()
-    local atlas
-
-    gengine.graphics.texture.createFromDirectory("data/textures/")
-    gengine.audio.sound.createFromDirectory("data/audio/")
-    gengine.graphics.spriter.createFromDirectory("data/animations/")
-
     self.definitions = {
         enemies = dofile("data/defs/enemies.lua"),
-        effects = dofile("data/defs/effects.lua"),
+        --effects = dofile("data/defs/effects.lua")
     }
-
-    atlas = gengine.graphics.atlas.create(
-        "enemyMove",
-        gengine.graphics.texture.get("enemy_move"),
-        10,
-        1
-        )
-
-    self.enemyMoveAnimation = gengine.graphics.animation.create(
-        "enemyMove",
-        {
-            atlas = atlas,
-            frames = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 },
-            framerate = 16,
-            loop = true
-        }
-        )
 end
 
 function Factory:createCamera()
@@ -68,7 +45,7 @@ function Factory:createCamera()
     e:addComponent(
         ComponentCamera(),
         {
-            extent = vector2(1920, 1080)
+            extent = Vector2(1920, 1080)
         },
         "camera"
         )
@@ -89,7 +66,7 @@ function Factory:createParallax(y, speed, texture)
     e:addComponent(
         ComponentStaticSprite2D(),
         {
-            texture = gengine.graphics.texture.get(texture),
+            texture = cache:GetResource('Sprite2D', texture),
             layer = (speed == 0) and -100000000 or ( -1000 / speed)
         },
         "sprite"
@@ -114,7 +91,8 @@ function Factory:createPlayer()
     e:addComponent(
         ComponentAnimatedSprite2D(),
         {
-            animation = gengine.graphics.spriter.get("mecha-walk"),
+            animationSet = cache:GetResource("AnimationSet2D", "animations/mecha.scml"),
+            animation = "walk",
             layer = 4
         },
         "sprite"
@@ -143,7 +121,8 @@ function Factory:createArm()
     e:addComponent(
         ComponentAnimatedSprite2D(),
         {
-            animation = gengine.graphics.spriter.get("arm-fireing"),
+            animationSet = cache:GetResource("AnimationSet2D", "animations/arm.scml"),
+            animation = "fireing",
             layer = 5
         },
         "sprite"
@@ -203,12 +182,12 @@ function Factory:createBullet(velocity, weapon, is_enemy)
                     size = 32,
                     emitterRate = 20,
                     emitterLifeTime = 1024,
-                    extentRange = {vector2(8,8), vector2(16,16)},
+                    extentRange = {Vector2(8,8), Vector2(16,16)},
                     directionRange = {0, 2*3.14},
                     speedRange = {0, 0},
                     rotationRange = {-3, 3},
                     spinRange = {-10, 10},
-                    linearAccelerationRange = {vector2(0, 0), vector2(0, 0)},
+                    linearAccelerationRange = {Vector2(0, 0), Vector2(0, 0)},
                     layer = 100,
                     keepLocal = false
                 },
@@ -239,9 +218,9 @@ function Factory:createBullet(velocity, weapon, is_enemy)
     e.bullet.itIsEnemy = is_enemy
     e.bullet.weapon = weapon
 
-    e.sprite.texture = gengine.graphics.texture.get(weapon.texture)
+    e.sprite.texture = cache:GetResource('Sprite2D', weapon.texture)
     e.sprite.extent = weapon.extent
-    e.sprite.color = weapon.color or vector4(1,1,1,1)
+    e.sprite.color = weapon.color or Color(1,1,1,1)
 
     return e
 end
@@ -303,7 +282,8 @@ function Factory:createSoldier()
         e:addComponent(
             ComponentAnimatedSprite2D(),
             {
-                animation = gengine.graphics.spriter.get("soldier-walk"),
+                animationSet = cache:GetResource("AnimationSet2D", "animations/soldier.scml"),
+                animation = "walk",
                 layer = 10
             },
             "sprite"
@@ -333,13 +313,14 @@ function Factory:createRedLight()
     e:addComponent(
         ComponentAnimatedSprite2D(),
         {
-            animation = gengine.graphics.spriter.get("redlight-ongoing"),
+            animationSet = cache:GetResource("AnimationSet2D", "animations/redlight.scml"),
+            animation = "ongoing",
             layer = 10
         },
         "sprite"
         )
 
-    e.sprite:pushAnimation(gengine.graphics.spriter.get("redlight-start"))
+    --e.sprite:pushAnimation(gengine.graphics.spriter.get("redlight-start"))
 
     return e
 end
@@ -350,7 +331,7 @@ function Factory:createSprite(texture_name, layer)
     e:addComponent(
         ComponentStaticSprite2D(),
         {
-            texture = gengine.graphics.texture.get(texture_name),
+            texture = cache:GetResource('Sprite2D', texture_name),
             layer = layer
         },
         "sprite"
@@ -402,9 +383,10 @@ function Factory.createEnemy(object, properties)
             )
     end
 
-    e.sprite.animation = gengine.graphics.spriter.get(def.animation)
+    e.sprite.animationSet = cache:GetResource("AnimationSet2D", def.animationSet)
+    e.sprite.animation = def.animation
     e.sprite.layer = 10
-    e.sprite.color = def.color or vector4(1,1,1,1)
+    e.sprite.color = def.color or Color(1,1,1,1)
 
     e.enemy.positions = object.polyline
     e.enemy.def = def

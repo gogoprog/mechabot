@@ -9,7 +9,7 @@ end
 
 function start()
     gengine.graphics.setClearColor(Color(0.1,0.1,0.1,1))
-    --Game:init()
+    Game:init()
 
     gengine.gui.loadFile("gui/ui.html")
 end
