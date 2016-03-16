@@ -87,7 +87,7 @@ function Factory:createParallax(y, speed, texture)
     local e = gengine.entity.create()
 
     e:addComponent(
-        ComponentSprite(),
+        ComponentStaticSprite2D(),
         {
             texture = gengine.graphics.texture.get(texture),
             layer = (speed == 0) and -100000000 or ( -1000 / speed)
@@ -112,7 +112,7 @@ function Factory:createPlayer()
     local e = gengine.entity.create()
 
     e:addComponent(
-        ComponentSpriter(),
+        ComponentAnimatedSprite2D(),
         {
             animation = gengine.graphics.spriter.get("mecha-walk"),
             layer = 4
@@ -141,7 +141,7 @@ function Factory:createArm()
     local e = gengine.entity.create()
 
     e:addComponent(
-        ComponentSpriter(),
+        ComponentAnimatedSprite2D(),
         {
             animation = gengine.graphics.spriter.get("arm-fireing"),
             layer = 5
@@ -174,7 +174,7 @@ function Factory:createBullet(velocity, weapon, is_enemy)
         e = gengine.entity.create()
 
         e:addComponent(
-            ComponentSprite(),
+            ComponentStaticSprite2D(),
             {
                 layer = 2
             },
@@ -301,7 +301,7 @@ function Factory:createSoldier()
         e = gengine.entity.create()
 
         e:addComponent(
-            ComponentSpriter(),
+            ComponentAnimatedSprite2D(),
             {
                 animation = gengine.graphics.spriter.get("soldier-walk"),
                 layer = 10
@@ -331,7 +331,7 @@ function Factory:createRedLight()
     local e = gengine.entity.create()
 
     e:addComponent(
-        ComponentSpriter(),
+        ComponentAnimatedSprite2D(),
         {
             animation = gengine.graphics.spriter.get("redlight-ongoing"),
             layer = 10
@@ -348,7 +348,7 @@ function Factory:createSprite(texture_name, layer)
     local e = gengine.entity.create()
 
     e:addComponent(
-        ComponentSprite(),
+        ComponentStaticSprite2D(),
         {
             texture = gengine.graphics.texture.get(texture_name),
             layer = layer
@@ -367,7 +367,7 @@ function Factory.createEnemy(object, properties)
         e = gengine.entity.create()
 
         e:addComponent(
-            ComponentSpriter(),
+            ComponentAnimatedSprite2D(),
             {
             },
             "sprite"
