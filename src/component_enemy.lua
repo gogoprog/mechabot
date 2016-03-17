@@ -5,7 +5,7 @@ end
 
 function ComponentEnemy:insert()
     local p = self.entity.position
-    self.initialPosition = vector2(p.x, p.y)
+    self.initialPosition = Vector2(p.x, p.y)
     table.insert(Game.enemies, self.entity)
     self.currentTargetPositionIndex = nil
     self.life = self.def.life or 10

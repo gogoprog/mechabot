@@ -1,7 +1,7 @@
 return {
     plasma = {
         texture = function(level) return "plasma" end,
-        extent = function(level) return vector2(63,44) + vector2(level, level) * 5 end,
+        extent = function(level) return Vector2(63,44) + Vector2(level, level) * 5 end,
         damage = function(level)
             return 10 * level
         end,
@@ -22,29 +22,29 @@ return {
         price = function(level) return 100 * level end,
         directions = function(level)
             if level < 3 then
-                return { vector2(1, 0) }
+                return { Vector2(1, 0) }
             elseif level < 5 then
                 return {
-                    vector2(1, 0.05),
-                    vector2(1, 0),
-                    vector2(1, -0.05)
+                    Vector2(1, 0.05),
+                    Vector2(1, 0),
+                    Vector2(1, -0.05)
                 }
             end
 
             return {
-                vector2(1, 0.1),
-                vector2(1, 0.05),
-                vector2(1, 0),
-                vector2(1, -0.05),
-                vector2(1, -0.1)
+                Vector2(1, 0.1),
+                Vector2(1, 0.05),
+                Vector2(1, 0),
+                Vector2(1, -0.05),
+                Vector2(1, -0.1)
             }
         end
     },
     machinegun = {
         texture = function(level) return "machinegun" end,
-        extent = function(level) return vector2(46,20) + vector2(level, level) * 5 end,
+        extent = function(level) return Vector2(46,20) + Vector2(level, level) * 5 end,
         damage = function(level)
-            return 5 * level
+            return 2 * level
         end,
         interval = function(level)
             return 0.1 - level/100
@@ -62,12 +62,12 @@ return {
         bulletRadius = 20,
         price = function(level) return 100 * level end,
         directions = {
-            vector2(1, 0)
+            Vector2(1, 0)
         }
     },
     laser = {
         texture = function(level) return "laser" end,
-        extent = function(level) return vector2(86,32) + vector2(level, level) * 5 end,
+        extent = function(level) return Vector2(86,32) + Vector2(level, level) * 5 end,
         damage = function(level)
             return 10 * level
         end,
@@ -85,31 +85,31 @@ return {
             hit = "explosion"
         },
         bulletRadius = 20,
-        color = vector4(1, 0.9, 0.9, 0.9),
+        color = Color(1, 0.9, 0.9, 0.9),
         price = function(level) return 100 * level end,
         directions = function(level)
             if level < 3 then
-                return { vector2(1, 0) }
+                return { Vector2(1, 0) }
             elseif level < 5 then
                 return {
-                    vector2(1, 0.05),
-                    vector2(1, 0),
-                    vector2(1, -0.05)
+                    Vector2(1, 0.05),
+                    Vector2(1, 0),
+                    Vector2(1, -0.05)
                 }
             end
 
             return {
-                vector2(1, 0.1),
-                vector2(1, 0.05),
-                vector2(1, 0),
-                vector2(1, -0.05),
-                vector2(1, -0.1)
+                Vector2(1, 0.1),
+                Vector2(1, 0.05),
+                Vector2(1, 0),
+                Vector2(1, -0.05),
+                Vector2(1, -0.1)
             }
         end
     },
     rocket = {
         texture = function(level) return "rocket" end,
-        extent = function(level) return vector2(64,32) end,
+        extent = function(level) return Vector2(64,64) end,
         damage = function(level)
             return 10 * level
         end,
@@ -130,12 +130,12 @@ return {
         },
         price = function(level) return 100 * level end,
         directions = {
-            vector2(1, 0)
+            Vector2(1, 0)
         }
     },
     vulcan = {
         texture = function(level) return "vulcan" end,
-        extent = function(level) return vector2(64,16) end,
+        extent = function(level) return Vector2(64,16) end,
         damage = function(level)
             return 10 + level
         end,
@@ -153,10 +153,10 @@ return {
             hit = "explosion"
         },
         bulletRadius = 20,
-        color = vector4(1, 1, 1, 1),
+        color = Color(1, 1, 1, 1),
         price = function(level) return 100 * level end,
         directions = {
-            vector2(1, 0)
+            Vector2(1, 0)
         },
         yOffsetRange = 50
     }

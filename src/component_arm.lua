@@ -49,8 +49,8 @@ function ComponentArm:update(dt)
 
         if self.timeSinceLastBullet > self.weapon.interval then
             if Game.player.player.generator.currentValue >= self.weapon.powerCost then
-                local bulletOffset = gengine.math.getRotated(vector2(0, bullet_offset_y), angle)
-                local armDirection = gengine.math.getRotated(vector2(1,0), self.currentAngle)
+                local bulletOffset = gengine.math.getRotated(Vector2(0, bullet_offset_y), angle)
+                local armDirection = gengine.math.getRotated(Vector2(1,0), self.currentAngle)
                 local firePosition = self_position + armDirection * bullet_offset_x + bulletOffset
 
                 if self.weapon.yOffsetRange then

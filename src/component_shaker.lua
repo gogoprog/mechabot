@@ -6,9 +6,9 @@ end
 
 function ComponentShaker:insert()
     local p = self.entity.position
-    self.basePosition = vector2(p.x, p.y)
+    self.basePosition = Vector2(p.x, p.y)
 
-    self.offset = vector2(0, 0)
+    self.offset = Vector2(0, 0)
 end
 
 function ComponentShaker:update(dt)
@@ -19,7 +19,7 @@ function ComponentShaker:update(dt)
 
         if self.time > 0.02 then
             local p = self.entity.position
-            local d = vector2(math.random(-self.intensity, self.intensity), math.random(-self.intensity, self.intensity))
+            local d = Vector2(math.random(-self.intensity, self.intensity), math.random(-self.intensity, self.intensity))
             self.offset = self.offset + d
             p.x = p.x + d.x
             p.y = p.y + d.y
@@ -30,7 +30,7 @@ function ComponentShaker:update(dt)
             local p = self.entity.position
             p.x = p.x - self.offset.x
             p.y = p.y - self.offset.y
-            self.offset = vector2(0, 0)
+            self.offset = Vector2(0, 0)
         end
     end
 end

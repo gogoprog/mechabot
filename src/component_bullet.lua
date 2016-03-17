@@ -37,7 +37,7 @@ function ComponentBullet:update(dt)
         local enemies = Game.enemies
         for k = #enemies, 1, -1 do
             local p = enemies[k].position
-            local offset = vector2(0, 32)
+            local offset = Vector2(0, 32)
             if gengine.math.doesCircleIntersectRectangle(self_position, self.radius, p + offset, enemies[k].enemy.def.extent) then
                 self:explode()
                 enemies[k].enemy:hit(self.damage)
