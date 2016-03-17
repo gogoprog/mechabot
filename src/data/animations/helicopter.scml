@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r3">
+    <folder id="0">
+        <file id="0" name="helicopter.png" width="271" height="148" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="helice1.png" width="254" height="90" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="back-helice.png" width="52" height="54" pivot_x="0.5" pivot_y="0.5"/>
+        <file id="3" name="helice2.png" width="254" height="90" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="helice3.png" width="254" height="90" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="helice4.png" width="254" height="90" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <entity id="0" name="helicopter">
+        <animation id="0" name="fly" length="200" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="1" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="0" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="0" z_index="2"/>
+                </key>
+                <key id="1" time="50">
+                    <object_ref id="0" timeline="1" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="0" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="1" z_index="2"/>
+                </key>
+                <key id="2" time="100">
+                    <object_ref id="0" timeline="1" key="2" z_index="0"/>
+                    <object_ref id="1" timeline="0" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="2" z_index="2"/>
+                </key>
+                <key id="3" time="150">
+                    <object_ref id="0" timeline="1" key="3" z_index="0"/>
+                    <object_ref id="1" timeline="0" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="3" z_index="2"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="helicopter">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="-95" y="93" angle="0"/>
+                </key>
+                <key id="1" time="100" spin="0">
+                    <object folder="0" file="0" x="-96" y="92" angle="0"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="back-helice">
+                <key id="0" spin="-1">
+                    <object folder="0" file="2" x="159" y="75" angle="0"/>
+                </key>
+                <key id="1" time="50" spin="-1">
+                    <object folder="0" file="2" x="159" y="75" angle="256.551385"/>
+                </key>
+                <key id="2" time="100" spin="-1">
+                    <object folder="0" file="2" x="158" y="74" angle="178.090848"/>
+                </key>
+                <key id="3" time="150" spin="-1">
+                    <object folder="0" file="2" x="159" y="75" angle="65.725559"/>
+                </key>
+            </timeline>
+            <timeline id="2" name="helice1_000">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" x="-132" y="87" angle="0"/>
+                </key>
+                <key id="1" time="50" spin="0">
+                    <object folder="0" file="3" x="-132" y="87" angle="0"/>
+                </key>
+                <key id="2" time="100" spin="0">
+                    <object folder="0" file="4" x="-133" y="86" angle="0"/>
+                </key>
+                <key id="3" time="150" spin="0">
+                    <object folder="0" file="5" x="-132" y="87" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>
