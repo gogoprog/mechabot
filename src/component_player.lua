@@ -17,7 +17,9 @@ function ComponentPlayer:insert()
     self.life = self.def.initialLife
     self.extent = self.def.extent
     self.lastGenUpdate = 0
-    self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-walk")
+
+    self.entity.sprite.animation = "walk"
+
     gengine.gui.executeScript("updateLife(" .. self.life / self.def.initialLife .. ")")
     self.velocity = Vector2(0, 0)
 

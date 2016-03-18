@@ -24,7 +24,7 @@ function Application.onStateEnter:shop()
 end
 
 function Application.onStateUpdate:shop(dt)
-    if gengine.input.keyboard:isJustUp(41) then
+    if gengine.input.isKeyJustDown(41) then
         gengine.audio.playSound(gengine.audio.sound.get("back"), 0.5)
         gengine.gui.showPage('menu', 'slide', 300)
     end

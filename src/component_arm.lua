@@ -16,14 +16,15 @@ end
 
 function ComponentArm:update(dt)
     local self_position = self.entity.position
-    local transform = Game.player.sprite:getBoneLocalTransform(2)
+    local transform = nil --Game.player.sprite:getBoneLocalTransform(2)
     if transform then
-        self_position:set(transform.position + Game.player.position)
+        self_position = transform.position + Game.player.position
     end
 
-    local mouse_position = gengine.input.mouse:getPosition()
-    local world_position = Map.cameraEntity.camera:getWorldPosition(mouse_position)
+    local mousePosition = gengine.input.getMousePosition() / Vector2(1280, 800)
+    local worldPosition = Map.cameraEntity.camera:ScreenToWorldPoint(Vector3(mousePosition.x,mousePosition.y,0))
 
+ --[[
     local angle = gengine.math.getPolarAngle(world_position - self_position)
 
     local length = gengine.math.getDistance(world_position, self_position)
@@ -78,6 +79,8 @@ function ComponentArm:update(dt)
     else
         self.entity.sprite.timeFactor = 0
     end
+
+    ]]
 end
 
 function ComponentArm:remove()
