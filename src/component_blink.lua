@@ -16,9 +16,9 @@ function ComponentBlink:update(dt)
             local color
 
             if self.blinkLeft % 2  == 1 then
-                color = vector4(1,1,1,1)
+                color = Color(1,1,1,1)
             else
-                color = vector4(1,0.5,0.5,0.6)
+                color = Color(1,0.5,0.5,0.6)
             end
 
             self.entity.sprite.color = color

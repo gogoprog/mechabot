@@ -1,4 +1,4 @@
 src/out
 /packed*
 .gdbinit
-debug.log
+*.log

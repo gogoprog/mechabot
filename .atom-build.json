@@ -3,7 +3,7 @@
   "name": "debug",
   "args": [ "config=debug64", "-j8" ],
   "sh": false,
-  "cwd": "/home/gogoprog/code/mechabot/gengine/build/",
+  "cwd": "/home/gogoprog/code/gengine-samples/gengine/build/",
   "env": {
   },
   "errorMatch": "\n(?<file>[\\/0-9a-zA-Z\\._]+):(?<line>\\d+):(?<col>\\d+)",

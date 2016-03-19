@@ -4,7 +4,7 @@ function ComponentSoldier:init()
     self.speed = self.speed or 150
     self.vy = 0
     self.def = {
-        extent = vector2(64, 64)
+        extent = Vector2(64, 64)
     }
 end
 
@@ -22,7 +22,7 @@ function ComponentSoldier:update(dt)
     p.x = p.x - self.speed * dt
     p.y = p.y + self.vy * dt
 
-    local testPosition = p - vector2(0, 0)
+    local testPosition = p - Vector2(0, 0)
 
     if p.y > 0 then
         for k, v in ipairs(Map.boxes) do

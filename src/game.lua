@@ -29,7 +29,7 @@ function Game:init()
     local e = Factory:createRedLight()
     self.redLight = e
 
-    self.shopBackground = Factory:createSprite("shop", -10)
+    self.shopBackground = Factory:createSprite("textures/shop.png", -10)
     self.shopBackground.position.y = 140
 end
 
@@ -50,7 +50,7 @@ function Game:start(map)
     self:addScore(0)
     Map:start(map)
 
-    self.player.position:set(128, 2000)
+    self.player.position = Vector3(128, 2000, 0)
     self.player:insert()
     self.arm:insert()
     self:changeState("inGameIntro")
@@ -92,7 +92,7 @@ function Game.onStateEnter:inGameIntro()
     self.introDuration = 5
     self.timeLeft = self.introDuration
     local e = Factory:createRedLight()
-    e.position:set(128, 0)
+    e.position = Vector3(128, 0, 0)
     e:insert()
     self.introRedLight = e
 
@@ -192,7 +192,7 @@ end
 
 function Game.onStateEnter:shop()
     self.shopBackground:insert()
-    Map.cameraEntity.position:set(0, 0)
+    Map.cameraEntity.position = Vector3(0, 0, 0)
     self.player:insert()
     self.arm:insert()
 

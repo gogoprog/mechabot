@@ -16,14 +16,15 @@ end
 
 function ComponentArm:update(dt)
     local self_position = self.entity.position
-    local transform = Game.player.sprite:getBoneLocalTransform(2)
+    local transform = nil --Game.player.sprite:getBoneLocalTransform(2)
     if transform then
-        self_position:set(transform.position + Game.player.position)
+        self_position = transform.position + Game.player.position
     end
 
-    local mouse_position = gengine.input.mouse:getPosition()
-    local world_position = Map.cameraEntity.camera:getWorldPosition(mouse_position)
+    local mousePosition = gengine.input.getMousePosition() / Vector2(1280, 800)
+    local worldPosition = Map.cameraEntity.camera:ScreenToWorldPoint(Vector3(mousePosition.x,mousePosition.y,0))
 
+ --[[
     local angle = gengine.math.getPolarAngle(world_position - self_position)
 
     local length = gengine.math.getDistance(world_position, self_position)
@@ -49,8 +50,8 @@ function ComponentArm:update(dt)
 
         if self.timeSinceLastBullet > self.weapon.interval then
             if Game.player.player.generator.currentValue >= self.weapon.powerCost then
-                local bulletOffset = gengine.math.getRotated(vector2(0, bullet_offset_y), angle)
-                local armDirection = gengine.math.getRotated(vector2(1,0), self.currentAngle)
+                local bulletOffset = gengine.math.getRotated(Vector2(0, bullet_offset_y), angle)
+                local armDirection = gengine.math.getRotated(Vector2(1,0), self.currentAngle)
                 local firePosition = self_position + armDirection * bullet_offset_x + bulletOffset
 
                 if self.weapon.yOffsetRange then
@@ -78,6 +79,8 @@ function ComponentArm:update(dt)
     else
         self.entity.sprite.timeFactor = 0
     end
+
+    ]]
 end
 
 function ComponentArm:remove()

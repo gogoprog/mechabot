@@ -81,7 +81,7 @@ function Map:crushUnderPlayer(collide_position, extent, force)
     local boxes = self.boxes
     for k = #boxes, 1, -1 do
         local e = boxes[k]
-        if gengine.math.doRectanglesIntersect(collide_position + vector2(0, -16), extent, e.position, e.sprite.extent) then
+        if gengine.math.doRectanglesIntersect(collide_position + Vector2(0, -16), extent, e.position, e.sprite.extent) then
             e.box:hit(force, k)
         end
     end
@@ -107,7 +107,7 @@ function Map:movePlayer(player_position, collide_position, extent, velocity, dt,
     up = up or 5
     down = down or 6
 
-    if self:collides(collide_position + vector2(0, up), extent) then
+    if self:collides(collide_position + Vector2(0, up), extent) then
         return 1
     end
 
@@ -126,7 +126,7 @@ function Map:movePlayer(player_position, collide_position, extent, velocity, dt,
     collide_position.x = collide_position.x + movement.x
     collide_position.y = collide_position.y + movement.y
 
-    if self:collides(collide_position + vector2(0, -down), extent) then
+    if self:collides(collide_position + Vector2(0, -down), extent) then
         player_position.y = player_position.y - up
         collide_position.y = collide_position.y - up
         return 3
@@ -185,7 +185,7 @@ function Map:removeBox(k, v)
 end
 
 function Map:loadFile(filename)
-    self.futureBoxes = gengine.tiled.createEntities(filename,vector2(0,-32))
+    self.futureBoxes = gengine.tiled.createEntities(filename,Vector2(0,-32))
 
     local def = dofile(filename)
     self.length = def.width * def.tilewidth

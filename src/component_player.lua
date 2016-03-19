@@ -17,11 +17,13 @@ function ComponentPlayer:insert()
     self.life = self.def.initialLife
     self.extent = self.def.extent
     self.lastGenUpdate = 0
-    self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-walk")
-    gengine.gui.executeScript("updateLife(" .. self.life / self.def.initialLife .. ")")
-    self.velocity = vector2(0, 0)
 
-    self.collidePosition = self.entity.position + vector2(0, self.extent.y / 2)
+    self.entity.sprite.animation = "walk"
+
+    gengine.gui.executeScript("updateLife(" .. self.life / self.def.initialLife .. ")")
+    self.velocity = Vector2(0, 0)
+
+    self.collidePosition = self.entity.position + Vector2(0, self.extent.y / 2)
 
     self:changeState("idling")
 end
@@ -29,7 +31,7 @@ end
 function ComponentPlayer:update(dt)
     local position = self.entity.position
     local velocity = self.velocity
-    self.collidePosition = position + vector2(0, self.extent.y / 2)
+    self.collidePosition = position + Vector2(0, self.extent.y / 2)
 
     if (self.life > 0 and Game.running) or Game.state == "shop" then
         local g = self.generator
