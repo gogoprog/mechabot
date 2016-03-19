@@ -46,7 +46,8 @@ function Factory:createCamera()
     e:addComponent(
         ComponentCamera(),
         {
-            extent = Vector2(1920, 1080)
+            orthographic = true,
+            orthoSize = 1080
         },
         "camera"
         )
@@ -67,7 +68,7 @@ function Factory:createParallax(y, speed, texture)
     e:addComponent(
         ComponentStaticSprite2D(),
         {
-            texture = cache:GetResource('Sprite2D', texture),
+            sprite = cache:GetResource('Sprite2D', texture),
             layer = (speed == 0) and -100000000 or ( -1000 / speed)
         },
         "sprite"
@@ -219,7 +220,7 @@ function Factory:createBullet(velocity, weapon, is_enemy)
     e.bullet.itIsEnemy = is_enemy
     e.bullet.weapon = weapon
 
-    e.sprite.texture = cache:GetResource('Sprite2D', weapon.texture)
+    e.sprite.sprite = cache:GetResource('Sprite2D', weapon.texture)
     e.sprite.extent = weapon.extent
     e.sprite.color = weapon.color or Color(1,1,1,1)
 
@@ -332,7 +333,7 @@ function Factory:createSprite(texture_name, layer)
     e:addComponent(
         ComponentStaticSprite2D(),
         {
-            texture = cache:GetResource('Sprite2D', texture_name),
+            sprite = cache:GetResource('Sprite2D', texture_name),
             layer = layer
         },
         "sprite"

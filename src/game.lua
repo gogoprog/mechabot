@@ -29,7 +29,7 @@ function Game:init()
     local e = Factory:createRedLight()
     self.redLight = e
 
-    self.shopBackground = Factory:createSprite("shop", -10)
+    self.shopBackground = Factory:createSprite("textures/shop.png", -10)
     self.shopBackground.position.y = 140
 end
 
