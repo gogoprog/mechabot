@@ -33,6 +33,7 @@ function Factory:pickFromPool(t)
 end
 
 function Factory:init()
+    gengine.audio.sound.createFromDirectory("data/audio/")
     self.definitions = {
         enemies = dofile("data/defs/enemies.lua"),
         --effects = dofile("data/defs/effects.lua")
