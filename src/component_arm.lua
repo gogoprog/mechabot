@@ -11,15 +11,15 @@ function ComponentArm:init()
 end
 
 function ComponentArm:insert()
-    self.entity.position.y = Game.player.position.y + offset_y
+    self.entity:setParent(Game.player)
 end
 
 function ComponentArm:update(dt)
     local self_position = self.entity.position
-    local transform = nil --Game.player.sprite:getBoneLocalTransform(2)
-    if transform then
-        self_position = transform.position + Game.player.position
-    end
+
+    local bonePosition = Game.player.sprite:GetBonePosition(2)
+    self_position.x = bonePosition.x
+    self_position.y = bonePosition.y
 
     local mousePosition = gengine.input.getMousePosition() / Vector2(1280, 800)
     local worldPosition = Map.cameraEntity.camera:ScreenToWorldPoint(Vector3(mousePosition.x,mousePosition.y,0))
