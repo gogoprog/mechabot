@@ -93,7 +93,7 @@ function Factory:createPlayer()
     e:addComponent(
         ComponentAnimatedSprite2D(),
         {
-            animationSet = cache:GetResource("AnimationSet2D", "animations/mecha.scml"),
+            animationSet = cache:GetResource("AnimationSet2D", "animations/mecha/mecha.scml"),
             animation = "walk",
             layer = 4
         },
@@ -123,7 +123,7 @@ function Factory:createArm()
     e:addComponent(
         ComponentAnimatedSprite2D(),
         {
-            animationSet = cache:GetResource("AnimationSet2D", "animations/arm.scml"),
+            animationSet = cache:GetResource("AnimationSet2D", "animations/arm/arm.scml"),
             animation = "fireing",
             layer = 5
         },
@@ -315,7 +315,7 @@ function Factory:createRedLight()
     e:addComponent(
         ComponentAnimatedSprite2D(),
         {
-            animationSet = cache:GetResource("AnimationSet2D", "animations/redlight.scml"),
+            animationSet = cache:GetResource("AnimationSet2D", "animations/redlight/redlight.scml"),
             animation = "ongoing",
             layer = 10
         },
