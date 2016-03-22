@@ -81,7 +81,7 @@ function Map:crushUnderPlayer(collide_position, extent, force)
     local boxes = self.boxes
     for k = #boxes, 1, -1 do
         local e = boxes[k]
-        if gengine.math.doRectanglesIntersect(collide_position + Vector2(0, -16), extent, e.position, e.sprite.extent) then
+        if gengine.math.doRectanglesIntersect(collide_position + Vector2(0, -16), extent, e.position, Vector2(32, 32)) then
             e.box:hit(force, k)
         end
     end
@@ -90,7 +90,7 @@ end
 function Map:collides(collide_position, extent)
     for k, v in ipairs(self.boxes) do
         local p = v.position
-        if gengine.math.doRectanglesIntersect(collide_position, extent, p, v.sprite.extent) then
+        if gengine.math.doRectanglesIntersect(collide_position, extent, p, Vector2(32, 32)) then
             return true
         end
     end

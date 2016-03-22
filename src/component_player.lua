@@ -235,7 +235,7 @@ function ComponentPlayer.onStateExit:falling()
 
     for x = -self.extent.x/2, self.extent.x/2, 32 do
         local e = Factory:createEffect("largeSmoke")
-        e.position:set(self.entity.position)
+        e.position = Vector3(self.entity.position)
         e.position.x = e.position.x + x
         e:insert()
     end

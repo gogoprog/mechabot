@@ -178,7 +178,7 @@ function Factory:createBullet(velocity, weapon, is_enemy)
             )
 
         if has_particles then
-            e:addComponent(
+            --[[e:addComponent(
                 ComponentParticleSystem(),
                 {
                     size = 32,
@@ -194,13 +194,13 @@ function Factory:createBullet(velocity, weapon, is_enemy)
                     keepLocal = false
                 },
                 "particles"
-                )
+                )]]
         end
     end
 
 
     if has_particles then
-        e.particles.emitterRate = 0
+        --[[e.particles.emitterRate = 0
 
         local effect = self.definitions.effects[weapon.effects.bullet]
         if effect then
@@ -211,7 +211,7 @@ function Factory:createBullet(velocity, weapon, is_enemy)
             end
         end
 
-        e.particles:reset()
+        e.particles:reset()]]
     end
 
     e.bullet.velocity = velocity
@@ -232,14 +232,14 @@ function Factory:createEffect(name, no_sound, duration)
     if not e then
         e = gengine.entity.create()
 
-        e:addComponent(
+        --[[e:addComponent(
             ComponentParticleSystem(),
             {
                 layer = 20,
                 size = 32
             },
             "particles"
-            )
+            )]]
 
         e:addComponent(
             ComponentPoolable(),
@@ -257,7 +257,7 @@ function Factory:createEffect(name, no_sound, duration)
     end
 
     e.remover.duration = duration
-    e.particles.emitterRate = 0
+    --[[e.particles.emitterRate = 0
 
     local effect = self.definitions.effects[name]
     if effect then
@@ -271,7 +271,7 @@ function Factory:createEffect(name, no_sound, duration)
         end
     end
 
-    e.particles:reset()
+    e.particles:reset()]]
 
     return e
 end
