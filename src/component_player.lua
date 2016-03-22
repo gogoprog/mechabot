@@ -123,11 +123,11 @@ function ComponentPlayer:setShield(name, level)
 end
 
 function ComponentPlayer:getXMove()
-    if input.keyboard:isDown(7) or input.keyboard:isDown(79) then
+    if input.isKeyDown(7) or input.isKeyDown(79) then
         return 1
     end
 
-    if input.keyboard:isDown(4) or input.keyboard:isDown(80) then
+    if input.isKeyDown(4) or input.isKeyDown(80) then
         return -1
     end
 
@@ -152,7 +152,7 @@ function ComponentPlayer.onStateUpdate:walking(dt)
     local position = self.entity.position
     local velocity = self.velocity
 
-    if input.keyboard:isDown(26) or input.keyboard:isDown(82) then
+    if input.isKeyDown(26) or input.isKeyDown(82) then
         self:changeState("jumping")
         return
     end

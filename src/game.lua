@@ -108,7 +108,7 @@ function Game.onStateUpdate:inGameIntro(dt)
         self:changeState("inGame")
     end
 
-    if gengine.input.keyboard:isJustUp(41) then
+    if gengine.input.isKeyJustDown(41) then
         self:changeState("pausing")
     end
 end
@@ -128,7 +128,7 @@ end
 function Game.onStateUpdate:inGame(dt)
     Map:update(dt)
 
-    if gengine.input.keyboard:isJustUp(41) then
+    if gengine.input.isKeyJustDown(41) then
         self:changeState("pausing")
     end
 
@@ -147,7 +147,7 @@ function Game.onStateEnter:pausing()
 end
 
 function Game.onStateUpdate:pausing(dt)
-    if gengine.input.keyboard:isJustUp(41) then
+    if gengine.input.isKeyJustDown(41) then
         Application:closeConfirmDialog()
         self:changeState("inGame")
     end
@@ -162,7 +162,7 @@ function Game.onStateEnter:dying()
 end
 
 function Game.onStateUpdate:dying(dt)
-    if gengine.input.keyboard:isJustUp(41) then
+    if gengine.input.isKeyJustDown(41) then
         self:stop()
     end
 end

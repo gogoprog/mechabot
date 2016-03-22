@@ -43,13 +43,14 @@ function Application.onStateUpdate:inGame(dt)
 
     -- debug keys
 
-    local kb = gengine.input.keyboard
+    local input = gengine.input
 
-    if kb:isJustUp(59) then
+
+    if input.isKeyJustDown(59) then
         Game:changeState("winning")
     end
 
-    if kb:isDown(60) then
+    if input.isKeyJustDown(60) then
         Game.player.player.life = 100
         gengine.application.setUpdateFactor(5)
     else

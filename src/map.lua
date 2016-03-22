@@ -28,7 +28,7 @@ function Map:start(index)
 
     self.x = 0
     self.parallaxOffset = 0
-    self.cameraEntity.position:set(0, 512)
+    self.cameraEntity.position = Vector3(0, 512, 0)
 
     gengine.audio.playMusic(map.music, 0.8, true)
     self.definition = map
