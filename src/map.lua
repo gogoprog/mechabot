@@ -185,8 +185,8 @@ function Map:removeBox(k, v)
 end
 
 function Map:loadFile(filename)
-    self.futureBoxes = gengine.tiled.createEntities(filename,Vector2(0,-32))
+    self.futureBoxes = gengine.tiled.createEntities(filename, Vector2(0,-32))
 
-    local def = dofile(filename)
-    self.length = def.width * def.tilewidth
+    local info = self.futureBoxes[1].tileMap.info
+    self.length = info.tileWidth * info.width
 end

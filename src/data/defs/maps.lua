@@ -1,7 +1,7 @@
 return {
     {
         title = "The Arrival",
-        filename = "data/maps/test.tmx",
+        filename = "data/maps/map00.tmx",
         parallaxes = "default",
         music = "data/audio/robot.mp3",
         shop = {

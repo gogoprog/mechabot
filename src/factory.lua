@@ -342,9 +342,9 @@ function Factory:createSprite(texture_name, layer)
     return e
 end
 
-function Factory.createEnemy(object, properties)
+function Factory.createEnemy(object, layer)
     local e = Factory:pickFromPool(Factory.enemies)
-    local def = Factory.definitions.enemies[properties.type]
+    local def = Factory.definitions.enemies[layer:GetProperty('type')]
 
     if not e then
         e = gengine.entity.create()
@@ -397,8 +397,8 @@ function Factory.createEnemy(object, properties)
     e.shooter.weaponLevel = def.weapon[2]
     e.shooter.direction = def.shootDirection
 
-    e.position:set(object.x, object.y)
-    e.scale:set(def.scale or 1, def.scale or 1)
+    e.position = Vector3(object.x, object.y)
+    e.scale = Vector3(def.scale or 1, def.scale or 1)
 
     table.insert(Map.futureEnemies, e)
 
