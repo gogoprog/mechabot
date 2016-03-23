@@ -1,7 +1,7 @@
 return {
     {
         title = "The Arrival",
-        filename = "data/maps/map00.lua",
+        filename = "data/maps/test.tmx",
         parallaxes = "default",
         music = "data/audio/robot.mp3",
         shop = {
@@ -44,7 +44,7 @@ return {
     },
     {
         title = "On the way",
-        filename = "data/maps/map01.lua",
+        filename = "data/maps/map01.tmx",
         parallaxes = "default",
         music = "data/audio/robot.mp3",
         shop = {
@@ -67,7 +67,7 @@ return {
     },
     {
         title = "Air copters",
-        filename = "data/maps/air.lua",
+        filename = "data/maps/air.tmx",
         parallaxes = "default",
         music = "data/audio/robot.mp3",
         shop = {
@@ -95,7 +95,7 @@ return {
     },
     {
         title = "Platforms",
-        filename = "data/maps/platforms.lua",
+        filename = "data/maps/platforms.tmx",
         parallaxes = "default",
         music = "data/audio/robot-02.mp3",
         shop = {
@@ -108,7 +108,7 @@ return {
     },
     {
         title = "bruxelles",
-        filename = "data/maps/bruxelles.lua",
+        filename = "data/maps/bruxelles.tmx",
         parallaxes = "default",
         music = "data/audio/robot.mp3",
         shop = {
@@ -131,7 +131,7 @@ return {
     },
     {
         title = "Test",
-        filename = "data/maps/test.lua",
+        filename = "data/maps/test.tmx",
         parallaxes = "default",
         music = "data/audio/robot-02.mp3",
         shop = {
