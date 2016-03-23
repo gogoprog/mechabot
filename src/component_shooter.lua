@@ -8,7 +8,7 @@ function ComponentShooter:insert()
     self.timeLeft = self.interval
     self.weapon = Game:getWeapon(self.weaponName or "rocket", self.weaponLevel or 1)
     self.direction = self.direction or Vector2(-1, 0)
-    self.direction = gengine.math.getNormalized(self.direction)
+    self.direction:Normalize()
     self.bulletSpeedFactor = self.bulletSpeedFactor or 1
 end
 
@@ -22,7 +22,7 @@ function ComponentShooter:update(dt)
     if self.timeLeft <= 0 then
         local position = self.entity.position
         local e = Factory:createBullet(self.direction * self.weapon.bulletSpeed * self.bulletSpeedFactor, self.weapon, true)
-        e.position:set(position)
+        e.position = Vector3(position)
         e:insert()
         self.timeLeft = self.interval
         if self.weapon.sound then

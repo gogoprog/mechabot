@@ -10,7 +10,7 @@ function ComponentBullet:insert()
     table.insert(Game.bullets, self.entity)
     self.totalTime = 0
 
-    self.entity.rotation = gengine.math.getPolarAngle(self.velocity)
+    self.entity.rotation = Atan2(self.velocity.x, self.velocity.y)
 end
 
 function ComponentBullet:update(dt)
@@ -91,7 +91,7 @@ function ComponentBullet:explode()
     self:removeFromGame()
     if self.weapon.effects.hit then
         local e = Factory:createEffect(self.weapon.effects.hit)
-        e.position:set(self.entity.position)
+        e.position = Vector3(self.entity.position)
         e:insert()
     end
 end

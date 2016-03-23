@@ -65,7 +65,7 @@ end
 function ComponentSoldier:hit(dmg)
     local e = Factory:createEffect("blood")
     e:insert()
-    e.position:set(self.entity.position)
+    e.position = Vector3(self.entity.position)
 
     self:removeFromGame()
 end

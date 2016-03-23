@@ -5,6 +5,7 @@
  <layer name="Tile Layer 1" width="32" height="12">
   <properties>
    <property name="component" value="Sprite,Box,Blink"/>
+   <property name="function" value="Factory.createBox"/>
   </properties>
   <data>
    <tile gid="0"/>

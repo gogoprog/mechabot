@@ -145,7 +145,7 @@ end
 
 function ComponentPlayer.onStateEnter:walking()
     self.velocity.y = 0
-    self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-walk")
+    self.entity.sprite.animation = "walk"
 end
 
 function ComponentPlayer.onStateUpdate:walking(dt)
@@ -182,8 +182,8 @@ end
 function ComponentPlayer.onStateEnter:jumping()
     self.velocity.y = self.def.jumpImpulse
     self.entity.sprite.timeFactor = 1
-    self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-fly")
-    self.entity.sprite:pushAnimation(gengine.graphics.spriter.get("mecha-jump"))
+    self.entity.sprite.animation = "fly"
+    --self.entity.sprite:pushAnimation(gengine.graphics.spriter.get("mecha-jump"))
 end
 
 function ComponentPlayer.onStateUpdate:jumping(dt)
@@ -193,9 +193,9 @@ function ComponentPlayer.onStateUpdate:jumping(dt)
     velocity.y = velocity.y + self.def.gravity * dt
 
     if velocity.y < 0 then
-        self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-walk")
-        self.entity.sprite:pushAnimation(gengine.graphics.spriter.get("mecha-arrival"))
-        self.entity.sprite:pushAnimation(gengine.graphics.spriter.get("mecha-jump-end"))
+        self.entity.sprite.animation = "walk"
+        --self.entity.sprite:pushAnimation(gengine.graphics.spriter.get("mecha-arrival"))
+        --self.entity.sprite:pushAnimation(gengine.graphics.spriter.get("mecha-jump-end"))
         self:changeState("falling")
         return
     end
@@ -242,12 +242,12 @@ function ComponentPlayer.onStateExit:falling()
 
     Map:crushUnderPlayer(self.collidePosition, self.extent, -self.velocity.y / 10)
 
-    self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-walk")
+    self.entity.sprite.animation = "walk"
 end
 
 function ComponentPlayer.onStateEnter:dying()
     Game.player.sprite.timeFactor = 1
-    self.entity.sprite.animation = gengine.graphics.spriter.get("mecha-death"..math.random(1,2))
+    self.entity.sprite.animation = "death"..math.random(1,2)
 end
 
 function ComponentPlayer.onStateUpdate:dying(dt)

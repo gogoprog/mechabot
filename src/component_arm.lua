@@ -25,7 +25,8 @@ function ComponentArm:update(dt)
     local worldPosition = Map.cameraEntity.camera:ScreenToWorldPoint(Vector3(mousePosition.x,mousePosition.y,0))
 
  --[[
-    local angle = gengine.math.getPolarAngle(world_position - self_position)
+    local delta = world_position - self_position
+    local angle = Atan2(delta.x, delta.y)
 
     local length = gengine.math.getDistance(world_position, self_position)
 
@@ -63,7 +64,7 @@ function ComponentArm:update(dt)
                     direction = gengine.math.getNormalized(direction)
                     local e = Factory:createBullet(direction * self.weapon.bulletSpeed, self.weapon)
 
-                    e.position:set(firePosition.x, firePosition.y)
+                    e.position = Vector3(firePosition.x, firePosition.y)
                     e:insert()
                 end
 

@@ -404,3 +404,21 @@ function Factory.createEnemy(object, layer)
 
     return e
 end
+
+function Factory.createBox(e, layer, tile)
+    e:addComponent(
+        ComponentBox(),
+        {
+
+        },
+        "box"
+        )
+
+    e:addComponent(
+        ComponentBlink(),
+        {
+
+        },
+        "blink"
+        )
+end

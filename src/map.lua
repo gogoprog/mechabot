@@ -189,4 +189,6 @@ function Map:loadFile(filename)
 
     local info = self.futureBoxes[1].tileMap.info
     self.length = info.tileWidth * info.width
+
+    table.remove(self.futureBoxes, 1)
 end

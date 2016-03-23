@@ -23,7 +23,7 @@ function ComponentBox:hit(dmg, boxIndex)
     if self.life <= 0 then
         local e = Factory:createEffect("explosion")
         e:insert()
-        e.position:set(self.entity.position)
+        e.position = Vector3(self.entity.position)
 
         Map:removeBox(boxIndex, self.entity)
 
