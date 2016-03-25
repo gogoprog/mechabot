@@ -409,7 +409,6 @@ function Factory.createBox(e, layer, tile)
     e:addComponent(
         ComponentBox(),
         {
-
         },
         "box"
         )
@@ -417,7 +416,6 @@ function Factory.createBox(e, layer, tile)
     e:addComponent(
         ComponentBlink(),
         {
-
         },
         "blink"
         )
