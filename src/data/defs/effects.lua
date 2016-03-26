@@ -1,7 +1,7 @@
 return {
     smoke = {
         particle = {
-            texture = gengine.graphics.texture.get("rocket_smoke"),
+            texture = cache:GetResource('Sprite2D', "rocket_smoke"),
             emitterRate = 55,
             scales = {Vector2(1, 1), Vector2(10, 10)},
             colors = {Color(0.8,0.8,0.9,1), Color(0,0,0,0)},
@@ -12,7 +12,7 @@ return {
     blood = {
         sound = gengine.audio.sound.get("hit"),
         particle = {
-            texture = gengine.graphics.texture.get("particle"),
+            texture = cache:GetResource('Sprite2D', "particle"),
             emitterRate = 20000,
             emitterLifeTime = 0.1,
             extentRange = {Vector2(4,8)*2, Vector2(8,16)*2},
@@ -29,7 +29,7 @@ return {
     explosion = {
         sound = gengine.audio.sound.get("explosion"),
         particle = {
-            texture = gengine.graphics.texture.get("explosion"),
+            texture = cache:GetResource('Sprite2D', "explosion"),
             emitterRate = 20000,
             emitterLifeTime = 0.1,
             extentRange = {Vector2(8,8), Vector2(16,16)},
@@ -54,7 +54,7 @@ return {
     },
     laser_trail = {
         particle = {
-            texture = gengine.graphics.texture.get("laser"),
+            texture = cache:GetResource('Sprite2D', "laser"),
             emitterRate = 200,
             emitterLifeTime = 5,
             extentRange = {Vector2(30,10), Vector2(30,10)},
@@ -71,7 +71,7 @@ return {
     },
     largeSmoke = {
         particle = {
-            texture = gengine.graphics.texture.get("smoke"),
+            texture = cache:GetResource('Sprite2D', "smoke"),
             emitterRate = 20000,
             emitterLifeTime = 0.2,
             extentRange = {Vector2(32,32), Vector2(64, 64)},
