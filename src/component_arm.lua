@@ -50,7 +50,6 @@ function ComponentArm:update(dt)
 
         if self.timeSinceLastBullet > self.weapon.interval then
             if Game.player.player.generator.currentValue >= self.weapon.powerCost then
-                --[[
                 local bulletOffset = gengine.math.getRotated(Vector2(0, bullet_offset_y), angle)
                 local armDirection = gengine.math.getRotated(Vector2(1,0), self.currentAngle)
                 local firePosition = self_position + armDirection * bullet_offset_x + bulletOffset
@@ -61,7 +60,7 @@ function ComponentArm:update(dt)
 
                 for k, v in ipairs(self.weapon.directions) do
                     local direction = gengine.math.getRotated(v, self.currentAngle)
-                    direction = gengine.math.getNormalized(direction)
+                    direction = direction:Normalized()
                     local e = Factory:createBullet(direction * self.weapon.bulletSpeed, self.weapon)
 
                     e.position = Vector3(firePosition.x, firePosition.y)
@@ -75,7 +74,7 @@ function ComponentArm:update(dt)
                 e:insert()
 
                 Game.player.player.generator.currentValue = Game.player.player.generator.currentValue - self.weapon.powerCost
-                ]]
+
             end
         end
     else

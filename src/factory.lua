@@ -220,7 +220,7 @@ function Factory:createBullet(velocity, weapon, is_enemy)
     e.bullet.itIsEnemy = is_enemy
     e.bullet.weapon = weapon
 
-    e.sprite.sprite = cache:GetResource('Sprite2D', weapon.texture)
+    e.sprite.sprite = cache:GetResource('Sprite2D', 'textures/' .. weapon.texture .. '.png')
     e.sprite.extent = weapon.extent
     e.sprite.color = weapon.color or Color(1,1,1,1)
 
