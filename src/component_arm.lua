@@ -45,7 +45,7 @@ function ComponentArm:update(dt)
 
     self.timeSinceLastBullet = self.timeSinceLastBullet + dt
 
-    if (Game.running and gengine.input.mouse:isDown(1)) or self.forcedShot then
+    if (Game.running and gengine.input.isMouseButtonDown(1)) or self.forcedShot then
         self.entity.sprite.timeFactor = 1
 
         if self.timeSinceLastBullet > self.weapon.interval then

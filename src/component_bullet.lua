@@ -27,7 +27,7 @@ function ComponentBullet:update(dt)
     if not self.itIsEnemy then
         for k, v in ipairs(Map.boxes) do
             local p = v.position
-            if gengine.math.doesCircleIntersectRectangle(self_position, self.radius, p, v.sprite.extent) then
+            if gengine.math.doesCircleIntersectRectangle(self_position, self.radius, p, v.box.extent) then
                 self:explode()
                 v.box:hit(self.damage, k)
                 return
