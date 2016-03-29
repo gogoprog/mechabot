@@ -21,11 +21,11 @@ function ComponentArm:update(dt)
     self_position.x = bonePosition.x
     self_position.y = bonePosition.y
 
-    local mousePosition = gengine.input.getMousePosition() / Vector2(1280, 800)
+    local mousePosition = gengine.input.getMousePosition() / Vector2(960, 540)
     local worldPosition = Map.cameraEntity.camera:ScreenToWorldPoint(Vector3(mousePosition.x,mousePosition.y,0))
 
-    local delta = worldPosition - mousePosition
-    local angle = Atan2(delta.x, delta.y)
+    local delta = worldPosition - self_position
+    local angle = Atan2(delta.y, delta.x)
 
     local length = (Vector3(worldPosition) - Vector3(self_position)):Length()
 
@@ -35,9 +35,8 @@ function ComponentArm:update(dt)
     end
 
     if length > 95 then
-        local angle2 = math.acos(95 / length)
-        local angle3 = angle2 - angle
-        local final_angle = 3.1415/2 - angle3
+        local angle2 = Acos(95 / length)
+        local final_angle = (angle - angle2) + 90
 
         self.entity.rotation = final_angle
         self.currentAngle = final_angle
@@ -50,16 +49,16 @@ function ComponentArm:update(dt)
 
         if self.timeSinceLastBullet > self.weapon.interval then
             if Game.player.player.generator.currentValue >= self.weapon.powerCost then
-                local bulletOffset = gengine.math.getRotated(Vector2(0, bullet_offset_y), angle)
-                local armDirection = gengine.math.getRotated(Vector2(1,0), self.currentAngle)
-                local firePosition = self_position + armDirection * bullet_offset_x + bulletOffset
+                local bulletOffset = gengine.math.getRotated(Vector2(0, bullet_offset_y), angle/(180/3.1415))
+                local armDirection = gengine.math.getRotated(Vector2(1,0), self.currentAngle/(180/3.1415))
+                local firePosition = Game.player.position + self_position + armDirection * bullet_offset_x + bulletOffset
 
                 if self.weapon.yOffsetRange then
                     firePosition.y = firePosition.y + (math.random() - 0.5) * self.weapon.yOffsetRange
                 end
 
                 for k, v in ipairs(self.weapon.directions) do
-                    local direction = gengine.math.getRotated(v, self.currentAngle)
+                    local direction = gengine.math.getRotated(v, self.currentAngle/(180/3.1415))
                     direction = direction:Normalized()
                     local e = Factory:createBullet(direction * self.weapon.bulletSpeed, self.weapon)
 

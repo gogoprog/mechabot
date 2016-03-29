@@ -10,7 +10,7 @@ function ComponentBullet:insert()
     table.insert(Game.bullets, self.entity)
     self.totalTime = 0
 
-    self.entity.rotation = Atan2(self.velocity.x, self.velocity.y)
+    self.entity.rotation = Atan2(self.velocity.y, self.velocity.x)
 end
 
 function ComponentBullet:update(dt)
