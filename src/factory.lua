@@ -69,11 +69,10 @@ function Factory:createParallax(y, speed, texture)
         ComponentStaticSprite2D(),
         {
             sprite = cache:GetResource('Sprite2D', texture),
-            layer = (speed == 0) and -100000000 or ( -1000 / speed)
+            layer = (speed == 0) and -1001 or (-0.01 / speed)
         },
         "sprite"
         )
-
 
     e:addComponent(
         ComponentParallax(),
