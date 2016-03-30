@@ -2,6 +2,7 @@ ComponentBox = {}
 
 function ComponentBox:init()
     self.life = self.life or 10
+    self.extent = Vector2(32, 32) -- :todo:
 end
 
 function ComponentBox:insert()
